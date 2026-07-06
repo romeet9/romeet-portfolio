@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="InspoFlow">
+  <defs>
+    <linearGradient id="inspo-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f472b6"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="inspo-sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="90" y="90" width="844" height="844" rx="196" fill="url(#inspo-bg)"/>
+  <rect x="90" y="90" width="844" height="844" rx="196" fill="url(#inspo-sheen)"/>
+  <path d="M478 348
+           C 492 470, 546 524, 668 538
+           C 546 552, 492 606, 478 728
+           C 464 606, 410 552, 288 538
+           C 410 524, 464 470, 478 348 Z"
+        fill="#ffffff"/>
+  <path d="M690 630
+           C 697 678, 718 699, 766 706
+           C 718 713, 697 734, 690 782
+           C 683 734, 662 713, 614 706
+           C 662 699, 683 678, 690 630 Z"
+        fill="#ffffff" fill-opacity="0.9"/>
+</svg>

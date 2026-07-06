@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Tasky AI">
+  <defs>
+    <linearGradient id="tasky-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#4338ca"/>
+    </linearGradient>
+    <linearGradient id="tasky-sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="90" y="90" width="844" height="844" rx="196" fill="url(#tasky-bg)"/>
+  <rect x="90" y="90" width="844" height="844" rx="196" fill="url(#tasky-sheen)"/>
+  <path d="M360 530 L468 638 L664 404"
+        fill="none" stroke="#ffffff" stroke-width="84"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

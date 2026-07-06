@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Complai">
+  <defs>
+    <linearGradient id="complai-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#0f766e"/>
+    </linearGradient>
+    <linearGradient id="complai-sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="90" y="90" width="844" height="844" rx="196" fill="url(#complai-bg)"/>
+  <rect x="90" y="90" width="844" height="844" rx="196" fill="url(#complai-sheen)"/>
+  <path d="M512 336 L658 394 V536 C658 632 594 700 512 736 C430 700 366 632 366 536 V394 Z"
+        fill="#ffffff" fill-opacity="0.18"
+        stroke="#ffffff" stroke-width="30" stroke-linejoin="round"/>
+  <path d="M452 536 L502 586 L590 468"
+        fill="none" stroke="#ffffff" stroke-width="52"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
