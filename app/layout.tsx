@@ -17,7 +17,7 @@ const DESC =
   "Product designer Romeet Chatterjee's portfolio, presented as a product dashboard: projects, metrics and experience across web, iOS and macOS.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://romeet.vercel.app"),
+  metadataBase: new URL("https://romeet-chatterjee.vercel.app"),
   title: SITE,
   description: DESC,
   authors: [{ name: "Romeet Chatterjee" }],

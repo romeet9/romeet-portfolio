@@ -4,7 +4,7 @@ Product designer's portfolio, presented as a product dashboard. Projects, metric
 case studies and experience across web, iOS and macOS — every project ships an
 interactive, coded build, not a mockup.
 
-**Live:** [romeet.vercel.app](https://romeet.vercel.app)
+**Live:** [romeet-chatterjee.vercel.app](https://romeet-chatterjee.vercel.app)
 
 ![Portfolio dashboard homepage](public/screenshot.png)
 
