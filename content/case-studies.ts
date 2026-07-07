@@ -173,10 +173,10 @@ export const caseStudies: CaseStudy[] = [
     company: "12 Grids",
     skills: ["Information-heavy UI", "Usability testing", "B2B SaaS"],
     cover: {
-      src: "/projects/edge-crm/showcase.png",
-      alt: "Edge CRM Add Case flow, the old form beside the redesigned steps and error state",
-      w: 4240,
-      h: 1896,
+      src: "/projects/edge-crm/add-case-cover.png",
+      alt: "The redesigned Edge CRM Add Case screen held in hand, showing the inline validation state",
+      w: 1672,
+      h: 941,
     },
     hmw: "How might we help reps log, scan, and understand the full context of a client case, fast, without navigating across multiple screens?",
     metrics: [
@@ -496,9 +496,9 @@ export const caseStudies: CaseStudy[] = [
     skills: ["Information architecture", "Gestalt & visual hierarchy", "Mobile B2B"],
     cover: {
       src: "/case-studies/case-list/cover.png",
-      alt: "Case List redesign — the flat before list beside the redesigned, colour-coded card list",
-      w: 1600,
-      h: 1000,
+      alt: "The redesigned Edge CRM Cases screen — filter chips and colour-coded priority cards — held in hand",
+      w: 1672,
+      h: 941,
     },
     hmw: "Which case needs me right now?",
     metrics: [

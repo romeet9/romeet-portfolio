@@ -27,6 +27,7 @@ export function CaseStudiesGrid({ limit }: { limit?: number }) {
                 alt={c.cover.alt}
                 fill
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                quality={90}
                 className="object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
               />
             </div>

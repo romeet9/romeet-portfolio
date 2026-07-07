@@ -26,6 +26,8 @@ export type Project = {
   icon?: string;
   /** Cover image (real screenshot / app icon). Omit for pure color-block tiles. */
   cover?: string;
+  /** Uniform 16:10 landscape screenshot used on the Vibe Coded Projects cards. */
+  shot?: string;
   /** Is the cover a square app icon (vs. a wide screenshot)? Controls framing. */
   coverIsIcon?: boolean;
   /** Detail-page gallery. */
@@ -55,6 +57,7 @@ export const projects: Project[] = [
     onAccent: "#212121",
     icon: "/projects/tasky-ai/icon.svg",
     cover: "/projects/tasky-ai/cover.png",
+    shot: "/projects/tasky-ai/shot.png",
     gallery: ["/projects/tasky-ai/cover.png"],
   },
   {

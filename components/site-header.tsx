@@ -11,8 +11,7 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 const TITLES: Record<string, string> = {
   "/": "Overview",
   "/case-studies": "Case studies",
-  "/projects": "Projects",
-  "/metrics": "Metrics",
+  "/projects": "Vibe Coded Projects",
   "/experience": "Experience",
   "/contact": "Contact",
 };

@@ -20,7 +20,6 @@ import {
   LayoutDashboardIcon,
   PencilRulerIcon,
   FolderIcon,
-  ChartNoAxesColumnIcon,
   BriefcaseIcon,
   MailIcon,
   FileTextIcon,
@@ -32,8 +31,7 @@ import {
 const navMain = [
   { title: "Overview", url: "/", icon: LayoutDashboardIcon },
   { title: "Case studies", url: "/case-studies", icon: PencilRulerIcon },
-  { title: "Projects", url: "/projects", icon: FolderIcon },
-  { title: "Metrics", url: "/metrics", icon: ChartNoAxesColumnIcon },
+  { title: "Vibe Coded Projects", url: "/projects", icon: FolderIcon },
   { title: "Experience", url: "/experience", icon: BriefcaseIcon },
   { title: "Contact", url: "/contact", icon: MailIcon },
 ];

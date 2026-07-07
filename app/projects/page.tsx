@@ -1,52 +1,33 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRightIcon } from "lucide-react";
+import { SparklesIcon } from "lucide-react";
 
-import { CaseStudiesGrid } from "@/components/case-studies-grid";
-import { ProjectsTable } from "@/components/projects-table";
-import { Button } from "@/components/ui/button";
+import { VibeProjectShowcase } from "@/components/vibe-project-showcase";
+import { Badge } from "@/components/ui/badge";
 
-export const metadata: Metadata = { title: "Projects — Romeet Chatterjee" };
+export const metadata: Metadata = {
+  title: "Vibe Coded Projects — Romeet Chatterjee",
+};
 
 export default function ProjectsPage() {
   return (
-    <div className="@container/main flex flex-1 flex-col gap-8 p-4 md:gap-10 md:p-6">
-      {/* Case studies */}
-      <section className="flex flex-col gap-4">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-xl font-semibold tracking-tight">
-              Case studies
-            </h1>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Deep UX work — research, decisions and redesigns, measured by what
-              changed for users.
-            </p>
-          </div>
-          <Button
-            variant="ghost"
-            size="sm"
-            nativeButton={false}
-            render={<Link href="/case-studies" />}
-          >
-            View all
-            <ArrowRightIcon />
-          </Button>
+    <div className="@container/main flex flex-1 flex-col gap-6 p-4 md:gap-8 md:p-6">
+      <div className="flex flex-col gap-2">
+        <div className="flex flex-wrap items-center gap-2">
+          <h1 className="text-xl font-semibold tracking-tight">
+            Vibe Coded Projects
+          </h1>
+          <Badge variant="secondary" className="gap-1.5">
+            <SparklesIcon className="size-3.5 text-chart-1" />
+            Designed + shipped with AI
+          </Badge>
         </div>
-        <CaseStudiesGrid />
-      </section>
+        <p className="max-w-2xl text-sm text-muted-foreground">
+          Products I vibe-coded end-to-end across web, iOS and macOS — each taken
+          from idea to a working, shipped build in close partnership with AI.
+        </p>
+      </div>
 
-      {/* Products */}
-      <section className="flex flex-col gap-4">
-        <div>
-          <h2 className="text-xl font-semibold tracking-tight">Products</h2>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Five products designed and shipped across web, iOS and macOS — each
-            built end-to-end in close partnership with AI.
-          </p>
-        </div>
-        <ProjectsTable />
-      </section>
+      <VibeProjectShowcase />
     </div>
   );
 }
