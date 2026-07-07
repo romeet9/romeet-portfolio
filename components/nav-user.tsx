@@ -14,7 +14,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar,
 } from "@/components/ui/sidebar";
 import {
   EllipsisVerticalIcon,
@@ -25,8 +24,6 @@ import {
 } from "lucide-react";
 
 export function NavUser() {
-  const { isMobile } = useSidebar();
-
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -50,8 +47,8 @@ export function NavUser() {
           </DropdownMenuTrigger>
           <DropdownMenuContent
             className="min-w-56"
-            side={isMobile ? "bottom" : "right"}
-            align="end"
+            side="bottom"
+            align="start"
             sideOffset={4}
           >
             <DropdownMenuLabel className="p-0 font-normal">

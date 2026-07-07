@@ -28,6 +28,8 @@ export type Project = {
   cover?: string;
   /** Uniform 16:10 landscape screenshot used on the Vibe Coded Projects cards. */
   shot?: string;
+  /** Contain (letterbox) the shot instead of cover — for portrait screenshots. */
+  shotContain?: boolean;
   /** Is the cover a square app icon (vs. a wide screenshot)? Controls framing. */
   coverIsIcon?: boolean;
   /** Detail-page gallery. */
@@ -81,6 +83,7 @@ export const projects: Project[] = [
     accent: "#003c33",
     onAccent: "#ffffff",
     icon: "/projects/complai/icon.svg",
+    shot: "/projects/complai/shot.png",
   },
   {
     slug: "inspoflow",
@@ -103,6 +106,8 @@ export const projects: Project[] = [
     accent: "#f1f5ff",
     onAccent: "#212121",
     icon: "/projects/inspoflow/icon.svg",
+    shot: "/projects/inspoflow/01-home.png",
+    shotContain: true,
     cover: "/projects/inspoflow/01-home.png",
     gallery: [
       "/projects/inspoflow/01-home.png",
@@ -128,10 +133,11 @@ export const projects: Project[] = [
     stack: ["Swift 6.2", "SwiftUI", "SwiftData", "macOS 26", "Liquid Glass"],
     status: "Packaged app",
     year: "2026",
-    links: {},
+    links: { github: "https://github.com/romeet9/CATalyst" },
     accent: "#edfce9",
     onAccent: "#212121",
     icon: "/projects/catalyst/icon.png",
+    shot: "/projects/catalyst/shot.png",
     cover: "/projects/catalyst/icon.png",
     coverIsIcon: true,
   },
@@ -151,10 +157,12 @@ export const projects: Project[] = [
     stack: ["Swift", "SwiftUI", "Tuist", "macOS 26", "Liquid Glass"],
     status: "v1.0",
     year: "2026",
-    links: {},
+    links: { github: "https://github.com/romeet9/ClaudeBar" },
     accent: "#eeece7",
     onAccent: "#212121",
     icon: "/projects/claudebar/icon.png",
+    shot: "/projects/claudebar/shot.png",
+    shotContain: true,
     cover: "/projects/claudebar/icon.png",
     coverIsIcon: true,
   },

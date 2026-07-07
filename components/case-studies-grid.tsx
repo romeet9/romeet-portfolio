@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRightIcon } from "lucide-react";
 
 import { caseStudies } from "@/content/case-studies";
+import { ComingSoonCaseCard } from "@/components/coming-soon-case-card";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -57,6 +58,7 @@ export function CaseStudiesGrid({ limit }: { limit?: number }) {
           </Card>
         </Link>
       ))}
+      {!limit && <ComingSoonCaseCard />}
     </div>
   );
 }

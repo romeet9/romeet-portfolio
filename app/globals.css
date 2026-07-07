@@ -127,6 +127,8 @@
   --animate-marquee: marquee 24s linear infinite;
   --animate-twinkle: twinkle 2.6s ease-in-out infinite;
   --animate-text-shimmer: text-shimmer 6s linear infinite;
+  --animate-code-scroll: code-scroll 22s linear infinite;
+  --animate-caret-blink: caret-blink 1.05s steps(1) infinite;
 
   @keyframes marquee {
     from {
@@ -157,13 +159,35 @@
       background-position: -200% center;
     }
   }
+
+  @keyframes code-scroll {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-50%);
+    }
+  }
+
+  @keyframes caret-blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    50.01%,
+    100% {
+      opacity: 0;
+    }
+  }
 }
 
 @layer utilities {
   @media (prefers-reduced-motion: reduce) {
     .animate-marquee,
     .animate-twinkle,
-    .animate-text-shimmer {
+    .animate-text-shimmer,
+    .animate-code-scroll,
+    .animate-caret-blink {
       animation: none;
     }
   }

@@ -15,38 +15,36 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-/** Uniform 16:10 media frame — an enlarged app icon on a tinted stage. */
-function ProjectMedia({ project }: { project: Project }) {
-  const { icon, name, accent } = project;
-
-  return (
-    <div
-      className="flex aspect-[16/10] w-full items-center justify-center overflow-hidden border-b"
-      style={{ backgroundColor: `color-mix(in oklab, ${accent} 55%, var(--card))` }}
-    >
-      {icon && (
-        <Image
-          src={icon}
-          alt={`${name} icon`}
-          width={224}
-          height={224}
-          className="size-24 rounded-[1.6rem] object-contain shadow-xl"
-        />
-      )}
-    </div>
-  );
-}
-
 function ProjectCard({ project }: { project: Project }) {
-  const { slug, name, tagline, category, highlights, stack, status, year, links, accent } =
-    project;
+  const {
+    slug,
+    name,
+    tagline,
+    icon,
+    category,
+    highlights,
+    stack,
+    status,
+    year,
+    links,
+    accent,
+  } = project;
 
   return (
-    <Card className="flex flex-col gap-0 overflow-hidden p-0">
-      <ProjectMedia project={project} />
-
-      <CardHeader className="gap-1 px-4 pt-4">
-        <CardTitle className="text-base">{name}</CardTitle>
+    <Card className="flex flex-col gap-0 p-0">
+      <CardHeader className="gap-2 border-b px-4 py-4">
+        <div className="flex items-center gap-2.5">
+          {icon && (
+            <Image
+              src={icon}
+              alt={`${name} icon`}
+              width={80}
+              height={80}
+              className="size-9 shrink-0 rounded-[0.6rem] object-contain shadow-sm"
+            />
+          )}
+          <CardTitle className="text-base leading-tight">{name}</CardTitle>
+        </div>
         <CardDescription className="line-clamp-2 text-xs text-pretty">
           {tagline}
         </CardDescription>
@@ -63,7 +61,7 @@ function ProjectCard({ project }: { project: Project }) {
         </CardAction>
       </CardHeader>
 
-      <CardContent className="flex flex-1 flex-col gap-3 px-4 pt-3 pb-4">
+      <CardContent className="flex flex-1 flex-col gap-3 px-4 pt-4 pb-4">
         <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
           <Badge
             variant="outline"
@@ -107,7 +105,7 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
       </CardContent>
 
-      <CardFooter className="flex-wrap gap-2 px-4 py-3">
+      <CardFooter className="flex-wrap gap-2 border-t px-4 py-3">
         {links.live && (
           <Button
             size="sm"

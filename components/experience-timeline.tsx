@@ -3,11 +3,13 @@ import { GraduationCapIcon } from "lucide-react";
 import { jobs, education } from "@/content/experience";
 import { Badge } from "@/components/ui/badge";
 import {
-  Item,
-  ItemContent,
-  ItemTitle,
-  ItemDescription,
-} from "@/components/ui/item";
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 function initials(name: string) {
   return name
@@ -21,8 +23,11 @@ function initials(name: string) {
 export function ExperienceTimeline() {
   return (
     <ol className="relative flex flex-col">
-      {jobs.map((job, i) => (
-        <li key={job.company} className="group/row relative grid grid-cols-[auto_1fr] gap-x-4 gap-y-0 sm:gap-x-6">
+      {jobs.map((job) => (
+        <li
+          key={job.company}
+          className="group/row relative grid grid-cols-[auto_1fr] gap-x-4 gap-y-0 sm:gap-x-6"
+        >
           {/* Rail — node + connecting line */}
           <div className="relative flex flex-col items-center">
             <span
@@ -36,37 +41,43 @@ export function ExperienceTimeline() {
             >
               {initials(job.company)}
             </span>
-            {/* vertical connector (hidden on last item's tail is fine — education follows) */}
             <span
               aria-hidden
               className="w-px flex-1 bg-gradient-to-b from-border to-border/30"
             />
           </div>
 
-          {/* Content block */}
-          <Item
-            variant="outline"
-            className="mb-4 bg-card/60 p-4 sm:mb-6 sm:p-5"
+          {/* KPI card */}
+          <Card
+            className="mb-4 gap-0 overflow-hidden p-0 shadow-xs sm:mb-6 dark:bg-card"
+            style={{
+              backgroundImage: `linear-gradient(to top, color-mix(in oklab, ${job.accent} 6%, var(--card)), var(--card))`,
+            }}
           >
-            <ItemContent className="gap-3">
-              <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
-                <ItemTitle className="line-clamp-none text-base">
-                  {job.role}
-                  <span className="font-normal text-muted-foreground">
-                    · {job.company}
-                  </span>
-                </ItemTitle>
-                <Badge
-                  variant="outline"
-                  className="font-mono text-[11px] text-muted-foreground"
+            <CardHeader className="items-start gap-1 border-b p-4 sm:p-5">
+              <CardDescription className="font-mono text-xs">
+                {job.company} · {job.period}
+              </CardDescription>
+              <CardTitle className="text-base">{job.role}</CardTitle>
+              <CardAction className="text-right">
+                <div
+                  className="text-2xl leading-none font-semibold tabular-nums whitespace-nowrap"
+                  style={{
+                    color: `color-mix(in oklab, ${job.accent} 78%, var(--foreground))`,
+                  }}
                 >
-                  {job.period}
-                </Badge>
-              </div>
+                  {job.metric.value}
+                </div>
+                <div className="mt-1 text-[11px] text-muted-foreground">
+                  {job.metric.label}
+                </div>
+              </CardAction>
+            </CardHeader>
 
-              <ItemDescription className="line-clamp-none text-sm leading-relaxed">
+            <CardContent className="flex flex-col gap-3 p-4 sm:p-5">
+              <p className="text-sm leading-relaxed text-muted-foreground">
                 {job.context}
-              </ItemDescription>
+              </p>
               <ul className="flex flex-col gap-2">
                 {job.points.map((point) => (
                   <li key={point} className="flex gap-3 text-sm leading-relaxed">
@@ -79,8 +90,8 @@ export function ExperienceTimeline() {
                   </li>
                 ))}
               </ul>
-            </ItemContent>
-          </Item>
+            </CardContent>
+          </Card>
         </li>
       ))}
 
@@ -94,22 +105,21 @@ export function ExperienceTimeline() {
             <GraduationCapIcon className="size-4" />
           </span>
         </div>
-        <Item variant="muted" className="items-center gap-3 p-4 sm:p-5">
-          <ItemContent className="flex-row flex-wrap items-center justify-between gap-2">
-            <ItemTitle className="line-clamp-none text-sm">
-              {education.school}
-              <span className="font-normal text-muted-foreground">
-                · {education.degree}
-              </span>
-            </ItemTitle>
-            <Badge
-              variant="outline"
-              className="font-mono text-[11px] text-muted-foreground"
-            >
-              {education.period}
-            </Badge>
-          </ItemContent>
-        </Item>
+        <Card className="flex-row flex-wrap items-center justify-between gap-2 bg-muted/40 p-4 sm:p-5">
+          <CardTitle className="text-sm font-medium">
+            {education.school}
+            <span className="font-normal text-muted-foreground">
+              {" "}
+              · {education.degree}
+            </span>
+          </CardTitle>
+          <Badge
+            variant="outline"
+            className="font-mono text-[11px] text-muted-foreground"
+          >
+            {education.period}
+          </Badge>
+        </Card>
       </li>
     </ol>
   );

@@ -8,6 +8,8 @@ export type Job = {
   context: string;
   /** 2–3 impact bullets. */
   points: string[];
+  /** Headline KPI featured on the role card. */
+  metric: { value: string; label: string };
   accent: string;
 };
 
@@ -23,6 +25,7 @@ export const jobs: Job[] = [
       "Cut average task-completion time from 52s to near-instant by rethinking information architecture and core interaction patterns.",
       "The redesign became the benchmark for every remaining module — management shelved existing work in its favor.",
     ],
+    metric: { value: "30% → 0%", label: "Case drop-off eliminated" },
     accent: "#3cffd0",
   },
   {
@@ -36,6 +39,7 @@ export const jobs: Job[] = [
       "Designed end-to-end flows for property listing, buying and builder hiring, structuring long forms to stay fast and low-friction.",
       "Created customer, service-provider and admin dashboards, including a payment hold-and-release flow for the transaction system.",
     ],
+    metric: { value: "3", label: "Dashboards + design system" },
     accent: "#5200ff",
   },
   {
@@ -47,6 +51,7 @@ export const jobs: Job[] = [
       "Designed 15+ apps at agency pace — high-fidelity mockups and interactive prototypes across finance, healthcare and consumer.",
       "Handoff quality called out by the company owner: structured, annotated, dev-ready files that eliminated implementation guesswork.",
     ],
+    metric: { value: "15+", label: "Apps designed" },
     accent: "#ff5cc8",
   },
 ];

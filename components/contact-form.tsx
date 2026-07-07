@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -19,6 +20,10 @@ export function ContactForm() {
     );
     const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
     window.location.href = `mailto:chatterjeeromeet9@gmail.com?subject=${subject}&body=${body}`;
+    toast.success("Opening your email app…", {
+      description:
+        "If nothing opens, email chatterjeeromeet9@gmail.com directly.",
+    });
   }
 
   return (
