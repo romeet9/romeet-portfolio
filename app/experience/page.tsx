@@ -33,9 +33,7 @@ export default function ExperiencePage() {
         </Button>
       </div>
 
-      <div className="max-w-3xl">
-        <ExperienceTimeline />
-      </div>
+      <ExperienceTimeline />
     </div>
   );
 }

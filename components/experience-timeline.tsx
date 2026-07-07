@@ -1,15 +1,41 @@
-import { GraduationCapIcon } from "lucide-react";
+import * as React from "react";
+import {
+  CheckIcon,
+  GraduationCapIcon,
+  LayoutDashboardIcon,
+  SmartphoneIcon,
+  TrendingDownIcon,
+  type LucideIcon,
+} from "lucide-react";
 
 import { jobs, education } from "@/content/experience";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardAction,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemGroup,
+  ItemMedia,
+  ItemSeparator,
+  ItemTitle,
+} from "@/components/ui/item";
+
+const metricIcons: Record<string, LucideIcon> = {
+  "12 Grids": TrendingDownIcon,
+  "Maity Innovations": LayoutDashboardIcon,
+  "House of Artist": SmartphoneIcon,
+};
 
 function initials(name: string) {
   return name
@@ -22,105 +48,114 @@ function initials(name: string) {
 
 export function ExperienceTimeline() {
   return (
-    <ol className="relative flex flex-col">
-      {jobs.map((job) => (
-        <li
-          key={job.company}
-          className="group/row relative grid grid-cols-[auto_1fr] gap-x-4 gap-y-0 sm:gap-x-6"
-        >
-          {/* Rail — node + connecting line */}
-          <div className="relative flex flex-col items-center">
-            <span
-              aria-hidden
-              className="mt-1 flex size-10 shrink-0 items-center justify-center rounded-full border text-xs font-semibold shadow-sm ring-4 ring-background"
-              style={{
-                backgroundColor: `color-mix(in oklab, ${job.accent} 16%, var(--card))`,
-                borderColor: `color-mix(in oklab, ${job.accent} 45%, transparent)`,
-                color: `color-mix(in oklab, ${job.accent} 75%, var(--foreground))`,
-              }}
-            >
-              {initials(job.company)}
-            </span>
-            <span
-              aria-hidden
-              className="w-px flex-1 bg-gradient-to-b from-border to-border/30"
-            />
-          </div>
-
-          {/* KPI card */}
-          <Card
-            className="mb-4 gap-0 overflow-hidden p-0 shadow-xs sm:mb-6 dark:bg-card"
-            style={{
-              backgroundImage: `linear-gradient(to top, color-mix(in oklab, ${job.accent} 6%, var(--card)), var(--card))`,
-            }}
-          >
-            <CardHeader className="items-start gap-1 border-b p-4 sm:p-5">
-              <CardDescription className="font-mono text-xs">
-                {job.company} · {job.period}
-              </CardDescription>
-              <CardTitle className="text-base">{job.role}</CardTitle>
-              <CardAction className="text-right">
-                <div
-                  className="text-2xl leading-none font-semibold tabular-nums whitespace-nowrap"
-                  style={{
-                    color: `color-mix(in oklab, ${job.accent} 78%, var(--foreground))`,
-                  }}
-                >
+    <div className="flex flex-col gap-4 md:gap-6">
+      {/* Role KPI cards — dashboard section-cards block */}
+      <div className="grid grid-cols-1 gap-4 *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card *:data-[slot=card]:shadow-xs @xl/main:grid-cols-2 @4xl/main:grid-cols-3 dark:*:data-[slot=card]:bg-card">
+        {jobs.map((job) => {
+          const Icon = metricIcons[job.company] ?? TrendingDownIcon;
+          return (
+            <Card key={job.company} className="@container/card">
+              <CardHeader>
+                <CardDescription>{job.company}</CardDescription>
+                <CardTitle className="text-2xl font-semibold tracking-tight tabular-nums @[250px]/card:text-3xl">
                   {job.metric.value}
+                </CardTitle>
+                <CardAction>
+                  <Badge variant="outline">
+                    <Icon />
+                    {job.metric.label}
+                  </Badge>
+                </CardAction>
+              </CardHeader>
+              <CardFooter className="flex-col items-start gap-1.5 text-sm">
+                <div className="line-clamp-1 flex gap-2 font-medium">
+                  {job.role}
                 </div>
-                <div className="mt-1 text-[11px] text-muted-foreground">
-                  {job.metric.label}
-                </div>
-              </CardAction>
-            </CardHeader>
+                <div className="text-muted-foreground">{job.period}</div>
+              </CardFooter>
+            </Card>
+          );
+        })}
+      </div>
 
-            <CardContent className="flex flex-col gap-3 p-4 sm:p-5">
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                {job.context}
-              </p>
-              <ul className="flex flex-col gap-2">
-                {job.points.map((point) => (
-                  <li key={point} className="flex gap-3 text-sm leading-relaxed">
-                    <span
-                      aria-hidden
-                      className="mt-1.5 size-1.5 shrink-0 rounded-full"
-                      style={{ backgroundColor: job.accent }}
-                    />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        </li>
-      ))}
+      {/* Work history — ItemGroup block */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Work history</CardTitle>
+          <CardDescription>
+            Every role, and the work behind the numbers.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <ItemGroup>
+            {jobs.map((job, index) => (
+              <React.Fragment key={job.company}>
+                <Item className="items-start">
+                  <ItemMedia>
+                    <Avatar>
+                      <AvatarFallback className="text-xs">
+                        {initials(job.company)}
+                      </AvatarFallback>
+                    </Avatar>
+                  </ItemMedia>
+                  <ItemContent className="gap-2">
+                    <ItemTitle>
+                      {job.role}
+                      <span className="font-normal text-muted-foreground">
+                        · {job.company}
+                      </span>
+                    </ItemTitle>
+                    <ItemDescription className="line-clamp-none">
+                      {job.context}
+                    </ItemDescription>
+                    <ul className="mt-1 flex flex-col gap-2">
+                      {job.points.map((point) => (
+                        <li
+                          key={point}
+                          className="flex gap-2.5 text-sm leading-relaxed"
+                        >
+                          <CheckIcon className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </ItemContent>
+                  <ItemActions className="max-sm:hidden">
+                    <Badge
+                      variant="outline"
+                      className="font-mono text-[11px] text-muted-foreground"
+                    >
+                      {job.period}
+                    </Badge>
+                  </ItemActions>
+                </Item>
+                {index !== jobs.length - 1 && <ItemSeparator />}
+              </React.Fragment>
+            ))}
 
-      {/* Education — closing node */}
-      <li className="relative grid grid-cols-[auto_1fr] gap-x-4 sm:gap-x-6">
-        <div className="flex flex-col items-center">
-          <span
-            aria-hidden
-            className="mt-1 flex size-10 shrink-0 items-center justify-center rounded-full border bg-muted text-muted-foreground shadow-sm ring-4 ring-background"
-          >
-            <GraduationCapIcon className="size-4" />
-          </span>
-        </div>
-        <Card className="flex-row flex-wrap items-center justify-between gap-2 bg-muted/40 p-4 sm:p-5">
-          <CardTitle className="text-sm font-medium">
-            {education.school}
-            <span className="font-normal text-muted-foreground">
-              {" "}
-              · {education.degree}
-            </span>
-          </CardTitle>
-          <Badge
-            variant="outline"
-            className="font-mono text-[11px] text-muted-foreground"
-          >
-            {education.period}
-          </Badge>
-        </Card>
-      </li>
-    </ol>
+            <ItemSeparator />
+
+            {/* Education */}
+            <Item>
+              <ItemMedia variant="icon">
+                <GraduationCapIcon />
+              </ItemMedia>
+              <ItemContent>
+                <ItemTitle>{education.school}</ItemTitle>
+                <ItemDescription>{education.degree}</ItemDescription>
+              </ItemContent>
+              <ItemActions>
+                <Badge
+                  variant="outline"
+                  className="font-mono text-[11px] text-muted-foreground"
+                >
+                  {education.period}
+                </Badge>
+              </ItemActions>
+            </Item>
+          </ItemGroup>
+        </CardContent>
+      </Card>
+    </div>
   );
 }
