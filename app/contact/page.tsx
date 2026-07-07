@@ -4,7 +4,6 @@ import {
   Link2Icon,
   CodeIcon,
   FileTextIcon,
-  GlobeIcon,
 } from "lucide-react";
 
 import { ContactForm } from "@/components/contact-form";
@@ -23,7 +22,6 @@ const links = [
   { label: "LinkedIn", value: "linkedin.com/in/romeet-in", href: "https://linkedin.com/in/romeet-in", icon: Link2Icon },
   { label: "GitHub", value: "github.com/romeet9", href: "https://github.com/romeet9", icon: CodeIcon },
   { label: "Résumé", value: "Download PDF", href: "/romeet-chatterjee-resume.pdf", icon: FileTextIcon },
-  { label: "Portfolio", value: "romeet.framer.website", href: "https://romeet.framer.website", icon: GlobeIcon },
 ];
 
 export default function ContactPage() {
