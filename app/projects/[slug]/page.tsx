@@ -90,7 +90,7 @@ export default async function ProjectPage({ params }: Params) {
     project;
 
   return (
-    <div className="flex flex-1 flex-col gap-6 p-4 md:p-6">
+    <div className="flex flex-1 flex-col gap-6 py-4 md:py-6">
       <Button
         variant="ghost"
         size="sm"

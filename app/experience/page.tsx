@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: "Experience — Romeet Chatterjee" };
 
 export default function ExperiencePage() {
   return (
-    <div className="@container/main flex flex-1 flex-col gap-6 p-4 md:gap-8 md:p-6">
+    <div className="@container/main flex flex-1 flex-col gap-6 py-4 md:gap-8 md:py-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <h1 className="text-xl font-semibold tracking-tight">Experience</h1>

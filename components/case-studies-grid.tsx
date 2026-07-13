@@ -14,13 +14,25 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-export function CaseStudiesGrid({ limit }: { limit?: number }) {
+export function CaseStudiesGrid({
+  limit,
+  from,
+}: {
+  limit?: number;
+  /** Tags the card links so the case study's back button returns here. */
+  from?: "overview";
+}) {
   const rows = limit ? caseStudies.slice(0, limit) : caseStudies;
+  const query = from ? `?from=${from}` : "";
 
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {rows.map((c) => (
-        <Link key={c.slug} href={`/case-studies/${c.slug}`} className="group flex">
+        <Link
+          key={c.slug}
+          href={`/case-studies/${c.slug}${query}`}
+          className="group flex"
+        >
           <Card className="h-full w-full gap-4 overflow-hidden pt-0 transition-colors group-hover:bg-muted/30">
             <div className="relative aspect-[16/10] overflow-hidden border-b bg-muted/40">
               <Image

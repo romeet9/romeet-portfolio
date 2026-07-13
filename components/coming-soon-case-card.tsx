@@ -56,18 +56,29 @@ export function ComingSoonCaseCard() {
       <Card className="h-full w-full gap-4 overflow-hidden pt-0">
         {/* Cover — a mini code-editor panel (always dark) */}
         <div className="relative aspect-[16/10] overflow-hidden border-b bg-neutral-950">
-          {/* Editor chrome */}
-          <div className="flex h-[33px] items-center gap-1.5 border-b border-white/10 px-3">
+          {/* Editor chrome — the coming-soon pill rides in the title bar, so it
+              stays vertically centred instead of colliding with the bottom border. */}
+          <div className="flex h-9 items-center gap-1.5 border-b border-white/10 pl-3 pr-2">
             <span className="size-2 rounded-full bg-red-500/70" />
             <span className="size-2 rounded-full bg-yellow-500/70" />
             <span className="size-2 rounded-full bg-green-500/70" />
             <span className="ml-2 font-mono text-[10px] text-zinc-500">
               case-detail.tsx
             </span>
+
+            <div className="ml-auto flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/15 px-2 py-0.5 backdrop-blur-sm">
+              <span className="relative flex size-1.5">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-amber-400 opacity-75" />
+                <span className="relative inline-flex size-1.5 rounded-full bg-amber-400" />
+              </span>
+              <span className="font-mono text-[10px] font-medium uppercase tracking-wide text-amber-200">
+                Coming soon
+              </span>
+            </div>
           </div>
 
           {/* Streaming code */}
-          <div className="absolute inset-x-0 bottom-0 top-[33px] overflow-hidden pl-3">
+          <div className="absolute inset-x-0 bottom-0 top-9 overflow-hidden px-3 pt-1">
             <div className="flex animate-code-scroll flex-col will-change-transform">
               {track.map((text, i) => (
                 <CodeLine key={i} text={text} />
@@ -76,19 +87,8 @@ export function ComingSoonCaseCard() {
           </div>
 
           {/* Fade masks */}
-          <div className="pointer-events-none absolute inset-x-0 top-[33px] h-6 bg-gradient-to-b from-neutral-950 to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 top-9 h-6 bg-gradient-to-b from-neutral-950 to-transparent" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-neutral-950 to-transparent" />
-
-          {/* Coming soon pill */}
-          <div className="absolute right-2.5 top-2 flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/15 px-2.5 py-1 backdrop-blur-sm">
-            <span className="relative flex size-1.5">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-amber-400 opacity-75" />
-              <span className="relative inline-flex size-1.5 rounded-full bg-amber-400" />
-            </span>
-            <span className="font-mono text-[10px] font-medium uppercase tracking-wide text-amber-200">
-              Coming soon
-            </span>
-          </div>
         </div>
 
         <CardHeader>

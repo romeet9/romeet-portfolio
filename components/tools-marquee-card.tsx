@@ -1,13 +1,13 @@
 import { SiAnthropic, SiFigma, SiFramer } from "@icons-pack/react-simple-icons";
 import { WrenchIcon } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { CardIconBadge } from "@/components/card-icon-badge";
 
 /** Real Visual Studio Code mark (simple-icons dropped it for trademark reasons). */
 function VSCodeIcon({ className }: { className?: string }) {
@@ -25,8 +25,8 @@ const tools: { name: string; Icon: React.ComponentType<{ className?: string }> }
   { name: "VS Code", Icon: VSCodeIcon },
 ];
 
-// Repeat the small set so one half of the track is wider than the card, then
-// the -50% marquee loop stays seamless.
+// Repeat the set so one half of the track is wider than the card; the marquee
+// translates -50%, so a short track would snap back mid-view.
 const half = [...tools, ...tools, ...tools];
 const track = [...half, ...half];
 
@@ -34,25 +34,26 @@ export function ToolsMarqueeCard() {
   return (
     <Card className="@container/card">
       <CardHeader className="grid-cols-1 gap-2">
-        <div className="flex flex-col items-start gap-1.5 @[340px]/card:flex-row @[340px]/card:items-center @[340px]/card:justify-between">
-          <CardDescription className="whitespace-nowrap">Tools I use</CardDescription>
-          <Badge variant="outline" className="shrink-0 whitespace-nowrap">
-            <WrenchIcon />
-            Design + build
-          </Badge>
+        <div className="flex items-start justify-between gap-2">
+          <CardDescription className="whitespace-nowrap">
+            Tools I use
+          </CardDescription>
+          <CardIconBadge icon={WrenchIcon} label="Design + build" />
         </div>
         <CardTitle className="text-2xl font-semibold tracking-tight whitespace-nowrap @[250px]/card:text-3xl">
           {tools.length}
         </CardTitle>
       </CardHeader>
-      {/* infinite auto-scrolling icon strip */}
+      {/* Infinite auto-scrolling strip. The track repeats the tool set so its
+          first half already overflows the card — that's what lets the -50%
+          loop restart without a visible jump. */}
       <div
-        className="relative mt-auto overflow-hidden"
+        className="relative mt-auto mb-(--card-spacing) overflow-hidden"
         style={{
           maskImage:
-            "linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)",
+            "linear-gradient(to right, transparent, #000 12%, #000 88%, transparent)",
           WebkitMaskImage:
-            "linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)",
+            "linear-gradient(to right, transparent, #000 12%, #000 88%, transparent)",
         }}
       >
         <div className="flex w-max animate-marquee">
@@ -60,9 +61,9 @@ export function ToolsMarqueeCard() {
             <div
               key={i}
               title={name}
-              className="mr-3 flex size-12 shrink-0 items-center justify-center rounded-xl border bg-background text-foreground/85"
+              className="mr-3 flex size-10 shrink-0 items-center justify-center rounded-xl border bg-background text-foreground/85"
             >
-              <Icon className="size-6" />
+              <Icon className="size-5" />
             </div>
           ))}
         </div>

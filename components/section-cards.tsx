@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardDescription,
@@ -6,6 +5,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { CardIconBadge } from "@/components/card-icon-badge";
 import { ToolsMarqueeCard } from "@/components/tools-marquee-card";
 import { MousePointerClickIcon, RocketIcon, SparklesIcon } from "lucide-react";
 
@@ -14,13 +15,13 @@ const cards = [
     label: "Interactive prototypes",
     value: "100%",
     badge: "Coded, not mocked",
-    footer: "Every project ships a clickable build",
+    footer: "Ships a clickable build",
     sub: "Framer + real front-end code",
     icon: MousePointerClickIcon,
   },
   {
     label: "Shipped to production",
-    value: "5 apps",
+    value: "4 apps",
     badge: "Web · iOS · macOS",
     footer: "Real, working products",
     sub: "Next.js 16 · SwiftUI",
@@ -38,34 +39,34 @@ const cards = [
 
 export function SectionCards() {
   return (
-    <div className="grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card *:data-[slot=card]:shadow-xs lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-4 dark:*:data-[slot=card]:bg-card">
+    <TooltipProvider delay={120}>
+      <div className="grid grid-cols-1 gap-4 *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card *:data-[slot=card]:shadow-xs @xl/main:grid-cols-2 @5xl/main:grid-cols-4 dark:*:data-[slot=card]:bg-card">
       {cards.map((c) => (
         <Card key={c.label} className="@container/card">
           <CardHeader className="grid-cols-1 gap-2">
-            {/* Below 340px the badge stacks under the label instead of squeezing
-                it, so label and value each keep one line. The breakpoint is on
-                the card container, so all four cards flip together and their
-                values stay on a common baseline. */}
-            <div className="flex flex-col items-start gap-1.5 @[340px]/card:flex-row @[340px]/card:items-center @[340px]/card:justify-between">
+            {/* Heading left, icon pinned top-right — the badge's text is gone,
+                so the value gets the card's full width back. */}
+            <div className="flex items-start justify-between gap-2">
               <CardDescription className="whitespace-nowrap">
                 {c.label}
               </CardDescription>
-              <Badge variant="outline" className="shrink-0 whitespace-nowrap">
-                <c.icon />
-                {c.badge}
-              </Badge>
+              <CardIconBadge icon={c.icon} label={c.badge} />
             </div>
             <CardTitle className="text-2xl font-semibold tracking-tight whitespace-nowrap @[250px]/card:text-3xl">
               {c.value}
             </CardTitle>
           </CardHeader>
-          <CardFooter className="flex-col items-start gap-1.5 text-sm">
-            <div className="line-clamp-1 flex gap-2 font-medium">{c.footer}</div>
+          {/* Copy is kept short enough that every footer holds one line at the
+              width the 4-up grid produces — nothing wraps, so the divider rules
+              and the sub-labels stay on a common line across the row. */}
+          <CardFooter className="mt-auto flex-col items-start gap-1.5 text-sm">
+            <div className="font-medium whitespace-nowrap">{c.footer}</div>
             <div className="text-muted-foreground">{c.sub}</div>
           </CardFooter>
         </Card>
-      ))}
-      <ToolsMarqueeCard />
-    </div>
+        ))}
+        <ToolsMarqueeCard />
+      </div>
+    </TooltipProvider>
   );
 }

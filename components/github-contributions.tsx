@@ -169,7 +169,9 @@ export async function GithubContributions() {
         </div>
       </CardHeader>
       <CardContent className="flex flex-1 flex-col justify-center">
-        <div className="px-2 sm:px-4">
+        {/* No inner gutter — the card already pads, and doubling it shrank the
+            squares in the narrower centred column. */}
+        <div>
         {/* Month labels — one flex track per week column */}
         <div className="mb-1.5 flex gap-1.5">
           {monthLabels.map((label, i) => (

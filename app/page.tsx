@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 export default function OverviewPage() {
   return (
     <div className="@container/main flex flex-1 flex-col gap-4 py-4 md:gap-6 md:py-6">
-      <div className="flex flex-col gap-1.5 px-4 lg:px-6">
+      <div className="flex flex-col gap-1.5">
         <div className="flex flex-wrap items-center gap-2">
           <h1
             className="animate-text-shimmer text-xl font-semibold tracking-tight sm:text-2xl"
@@ -44,7 +44,7 @@ export default function OverviewPage() {
 
       <SectionCards />
 
-      <div className="flex flex-col gap-3 px-4 lg:px-6">
+      <div className="flex flex-col gap-3">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-medium">Case studies</h2>
           <Button
@@ -57,10 +57,10 @@ export default function OverviewPage() {
             <ArrowRightIcon />
           </Button>
         </div>
-        <CaseStudiesGrid />
+        <CaseStudiesGrid from="overview" />
       </div>
 
-      <div className="grid items-stretch gap-4 px-4 lg:px-6 @4xl/main:grid-cols-3">
+      <div className="grid items-stretch gap-4 @4xl/main:grid-cols-3">
         <div className="@4xl/main:col-span-2">
           <GithubContributions />
         </div>

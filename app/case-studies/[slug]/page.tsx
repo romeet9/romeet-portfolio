@@ -23,6 +23,7 @@ import {
 } from "@/content/case-studies";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { IconChip } from "@/components/icon-chip";
 import {
   Card,
   CardAction,
@@ -58,7 +59,10 @@ import {
 import { JourneyTimeline } from "@/components/journey-timeline";
 import { cn } from "@/lib/utils";
 
-type Params = { params: Promise<{ slug: string }> };
+type Params = {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ from?: string }>;
+};
 
 /** The dashboard "3D" card wash — top gradient + soft shadow on every <Card>. */
 const CARD_3D =
@@ -76,28 +80,6 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: `${study.name} — Case study — Romeet Chatterjee`,
     description: study.tagline,
   };
-}
-
-/** A small square icon tile — the accent that gives each card/act identity. */
-function IconChip({
-  icon: Icon,
-  className,
-  iconClassName,
-}: {
-  icon: LucideIcon;
-  className?: string;
-  iconClassName?: string;
-}) {
-  return (
-    <span
-      className={cn(
-        "flex size-8 shrink-0 items-center justify-center rounded-lg border bg-muted/50 text-foreground shadow-xs",
-        className,
-      )}
-    >
-      <Icon className={cn("size-4", iconClassName)} />
-    </span>
-  );
 }
 
 const CHARTS: Record<ChartKind, () => React.ReactElement> = {
@@ -367,10 +349,19 @@ function NextStudyCard({
   );
 }
 
-export default async function CaseStudyPage({ params }: Params) {
+export default async function CaseStudyPage({ params, searchParams }: Params) {
   const { slug } = await params;
+  const { from } = await searchParams;
   const study = getCaseStudy(slug);
   if (!study) notFound();
+
+  // Back goes wherever you came from: the cards on the overview link with
+  // ?from=overview, everything else (including a cold, shared link) lands you
+  // on the case-studies index.
+  const back =
+    from === "overview"
+      ? { href: "/", label: "Overview" }
+      : { href: "/case-studies", label: "Case studies" };
 
   const {
     name,
@@ -387,16 +378,16 @@ export default async function CaseStudyPage({ params }: Params) {
   } = study;
 
   return (
-    <div className="flex flex-1 flex-col gap-6 p-4 md:p-6">
+    <div className="flex flex-1 flex-col gap-6 py-4 md:py-6">
       <Button
         variant="ghost"
         size="sm"
         className="-ml-2 w-fit text-muted-foreground"
         nativeButton={false}
-        render={<Link href="/projects" />}
+        render={<Link href={back.href} />}
       >
         <ArrowLeftIcon />
-        All work
+        {back.label}
       </Button>
 
       <article className="mx-auto flex w-full max-w-5xl flex-col gap-12">

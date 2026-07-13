@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { AppSidebar } from "@/components/app-sidebar";
+import { BottomScrim } from "@/components/bottom-scrim";
+import { FloatingDock } from "@/components/floating-dock";
+import { PageTransition } from "@/components/page-transition";
 import { SiteHeader } from "@/components/site-header";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
@@ -54,20 +55,17 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SidebarProvider
-            style={
-              {
-                "--sidebar-width": "calc(var(--spacing) * 68)",
-                "--header-height": "calc(var(--spacing) * 12)",
-              } as React.CSSProperties
-            }
-          >
-            <AppSidebar variant="inset" />
-            <SidebarInset>
-              <SiteHeader />
-              {children}
-            </SidebarInset>
-          </SidebarProvider>
+          {/* Bottom padding keeps page content clear of the floating dock. */}
+          <div className="flex min-h-svh flex-col pb-28">
+            <SiteHeader />
+            {/* One centred column for every screen — pages own their vertical
+                rhythm, this owns the width and the left/right gutters. */}
+            <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 lg:px-6">
+              <PageTransition>{children}</PageTransition>
+            </main>
+          </div>
+          <BottomScrim />
+          <FloatingDock />
           <Toaster />
         </ThemeProvider>
       </body>

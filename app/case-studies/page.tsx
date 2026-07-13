@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function CaseStudiesPage() {
   return (
-    <div className="@container/main flex flex-1 flex-col gap-4 p-4 md:gap-6 md:p-6">
+    <div className="@container/main flex flex-1 flex-col gap-4 py-4 md:gap-6 md:py-6">
       <div>
         <h1 className="text-xl font-semibold tracking-tight">Case studies</h1>
         <p className="mt-1 text-sm text-muted-foreground">
