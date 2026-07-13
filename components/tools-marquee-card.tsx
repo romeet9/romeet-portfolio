@@ -4,7 +4,6 @@ import { WrenchIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
-  CardAction,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -34,17 +33,17 @@ const track = [...half, ...half];
 export function ToolsMarqueeCard() {
   return (
     <Card className="@container/card">
-      <CardHeader>
-        <CardDescription>Tools I use</CardDescription>
-        <CardTitle className="text-2xl font-semibold tracking-tight @[250px]/card:text-3xl">
-          {tools.length}
-        </CardTitle>
-        <CardAction>
-          <Badge variant="outline">
+      <CardHeader className="grid-cols-1 gap-2">
+        <div className="flex flex-col items-start gap-1.5 @[340px]/card:flex-row @[340px]/card:items-center @[340px]/card:justify-between">
+          <CardDescription className="whitespace-nowrap">Tools I use</CardDescription>
+          <Badge variant="outline" className="shrink-0 whitespace-nowrap">
             <WrenchIcon />
             Design + build
           </Badge>
-        </CardAction>
+        </div>
+        <CardTitle className="text-2xl font-semibold tracking-tight whitespace-nowrap @[250px]/card:text-3xl">
+          {tools.length}
+        </CardTitle>
       </CardHeader>
       {/* infinite auto-scrolling icon strip */}
       <div

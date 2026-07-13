@@ -1,7 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
-  CardAction,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -42,17 +41,23 @@ export function SectionCards() {
     <div className="grid grid-cols-1 gap-4 px-4 *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card *:data-[slot=card]:shadow-xs lg:px-6 @xl/main:grid-cols-2 @5xl/main:grid-cols-4 dark:*:data-[slot=card]:bg-card">
       {cards.map((c) => (
         <Card key={c.label} className="@container/card">
-          <CardHeader>
-            <CardDescription>{c.label}</CardDescription>
-            <CardTitle className="text-2xl font-semibold tracking-tight @[250px]/card:text-3xl">
-              {c.value}
-            </CardTitle>
-            <CardAction>
-              <Badge variant="outline">
+          <CardHeader className="grid-cols-1 gap-2">
+            {/* Below 340px the badge stacks under the label instead of squeezing
+                it, so label and value each keep one line. The breakpoint is on
+                the card container, so all four cards flip together and their
+                values stay on a common baseline. */}
+            <div className="flex flex-col items-start gap-1.5 @[340px]/card:flex-row @[340px]/card:items-center @[340px]/card:justify-between">
+              <CardDescription className="whitespace-nowrap">
+                {c.label}
+              </CardDescription>
+              <Badge variant="outline" className="shrink-0 whitespace-nowrap">
                 <c.icon />
                 {c.badge}
               </Badge>
-            </CardAction>
+            </div>
+            <CardTitle className="text-2xl font-semibold tracking-tight whitespace-nowrap @[250px]/card:text-3xl">
+              {c.value}
+            </CardTitle>
           </CardHeader>
           <CardFooter className="flex-col items-start gap-1.5 text-sm">
             <div className="line-clamp-1 flex gap-2 font-medium">{c.footer}</div>
