@@ -14,9 +14,10 @@
   --tile-radius: 7.5%;
   --tile-padding: 16.5%;
 
-  /* The two insets the mobile deck snaps between: the sticky header (h-16) and
-     the floating dock's band (the page shell's pb-28). */
-  --snap-top: 4rem;
+  /* The two insets the mobile deck snaps between. There's no site header any
+     more, so the top is just a hairline of breathing room; the bottom is the
+     floating dock's band (the page shell's pb-28). */
+  --snap-top: 1rem;
   --snap-bottom: 7rem;
 
   --background: oklch(1 0 0);
@@ -232,15 +233,13 @@
    Snapping scopes itself to the Overview via :has() on the deck's marker id, so
    it needs no JavaScript and unscopes itself the moment you navigate away.
 
-   The two insets are already in the layout: SiteHeader is a 64px sticky header,
-   and the page shell's pb-28 leaves 112px under the content for the floating
-   dock. Feeding those to scroll-padding makes `scroll-snap-align: center` centre
-   a card in the *visible* band rather than the raw viewport — and the algebra
-   lands the first panel at rest at scroll 0 and the last one exactly centred at
-   max scroll.
+   Feeding the two insets to scroll-padding makes `scroll-snap-align: center`
+   centre a card in the *visible* band rather than the raw viewport — and the
+   algebra lands the first panel at rest at scroll 0 and the last one exactly
+   centred at max scroll.
 
-   Gated on a minimum height: on a short landscape phone the visible band can't
-   hold a 4:5 card, so the deck falls back to plain scrolling rather than snapping
+   Gated on a minimum height: on a short landscape phone the band is too shallow
+   to hold a card, so the deck falls back to plain scrolling rather than snapping
    to panels that are taller than the snapport (content you could never reach).
 
    svh, never dvh: dvh changes as the iOS URL bar collapses, which would resize
@@ -250,6 +249,15 @@
     scroll-snap-type: y mandatory;
     scroll-padding-top: var(--snap-top);
     scroll-padding-bottom: var(--snap-bottom);
+
+    /* The deck is the affordance; a scrollbar track cutting down the side of a
+       full-bleed card isn't. ScrollHint's toast replaces what it was telling
+       people. */
+    scrollbar-width: none;
+  }
+
+  html:has(#overview-deck)::-webkit-scrollbar {
+    display: none;
   }
 
   #overview-deck > .snap-panel {
@@ -258,6 +266,14 @@
     /* This, not `mandatory`, is what makes one flick advance exactly one card;
        mandatory alone lets a hard flick sail past three of them. */
     scroll-snap-stop: always;
+  }
+
+  /* The card fills its panel, so it's as tall as the device — the 4:5 it ships
+     with is a desktop shape. The image is object-cover, so it crops rather than
+     letterboxing, whatever the phone's proportions are. */
+  #overview-deck .snap-panel [data-card] {
+    height: 100%;
+    aspect-ratio: auto;
   }
 }
 

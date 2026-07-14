@@ -1,33 +1,33 @@
 import type { OverviewCard } from "@/content/overview-cards";
 import { ComingSoonCaseCard } from "@/components/coming-soon-case-card";
+import { HeroCard } from "@/components/overview/hero-card";
 import { MediaCard } from "@/components/media-card";
+import { ScrollHint } from "@/components/overview/scroll-hint";
 import { SnapPanel } from "@/components/overview/snap-panel";
 import { ToolsMarqueeCard } from "@/components/tools-marquee-card";
 
 /**
- * The Overview, as one thing: a 3x3 grid of posters on desktop, a vertical deck
- * of snapping panels on mobile. Same array, same order, same cards — only the
- * container changes.
+ * The Overview, as one thing: a 3x3 grid of posters under a banner on desktop, a
+ * vertical deck of full-screen snapping cards on mobile. Same array, same order,
+ * same cards — only the container changes.
  *
  * `id="overview-deck"` is the marker the snap CSS keys off (`html:has(#overview-deck)`),
- * which is how the snapping scopes itself to this route with no JavaScript and
- * cleans itself up when you navigate away.
+ * which is how the snapping and the hidden scrollbar scope themselves to this
+ * route with no JavaScript, and clean themselves up when you navigate away.
  */
-export function OverviewDeck({
-  cards,
-  hero,
-}: {
-  cards: OverviewCard[];
-  hero: React.ReactNode;
-}) {
+export function OverviewDeck({ cards }: { cards: OverviewCard[] }) {
   return (
     <div
       id="overview-deck"
       className="flex flex-col md:grid md:grid-cols-3 md:gap-4 md:py-6"
     >
-      <SnapPanel className="md:col-span-3 md:block">{hero}</SnapPanel>
+      <ScrollHint />
 
-      {cards.map((card) => (
+      <SnapPanel className="md:col-span-3">
+        <HeroCard />
+      </SnapPanel>
+
+      {cards.map((card, i) => (
         <SnapPanel key={card.id}>
           {card.render === "coming-soon" ? (
             <ComingSoonCaseCard />
@@ -40,6 +40,9 @@ export function OverviewDeck({
               eyebrow={card.eyebrow}
               title={card.title}
               detail={card.detail}
+              // The first card is the one waiting behind the hero on mobile and
+              // is above the fold on desktop — it shouldn't lazy-load.
+              priority={i === 0}
             />
           )}
         </SnapPanel>

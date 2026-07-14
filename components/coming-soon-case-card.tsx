@@ -58,7 +58,7 @@ export function ComingSoonCaseCard() {
       overlay={<InProgressPill />}
       eyebrow="12 Grids · 2026"
       title="Edge CRM — Case Detail"
-      detail="The third screen. Deep case context: timeline, attachments and actions in one view. Currently in the works."
+      detail="Deep case context: timeline, attachments and actions in one view. In the works."
     />
   );
 }

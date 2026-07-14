@@ -36,6 +36,14 @@ export type MediaCardProps = {
   artwork?: React.ReactNode;
   /** In front of the ramp, above the type. */
   overlay?: React.ReactNode;
+  /** Rendered under `detail`, inside the text block — the hero's CTA row. */
+  children?: React.ReactNode;
+  /**
+   * The hero card carries the page's only <h1> now that the site header is gone.
+   * Everything else is an <h3> under it.
+   */
+  titleAs?: "h1" | "h3";
+  priority?: boolean;
   sizes?: string;
   className?: string;
 };
@@ -48,6 +56,9 @@ export function MediaCard({
   detail,
   artwork,
   overlay,
+  children,
+  titleAs: Title = "h3",
+  priority,
   sizes = "(min-width: 768px) 33vw, 100vw",
   className,
 }: MediaCardProps) {
@@ -62,6 +73,7 @@ export function MediaCard({
           fill
           sizes={sizes}
           quality={95}
+          priority={priority}
           className={cn(
             "object-cover object-center transition-transform duration-500 ease-out",
             image.zoom
@@ -107,19 +119,23 @@ export function MediaCard({
           </span>
         )}
 
-        <h3 className="text-xl font-semibold tracking-tight text-white drop-shadow-sm sm:text-2xl">
+        <Title className="text-xl font-semibold tracking-tight text-white drop-shadow-sm sm:text-2xl">
           {asTitle(title)}
-        </h3>
+        </Title>
 
         {detail && (
           <p className="line-clamp-3 max-w-[34ch] text-sm leading-relaxed text-white/75">
             {asSentence(detail)}
           </p>
         )}
+
+        {children}
       </div>
     </>
   );
 
+  // `data-card` is the hook the mobile deck uses to make a card fill its panel
+  // and drop this aspect ratio — see the snap block in globals.css.
   const frame = cn(
     "group relative flex aspect-[4/5] overflow-hidden rounded-[22px] bg-muted ring-1 ring-foreground/10",
     interactive &&
@@ -129,11 +145,15 @@ export function MediaCard({
 
   if (href) {
     return (
-      <Link href={href} className={frame}>
+      <Link href={href} data-card className={frame}>
         {body}
       </Link>
     );
   }
 
-  return <div className={frame}>{body}</div>;
+  return (
+    <div data-card className={frame}>
+      {body}
+    </div>
+  );
 }

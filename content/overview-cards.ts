@@ -27,10 +27,10 @@ export const overviewCards: OverviewCard[] = [
     eyebrow: "Coded, not mocked",
     title: "Interactive prototypes",
     detail:
-      "Every idea leaves my hands as a build you can click, not a flat mock — Framer and real front-end code, so the thing being reviewed is the thing that ships.",
+      "Every idea leaves my hands as a build you can click, not a flat mock. What gets reviewed is what ships.",
     image: {
-      src: "/overview/kpi-prototypes.png",
-      alt: "An interactive prototype running in the browser",
+      src: "/overview/kpi-prototypes.jpg",
+      alt: "Dark blue fluid abstraction",
     },
   },
   {
@@ -40,8 +40,8 @@ export const overviewCards: OverviewCard[] = [
     detail:
       "Four products live in the world, not four concepts in a portfolio. Next.js 16 on the web, SwiftUI on Apple platforms.",
     image: {
-      src: "/overview/kpi-shipped.png",
-      alt: "Shipped products running on web, iOS and macOS",
+      src: "/overview/kpi-shipped.jpg",
+      alt: "Deep teal curves receding into black",
     },
   },
   {
@@ -49,10 +49,10 @@ export const overviewCards: OverviewCard[] = [
     eyebrow: "Claude Code, daily",
     title: "AI in every project",
     detail:
-      "AI runs through the whole process, not a step in it — research, exploration, build and handoff. It's how I design at the speed I ship.",
+      "AI runs through the whole process, not a step in it. It's how I design at the speed I ship.",
     image: {
-      src: "/overview/kpi-ai.png",
-      alt: "Designing and building with AI",
+      src: "/overview/kpi-ai.jpg",
+      alt: "A bloom of particles in the dark",
     },
   },
 
@@ -76,7 +76,7 @@ export const overviewCards: OverviewCard[] = [
     eyebrow: "12 Grids · 2026",
     title: "Edge CRM — Case List",
     detail:
-      "Redesigning the case list a rep opens every morning — figure-ground, the F-shaped scan, and cards that triage at a glance.",
+      "Redesigning the case list a rep opens every morning: figure-ground, the F-shaped scan, cards that triage at a glance.",
     image: {
       src: "/case-studies/case-list/cover-hand.png",
       alt: "Edge CRM Case List screen on a hand-held iPhone",
@@ -88,7 +88,7 @@ export const overviewCards: OverviewCard[] = [
     eyebrow: "12 Grids · 2026",
     title: "Edge CRM — Case Detail",
     detail:
-      "The third screen. Deep case context: timeline, attachments and actions in one view. Currently in the works.",
+      "Deep case context: timeline, attachments and actions in one view. In the works.",
   },
 
   // ── Row 3: what I've built ────────────────────────────────────────────────
@@ -98,10 +98,10 @@ export const overviewCards: OverviewCard[] = [
     eyebrow: "Web · Shipped · 2026",
     title: "Tasky AI",
     detail:
-      "Say your morning brief out loud and get a structured, prioritized plan back — subtasks, categories, meeting minutes and team workspaces.",
+      "Say your morning brief out loud, get a structured, prioritized plan back.",
     image: {
-      src: "/overview/tasky-ai.png",
-      alt: "Tasky AI planner",
+      src: "/overview/tasky-ai.jpg",
+      alt: "A calm violet gradient",
     },
   },
   {
@@ -110,10 +110,10 @@ export const overviewCards: OverviewCard[] = [
     eyebrow: "iOS · Beta · 2026",
     title: "InspoFlow",
     detail:
-      "Turns a messy screenshot camera roll into a searchable inspiration library — a vision model titles, tags and files every shot for you.",
+      "Turns a messy screenshot camera roll into a searchable inspiration library.",
     image: {
-      src: "/overview/inspoflow.png",
-      alt: "InspoFlow inspiration library on iOS",
+      src: "/overview/inspoflow.jpg",
+      alt: "Dark blue and pink waves",
     },
   },
   {

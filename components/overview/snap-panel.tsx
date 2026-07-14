@@ -25,10 +25,11 @@ const SNAPPED = { scale: 1, opacity: 1, y: 0 };
 // Bouncy, settles in ~0.4s.
 const SETTLE = { type: "spring", visualDuration: 0.42, bounce: 0.38 } as const;
 
-// The trigger band is the middle ~40% of the viewport, biased downward: the
-// snapport's centre sits (112 - 64) / 2 = 24px below the raw viewport's, because
-// the dock's inset is deeper than the header's.
-const VIEWPORT = { margin: "-27% 0px -33% 0px", amount: 0.4, once: false } as const;
+// The trigger band is the middle ~40% of the viewport, biased upward: with the
+// site header gone the snapport's centre sits (112 - 16) / 2 = 48px *above* the
+// raw viewport's, because the dock's inset is far deeper than the top's. The
+// bigger bottom margin is what pulls the band up to meet it.
+const VIEWPORT = { margin: "-24% 0px -36% 0px", amount: 0.4, once: false } as const;
 
 export function SnapPanel({
   children,
@@ -40,15 +41,16 @@ export function SnapPanel({
   const isMobile = useIsMobile();
   const reduced = useReducedMotion();
 
-  // The card can never be taller than the band it has to fit in — a panel that
-  // overflows the snapport under mandatory snapping is content you can't reach.
-  const cap =
-    "w-full max-w-[min(100%,calc((100svh-var(--snap-top)-var(--snap-bottom)-1rem)*0.8))] md:max-w-none";
+  // The card fills the panel on mobile (globals.css gives it height:100% and
+  // drops its aspect ratio), and the panel *is* the snapport — so the card is as
+  // tall as the device, on any device, and can never overflow into content you
+  // can't reach.
+  const fill = "flex w-full flex-col [&>*]:h-full md:[&>*]:h-auto";
 
   if (!isMobile || reduced) {
     return (
       <div className={cn("snap-panel flex items-center justify-center", className)}>
-        <div className={cap}>{children}</div>
+        <div className={fill}>{children}</div>
       </div>
     );
   }
@@ -56,7 +58,7 @@ export function SnapPanel({
   return (
     <div className={cn("snap-panel flex items-center justify-center", className)}>
       <motion.div
-        className={cap}
+        className={cn(fill, "h-full")}
         variants={{ rest: REST, snapped: SNAPPED }}
         initial="rest"
         whileInView="snapped"
