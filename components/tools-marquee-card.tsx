@@ -1,6 +1,7 @@
 import { SiAnthropic, SiFigma, SiFramer } from "@icons-pack/react-simple-icons";
 
 import { Card } from "@/components/ui/card";
+import { DitherShader } from "@/components/ui/dither-shader";
 
 /** Real Visual Studio Code mark (simple-icons dropped it for trademark reasons). */
 function VSCodeIcon({ className }: { className?: string }) {
@@ -28,10 +29,25 @@ const track = [...half, ...half];
  * subject is the marquee rather than a figure, so the four cards still read as
  * one row.
  */
-export function ToolsMarqueeCard() {
+export function ToolsMarqueeCard({
+  bloom,
+  ditherClassName,
+}: {
+  bloom: string;
+  ditherClassName: string;
+}) {
   return (
-    <Card className="@container/card flex min-h-56 flex-col justify-between gap-8 p-6 shadow-xs">
-      <p className="max-w-[12ch] text-lg leading-snug text-muted-foreground">
+    <Card className="@container/card relative flex min-h-56 flex-col justify-between gap-8 overflow-hidden p-6 shadow-xs">
+      <DitherShader
+        src={bloom}
+        gridSize={3}
+        ditherMode="bayer"
+        colorMode="grayscale"
+        objectFit="cover"
+        className={ditherClassName}
+      />
+
+      <p className="relative max-w-[12ch] text-lg leading-snug text-muted-foreground">
         Tools I use
       </p>
 
