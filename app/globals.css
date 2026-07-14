@@ -7,8 +7,10 @@
 :root {
   /* Shape of the two tunable card groups. The tuner panel (dev only, or ?tune=1)
      writes these on <html>; these are the committed defaults it starts from. */
+  /* 12px/16px are the Card primitive's own defaults (rounded-xl, --card-spacing
+     of --spacing(4)) — the tuner starts from the shape the card already had. */
   --kpi-radius: 12px;
-  --kpi-padding: 24px;
+  --kpi-padding: 16px;
   --tile-radius: 7.5%;
   --tile-padding: 16.5%;
 

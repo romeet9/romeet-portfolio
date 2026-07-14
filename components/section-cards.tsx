@@ -1,100 +1,78 @@
-import { Card } from "@/components/ui/card";
-import { DitherShader } from "@/components/ui/dither-shader";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { CardIconBadge } from "@/components/card-icon-badge";
 import { ToolsMarqueeCard } from "@/components/tools-marquee-card";
-import { cn } from "@/lib/utils";
-
-/**
- * KPI cards: label at the top, figure at the bottom, and an ordered-dither
- * bloom in the empty corner between them. Colour is straight shadcn — `bg-card`
- * on `border`, muted label, foreground figure — and the dither adds texture, not
- * hue.
- */
-
-/**
- * The dither needs a raster source. Rather than a photograph — whose midtones
- * would land wherever they like, including under the type — each card gets a
- * generated radial ramp: black at the bloom's centre, white at its edges. The
- * shader turns luminance into dot density, so the ramp *is* the density map,
- * and parking every bloom off the top-right corner keeps the dots away from the
- * label and the figure by construction. Five different centres so no two cards
- * carry the same texture.
- */
-const bloom = (cx: number, cy: number, r: number) =>
-  "data:image/svg+xml," +
-  encodeURIComponent(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360">` +
-      `<defs><radialGradient id="g" cx="${cx}%" cy="${cy}%" r="${r}%">` +
-      `<stop offset="0%" stop-color="#000"/>` +
-      `<stop offset="45%" stop-color="#6b6b6b"/>` +
-      `<stop offset="100%" stop-color="#fff"/>` +
-      `</radialGradient></defs>` +
-      `<rect width="360" height="360" fill="url(#g)"/></svg>`,
-  );
-
-/**
- * Multiply keeps only the dark dots on a light card; screen keeps only the light
- * ones on a dark card. Inverting in dark mode means the *same* region of the
- * ramp survives in both themes, so the bloom sits in the same corner either way
- * instead of flipping to the negative. The mask is the readability guarantee: a
- * hard fade out before the text column, whatever the source does.
- */
-const ditherLayer = cn(
-  "pointer-events-none absolute inset-0 opacity-[0.14] mix-blend-multiply",
-  "dark:opacity-[0.18] dark:mix-blend-screen dark:invert",
-  // Anchored to the top-right corner and gone by two-thirds of the way across,
-  // so it never reaches the label above or the figure below. A linear fade left
-  // to right would still have run the full height of the card and read as a
-  // block; a corner radial dissolves in every direction at once.
-  "[mask-image:radial-gradient(95%_85%_at_100%_0%,black_0%,transparent_72%)]",
-);
+import { MousePointerClickIcon, RocketIcon, SparklesIcon } from "lucide-react";
 
 const cards = [
-  { label: "Interactive prototypes", value: "100%", bloom: bloom(88, 14, 80) },
-  { label: "Shipped to production", value: "4 apps", bloom: bloom(96, 30, 66) },
-  { label: "AI in every project", value: "Daily", bloom: bloom(80, 10, 92) },
   {
-    label: "Products I build",
-    value: "Apps + SaaS",
-    valueClassName: "text-3xl @[200px]/card:text-4xl",
-    bloom: bloom(92, 22, 72),
+    label: "Interactive prototypes",
+    value: "100%",
+    badge: "Coded, not mocked",
+    footer: "Ships a clickable build",
+    sub: "Framer + real front-end code",
+    icon: MousePointerClickIcon,
+  },
+  {
+    label: "Shipped to production",
+    value: "4 apps",
+    badge: "Web · iOS · macOS",
+    footer: "Real, working products",
+    sub: "Next.js 16 · SwiftUI",
+    icon: RocketIcon,
+  },
+  {
+    label: "AI in every project",
+    value: "Daily",
+    badge: "Claude Code",
+    footer: "I design and build with AI",
+    sub: "Research → handoff",
+    icon: SparklesIcon,
   },
 ];
 
 export function SectionCards() {
   return (
-    <div className="grid grid-cols-1 gap-4 @xl/main:grid-cols-2 @5xl/main:grid-cols-5">
+    <TooltipProvider delay={120}>
+      <div className="grid grid-cols-1 gap-4 *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card *:data-[slot=card]:shadow-xs @xl/main:grid-cols-2 @5xl/main:grid-cols-4 dark:*:data-[slot=card]:bg-card">
+      {/* Card shape comes from the tuner's two custom properties: the radius
+          directly, and the padding via --card-spacing, which is the knob the
+          Card primitive already uses for its own gutters. */}
       {cards.map((c) => (
         <Card
           key={c.label}
-          className="@container/card relative flex min-h-56 flex-col justify-between gap-8 overflow-hidden rounded-[var(--kpi-radius)] p-[var(--kpi-padding)] shadow-xs"
+          className="@container/card rounded-[var(--kpi-radius)] [--card-spacing:var(--kpi-padding)]"
         >
-          <DitherShader
-            src={c.bloom}
-            gridSize={3}
-            ditherMode="bayer"
-            colorMode="grayscale"
-            objectFit="cover"
-            className={ditherLayer}
-          />
-
-          {/* The label wraps — two short lines sit better in the top corner than
-              one line stretched across the card. */}
-          <p className="relative max-w-[12ch] text-lg leading-snug text-muted-foreground">
-            {c.label}
-          </p>
-
-          <p
-            className={cn(
-              "relative text-4xl leading-tight font-medium tracking-tight text-foreground @[220px]/card:text-5xl",
-              c.valueClassName,
-            )}
-          >
-            {c.value}
-          </p>
+          <CardHeader className="grid-cols-1 gap-2">
+            {/* Heading left, icon pinned top-right — the badge's text is gone,
+                so the value gets the card's full width back. */}
+            <div className="flex items-start justify-between gap-2">
+              <CardDescription className="whitespace-nowrap">
+                {c.label}
+              </CardDescription>
+              <CardIconBadge icon={c.icon} label={c.badge} />
+            </div>
+            <CardTitle className="text-2xl font-semibold tracking-tight whitespace-nowrap @[250px]/card:text-3xl">
+              {c.value}
+            </CardTitle>
+          </CardHeader>
+          {/* Copy is kept short enough that every footer holds one line at the
+              width the 4-up grid produces — nothing wraps, so the divider rules
+              and the sub-labels stay on a common line across the row. */}
+          <CardFooter className="mt-auto flex-col items-start gap-1.5 text-sm">
+            <div className="font-medium whitespace-nowrap">{c.footer}</div>
+            <div className="text-muted-foreground">{c.sub}</div>
+          </CardFooter>
         </Card>
-      ))}
-
-      <ToolsMarqueeCard bloom={bloom(84, 26, 78)} ditherClassName={ditherLayer} />
-    </div>
+        ))}
+        <ToolsMarqueeCard />
+      </div>
+    </TooltipProvider>
   );
 }

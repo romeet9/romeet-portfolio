@@ -1,7 +1,13 @@
 import { SiAnthropic, SiFigma, SiFramer } from "@icons-pack/react-simple-icons";
+import { WrenchIcon } from "lucide-react";
 
-import { Card } from "@/components/ui/card";
-import { DitherShader } from "@/components/ui/dither-shader";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { CardIconBadge } from "@/components/card-icon-badge";
 
 /** Real Visual Studio Code mark (simple-icons dropped it for trademark reasons). */
 function VSCodeIcon({ className }: { className?: string }) {
@@ -24,38 +30,25 @@ const tools: { name: string; Icon: React.ComponentType<{ className?: string }> }
 const half = [...tools, ...tools, ...tools];
 const track = [...half, ...half];
 
-/**
- * Same skeleton as the KPI cards — label top, subject bottom — except the
- * subject is the marquee rather than a figure, so the four cards still read as
- * one row.
- */
-export function ToolsMarqueeCard({
-  bloom,
-  ditherClassName,
-}: {
-  bloom: string;
-  ditherClassName: string;
-}) {
+export function ToolsMarqueeCard() {
   return (
-    <Card className="@container/card relative flex min-h-56 flex-col justify-between gap-8 overflow-hidden rounded-[var(--kpi-radius)] p-[var(--kpi-padding)] shadow-xs">
-      <DitherShader
-        src={bloom}
-        gridSize={3}
-        ditherMode="bayer"
-        colorMode="grayscale"
-        objectFit="cover"
-        className={ditherClassName}
-      />
-
-      <p className="relative max-w-[12ch] text-lg leading-snug text-muted-foreground">
-        Tools I use
-      </p>
-
+    <Card className="@container/card rounded-[var(--kpi-radius)] [--card-spacing:var(--kpi-padding)]">
+      <CardHeader className="grid-cols-1 gap-2">
+        <div className="flex items-start justify-between gap-2">
+          <CardDescription className="whitespace-nowrap">
+            Tools I use
+          </CardDescription>
+          <CardIconBadge icon={WrenchIcon} label="Design + build" />
+        </div>
+        <CardTitle className="text-2xl font-semibold tracking-tight whitespace-nowrap @[250px]/card:text-3xl">
+          {tools.length}
+        </CardTitle>
+      </CardHeader>
       {/* Infinite auto-scrolling strip. The track repeats the tool set so its
           first half already overflows the card — that's what lets the -50%
           loop restart without a visible jump. */}
       <div
-        className="relative -mx-[var(--kpi-padding)] overflow-hidden"
+        className="relative mt-auto mb-(--card-spacing) overflow-hidden"
         style={{
           maskImage:
             "linear-gradient(to right, transparent, #000 12%, #000 88%, transparent)",
