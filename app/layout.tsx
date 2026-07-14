@@ -64,7 +64,6 @@ export default function RootLayout({
               <PageTransition>{children}</PageTransition>
             </main>
           </div>
-          <EdgeScrim edge="top" />
           <EdgeScrim edge="bottom" />
           <FloatingDock />
           {/* Renders nothing unless it's dev or the URL carries ?tune=1. */}
