@@ -25,11 +25,11 @@ const SNAPPED = { scale: 1, opacity: 1, y: 0 };
 // Bouncy, settles in ~0.4s.
 const SETTLE = { type: "spring", visualDuration: 0.42, bounce: 0.38 } as const;
 
-// The trigger band is the middle ~40% of the viewport, biased upward: with the
-// site header gone the snapport's centre sits (112 - 16) / 2 = 48px *above* the
-// raw viewport's, because the dock's inset is far deeper than the top's. The
-// bigger bottom margin is what pulls the band up to meet it.
-const VIEWPORT = { margin: "-24% 0px -36% 0px", amount: 0.4, once: false } as const;
+// The trigger band is the middle ~40% of the viewport, biased upward: the
+// snapport's centre sits (112 - 30) / 2 = 41px *above* the raw viewport's,
+// because the dock's inset is far deeper than the top's. The bigger bottom
+// margin is what pulls the band up to meet it.
+const VIEWPORT = { margin: "-25% 0px -35% 0px", amount: 0.4, once: false } as const;
 
 export function SnapPanel({
   children,

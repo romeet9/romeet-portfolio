@@ -14,10 +14,14 @@
   --tile-radius: 7.5%;
   --tile-padding: 16.5%;
 
-  /* The two insets the mobile deck snaps between. There's no site header any
-     more, so the top is just a hairline of breathing room; the bottom is the
-     floating dock's band (the page shell's pb-28). */
-  --snap-top: 1rem;
+  /* The two insets the mobile deck snaps between.
+     Bottom: 7rem (112px) — the page shell's pb-28.
+     Top: 30px, which is not arbitrary. The dock occupies the bottom 82px of the
+     viewport (its own 58px height + the 24px it floats above the edge), so the
+     visible gap between a card and the dock is 112 − 82 = 30px. Matching the top
+     inset to it means the card is framed by the same margin above and below
+     instead of sitting flush against the browser chrome. */
+  --snap-top: 1.875rem;
   --snap-bottom: 7rem;
 
   --background: oklch(1 0 0);
@@ -258,6 +262,15 @@
 
   html:has(#overview-deck)::-webkit-scrollbar {
     display: none;
+  }
+
+  /* scroll-padding only moves where the snap engine *lands* — it puts no actual
+     space above the deck, so at scroll 0 the first card was flush with the top
+     of the viewport. This is the real gap. It also makes panel 1 rest exactly on
+     its snap point, and keeps the last panel centred at max scroll: the shell's
+     pb-28 below and this above are the two ends of the same algebra. */
+  #overview-deck {
+    padding-top: var(--snap-top);
   }
 
   #overview-deck > .snap-panel {

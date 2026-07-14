@@ -1,7 +1,6 @@
 import { ArrowRightIcon } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { CardCanvas } from "@/components/overview/card-canvas";
 import { MediaCard } from "@/components/media-card";
 
 /**
@@ -16,7 +15,9 @@ import { MediaCard } from "@/components/media-card";
 export function HeroCard() {
   return (
     <MediaCard
-      artwork={<CardCanvas />}
+      image={{ src: "/overview/hero.jpg", alt: "Dark violet abstract waves" }}
+      priority
+      sizes="(min-width: 768px) 100vw, 100vw"
       titleAs="h1"
       eyebrow="AI Product Designer"
       title="Romeet Chatterjee"
