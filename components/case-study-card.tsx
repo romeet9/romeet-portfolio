@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRightIcon } from "lucide-react";
 
 import type { CaseStudy } from "@/content/case-studies";
+import { cn } from "@/lib/utils";
 
 /**
  * Full-bleed case study card: the mockup *is* the card. Metadata, title,
@@ -36,31 +37,16 @@ export function CaseStudyCard({
         fill
         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
         quality={95}
-        className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+        className={cn(
+          "object-cover object-center transition-transform duration-500 ease-out",
+          study.coverZoom
+            ? // The shot frames the phone small in a wide, empty backdrop. Zoom
+              // and lift the crop so the device fills the card and clears the
+              // caption, instead of sitting in the middle of dead grey space.
+              "scale-[1.4] -translate-y-[7%] group-hover:scale-[1.45]"
+            : "group-hover:scale-[1.03]",
+        )}
       />
-
-      {/* Live 3D mockup, layered over the cover image which stays as its poster.
-          pointer-events-none is load-bearing: without it the iframe swallows the
-          click and the card stops being a link.
-
-          The embed composes against its OWN viewport: squeezed into a small
-          portrait box its camera crops to the background props and its
-          fixed-pixel watermark balloons to fill the frame — which is what made
-          it look broken on a phone. So it gets a wide 16:9 viewport at 260% of
-          the card and the card crops it. The subject lands centred in the clear
-          upper area, the watermark falls into the dark of the gradient, and
-          downscaling a bigger render is what makes it read sharp. */}
-      {study.coverEmbed && (
-        <iframe
-          src={study.coverEmbed}
-          title=""
-          aria-hidden
-          tabIndex={-1}
-          loading="lazy"
-          scrolling="no"
-          className="pointer-events-none absolute -top-[42%] -left-[121%] aspect-video w-[320%] border-0 transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-        />
-      )}
 
       {/* Legibility lift. The mockups are bright white phone screens, so the ramp
           has to be deep where the type sits and gone by the midline. Two passes:
