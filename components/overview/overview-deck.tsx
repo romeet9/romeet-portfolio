@@ -2,7 +2,6 @@ import type { OverviewCard } from "@/content/overview-cards";
 import { ComingSoonCaseCard } from "@/components/coming-soon-case-card";
 import { HeroCard } from "@/components/overview/hero-card";
 import { MediaCard } from "@/components/media-card";
-import { ScrollPill } from "@/components/overview/scroll-pill";
 import { SnapPanel } from "@/components/overview/snap-panel";
 import { ToolsMarqueeCard } from "@/components/tools-marquee-card";
 
@@ -21,9 +20,9 @@ export function OverviewDeck({ cards }: { cards: OverviewCard[] }) {
       id="overview-deck"
       className="flex flex-col md:grid md:grid-cols-3 md:gap-4 md:py-6"
     >
-      <ScrollPill />
-
-      <SnapPanel className="md:col-span-3">
+      {/* `is-hero` shortens this panel on mobile so the next card peeks above
+          the fold — the peek is the scroll affordance, so nothing has to say so. */}
+      <SnapPanel className="is-hero md:col-span-3">
         <HeroCard />
       </SnapPanel>
 

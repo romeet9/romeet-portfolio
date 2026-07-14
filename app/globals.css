@@ -281,6 +281,17 @@
     scroll-snap-stop: always;
   }
 
+  /* The hero is deliberately short of the full band, so the next card breaks the
+     bottom of the screen. That peek is the scroll affordance — a card cut off by
+     the fold tells you to keep going better than any label could, which is why
+     there's no longer a pill saying it.
+
+     The algebra still closes: every later panel is a full band, so panel 2 snaps
+     to `heroHeight` and the last still lands exactly centred at max scroll. */
+  #overview-deck > .snap-panel.is-hero {
+    height: calc((100svh - var(--snap-top) - var(--snap-bottom)) * 0.78);
+  }
+
   /* The card fills its panel, so it's as tall as the device — the 4:5 it ships
      with is a desktop shape. The image is object-cover, so it crops rather than
      letterboxing, whatever the phone's proportions are. */
