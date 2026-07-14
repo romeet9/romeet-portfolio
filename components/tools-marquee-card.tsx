@@ -1,13 +1,7 @@
 import { SiAnthropic, SiFigma, SiFramer } from "@icons-pack/react-simple-icons";
-import { WrenchIcon } from "lucide-react";
 
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { CardIconBadge } from "@/components/card-icon-badge";
+import { CardCanvas } from "@/components/overview/card-canvas";
+import { MediaCard } from "@/components/media-card";
 
 /** Real Visual Studio Code mark (simple-icons dropped it for trademark reasons). */
 function VSCodeIcon({ className }: { className?: string }) {
@@ -30,25 +24,14 @@ const tools: { name: string; Icon: React.ComponentType<{ className?: string }> }
 const half = [...tools, ...tools, ...tools];
 const track = [...half, ...half];
 
-export function ToolsMarqueeCard() {
+function ToolsCanvas() {
   return (
-    <Card className="@container/card rounded-[var(--kpi-radius)] [--card-spacing:var(--kpi-padding)]">
-      <CardHeader className="grid-cols-1 gap-2">
-        <div className="flex items-start justify-between gap-2">
-          <CardDescription className="whitespace-nowrap">
-            Tools I use
-          </CardDescription>
-          <CardIconBadge icon={WrenchIcon} label="Design + build" />
-        </div>
-        <CardTitle className="text-2xl font-semibold tracking-tight whitespace-nowrap @[250px]/card:text-3xl">
-          {tools.length}
-        </CardTitle>
-      </CardHeader>
-      {/* Infinite auto-scrolling strip. The track repeats the tool set so its
-          first half already overflows the card — that's what lets the -50%
-          loop restart without a visible jump. */}
+    <CardCanvas>
+      {/* Infinite auto-scrolling strip, sitting on the canvas's glow. The chips
+          are white-on-dark here, not the light-surface tokens the old KPI card
+          used — the ground underneath them changed. */}
       <div
-        className="relative mt-auto mb-(--card-spacing) overflow-hidden"
+        className="absolute inset-x-0 top-[30%] -translate-y-1/2 overflow-hidden"
         style={{
           maskImage:
             "linear-gradient(to right, transparent, #000 12%, #000 88%, transparent)",
@@ -61,13 +44,24 @@ export function ToolsMarqueeCard() {
             <div
               key={i}
               title={name}
-              className="mr-3 flex size-10 shrink-0 items-center justify-center rounded-xl border bg-background text-foreground/85"
+              className="mr-3 flex size-14 shrink-0 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-white backdrop-blur-sm"
             >
-              <Icon className="size-5" />
+              <Icon className="size-6" />
             </div>
           ))}
         </div>
       </div>
-    </Card>
+    </CardCanvas>
+  );
+}
+
+export function ToolsMarqueeCard() {
+  return (
+    <MediaCard
+      artwork={<ToolsCanvas />}
+      eyebrow="Design + build"
+      title="Tools I use"
+      detail="Figma to think, Claude Code to build, Framer to prototype, VS Code for everything else."
+    />
   );
 }

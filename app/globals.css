@@ -14,6 +14,11 @@
   --tile-radius: 7.5%;
   --tile-padding: 16.5%;
 
+  /* The two insets the mobile deck snaps between: the sticky header (h-16) and
+     the floating dock's band (the page shell's pb-28). */
+  --snap-top: 4rem;
+  --snap-bottom: 7rem;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -218,6 +223,41 @@
     100% {
       opacity: 0;
     }
+  }
+}
+
+/* ── The mobile Overview deck ───────────────────────────────────────────────
+   The document is the scroller — a nested overflow container would fight iOS
+   (the URL bar never collapses, and you get a double-scroll trap at the edges).
+   Snapping scopes itself to the Overview via :has() on the deck's marker id, so
+   it needs no JavaScript and unscopes itself the moment you navigate away.
+
+   The two insets are already in the layout: SiteHeader is a 64px sticky header,
+   and the page shell's pb-28 leaves 112px under the content for the floating
+   dock. Feeding those to scroll-padding makes `scroll-snap-align: center` centre
+   a card in the *visible* band rather than the raw viewport — and the algebra
+   lands the first panel at rest at scroll 0 and the last one exactly centred at
+   max scroll.
+
+   Gated on a minimum height: on a short landscape phone the visible band can't
+   hold a 4:5 card, so the deck falls back to plain scrolling rather than snapping
+   to panels that are taller than the snapport (content you could never reach).
+
+   svh, never dvh: dvh changes as the iOS URL bar collapses, which would resize
+   every panel mid-scroll and make the snap engine jump. */
+@media (max-width: 767px) and (min-height: 600px) {
+  html:has(#overview-deck) {
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: var(--snap-top);
+    scroll-padding-bottom: var(--snap-bottom);
+  }
+
+  #overview-deck > .snap-panel {
+    height: calc(100svh - var(--snap-top) - var(--snap-bottom));
+    scroll-snap-align: center;
+    /* This, not `mandatory`, is what makes one flick advance exactly one card;
+       mandatory alone lets a hard flick sail past three of them. */
+    scroll-snap-stop: always;
   }
 }
 
