@@ -59,29 +59,20 @@ export function CaseStudyCard({
 
       <ArrowUpRightIcon className="absolute top-5 right-5 size-5 text-white/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-      {/* Bottom-left text block — hierarchy: title, tagline, then metadata. */}
-      <div className="relative mt-auto flex flex-col gap-2 p-5 sm:p-6">
+      {/* Bottom-left text block: eyebrow, title, one-line summary. No tag pills
+          — the chrome they added is exactly what this layout is meant to shed. */}
+      <div className="relative mt-auto flex flex-col gap-1.5 p-5 sm:p-6">
+        <span className="text-[11px] font-medium tracking-[0.08em] text-white/55 uppercase">
+          {study.company} · {study.year}
+        </span>
+
         <h3 className="text-xl font-semibold tracking-tight text-white drop-shadow-sm sm:text-2xl">
           {asTitle(study.name)}
         </h3>
 
-        <p className="line-clamp-2 max-w-[34ch] text-sm leading-relaxed text-white/80">
+        <p className="line-clamp-2 max-w-[34ch] text-sm leading-relaxed text-white/75">
           {asSentence(study.tagline)}
         </p>
-
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 text-[11px] text-white/60">
-          <span className="whitespace-nowrap">
-            {study.company} · {study.year}
-          </span>
-          {study.skills.map((s) => (
-            <span
-              key={s}
-              className="rounded-full border border-white/20 bg-white/10 px-2 py-0.5 whitespace-nowrap backdrop-blur-sm"
-            >
-              {s}
-            </span>
-          ))}
-        </div>
       </div>
     </Link>
   );

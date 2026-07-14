@@ -1,114 +1,117 @@
-// Fake source for the streaming editor panel — the Case Detail screen, in progress.
-// A trailing "" line carries the blinking caret. The block is duplicated in the
-// track so the upward scroll loops seamlessly (translateY 0 → -50%).
-const CODE = [
-  "// case-detail.tsx (WIP)",
-  "export function CaseDetail({ id }) {",
-  "  const { case } = useCase(id)",
-  '  const [tab, setTab] = useState("summary")',
-  "  return (",
-  "    <Screen title={case.subject}>",
-  "      <StickyHeader status={case.status} />",
-  "      <Tabs value={tab} onChange={setTab} />",
-  "      <Timeline events={case.events} />",
-  "      <Attachments files={case.files} />",
-  '      <ActionBar primary="Resolve" />',
-  "    </Screen>",
-  "  )",
-  "}",
-  "// TODO: prototype the sticky header",
-  "// TODO: usability-test the tab switch",
-  "",
+/**
+ * The third case study, still in progress.
+ *
+ * The artwork speaks the same language as the rising-action illustrations in
+ * the Add Case study: a near-black #0c0c0e canvas, a faint dotted grid,
+ * concentric dashed rings, a few star specks, and a subject built from soft
+ * rounded "glass" plates receding in perspective over a radial glow — fading
+ * out toward the bottom so the caption reads. Here the plates stand in for the
+ * Case Detail screen's sections: header, tabs, timeline, attachments, actions.
+ */
+
+// The plates, front to back. Each is dimmer and narrower than the one before it.
+const PLATES = [
+  "w-[76%] opacity-90",
+  "w-[80%] opacity-75",
+  "w-[84%] opacity-[0.55]",
+  "w-[88%] opacity-40",
+  "w-[92%] opacity-25",
+  "w-[96%] opacity-[0.12]",
 ];
 
-function lineColor(text: string) {
-  const t = text.trim();
-  if (t.startsWith("//")) return "text-emerald-400/55 italic";
-  if (t.includes("<")) return "text-sky-300/70";
-  return "text-zinc-400";
-}
-
-function CodeLine({ text }: { text: string }) {
-  return (
-    <div className="flex h-5 items-center whitespace-pre font-mono text-[11px] leading-5">
-      <span className={lineColor(text)}>{text}</span>
-      {text === "" && (
-        <span className="inline-block h-3.5 w-[6px] animate-caret-blink bg-zinc-200" />
-      )}
-    </div>
-  );
-}
+// Scattered specks, positioned like the ones in the rendered illustrations.
+const SPECKS = [
+  "top-[12%] left-[18%] size-[3px] opacity-70",
+  "top-[8%] left-[62%] size-[3px] opacity-60",
+  "top-[26%] left-[86%] size-[3px] opacity-50",
+  "top-[46%] left-[9%] size-[3px] opacity-45",
+  "top-[58%] left-[92%] size-[3px] opacity-40",
+];
 
 export function ComingSoonCaseCard() {
-  const track = [...CODE, ...CODE];
-
   return (
-    // Same full-bleed shell as CaseStudyCard, so the row reads as one system —
-    // here the "artwork" is the live editor panel instead of a mockup photo.
-    <div className="relative flex aspect-[4/5] overflow-hidden rounded-[22px] bg-neutral-950 ring-1 ring-foreground/10">
-      {/* Editor chrome */}
-      <div className="absolute inset-x-0 top-0 flex h-9 items-center gap-1.5 border-b border-white/10 pl-3 pr-2">
-        <span className="size-2 rounded-full bg-red-500/70" />
-        <span className="size-2 rounded-full bg-yellow-500/70" />
-        <span className="size-2 rounded-full bg-green-500/70" />
-        <span className="ml-2 font-mono text-[10px] text-zinc-500">
-          case-detail.tsx
-        </span>
+    <div className="relative flex aspect-[4/5] flex-col justify-end overflow-hidden rounded-[22px] bg-[#0c0c0e] ring-1 ring-white/[0.07]">
+      {/* Dotted grid */}
+      <div
+        aria-hidden
+        className="absolute inset-0 [background-image:radial-gradient(circle,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:22px_22px]"
+      />
 
-        <div className="ml-auto flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/15 px-2 py-0.5 backdrop-blur-sm">
-          <span className="relative flex size-1.5">
-            <span className="absolute inline-flex size-full animate-ping rounded-full bg-amber-400 opacity-75" />
-            <span className="relative inline-flex size-1.5 rounded-full bg-amber-400" />
-          </span>
-          <span className="font-mono text-[10px] font-medium uppercase tracking-wide text-amber-200">
-            Coming soon
-          </span>
-        </div>
+      {/* Concentric dashed rings, centred on the subject */}
+      <div
+        aria-hidden
+        className="absolute top-[34%] left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
+        {["size-[220px]", "size-[340px]", "size-[460px]", "size-[580px]"].map(
+          (size) => (
+            <div
+              key={size}
+              className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-white/[0.035] ${size}`}
+            />
+          ),
+        )}
       </div>
 
-      {/* Streaming code — fills the card behind the text */}
-      <div className="absolute inset-x-0 bottom-0 top-9 overflow-hidden px-3 pt-1">
-        <div className="flex animate-code-scroll flex-col will-change-transform">
-          {track.map((text, i) => (
-            <CodeLine key={i} text={text} />
+      {/* The glow the plates sit in front of */}
+      <div
+        aria-hidden
+        className="absolute top-[32%] left-1/2 size-80 -translate-x-1/2 -translate-y-1/2 animate-glow rounded-full bg-white/[0.11] blur-3xl"
+      />
+
+      {/* Star specks */}
+      {SPECKS.map((s) => (
+        <span
+          key={s}
+          aria-hidden
+          className={`absolute rounded-full bg-white ${s}`}
+        />
+      ))}
+
+      {/* Subject — the plates, tilted back in perspective and dissolving downward */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-[14%] flex flex-col items-center gap-[3.5%] [mask-image:linear-gradient(to_bottom,black_0%,black_55%,transparent_92%)] [perspective:900px]"
+      >
+        <div className="flex w-[78%] flex-col items-center gap-[6px] [transform:rotateX(16deg)_rotate(-3deg)] [transform-style:preserve-3d]">
+          {PLATES.map((plate, i) => (
+            <div
+              key={i}
+              className={`h-[26px] rounded-[7px] border border-white/[0.18] bg-gradient-to-b from-white/[0.14] to-white/[0.03] shadow-lg shadow-black/40 ${plate}`}
+            />
           ))}
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 top-9 h-6 bg-gradient-to-b from-neutral-950 to-transparent" />
+      {/* Status — hairline pill, matching the case-study chrome */}
+      <div className="absolute top-5 right-5 z-10 flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.08] px-2.5 py-1 backdrop-blur-md">
+        <span className="relative flex size-1.5">
+          <span className="absolute inline-flex size-full animate-ping rounded-full bg-white/70" />
+          <span className="relative inline-flex size-1.5 rounded-full bg-white/90" />
+        </span>
+        <span className="text-[10px] font-medium tracking-[0.08em] text-white/70 uppercase">
+          In progress
+        </span>
+      </div>
 
-      {/* Same legibility ramp as the real cards. Denser here — live code is
-          scrolling underneath, and moving text behind static text is unreadable. */}
+      {/* Caption fade — the same ramp the rising-action bento uses */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-neutral-950 via-neutral-950/75 to-transparent"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 backdrop-blur-[5px] [mask-image:linear-gradient(to_top,black_0%,black_45%,transparent_100%)]"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-[#0c0c0e] via-[#0c0c0e]/85 to-transparent"
       />
 
-      <div className="relative mt-auto flex flex-col gap-2 p-5 sm:p-6">
-        <h3 className="text-xl font-semibold tracking-tight text-white/90 sm:text-2xl">
+      <div className="relative flex flex-col gap-1.5 p-5 sm:p-6">
+        <span className="text-[11px] font-medium tracking-[0.08em] text-white/45 uppercase">
+          12 Grids · 2026
+        </span>
+
+        <h3 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
           Edge CRM · Case Detail
         </h3>
 
-        <p className="line-clamp-2 max-w-[34ch] text-sm leading-relaxed text-white/70">
+        <p className="line-clamp-2 max-w-[34ch] text-sm leading-relaxed text-white/45">
           The third screen. Deep case context: timeline, attachments and actions
           in one view. Currently in the works.
         </p>
-
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 text-[11px] text-white/55">
-          <span className="whitespace-nowrap">12 Grids · 2026</span>
-          {["Case detail UI", "In progress"].map((s) => (
-            <span
-              key={s}
-              className="rounded-full border border-white/20 bg-white/10 px-2 py-0.5 whitespace-nowrap backdrop-blur-sm"
-            >
-              {s}
-            </span>
-          ))}
-        </div>
       </div>
     </div>
   );

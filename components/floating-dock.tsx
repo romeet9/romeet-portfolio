@@ -22,6 +22,12 @@ import { cn } from "@/lib/utils";
 const dockButton =
   "relative size-10 rounded-full text-muted-foreground hover:text-foreground";
 
+// The variant has to match the primitive's own `data-vertical:self-stretch` for
+// cn() to merge it away — a bare `self-center` loses to the attribute selector's
+// specificity. Stretch with an explicit height resolves to flex-start, which is
+// what left the rule sitting 8px above the icons' centre line.
+const dockSeparator = "mx-1 h-6 data-vertical:self-center";
+
 /**
  * The site's only navigation: an icon dock floating at the bottom of the
  * viewport. On small screens the links and theme toggle live inside the dock
@@ -152,7 +158,7 @@ export function FloatingDock() {
               );
             })}
 
-            <Separator orientation="vertical" className="mx-1 h-6" />
+            <Separator orientation="vertical" className={dockSeparator} />
 
             {/* Desktop: the links and theme toggle sit in the row itself. */}
             <div className="hidden items-center gap-1.5 sm:flex">
@@ -178,7 +184,7 @@ export function FloatingDock() {
                 </Tooltip>
               ))}
 
-              <Separator orientation="vertical" className="mx-1 h-6" />
+              <Separator orientation="vertical" className={dockSeparator} />
 
               <Tooltip>
                 <TooltipTrigger
