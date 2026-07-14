@@ -1,72 +1,40 @@
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { CardIconBadge } from "@/components/card-icon-badge";
+import { Card } from "@/components/ui/card";
 import { ToolsMarqueeCard } from "@/components/tools-marquee-card";
-import { MousePointerClickIcon, RocketIcon, SparklesIcon } from "lucide-react";
 
+/**
+ * KPI cards: label at the top, figure at the bottom, nothing in between. The
+ * empty middle is the design — it's what makes the number read as the card's
+ * subject rather than one line of a stat block. Colour is straight shadcn:
+ * `bg-card` on `border`, muted label, foreground figure. No gradient wash, no
+ * icon, no footer copy.
+ */
 const cards = [
-  {
-    label: "Interactive prototypes",
-    value: "100%",
-    badge: "Coded, not mocked",
-    footer: "Ships a clickable build",
-    sub: "Framer + real front-end code",
-    icon: MousePointerClickIcon,
-  },
-  {
-    label: "Shipped to production",
-    value: "4 apps",
-    badge: "Web · iOS · macOS",
-    footer: "Real, working products",
-    sub: "Next.js 16 · SwiftUI",
-    icon: RocketIcon,
-  },
-  {
-    label: "AI in every project",
-    value: "Daily",
-    badge: "Claude Code",
-    footer: "I design and build with AI",
-    sub: "Research → handoff",
-    icon: SparklesIcon,
-  },
+  { label: "Interactive prototypes", value: "100%" },
+  { label: "Shipped to production", value: "4 apps" },
+  { label: "AI in every project", value: "Daily" },
 ];
 
 export function SectionCards() {
   return (
-    <TooltipProvider delay={120}>
-      <div className="grid grid-cols-1 gap-4 *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card *:data-[slot=card]:shadow-xs @xl/main:grid-cols-2 @5xl/main:grid-cols-4 dark:*:data-[slot=card]:bg-card">
+    <div className="grid grid-cols-1 gap-4 @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
       {cards.map((c) => (
-        <Card key={c.label} className="@container/card">
-          <CardHeader className="grid-cols-1 gap-2">
-            {/* Heading left, icon pinned top-right — the badge's text is gone,
-                so the value gets the card's full width back. */}
-            <div className="flex items-start justify-between gap-2">
-              <CardDescription className="whitespace-nowrap">
-                {c.label}
-              </CardDescription>
-              <CardIconBadge icon={c.icon} label={c.badge} />
-            </div>
-            <CardTitle className="text-2xl font-semibold tracking-tight whitespace-nowrap @[250px]/card:text-3xl">
-              {c.value}
-            </CardTitle>
-          </CardHeader>
-          {/* Copy is kept short enough that every footer holds one line at the
-              width the 4-up grid produces — nothing wraps, so the divider rules
-              and the sub-labels stay on a common line across the row. */}
-          <CardFooter className="mt-auto flex-col items-start gap-1.5 text-sm">
-            <div className="font-medium whitespace-nowrap">{c.footer}</div>
-            <div className="text-muted-foreground">{c.sub}</div>
-          </CardFooter>
+        <Card
+          key={c.label}
+          className="@container/card flex min-h-56 flex-col justify-between gap-8 p-6 shadow-xs"
+        >
+          {/* The label is allowed to wrap — two short lines sit better in the
+              top corner than one line stretched across the card. */}
+          <p className="max-w-[12ch] text-lg leading-snug text-muted-foreground">
+            {c.label}
+          </p>
+
+          <p className="text-4xl font-medium tracking-tight text-foreground @[220px]/card:text-5xl">
+            {c.value}
+          </p>
         </Card>
-        ))}
-        <ToolsMarqueeCard />
-      </div>
-    </TooltipProvider>
+      ))}
+
+      <ToolsMarqueeCard />
+    </div>
   );
 }
