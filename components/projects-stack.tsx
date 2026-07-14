@@ -39,23 +39,10 @@ const SPRING = {
 } as const;
 
 /**
- * Film grain. The mesh is pure CSS, so without it the gradients band visibly on
- * the deep stops; the turbulence breaks the ramps into noise the way the mockup
- * does. Inline SVG rather than an asset — it's smaller than the request that
- * would fetch it.
- */
-const GRAIN =
-  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E\")";
-
-/**
- * A portrait tile in the shape of a watch face, carrying a mesh gradient mixed
- * from the project's own icon colours: a deep ground, a bright bloom, and a
- * contrasting warm hue so it never flattens into a duotone.
- *
- * The bloom is anchored to the *right* of centre and the deep stop is pulled
- * into the bottom-left, because that's the corner both labels sit in — the type
- * always lands on the darkest part of the mesh, so white stays legible no matter
- * how poppy the palette gets.
+ * A portrait tile in the shape of a watch face: the project's name small at the
+ * top, its category large at the bottom, on the same neutral card surface the
+ * rest of the dashboard uses — `bg-card` on a hairline ring, no colour of its
+ * own.
  *
  * Every size is a percentage of the tile and the type is in `em`, so one
  * component serves both the small deck and the large cluster off a single
@@ -68,42 +55,18 @@ function ProjectTile({
   project: Project;
   className?: string;
 }) {
-  const { deep, base, bloom, warm } = project.mesh;
-
-  const mesh = [
-    `radial-gradient(75% 60% at 72% 78%, ${bloom} 0%, transparent 62%)`,
-    `radial-gradient(65% 50% at 78% 14%, ${warm} 0%, transparent 60%)`,
-    `radial-gradient(90% 75% at 22% 30%, ${base} 0%, transparent 70%)`,
-    `radial-gradient(120% 110% at 8% 100%, ${deep} 10%, transparent 75%)`,
-    `linear-gradient(155deg, ${base} 0%, ${deep} 100%)`,
-  ].join(", ");
-
   return (
     <div
       className={cn(
-        "relative flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-[var(--tile-radius)] p-[var(--tile-padding)] shadow-[0_14px_30px_-8px_rgba(0,0,0,0.4)]",
+        "relative flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-[var(--tile-radius)] bg-card p-[var(--tile-padding)] ring-1 ring-foreground/10 shadow-[0_14px_30px_-10px_rgba(0,0,0,0.25)] dark:shadow-[0_14px_30px_-8px_rgba(0,0,0,0.5)]",
         className,
       )}
-      style={{ backgroundColor: base, backgroundImage: mesh }}
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-30 mix-blend-overlay"
-        style={{ backgroundImage: GRAIN }}
-      />
-
-      {/* A short scrim under the type. The mesh is bright by design; this is what
-          buys the last of the contrast without dulling the gradient above it. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/30 to-transparent"
-      />
-
-      <span className="relative truncate text-[0.55em] font-medium tracking-tight text-white/70">
+      <span className="truncate text-[0.55em] font-medium tracking-tight text-muted-foreground">
         {project.name}
       </span>
 
-      <span className="relative text-[1.05em] leading-none font-medium tracking-tight text-white">
+      <span className="text-[1.05em] leading-none font-medium tracking-tight text-foreground">
         {project.category}
       </span>
     </div>
