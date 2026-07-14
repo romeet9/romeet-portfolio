@@ -22,6 +22,15 @@ export type Project = {
   accent: string;
   /** Text color that sits legibly on `accent`. */
   onAccent: string;
+  /**
+   * Four-stop mesh palette for the project tiles, sampled from the app icon's
+   * own gradient so each card is the product's brand rather than a generic hue.
+   * `deep` and `base` are the ground, `bloom` is the bright glow, `warm` the
+   * contrasting hue that keeps the mesh from reading as a flat duotone. White
+   * type has to survive on all four, so the bloom is kept off the bottom-left
+   * corner where the type sits.
+   */
+  mesh: { deep: string; base: string; bloom: string; warm: string };
   /** Square app icon / logo for lists and tables. */
   icon?: string;
   /** Cover image (real screenshot / app icon). Omit for pure color-block tiles. */
@@ -57,6 +66,7 @@ export const projects: Project[] = [
     links: { live: "https://task-planner-seven-zeta.vercel.app" },
     accent: "#eeece7",
     onAccent: "#212121",
+    mesh: { deep: "#1e1b4b", base: "#4338ca", bloom: "#8b5cf6", warm: "#f472b6" },
     icon: "/projects/tasky-ai/icon.svg",
     cover: "/projects/tasky-ai/cover.png",
     shot: "/projects/tasky-ai/shot.png",
@@ -82,6 +92,7 @@ export const projects: Project[] = [
     links: { github: "https://github.com/romeet9/complai" },
     accent: "#003c33",
     onAccent: "#ffffff",
+    mesh: { deep: "#022c22", base: "#0f766e", bloom: "#34d399", warm: "#d9a441" },
     icon: "/projects/complai/icon.svg",
     shot: "/projects/complai/shot.png",
   },
@@ -105,6 +116,7 @@ export const projects: Project[] = [
     links: { github: "https://github.com/romeet9/InspoFlow" },
     accent: "#f1f5ff",
     onAccent: "#212121",
+    mesh: { deep: "#3b0764", base: "#7c3aed", bloom: "#f472b6", warm: "#38bdf8" },
     icon: "/projects/inspoflow/icon.svg",
     shot: "/projects/inspoflow/01-home.png",
     shotContain: true,
@@ -135,6 +147,7 @@ export const projects: Project[] = [
     links: { github: "https://github.com/romeet9/ClaudeBar" },
     accent: "#eeece7",
     onAccent: "#212121",
+    mesh: { deep: "#2e1065", base: "#6d5bd0", bloom: "#a78bfa", warm: "#f0abfc" },
     icon: "/projects/claudebar/icon.png",
     shot: "/projects/claudebar/shot.png",
     shotContain: true,
