@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowRightIcon, ChevronDownIcon } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { MediaCard } from "@/components/media-card";
@@ -31,10 +31,22 @@ export function HeroCard() {
             </AvatarFallback>
           </Avatar>
 
+          {/* The scroll hint, parked on the card rather than fired as a toast —
+              a toast leaves, and this has to be there whenever the hero is. Only
+              on mobile: the desktop grid is a grid, not a deck, so there's
+              nothing to flick through. */}
+          <span className="absolute top-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-1 rounded-full border border-white/15 bg-white/[0.08] px-3 py-1 backdrop-blur-md md:hidden">
+            <span className="text-[10px] font-medium tracking-[0.08em] text-white/75 uppercase">
+              Scroll
+            </span>
+            <ChevronDownIcon className="size-3 animate-bounce text-white/75" />
+          </span>
+
           <span className="absolute top-5 right-5 z-10 flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.08] px-2.5 py-1 backdrop-blur-md">
             <span className="size-1.5 rounded-full bg-emerald-400" />
             <span className="text-[10px] font-medium tracking-[0.08em] text-white/70 uppercase">
-              Available for roles
+              {/* Shortened on a phone so it can't collide with the scroll pill. */}
+              Available<span className="hidden sm:inline"> for roles</span>
             </span>
           </span>
         </>

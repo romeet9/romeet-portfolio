@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { BottomScrim } from "@/components/bottom-scrim";
+import { EdgeScrim } from "@/components/edge-scrim";
 import { FloatingDock } from "@/components/floating-dock";
 import { PageTransition } from "@/components/page-transition";
 import { ShapeTuner } from "@/components/shape-tuner";
@@ -64,7 +64,8 @@ export default function RootLayout({
               <PageTransition>{children}</PageTransition>
             </main>
           </div>
-          <BottomScrim />
+          <EdgeScrim edge="top" />
+          <EdgeScrim edge="bottom" />
           <FloatingDock />
           {/* Renders nothing unless it's dev or the URL carries ?tune=1. */}
           <ShapeTuner />
