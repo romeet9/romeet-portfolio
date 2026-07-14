@@ -151,6 +151,12 @@ export type CaseStudy = {
   company: string;
   skills: string[];
   cover: CaseImage;
+  /**
+   * Optional live 3D mockup for the preview card. The cover image still renders
+   * underneath it as the poster, so the card is never blank while the embed
+   * loads — or if the third-party host is down.
+   */
+  coverEmbed?: string;
   /** The framing "How might we" question — rendered as its own section. */
   hmw: string;
   /** Headline result stats (top strip). */
@@ -178,6 +184,8 @@ export const caseStudies: CaseStudy[] = [
       w: 1672,
       h: 941,
     },
+    coverEmbed:
+      "https://embed.mckp.live/embed.html?uid=eede244f-da6e-49b3-988b-5c866ee70dca&cursor-range=1-63-25-30&click-range=21-34-19-33&camera-zoom=27",
     hmw: "How might we help reps log, scan, and understand the full context of a client case, fast, without navigating across multiple screens?",
     metrics: [
       { value: "40%", label: "Faster case logging", sub: "3–4 min to under 2 min", icon: GaugeIcon },

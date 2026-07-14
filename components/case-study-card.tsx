@@ -39,6 +39,25 @@ export function CaseStudyCard({
         className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.03]"
       />
 
+      {/* Live 3D mockup, layered over the cover image which stays as its poster.
+          pointer-events-none is load-bearing: without it the iframe swallows the
+          click and the card stops being a link. */}
+      {study.coverEmbed && (
+        <iframe
+          src={study.coverEmbed}
+          title=""
+          aria-hidden
+          tabIndex={-1}
+          loading="lazy"
+          scrolling="no"
+          // Oversized and offset: the embed frames its phone low and right, so
+          // at card size it lands small and half-buried under the caption. This
+          // pushes the subject up into the clear upper two-thirds — and pushes
+          // the host's watermark down behind the gradient.
+          className="pointer-events-none absolute -top-[36%] -left-[28%] h-[135%] w-[135%] border-0 transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+        />
+      )}
+
       {/* Legibility lift. The mockups are bright white phone screens, so the ramp
           has to be deep where the type sits and gone by the midline. Two passes:
           a long soft one that dies out at 55%, and a short dense one under the
