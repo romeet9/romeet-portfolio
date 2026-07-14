@@ -7,26 +7,29 @@ import Link from "next/link";
 import { ArrowUpRightIcon, XIcon } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
+import type { Project } from "@/content/projects";
 import { projects } from "@/content/projects";
 import { cn } from "@/lib/utils";
 
 /**
- * The four projects as a fanned deck of app icons — click and they spring out
- * of the stack into a centred cluster over a frosted backdrop, the way the
+ * The four projects as a fanned deck of watch-face tiles — click and they spring
+ * out of the stack into a centred cluster over a frosted backdrop, the way the
  * Watch face picker and Control Center behave.
  *
- * The morph is a shared-element transition: each icon carries the same
+ * The morph is a shared-element transition: each tile carries the same
  * `layoutId` in both states, so motion interpolates the real geometry between
  * them. Only one of the two states is mounted at a time — render both and the
  * layoutId is ambiguous and the animation breaks.
  */
 
-// Fanned deck: rotation and offset per icon, back to front.
+// Fanned deck: rotation and offset per tile, back to front. The tiles are 84px
+// wide and sit 72px apart, so each one overlaps its neighbour by a sliver — a
+// stack, not a row — while every name still clears the card in front of it.
 const FAN = [
-  { x: -96, y: 10, rotate: -12, z: 10 },
-  { x: -32, y: -4, rotate: -4, z: 20 },
-  { x: 32, y: -4, rotate: 4, z: 30 },
-  { x: 96, y: 10, rotate: 12, z: 40 },
+  { x: -108, y: 10, rotate: -9, z: 10 },
+  { x: -36, y: -4, rotate: -3, z: 20 },
+  { x: 36, y: -4, rotate: 3, z: 30 },
+  { x: 108, y: 10, rotate: 9, z: 40 },
 ];
 
 const SPRING = {
@@ -36,34 +39,53 @@ const SPRING = {
   mass: 0.9,
 } as const;
 
-function ProjectIcon({
-  src,
-  name,
+/**
+ * A portrait tile in the shape of a watch face: the project's own accent as the
+ * ground, its icon floating in the upper two-thirds, its name set on the bottom
+ * edge. No border — the depth comes from a top-lit sheen and a soft cast shadow,
+ * so the tile reads as a physical object rather than a framed box.
+ */
+function ProjectTile({
+  project,
   className,
+  sizes = "160px",
 }: {
-  src?: string;
-  name: string;
+  project: Project;
   className?: string;
+  sizes?: string;
 }) {
   return (
-    <div className={cn("relative", className)}>
-      {src ? (
-        // The icon assets carry ~10% transparent padding of their own. A tile
-        // with a background behind them shows that padding as a frame — which
-        // is the "border" here. So the tile is transparent and the shadow lives
-        // on the image, where it follows the icon's real rounded silhouette.
-        <Image
-          src={src}
-          alt=""
-          fill
-          sizes="112px"
-          className="object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.28)]"
-        />
-      ) : (
-        <span className="flex size-full items-center justify-center rounded-[22%] bg-muted text-lg font-medium shadow-xl shadow-black/25">
-          {name.slice(0, 1)}
-        </span>
+    <div
+      className={cn(
+        "relative flex aspect-[4/5] flex-col overflow-hidden rounded-[16%] shadow-[0_14px_30px_-8px_rgba(0,0,0,0.35)]",
+        className,
       )}
+      style={{ backgroundColor: project.accent, color: project.onAccent }}
+    >
+      {/* Top-lit sheen: the light source sits above the deck, so every tile
+          catches it on the same edge and they read as one stack. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/25 via-white/0 to-black/12 mix-blend-overlay"
+      />
+
+      <div className="flex flex-1 items-center justify-center px-[14%] pt-[12%]">
+        <div className="relative aspect-square w-full">
+          <Image
+            src={project.icon ?? ""}
+            alt=""
+            fill
+            sizes={sizes}
+            className="object-contain drop-shadow-[0_6px_12px_rgba(0,0,0,0.22)]"
+          />
+        </div>
+      </div>
+
+      {/* The name inherits the tile's font-size, so one tile component covers
+          both the small deck and the large cluster without a second scale. */}
+      <span className="truncate px-[10%] pb-[9%] text-center font-medium tracking-tight">
+        {project.name}
+      </span>
     </div>
   );
 }
@@ -107,7 +129,7 @@ export function ProjectsStack() {
             deck mounted (just faded) while the cluster renders makes the id
             ambiguous and motion animates to the wrong geometry — so the deck
             unmounts entirely while expanded. */}
-        <div className="relative flex h-32 w-full items-center justify-center">
+        <div className="relative flex h-40 w-full items-center justify-center">
           {!open &&
             projects.slice(0, 4).map((p, i) => {
               const fan = FAN[i] ?? FAN[0];
@@ -127,7 +149,11 @@ export function ProjectsStack() {
                   }
                   className="absolute"
                 >
-                  <ProjectIcon src={p.icon} name={p.name} className="size-20" />
+                  <ProjectTile
+                    project={p}
+                    sizes="64px"
+                    className="w-[84px] text-[10px]"
+                  />
                 </motion.div>
               );
             })}
@@ -209,23 +235,22 @@ export function ProjectsStack() {
                     >
                       <Link
                         href={`/projects/${p.slug}`}
-                        className="group flex flex-col items-center gap-3 rounded-3xl outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+                        aria-label={p.name}
+                        className="flex flex-col items-center rounded-[24px] outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
                       >
                         <motion.div
                           whileHover={
-                            reduced ? undefined : { scale: 1.08, y: -6 }
+                            reduced ? undefined : { scale: 1.06, y: -6 }
                           }
                           whileTap={reduced ? undefined : { scale: 0.97 }}
                           transition={SPRING}
                         >
-                          <ProjectIcon
-                            src={p.icon}
-                            name={p.name}
-                            className="size-24 sm:size-28"
+                          <ProjectTile
+                            project={p}
+                            sizes="(min-width: 640px) 160px, 128px"
+                            className="w-[128px] text-[13px] sm:w-[156px] sm:text-sm"
                           />
                         </motion.div>
-
-                        <span className="text-sm font-medium">{p.name}</span>
                       </Link>
                     </motion.div>
                   ))}
