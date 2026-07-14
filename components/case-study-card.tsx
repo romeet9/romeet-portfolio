@@ -41,7 +41,15 @@ export function CaseStudyCard({
 
       {/* Live 3D mockup, layered over the cover image which stays as its poster.
           pointer-events-none is load-bearing: without it the iframe swallows the
-          click and the card stops being a link. */}
+          click and the card stops being a link.
+
+          The embed composes against its OWN viewport: squeezed into a small
+          portrait box its camera crops to the background props and its
+          fixed-pixel watermark balloons to fill the frame — which is what made
+          it look broken on a phone. So it gets a wide 16:9 viewport at 260% of
+          the card and the card crops it. The subject lands centred in the clear
+          upper area, the watermark falls into the dark of the gradient, and
+          downscaling a bigger render is what makes it read sharp. */}
       {study.coverEmbed && (
         <iframe
           src={study.coverEmbed}
@@ -50,11 +58,7 @@ export function CaseStudyCard({
           tabIndex={-1}
           loading="lazy"
           scrolling="no"
-          // Oversized and offset: the embed frames its phone low and right, so
-          // at card size it lands small and half-buried under the caption. This
-          // pushes the subject up into the clear upper two-thirds — and pushes
-          // the host's watermark down behind the gradient.
-          className="pointer-events-none absolute -top-[36%] -left-[28%] h-[135%] w-[135%] border-0 transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+          className="pointer-events-none absolute -top-[42%] -left-[121%] aspect-video w-[320%] border-0 transition-transform duration-500 ease-out group-hover:scale-[1.03]"
         />
       )}
 
