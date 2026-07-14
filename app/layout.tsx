@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { BottomScrim } from "@/components/bottom-scrim";
 import { FloatingDock } from "@/components/floating-dock";
 import { PageTransition } from "@/components/page-transition";
+import { ShapeTuner } from "@/components/shape-tuner";
 import { SiteHeader } from "@/components/site-header";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -66,6 +67,8 @@ export default function RootLayout({
           </div>
           <BottomScrim />
           <FloatingDock />
+          {/* Renders nothing unless it's dev or the URL carries ?tune=1. */}
+          <ShapeTuner />
           <Toaster />
         </ThemeProvider>
       </body>

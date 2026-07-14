@@ -37,7 +37,7 @@ export function ToolsMarqueeCard({
   ditherClassName: string;
 }) {
   return (
-    <Card className="@container/card relative flex min-h-56 flex-col justify-between gap-8 overflow-hidden p-6 shadow-xs">
+    <Card className="@container/card relative flex min-h-56 flex-col justify-between gap-8 overflow-hidden rounded-[var(--kpi-radius)] p-[var(--kpi-padding)] shadow-xs">
       <DitherShader
         src={bloom}
         gridSize={3}
@@ -55,7 +55,7 @@ export function ToolsMarqueeCard({
           first half already overflows the card — that's what lets the -50%
           loop restart without a visible jump. */}
       <div
-        className="relative -mx-6 overflow-hidden"
+        className="relative -mx-[var(--kpi-padding)] overflow-hidden"
         style={{
           maskImage:
             "linear-gradient(to right, transparent, #000 12%, #000 88%, transparent)",

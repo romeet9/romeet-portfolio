@@ -81,7 +81,7 @@ function ProjectTile({
   return (
     <div
       className={cn(
-        "relative flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-[14%] p-[9%] shadow-[0_14px_30px_-8px_rgba(0,0,0,0.4)]",
+        "relative flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-[var(--tile-radius)] p-[var(--tile-padding)] shadow-[0_14px_30px_-8px_rgba(0,0,0,0.4)]",
         className,
       )}
       style={{ backgroundColor: base, backgroundImage: mesh }}

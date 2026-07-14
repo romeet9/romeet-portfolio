@@ -5,6 +5,13 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  /* Shape of the two tunable card groups. The tuner panel (dev only, or ?tune=1)
+     writes these on <html>; these are the committed defaults it starts from. */
+  --kpi-radius: 12px;
+  --kpi-padding: 24px;
+  --tile-radius: 14%;
+  --tile-padding: 9%;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);

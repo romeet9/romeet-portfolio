@@ -66,7 +66,7 @@ export function SectionCards() {
       {cards.map((c) => (
         <Card
           key={c.label}
-          className="@container/card relative flex min-h-56 flex-col justify-between gap-8 overflow-hidden p-6 shadow-xs"
+          className="@container/card relative flex min-h-56 flex-col justify-between gap-8 overflow-hidden rounded-[var(--kpi-radius)] p-[var(--kpi-padding)] shadow-xs"
         >
           <DitherShader
             src={c.bloom}
