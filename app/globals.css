@@ -9,8 +9,8 @@
      writes these on <html>; these are the committed defaults it starts from. */
   --kpi-radius: 12px;
   --kpi-padding: 24px;
-  --tile-radius: 14%;
-  --tile-padding: 9%;
+  --tile-radius: 7.5%;
+  --tile-padding: 16.5%;
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);

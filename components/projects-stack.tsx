@@ -58,7 +58,10 @@ function ProjectTile({
   return (
     <div
       className={cn(
-        "relative flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-[var(--tile-radius)] bg-card p-[var(--tile-padding)] ring-1 ring-foreground/10 shadow-[0_14px_30px_-10px_rgba(0,0,0,0.25)] dark:shadow-[0_14px_30px_-8px_rgba(0,0,0,0.5)]",
+        // Neutral shadcn surface: `bg-muted` rather than `bg-card`, so the tiles
+        // still separate from the Projects card they sit on — which is itself
+        // `bg-card`, and would swallow them.
+        "relative flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-[var(--tile-radius)] bg-muted p-[var(--tile-padding)] ring-1 ring-foreground/10 shadow-[0_14px_30px_-10px_rgba(0,0,0,0.22)] dark:shadow-[0_14px_30px_-8px_rgba(0,0,0,0.5)]",
         className,
       )}
     >
