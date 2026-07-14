@@ -35,7 +35,7 @@ export function CaseStudyCard({
         alt={study.cover.alt}
         fill
         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-        quality={90}
+        quality={95}
         className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.03]"
       />
 

@@ -495,10 +495,10 @@ export const caseStudies: CaseStudy[] = [
     company: "12 Grids",
     skills: ["Information architecture", "Gestalt & visual hierarchy", "Mobile B2B"],
     cover: {
-      src: "/case-studies/case-list/cover.png",
+      src: "/case-studies/case-list/cover-hand.png",
       alt: "The redesigned Edge CRM Cases screen — filter chips and colour-coded priority cards — held in hand",
-      w: 1672,
-      h: 941,
+      w: 3584,
+      h: 4312,
     },
     hmw: "Which case needs me right now?",
     metrics: [
