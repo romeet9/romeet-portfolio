@@ -19,13 +19,11 @@ export function OverviewDeck({ cards }: { cards: OverviewCard[] }) {
   return (
     <div
       id="overview-deck"
-      className="flex flex-col md:grid md:grid-cols-3 md:gap-4 md:py-6"
+      className="flex flex-col gap-5 md:grid md:grid-cols-3 md:gap-4 md:py-6"
     >
-      {/* The about-me card is the first cell of the 3x3 grid — a normal 4:5 card,
-          not a banner. `is-hero` still shortens it on mobile so the next card
-          peeks above the fold; that class is mobile-only, so the desktop grid is
-          unaffected. */}
-      <SnapPanel className="is-hero">
+      {/* The about-me card is the first cell of the 3x3 grid on desktop and the
+          first card of the feed on mobile — a normal 4:5 card either way. */}
+      <SnapPanel>
         <HeroCard />
       </SnapPanel>
 

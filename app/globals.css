@@ -273,31 +273,16 @@
     padding-top: var(--snap-top);
   }
 
+  /* Each card keeps its 4:5 shape (1600x2000) — the same as the desktop grid, so
+     the proportions read identically on both. Panels take their card's own
+     height rather than the full viewport, which turns the deck into a feed: the
+     snapped card centres in the visible band and its neighbours peek above and
+     below, so one flick moves to the next and the peek is its own scroll cue. */
   #overview-deck > .snap-panel {
-    height: calc(100svh - var(--snap-top) - var(--snap-bottom));
     scroll-snap-align: center;
     /* This, not `mandatory`, is what makes one flick advance exactly one card;
        mandatory alone lets a hard flick sail past three of them. */
     scroll-snap-stop: always;
-  }
-
-  /* The hero is deliberately short of the full band, so the next card breaks the
-     bottom of the screen. That peek is the scroll affordance — a card cut off by
-     the fold tells you to keep going better than any label could, which is why
-     there's no longer a pill saying it.
-
-     The algebra still closes: every later panel is a full band, so panel 2 snaps
-     to `heroHeight` and the last still lands exactly centred at max scroll. */
-  #overview-deck > .snap-panel.is-hero {
-    height: calc((100svh - var(--snap-top) - var(--snap-bottom)) * 0.78);
-  }
-
-  /* The card fills its panel, so it's as tall as the device — the 4:5 it ships
-     with is a desktop shape. The image is object-cover, so it crops rather than
-     letterboxing, whatever the phone's proportions are. */
-  #overview-deck .snap-panel [data-card] {
-    height: 100%;
-    aspect-ratio: auto;
   }
 }
 

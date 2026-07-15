@@ -19,8 +19,12 @@ import { cn } from "@/lib/utils";
  * page scrolls past them.
  */
 
-const REST = { scale: 0.9, opacity: 0.45, y: 16 };
-const SNAPPED = { scale: 1, opacity: 1, y: 0 };
+// No vertical offset: a `y` shift moves every un-focused card the same direction
+// (down), which tightens the gap above a centred card and opens the one below —
+// asymmetric. The settle is scale + fade only, so the space around each card
+// stays equal top and bottom.
+const REST = { scale: 0.92, opacity: 0.5 };
+const SNAPPED = { scale: 1, opacity: 1 };
 
 // Bouncy, settles in ~0.4s.
 const SETTLE = { type: "spring", visualDuration: 0.42, bounce: 0.38 } as const;
@@ -41,24 +45,20 @@ export function SnapPanel({
   const isMobile = useIsMobile();
   const reduced = useReducedMotion();
 
-  // The card fills the panel on mobile (globals.css gives it height:100% and
-  // drops its aspect ratio), and the panel *is* the snapport — so the card is as
-  // tall as the device, on any device, and can never overflow into content you
-  // can't reach.
-  const fill = "flex w-full flex-col [&>*]:h-full md:[&>*]:h-auto";
-
+  // The card keeps its own 4:5 shape; the panel just holds it full-width and, on
+  // mobile, takes that card's height so the deck reads as a feed of 4:5 cards.
   if (!isMobile || reduced) {
     return (
-      <div className={cn("snap-panel flex items-center justify-center", className)}>
-        <div className={fill}>{children}</div>
+      <div className={cn("snap-panel flex w-full justify-center", className)}>
+        <div className="w-full">{children}</div>
       </div>
     );
   }
 
   return (
-    <div className={cn("snap-panel flex items-center justify-center", className)}>
+    <div className={cn("snap-panel flex w-full justify-center", className)}>
       <motion.div
-        className={cn(fill, "h-full")}
+        className="w-full"
         variants={{ rest: REST, snapped: SNAPPED }}
         initial="rest"
         whileInView="snapped"
