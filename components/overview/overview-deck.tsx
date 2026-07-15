@@ -3,51 +3,42 @@ import { ComingSoonCaseCard } from "@/components/coming-soon-case-card";
 import { HeroCard } from "@/components/overview/hero-card";
 import { ImageUploader } from "@/components/overview/image-uploader";
 import { MediaCard } from "@/components/media-card";
-import { SnapPanel } from "@/components/overview/snap-panel";
+import { SwipeDeck } from "@/components/overview/swipe-deck";
 import { ToolsMarqueeCard } from "@/components/tools-marquee-card";
 
 /**
- * The Overview, as one thing: a 3x3 grid of posters under a banner on desktop, a
- * vertical deck of full-screen snapping cards on mobile. Same array, same order,
- * same cards — only the container changes.
- *
- * `id="overview-deck"` is the marker the snap CSS keys off (`html:has(#overview-deck)`),
- * which is how the snapping and the hidden scrollbar scope themselves to this
- * route with no JavaScript, and clean themselves up when you navigate away.
+ * The Overview, two ways. Desktop is the 3x3 grid of full-bleed poster cards.
+ * Mobile is a Tinder-style swipe stack (SwipeDeck) — the same cards, coded on a
+ * neutral surface with no photos. Two presentations, one content set; each is
+ * shown only at its breakpoint so neither pays for the other.
  */
 export function OverviewDeck({ cards }: { cards: OverviewCard[] }) {
   return (
-    <div
-      id="overview-deck"
-      className="flex flex-col gap-5 md:grid md:grid-cols-3 md:gap-4 md:py-6"
-    >
-      {/* The about-me card is the first cell of the 3x3 grid on desktop and the
-          first card of the feed on mobile — a normal 4:5 card either way. */}
-      <SnapPanel>
+    <div id="overview-deck">
+      {/* Desktop: the 3x3 grid. */}
+      <div className="hidden grid-cols-3 gap-4 py-6 md:grid">
         <HeroCard />
-      </SnapPanel>
 
-      {cards.map((card, i) => (
-        <SnapPanel key={card.id}>
-          {card.render === "coming-soon" ? (
-            <ComingSoonCaseCard />
-          ) : card.render === "tools" ? (
-            <ToolsMarqueeCard />
-          ) : (
+        {cards.map((card, i) => {
+          if (card.render === "coming-soon") return <ComingSoonCaseCard key={card.id} />;
+          if (card.render === "tools") return <ToolsMarqueeCard key={card.id} />;
+          return (
             <MediaCard
+              key={card.id}
               cardId={card.id}
               href={card.href}
               image={card.image}
               eyebrow={card.eyebrow}
               title={card.title}
               detail={card.detail}
-              // The first card is the one waiting behind the hero on mobile and
-              // is above the fold on desktop — it shouldn't lazy-load.
               priority={i === 0}
             />
-          )}
-        </SnapPanel>
-      ))}
+          );
+        })}
+      </div>
+
+      {/* Mobile: the swipe stack. */}
+      <SwipeDeck className="md:hidden" />
 
       {/* Renders nothing unless it's dev or the URL carries ?upload=1. */}
       <ImageUploader />

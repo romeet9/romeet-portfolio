@@ -14,14 +14,8 @@
   --tile-radius: 7.5%;
   --tile-padding: 16.5%;
 
-  /* The two insets the mobile deck snaps between.
-     Bottom: 7rem (112px) — the page shell's pb-28.
-     Top: 30px, which is not arbitrary. The dock occupies the bottom 82px of the
-     viewport (its own 58px height + the 24px it floats above the edge), so the
-     visible gap between a card and the dock is 112 − 82 = 30px. Matching the top
-     inset to it means the card is framed by the same margin above and below
-     instead of sitting flush against the browser chrome. */
-  --snap-top: 1.875rem;
+  /* The floating dock's band — the page shell's pb-28. The mobile swipe deck
+     sizes itself to sit above this. */
   --snap-bottom: 7rem;
 
   --background: oklch(1 0 0);
@@ -232,59 +226,10 @@
 }
 
 /* ── The mobile Overview deck ───────────────────────────────────────────────
-   The document is the scroller — a nested overflow container would fight iOS
-   (the URL bar never collapses, and you get a double-scroll trap at the edges).
-   Snapping scopes itself to the Overview via :has() on the deck's marker id, so
-   it needs no JavaScript and unscopes itself the moment you navigate away.
-
-   Feeding the two insets to scroll-padding makes `scroll-snap-align: center`
-   centre a card in the *visible* band rather than the raw viewport — and the
-   algebra lands the first panel at rest at scroll 0 and the last one exactly
-   centred at max scroll.
-
-   Gated on a minimum height: on a short landscape phone the band is too shallow
-   to hold a card, so the deck falls back to plain scrolling rather than snapping
-   to panels that are taller than the snapport (content you could never reach).
-
-   svh, never dvh: dvh changes as the iOS URL bar collapses, which would resize
-   every panel mid-scroll and make the snap engine jump. */
-@media (max-width: 767px) and (min-height: 600px) {
-  html:has(#overview-deck) {
-    scroll-snap-type: y mandatory;
-    scroll-padding-top: var(--snap-top);
-    scroll-padding-bottom: var(--snap-bottom);
-
-    /* The deck is the affordance; a scrollbar track cutting down the side of a
-       full-bleed card isn't. ScrollHint's toast replaces what it was telling
-       people. */
-    scrollbar-width: none;
-  }
-
-  html:has(#overview-deck)::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* scroll-padding only moves where the snap engine *lands* — it puts no actual
-     space above the deck, so at scroll 0 the first card was flush with the top
-     of the viewport. This is the real gap. It also makes panel 1 rest exactly on
-     its snap point, and keeps the last panel centred at max scroll: the shell's
-     pb-28 below and this above are the two ends of the same algebra. */
-  #overview-deck {
-    padding-top: var(--snap-top);
-  }
-
-  /* Each card keeps its 4:5 shape (1600x2000) — the same as the desktop grid, so
-     the proportions read identically on both. Panels take their card's own
-     height rather than the full viewport, which turns the deck into a feed: the
-     snapped card centres in the visible band and its neighbours peek above and
-     below, so one flick moves to the next and the peek is its own scroll cue. */
-  #overview-deck > .snap-panel {
-    scroll-snap-align: center;
-    /* This, not `mandatory`, is what makes one flick advance exactly one card;
-       mandatory alone lets a hard flick sail past three of them. */
-    scroll-snap-stop: always;
-  }
-}
+   Mobile is a Tinder-style swipe stack (components/overview/swipe-deck.tsx), not
+   a scroll feed, so there's no scroll-snap here any more. The stack fills the
+   space above the dock and doesn't scroll. Desktop keeps the 3x3 grid, which
+   scrolls normally. */
 
 @layer utilities {
   @media (prefers-reduced-motion: reduce) {
