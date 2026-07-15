@@ -1,6 +1,7 @@
 import type { OverviewCard } from "@/content/overview-cards";
 import { ComingSoonCaseCard } from "@/components/coming-soon-case-card";
 import { HeroCard } from "@/components/overview/hero-card";
+import { ImageUploader } from "@/components/overview/image-uploader";
 import { MediaCard } from "@/components/media-card";
 import { SnapPanel } from "@/components/overview/snap-panel";
 import { ToolsMarqueeCard } from "@/components/tools-marquee-card";
@@ -36,6 +37,7 @@ export function OverviewDeck({ cards }: { cards: OverviewCard[] }) {
             <ToolsMarqueeCard />
           ) : (
             <MediaCard
+              cardId={card.id}
               href={card.href}
               image={card.image}
               eyebrow={card.eyebrow}
@@ -48,6 +50,9 @@ export function OverviewDeck({ cards }: { cards: OverviewCard[] }) {
           )}
         </SnapPanel>
       ))}
+
+      {/* Renders nothing unless it's dev or the URL carries ?upload=1. */}
+      <ImageUploader />
     </div>
   );
 }

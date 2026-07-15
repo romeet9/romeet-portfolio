@@ -50,6 +50,7 @@ function InProgressPill() {
 export function ComingSoonCaseCard() {
   return (
     <MediaCard
+      cardId="case-detail"
       artwork={
         <CardCanvas>
           <Plates />

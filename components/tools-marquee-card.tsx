@@ -58,6 +58,7 @@ function ToolsCanvas() {
 export function ToolsMarqueeCard() {
   return (
     <MediaCard
+      cardId="tools"
       artwork={<ToolsCanvas />}
       eyebrow="Design + build"
       title="Tools I use"

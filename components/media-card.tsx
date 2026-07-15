@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRightIcon } from "lucide-react";
 
 import { CardCanvas } from "@/components/overview/card-canvas";
+import { UploadedBackground } from "@/components/overview/uploaded-background";
 import { cn } from "@/lib/utils";
 
 /**
@@ -36,6 +37,12 @@ export type MediaCardProps = {
   artwork?: React.ReactNode;
   /** In front of the ramp, above the type. */
   overlay?: React.ReactNode;
+  /**
+   * Identifies the card to the dev image uploader — when set, a design uploaded
+   * for this id (browser-only) shows as the background, over the default image
+   * or artwork but under the ramp.
+   */
+  cardId?: string;
   /** Rendered under `detail`, inside the text block — the hero's CTA row. */
   children?: React.ReactNode;
   /**
@@ -56,6 +63,7 @@ export function MediaCard({
   detail,
   artwork,
   overlay,
+  cardId,
   children,
   titleAs: Title = "h3",
   priority,
@@ -87,6 +95,9 @@ export function MediaCard({
       ) : (
         (artwork ?? <CardCanvas />)
       )}
+
+      {/* A design uploaded in this browser covers the default, under the ramp. */}
+      {cardId && <UploadedBackground cardId={cardId} />}
 
       {/* Legibility lift. The covers are bright phone screens, so the ramp has to
           be deep where the type sits and gone by the midline. Two passes: a long

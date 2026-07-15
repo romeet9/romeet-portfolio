@@ -13,6 +13,7 @@ import { MediaCard } from "@/components/media-card";
 export function HeroCard() {
   return (
     <MediaCard
+      cardId="about"
       image={{ src: "/overview/hero.jpg", alt: "Dark violet abstract waves" }}
       priority
       titleAs="h1"
