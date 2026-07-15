@@ -1,6 +1,19 @@
 import { FileTextIcon, MailIcon } from "lucide-react";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 
+import { CardCanvas } from "@/components/overview/card-canvas";
+
+/**
+ * The hero: kalyp.so's typographic block — bold headline, one-line statement,
+ * muted role line, social icons, all in Space Grotesk — framed on a card so it
+ * belongs to the deck. Same dark CardCanvas the coming-soon and tools cards use,
+ * so the type is white throughout rather than theme-aware.
+ *
+ * It carries the site's only <h1> and the links the old header held, and it's
+ * still panel one of the mobile deck / the banner above the desktop grid. Marked
+ * `data-card` so it fills its panel on mobile like every other card.
+ */
+
 /** LinkedIn mark — simple-icons and lucide both dropped it for trademark reasons. */
 function LinkedInIcon({ className }: { className?: string }) {
   return (
@@ -9,17 +22,6 @@ function LinkedInIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-
-/**
- * The hero, after kalyp.so: a plain typographic block, not a card. No image, no
- * avatar, no availability pill, no button — a bold headline, a one-line
- * statement, a muted role line, and a row of social icons, all left-aligned in
- * Space Grotesk.
- *
- * It carries what the site header used to (the site's only <h1>, and the links
- * that used to sit in the header), and it's still panel one of the mobile deck —
- * the deck just has no card behind it here.
- */
 
 const links = [
   { label: "GitHub", href: "https://github.com/romeet9", Icon: SiGithub },
@@ -30,40 +32,47 @@ const links = [
 
 export function HeroCard() {
   return (
-    <div className="flex h-full flex-col justify-center gap-5 font-display md:py-10">
-      <div className="flex flex-col gap-3">
-        {/* 36px / 700 / -0.9px tracking, matching kalyp's headline. */}
-        <h1 className="text-[2.25rem] leading-[1.08] font-bold tracking-[-0.9px] text-foreground">
-          Hey, I&rsquo;m Romeet.
-        </h1>
+    <div
+      data-card
+      className="relative flex h-full flex-col justify-center overflow-hidden rounded-[22px] p-7 ring-1 ring-white/10 sm:p-9 md:aspect-auto md:min-h-72"
+    >
+      <CardCanvas />
 
-        <p className="max-w-xl text-xl leading-snug text-foreground">
-          I turn ideas into products people want to use.
-        </p>
+      <div className="relative flex flex-col gap-5 font-display">
+        <div className="flex flex-col gap-3">
+          {/* 36px / 700 / -0.9px, matching kalyp's headline. */}
+          <h1 className="text-[2.25rem] leading-[1.08] font-bold tracking-[-0.9px] text-white">
+            Hey, I&rsquo;m Romeet.
+          </h1>
 
-        <p className="max-w-md text-[15px] leading-relaxed text-muted-foreground">
-          AI Product Designer who designs and builds with AI end to end, shipping
-          real products across web, iOS and macOS.
-        </p>
-      </div>
+          <p className="max-w-xl text-xl leading-snug text-white/90">
+            I turn ideas into products people want to use.
+          </p>
 
-      <div className="flex items-center gap-5">
-        {links.map(({ label, href, Icon }) => {
-          const external = href.startsWith("http");
-          return (
-            <a
-              key={label}
-              href={href}
-              aria-label={label}
-              {...(external
-                ? { target: "_blank", rel: "noopener noreferrer" }
-                : {})}
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <Icon className="size-5" />
-            </a>
-          );
-        })}
+          <p className="max-w-md text-[15px] leading-relaxed text-white/55">
+            AI Product Designer who designs and builds with AI end to end,
+            shipping real products across web, iOS and macOS.
+          </p>
+        </div>
+
+        <div className="flex items-center gap-5">
+          {links.map(({ label, href, Icon }) => {
+            const external = href.startsWith("http");
+            return (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                {...(external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+                className="text-white/60 transition-colors hover:text-white"
+              >
+                <Icon className="size-5" />
+              </a>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

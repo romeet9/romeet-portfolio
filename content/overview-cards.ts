@@ -44,18 +44,6 @@ export const overviewCards: OverviewCard[] = [
       alt: "Deep teal curves receding into black",
     },
   },
-  {
-    id: "ai",
-    eyebrow: "Claude Code, daily",
-    title: "AI in every project",
-    detail:
-      "AI runs through the whole process, not a step in it. It's how I design at the speed I ship.",
-    image: {
-      src: "/overview/kpi-ai.jpg",
-      alt: "A bloom of particles in the dark",
-    },
-  },
-
   // ── Row 2: case studies ───────────────────────────────────────────────────
   {
     id: "edge-crm",
