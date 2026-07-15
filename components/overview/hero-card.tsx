@@ -1,55 +1,70 @@
-import { ArrowRightIcon } from "lucide-react";
+import { FileTextIcon, MailIcon } from "lucide-react";
+import { SiGithub } from "@icons-pack/react-simple-icons";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { MediaCard } from "@/components/media-card";
+/** LinkedIn mark — simple-icons and lucide both dropped it for trademark reasons. */
+function LinkedInIcon({ className }: { className?: string }) {
+  return (
+    <svg role="img" viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+  );
+}
 
 /**
- * The hero, as the first card of the deck. It carries what the site header used
- * to: the avatar, the name, the availability signal and the Hire me CTA. With
- * the header gone this is also the page's only <h1>.
+ * The hero, after kalyp.so: a plain typographic block, not a card. No image, no
+ * avatar, no availability pill, no button — a bold headline, a one-line
+ * statement, a muted role line, and a row of social icons, all left-aligned in
+ * Space Grotesk.
  *
- * On mobile it's panel one and fills the screen like every other card. On
- * desktop it spans all three columns as a wide banner — a full-height 4:5 hero
- * would push the entire grid below the fold.
+ * It carries what the site header used to (the site's only <h1>, and the links
+ * that used to sit in the header), and it's still panel one of the mobile deck —
+ * the deck just has no card behind it here.
  */
+
+const links = [
+  { label: "GitHub", href: "https://github.com/romeet9", Icon: SiGithub },
+  { label: "LinkedIn", href: "https://linkedin.com/in/romeet-in", Icon: LinkedInIcon },
+  { label: "Résumé", href: "/romeet-chatterjee-resume.pdf", Icon: FileTextIcon },
+  { label: "Email", href: "mailto:chatterjeeromeet9@gmail.com", Icon: MailIcon },
+];
+
 export function HeroCard() {
   return (
-    <MediaCard
-      image={{ src: "/overview/hero.jpg", alt: "Dark violet abstract waves" }}
-      priority
-      sizes="(min-width: 768px) 100vw, 100vw"
-      titleAs="h1"
-      eyebrow="AI Product Designer"
-      title="Romeet Chatterjee"
-      detail="I don't wait for engineering to ship. I turn ideas into interactive, coded prototypes and ship real products to production."
-      overlay={
-        <>
-          <Avatar className="absolute top-5 left-5 z-10 size-11 rounded-xl ring-1 ring-white/20">
-            <AvatarImage src="/about/romeet.jpg" alt="Romeet Chatterjee" />
-            <AvatarFallback className="rounded-xl bg-white/10 text-white">
-              RC
-            </AvatarFallback>
-          </Avatar>
+    <div className="flex h-full flex-col justify-center gap-5 font-display md:py-10">
+      <div className="flex flex-col gap-3">
+        {/* 36px / 700 / -0.9px tracking, matching kalyp's headline. */}
+        <h1 className="text-[2.25rem] leading-[1.08] font-bold tracking-[-0.9px] text-foreground">
+          Hey, I&rsquo;m Romeet.
+        </h1>
 
-          {/* The scroll hint lives in ScrollPill now — pinned to the viewport,
-              not to this card. */}
-          <span className="absolute top-5 right-5 z-10 flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.08] px-2.5 py-1 backdrop-blur-md">
-            <span className="size-1.5 rounded-full bg-emerald-400" />
-            <span className="text-[10px] font-medium tracking-[0.08em] text-white/70 uppercase">
-              Available for roles
-            </span>
-          </span>
-        </>
-      }
-      className="md:col-span-3 md:aspect-auto md:min-h-72"
-    >
-      <a
-        href="mailto:chatterjeeromeet9@gmail.com"
-        className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-white px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-white/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-      >
-        Hire me
-        <ArrowRightIcon className="size-4" />
-      </a>
-    </MediaCard>
+        <p className="max-w-xl text-xl leading-snug text-foreground">
+          I turn ideas into products people want to use.
+        </p>
+
+        <p className="max-w-md text-[15px] leading-relaxed text-muted-foreground">
+          AI Product Designer who designs and builds with AI end to end, shipping
+          real products across web, iOS and macOS.
+        </p>
+      </div>
+
+      <div className="flex items-center gap-5">
+        {links.map(({ label, href, Icon }) => {
+          const external = href.startsWith("http");
+          return (
+            <a
+              key={label}
+              href={href}
+              aria-label={label}
+              {...(external
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <Icon className="size-5" />
+            </a>
+          );
+        })}
+      </div>
+    </div>
   );
 }
