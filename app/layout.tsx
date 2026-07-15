@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { EdgeScrim } from "@/components/edge-scrim";
+import { BottomScrim } from "@/components/bottom-scrim";
 import { FloatingDock } from "@/components/floating-dock";
 import { PageTransition } from "@/components/page-transition";
-import { ShapeTuner } from "@/components/shape-tuner";
+import { SiteHeader } from "@/components/site-header";
 import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
@@ -55,20 +55,18 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* Bottom padding keeps page content clear of the floating dock — and
-              is the deck's bottom scroll-padding on mobile. */}
+          {/* Bottom padding keeps page content clear of the floating dock. */}
           <div className="flex min-h-svh flex-col pb-28">
+            <SiteHeader />
             {/* One centred column for every screen — pages own their vertical
                 rhythm, this owns the width and the left/right gutters. */}
             <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 lg:px-6">
               <PageTransition>{children}</PageTransition>
             </main>
           </div>
-          <EdgeScrim edge="bottom" />
+          <BottomScrim />
           <FloatingDock />
-          {/* Renders nothing unless it's dev or the URL carries ?tune=1. */}
-          <ShapeTuner />
-          <Toaster position="top-center" />
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

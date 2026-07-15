@@ -5,19 +5,6 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Shape of the two tunable card groups. The tuner panel (dev only, or ?tune=1)
-     writes these on <html>; these are the committed defaults it starts from. */
-  /* 12px/16px are the Card primitive's own defaults (rounded-xl, --card-spacing
-     of --spacing(4)) — the tuner starts from the shape the card already had. */
-  --kpi-radius: 12px;
-  --kpi-padding: 16px;
-  --tile-radius: 7.5%;
-  --tile-padding: 16.5%;
-
-  /* The floating dock's band — the page shell's pb-28. The mobile swipe deck
-     sizes itself to sit above this. */
-  --snap-bottom: 7rem;
-
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -225,12 +212,6 @@
   }
 }
 
-/* ── The mobile Overview deck ───────────────────────────────────────────────
-   Mobile is a Tinder-style swipe stack (components/overview/swipe-deck.tsx), not
-   a scroll feed, so there's no scroll-snap here any more. The stack fills the
-   space above the dock and doesn't scroll. Desktop keeps the 3x3 grid, which
-   scrolls normally. */
-
 @layer utilities {
   @media (prefers-reduced-motion: reduce) {
     .animate-marquee,
@@ -239,7 +220,6 @@
     .animate-code-scroll,
     .animate-caret-blink,
     .animate-glow,
-    .animate-bounce,
     .animate-page-enter {
       animation: none;
     }
