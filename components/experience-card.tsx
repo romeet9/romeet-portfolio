@@ -4,21 +4,14 @@ import * as React from "react";
 import { GemSmoke } from "@paper-design/shaders-react";
 
 /**
- * The "Interactive prototypes" KPI card, from Paper's kpi-card-1: a near-black
- * card with the Claude Code terminal ghosted, a live coral GemSmoke burst
- * top-right, and the "Interactive prototypes" / "Ships a clickable build"
- * captions in Instrument Sans.
- *
- * The GemSmoke is the real Paper shader, live and animated. Paper's static
- * radial gradient is a CSS gradient here — it doesn't animate, and keeping it out
- * of WebGL keeps the whole KPI row to four shader contexts instead of eight
- * (which crashes mobile browsers). Offset up-and-right so its dark falloff lands
- * on the caption.
+ * The third KPI card, from Paper's kpi-card-3: a near-black card with a live
+ * orange briefcase GemSmoke burst top-right, and "Experience" / "I have 2 year's
+ * of experience". Same treatment as card-1 — live burst, CSS dark radial.
  */
 const DARK_RADIAL =
   "radial-gradient(135% 120% at 72% 16%, #242424 0%, #1b1b1b 45%, #131313 100%)";
 
-export function PrototypesCard() {
+export function ExperienceCard() {
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
 
@@ -29,8 +22,8 @@ export function PrototypesCard() {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute bg-[url('/kpi/terminal.png')] bg-cover bg-center opacity-[0.17]"
-        style={{ width: "142.1%", height: "82.8%", left: "-21.5%", top: "-10.6%" }}
+        className="pointer-events-none absolute bg-[url('/kpi/card3-bg.png')] bg-cover bg-center opacity-[0.14] mix-blend-luminosity"
+        style={{ width: "100%", height: "150%", left: "-0.7%", top: "-25.5%" }}
       />
 
       {mounted && (
@@ -45,21 +38,21 @@ export function PrototypesCard() {
           scale={0.6}
           angle={-360}
           shape="diamond"
-          image="/kpi/gem-card1.svg"
-          colors={["#FFFFFF", "#DA775A"]}
-          colorInner="#DA775A"
+          image="/kpi/gem-briefcase.svg"
+          colors={["#FFFFFF"]}
+          colorInner="#FF4E00"
           colorBack="#00000000"
           style={{ position: "absolute", width: "55.3%", height: "41.4%", left: "49.3%", top: "1.3%" }}
         />
       )}
 
       <p className="relative font-[family-name:var(--font-instrument)] text-[16px] leading-none tracking-[-0.06em] text-white/50">
-        Interactive prototypes
+        Experience
       </p>
       <p className="relative mt-2 font-[family-name:var(--font-instrument)] text-[24px] leading-[26px] font-medium tracking-[-0.06em] text-white">
-        Ships a clickable
+        I have 2 year&rsquo;s of
         <br />
-        build
+        experience
       </p>
     </div>
   );
