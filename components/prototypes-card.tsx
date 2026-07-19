@@ -15,7 +15,7 @@ export function PrototypesCard() {
   // Deliberately not data-slot="card": the row's light wash targets those, and
   // would paint over this card's dark ground.
   return (
-    <div className="relative flex min-h-[190px] flex-col justify-end overflow-hidden rounded-[22px] border-2 border-[#2d2d2d] bg-[#191919] p-5 shadow-[inset_0_0_27px_-20px_#131313]">
+    <div className="relative flex min-h-[268px] flex-col justify-end overflow-hidden rounded-[22px] border-2 border-[#2d2d2d] bg-[#191919] p-5 shadow-[inset_0_0_27px_-20px_#131313]">
       {/* The Claude Code terminal, ghosted. In Paper a near-opaque dark radial
           shader sits over it; here the low opacity plus the vignette below do the
           same job. */}
@@ -48,7 +48,7 @@ export function PrototypesCard() {
       />
 
       <p
-        className="relative font-[family-name:var(--font-instrument)] text-[32px] leading-[32px] font-medium tracking-[-0.06em] text-white"
+        className="relative font-[family-name:var(--font-instrument)] text-[24px] leading-[26px] font-medium tracking-[-0.06em] text-white"
       >
         Ships a clickable
         <br />
