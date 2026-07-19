@@ -8,18 +8,11 @@ import {
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { CardIconBadge } from "@/components/card-icon-badge";
 import { PrototypesCard } from "@/components/prototypes-card";
+import { ShippedCard } from "@/components/shipped-card";
 import { ToolsMarqueeCard } from "@/components/tools-marquee-card";
-import { RocketIcon, SparklesIcon } from "lucide-react";
+import { SparklesIcon } from "lucide-react";
 
 const cards = [
-  {
-    label: "Shipped to production",
-    value: "4 apps",
-    badge: "Web · iOS · macOS",
-    footer: "Real, working products",
-    sub: "Next.js 16 · SwiftUI",
-    icon: RocketIcon,
-  },
   {
     label: "AI in every project",
     value: "Daily",
@@ -35,6 +28,7 @@ export function SectionCards() {
     <TooltipProvider delay={120}>
       <div className="grid grid-cols-1 gap-4 *:data-[slot=card]:min-h-[268px] *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card *:data-[slot=card]:shadow-xs @xl/main:grid-cols-2 @5xl/main:grid-cols-4 dark:*:data-[slot=card]:bg-card">
       <PrototypesCard />
+      <ShippedCard />
       {cards.map((c) => (
         <Card key={c.label} className="@container/card">
           <CardHeader className="grid-cols-1 gap-2">
