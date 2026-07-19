@@ -7,18 +7,11 @@ import {
 } from "@/components/ui/card";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { CardIconBadge } from "@/components/card-icon-badge";
+import { PrototypesCard } from "@/components/prototypes-card";
 import { ToolsMarqueeCard } from "@/components/tools-marquee-card";
-import { MousePointerClickIcon, RocketIcon, SparklesIcon } from "lucide-react";
+import { RocketIcon, SparklesIcon } from "lucide-react";
 
 const cards = [
-  {
-    label: "Interactive prototypes",
-    value: "100%",
-    badge: "Coded, not mocked",
-    footer: "Ships a clickable build",
-    sub: "Framer + real front-end code",
-    icon: MousePointerClickIcon,
-  },
   {
     label: "Shipped to production",
     value: "4 apps",
@@ -41,6 +34,7 @@ export function SectionCards() {
   return (
     <TooltipProvider delay={120}>
       <div className="grid grid-cols-1 gap-4 *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card *:data-[slot=card]:shadow-xs @xl/main:grid-cols-2 @5xl/main:grid-cols-4 dark:*:data-[slot=card]:bg-card">
+      <PrototypesCard />
       {cards.map((c) => (
         <Card key={c.label} className="@container/card">
           <CardHeader className="grid-cols-1 gap-2">
