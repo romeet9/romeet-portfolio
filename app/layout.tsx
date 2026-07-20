@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { BottomScrim } from "@/components/bottom-scrim";
+import { TopScrim } from "@/components/top-scrim";
 import { FloatingDock } from "@/components/floating-dock";
 import { PageTransition } from "@/components/page-transition";
 import { SiteHeader } from "@/components/site-header";
@@ -63,6 +64,7 @@ export default function RootLayout({
         >
           {/* Bottom padding keeps page content clear of the floating dock. */}
           <div className="flex min-h-svh flex-col pb-28">
+            <TopScrim />
             <SiteHeader />
             {/* One centred column for every screen — pages own their vertical
                 rhythm, this owns the width and the left/right gutters. */}
