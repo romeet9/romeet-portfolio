@@ -1,59 +1,43 @@
 "use client";
 
-import * as React from "react";
-import { GemSmoke } from "@paper-design/shaders-react";
+import { KpiBurst, KpiScrim, KpiShell, KpiText, p } from "@/components/kpi-parts";
 
 /**
- * The third KPI card, from Paper's kpi-card-3: a near-black card with a live
- * orange briefcase GemSmoke burst top-right, and "Experience" / "I have 2 year's
- * of experience". Same treatment as card-1 — live burst, CSS dark radial.
+ * kpi-card-3 from Paper's "Gentle nebula" (artboard 2D-0): the room photograph
+ * under a dark scrim, with the orange briefcase burst top-right.
+ *
+ * Paper nodes: 2Y-0 image 302x453 at (-2,-77), 34-0 scrim, 2E-0 burst 80x80 at
+ * (210,6). The scrim is the dark twin of card 2's — same ellipse, same falloff,
+ * but resolving to oklab(24.4%) rather than white.
  */
-const DARK_RADIAL =
-  "radial-gradient(135% 120% at 72% 16%, #242424 0%, #1b1b1b 45%, #131313 100%)";
+const IMAGE_BOX = {
+  width: p(302),
+  height: p(453),
+  left: p(-2),
+  top: p(-77),
+} as const;
+
+/** Node 34-0, verbatim. */
+const SCRIM =
+  "radial-gradient(ellipse 72.43% 61.65% at 21.41% -5.68% in oklab, oklab(24.4% 0 0 / 0%) 0%, oklab(24.4% 0 0) 100%)";
 
 export function ExperienceCard() {
-  const [mounted, setMounted] = React.useState(false);
-  React.useEffect(() => setMounted(true), []);
-
   return (
-    <div
-      className="relative flex min-h-[268px] flex-col justify-end overflow-hidden rounded-[22px] border-2 border-[#2d2d2d] p-5 shadow-[inset_0_0_27px_-20px_#131313]"
-      style={{ backgroundColor: "#191919", backgroundImage: DARK_RADIAL }}
-    >
+    <KpiShell style={{ backgroundColor: "#191919" }}>
       <div
         aria-hidden
-        className="pointer-events-none absolute bg-[url('/kpi/card3-bg.png')] bg-cover bg-center opacity-[0.14] mix-blend-luminosity"
-        style={{ width: "100%", height: "150%", left: "-0.7%", top: "-25.5%" }}
+        className="pointer-events-none absolute bg-[url('/kpi/card3-bg.png')] bg-cover bg-center"
+        style={IMAGE_BOX}
       />
+      <KpiScrim image={SCRIM} />
 
-      {mounted && (
-        <GemSmoke
-          speed={3}
-          size={0.8}
-          outerDistortion={0}
-          innerDistortion={1}
-          outerGlow={0.46}
-          innerGlow={1}
-          offset={0}
-          scale={0.6}
-          angle={-360}
-          shape="diamond"
-          image="/kpi/gem-briefcase.svg"
-          colors={["#FFFFFF"]}
-          colorInner="#FF4E00"
-          colorBack="#00000000"
-          style={{ position: "absolute", width: "55.3%", height: "41.4%", left: "49.3%", top: "1.3%" }}
-        />
-      )}
+      <KpiBurst image="/kpi/gem-briefcase.svg" colorInner="#FF4E00" x={210} y={6} />
 
-      <p className="relative font-[family-name:var(--font-instrument)] text-[16px] leading-none tracking-[-0.06em] text-white/50">
-        Experience
-      </p>
-      <p className="relative mt-2 font-[family-name:var(--font-instrument)] text-[24px] leading-[26px] font-medium tracking-[-0.06em] text-white">
+      <KpiText eyebrow="Experience" tone="dark">
         I have 2 year&rsquo;s of
         <br />
         experience
-      </p>
-    </div>
+      </KpiText>
+    </KpiShell>
   );
 }

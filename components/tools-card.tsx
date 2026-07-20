@@ -1,57 +1,47 @@
-import { KpiGrain } from "@/components/kpi-grain";
+"use client";
+
+import { KpiBurst, KpiScrim, KpiShell, KpiText, p } from "@/components/kpi-parts";
 
 /**
- * The fourth KPI card, from Paper's kpi-card-4: a light metallic card with the
- * "Tools" / "Altogether I use 4 tools" captions, and the four tool bursts (Figma,
- * Claude, VS Code, Framer) — live GemSmoke shaders in Paper — running as an
- * infinite marquee loop of their exported frames. A scrolling stack of eight live
- * WebGL canvases would be far too heavy; the loop reads the same, and it's a plain
- * server component with no shader context at all.
+ * kpi-card-4 from Paper's "Gentle nebula" (artboard 2M-0): the typographic plate
+ * under a blurred white scrim, with the Claude, VS Code and Figma bursts in a row.
+ *
+ * Paper nodes: 2X-0 image 540x540 at (-121,-121), 35-0 scrim (the only one that
+ * carries a 4px blur), 30-0 burst frame 224x80 at (72,14) holding three size-20
+ * GemSmokes on a 72px pitch.
+ *
+ * This card previously shipped four tools on a PNG marquee — Framer has since
+ * been dropped from the design, and the three that remain are live shaders.
  */
-const tools = ["figma", "claude", "vscode", "framer"] as const;
+const IMAGE_BOX = {
+  width: p(540),
+  height: p(540),
+  left: p(-121),
+  top: p(-121),
+} as const;
 
-const LIGHT_RADIAL =
-  "radial-gradient(130% 125% at 66% 20%, #f4f4f4 0%, #cbcbcb 52%, #9a9a9a 100%)";
+/** Node 35-0, verbatim. */
+const SCRIM =
+  "radial-gradient(ellipse 82.51% 70.23% at 4.98% -2.18% in oklab, oklab(100% 0 0 / 0%) 0%, oklab(100% 0 0) 100%)";
 
 export function ToolsCard() {
-  // Duplicate the set so the -50% marquee restart is seamless.
-  const track = [...tools, ...tools];
-
   return (
-    <div
-      className="relative flex min-h-[268px] flex-col justify-end overflow-hidden rounded-[22px] border-2 border-[#2d2d2d] p-5 shadow-[inset_0_0_27px_-20px_#131313]"
-      style={{ backgroundColor: "#b8b8b8", backgroundImage: LIGHT_RADIAL }}
-    >
+    <KpiShell style={{ backgroundColor: "#b8b8b8" }}>
       <div
         aria-hidden
-        className="pointer-events-none absolute bg-[url('/kpi/card4-bg.png')] bg-cover bg-center opacity-20 mix-blend-luminosity"
-        style={{ width: "178.8%", height: "178.8%", left: "-40.1%", top: "-40.1%" }}
+        className="pointer-events-none absolute bg-[url('/kpi/card4-bg.png')] bg-cover bg-center"
+        style={IMAGE_BOX}
       />
-      <KpiGrain />
+      <KpiScrim image={SCRIM} blur />
 
-      {/* The tools-stack, looping. */}
-      <div className="pointer-events-none absolute inset-x-0 top-2 overflow-hidden">
-        <div className="flex w-max animate-marquee items-center">
-          {track.map((t, i) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              key={i}
-              src={`/kpi/tool-${t}.png`}
-              alt=""
-              className="-mx-3 h-[124px] w-auto shrink-0"
-            />
-          ))}
-        </div>
-      </div>
+      <KpiBurst image="/kpi/gem-card1.svg" colorInner="#FF4E00" x={72} y={14} />
+      <KpiBurst image="/kpi/gem-vscode.svg" colorInner="#000000" x={144} y={14} />
+      <KpiBurst image="/kpi/gem-figma.png" colorInner="#FF4E00" x={216} y={14} />
 
-      <p className="relative font-[family-name:var(--font-instrument)] text-[16px] leading-none tracking-[-0.06em] text-[#5f5f5f]">
-        Tools
-      </p>
-      <p className="relative mt-2 font-[family-name:var(--font-instrument)] text-[24px] leading-[26px] font-medium tracking-[-0.06em] text-black">
+      <KpiText eyebrow="Most used Tools" tone="light">
         Altogether I use
-        <br />
-        4 tools
-      </p>
-    </div>
+        <br />3 tools
+      </KpiText>
+    </KpiShell>
   );
 }

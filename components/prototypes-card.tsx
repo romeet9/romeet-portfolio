@@ -1,66 +1,80 @@
 "use client";
 
-import * as React from "react";
-import { GemSmoke } from "@paper-design/shaders-react";
+import { KpiBurst, KpiShell, KpiText, p } from "@/components/kpi-parts";
 
 /**
- * The "Interactive prototypes" KPI card, from Paper's kpi-card-1: a near-black
- * card with the Claude Code terminal ghosted, a live coral GemSmoke burst
- * top-right, and the "Interactive prototypes" / "Ships a clickable build"
- * captions in Instrument Sans.
+ * kpi-card-1 from Paper's "Gentle nebula" (artboard W-0): the Claude Code
+ * terminal, a dark radial wash over it, and the coral Claude burst top-right.
  *
- * The GemSmoke is the real Paper shader, live and animated. Paper's static
- * radial gradient is a CSS gradient here — it doesn't animate, and keeping it out
- * of WebGL keeps the whole KPI row to four shader contexts instead of eight
- * (which crashes mobile browsers). Offset up-and-right so its dark falloff lands
- * on the caption.
+ * Paper nodes: 11-0 terminal 429x250 at (-65,-32), 10-0 StaticRadialGradient
+ * 958x718 at (-283,-221), 13-0 burst 80x80 at (210,6).
+ *
+ * This is the one card Paper builds with a shader gradient rather than the flat
+ * oklab scrim the other three use. Child order is back-to-front — terminal, then
+ * the gradient painted OVER it, then the captions, then the burst — so the
+ * terminal carries no opacity of its own and the gradient's transparency is what
+ * sinks it. Fading the terminal instead inverts that and flattens both.
+ */
+
+/**
+ * Node 10-0 is roughly 3x the artboard, pushed left and up, so the card is a
+ * small window onto it: it sees x 29.5-61.1%, y 30.8-72.9%, a gentle slice well
+ * outside the bright core. Re-centering this gradient on the card collapses the
+ * falloff and reads flat.
+ */
+const RADIAL_BOX = {
+  width: p(958),
+  height: p(718),
+  left: p(-283),
+  top: p(-221),
+} as const;
+
+/**
+ * The shader's own stops (#202020, #1C1C1C, #191919) carried at partial alpha.
+ * Paper renders this in WebGL over a transparent colorBack; the CSS equivalent is
+ * a wash that thins toward the core, letting the terminal read through the upper
+ * right and going near-solid at the bottom-left behind the captions.
  */
 const DARK_RADIAL =
-  "radial-gradient(135% 120% at 72% 16%, #242424 0%, #1b1b1b 45%, #131313 100%)";
+  "radial-gradient(circle at 50% 50%, rgba(32,32,32,0.74) 0%, rgba(28,28,28,0.9) 50%, rgba(25,25,25,0.99) 90%)";
+
+/** Node 11-0. */
+const TERMINAL_BOX = {
+  width: p(429),
+  height: p(250),
+  left: p(-65),
+  top: p(-32),
+} as const;
 
 export function PrototypesCard() {
-  const [mounted, setMounted] = React.useState(false);
-  React.useEffect(() => setMounted(true), []);
-
   return (
-    <div
-      className="relative flex min-h-[268px] flex-col justify-end overflow-hidden rounded-[22px] border-2 border-[#2d2d2d] p-5 shadow-[inset_0_0_27px_-20px_#131313]"
-      style={{ backgroundColor: "#191919", backgroundImage: DARK_RADIAL }}
-    >
+    <KpiShell style={{ backgroundColor: "#191919" }}>
       <div
         aria-hidden
-        className="pointer-events-none absolute bg-[url('/kpi/terminal.png')] bg-cover bg-center opacity-[0.17]"
-        style={{ width: "142.1%", height: "82.8%", left: "-21.5%", top: "-10.6%" }}
+        className="pointer-events-none absolute bg-[url('/kpi/terminal.png')] bg-cover bg-center"
+        style={TERMINAL_BOX}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute"
+        style={{ ...RADIAL_BOX, backgroundImage: DARK_RADIAL }}
       />
 
-      {mounted && (
-        <GemSmoke
-          speed={3}
-          size={0.8}
-          outerDistortion={0}
-          innerDistortion={1}
-          outerGlow={0.46}
-          innerGlow={1}
-          offset={0}
-          scale={0.6}
-          angle={-360}
-          shape="diamond"
-          image="/kpi/gem-card1.svg"
-          colors={["#FFFFFF", "#DA775A"]}
-          colorInner="#DA775A"
-          colorBack="#00000000"
-          style={{ position: "absolute", width: "55.3%", height: "41.4%", left: "49.3%", top: "1.3%" }}
-        />
-      )}
+      <KpiBurst
+        image="/kpi/gem-card1.svg"
+        colors={["#FFFFFF", "#DA775A"]}
+        colorInner="#DA775A"
+        x={210}
+        y={6}
+      />
 
-      <p className="relative font-[family-name:var(--font-instrument)] text-[16px] leading-none tracking-[-0.06em] text-white/50">
-        Interactive prototypes
-      </p>
-      <p className="relative mt-2 font-[family-name:var(--font-instrument)] text-[24px] leading-[26px] font-medium tracking-[-0.06em] text-white">
+      {/* Paper's own eyebrow reads "Interactive prototyes" — a typo on the
+          canvas, kept spelled correctly here. */}
+      <KpiText eyebrow="Interactive prototypes" tone="dark">
         Ships a clickable
         <br />
         build
-      </p>
-    </div>
+      </KpiText>
+    </KpiShell>
   );
 }

@@ -1,85 +1,47 @@
 "use client";
 
-import * as React from "react";
-import { GemSmoke } from "@paper-design/shaders-react";
-
-import { KpiGrain } from "@/components/kpi-grain";
+import { KpiBurst, KpiScrim, KpiShell, KpiText, p } from "@/components/kpi-parts";
 
 /**
- * The "Shipped to production" KPI card, from Paper's kpi-card-2: a light metallic
- * card over the editorial poster plate, with two live GemSmoke bursts (an orange
- * Swift shape left, a black orb right) and "Next.js & SwiftUI" / "4 Real, Working
- * products".
+ * kpi-card-2 from Paper's "Gentle nebula" (artboard 1V-0): the monochrome letter
+ * plate, a white scrim over it, and the Swift and Next.js bursts side by side.
  *
- * The bursts are the real Paper shaders, live. The static silver radial is a CSS
- * gradient + grain here (see PrototypesCard).
+ * Paper nodes: 1Z-0 image 427.5x600 at (-65,-151), 33-0 scrim, 2Z-0 burst frame
+ * 152x80 at (135.5,6) holding two size-20 GemSmokes overlapped by 8px.
+ *
+ * There is no metallic gradient and no grain on this card — an earlier pass here
+ * invented both. Paper composites the plate at full strength and lets the scrim
+ * alone carry it.
  */
-const LIGHT_RADIAL =
-  "radial-gradient(130% 125% at 66% 20%, #f4f4f4 0%, #cbcbcb 52%, #9a9a9a 100%)";
+const IMAGE_BOX = {
+  width: p(427.5),
+  height: p(600),
+  left: p(-65),
+  top: p(-151),
+} as const;
+
+/** Node 33-0, verbatim. */
+const SCRIM =
+  "radial-gradient(ellipse 72.43% 61.65% at 20.73% -3.58% in oklab, oklab(100% 0 0 / 0%) 0%, oklab(100% 0 0) 100%)";
 
 export function ShippedCard() {
-  const [mounted, setMounted] = React.useState(false);
-  React.useEffect(() => setMounted(true), []);
-
   return (
-    <div
-      className="relative flex min-h-[268px] flex-col justify-end overflow-hidden rounded-[22px] border-2 border-[#2d2d2d] p-5 shadow-[inset_0_0_27px_-20px_#131313]"
-      style={{ backgroundColor: "#b8b8b8", backgroundImage: LIGHT_RADIAL }}
-    >
+    <KpiShell style={{ backgroundColor: "#b8b8b8" }}>
       <div
         aria-hidden
-        className="pointer-events-none absolute bg-[url('/kpi/card2-bg.png')] bg-cover bg-center opacity-[0.22] mix-blend-luminosity"
-        style={{ width: "141.6%", height: "198.7%", left: "-21.5%", top: "-50%" }}
+        className="pointer-events-none absolute bg-[url('/kpi/card2-bg.png')] bg-cover bg-center"
+        style={IMAGE_BOX}
       />
-      <KpiGrain />
+      <KpiScrim image={SCRIM} />
 
-      {mounted && (
-        <>
-          <GemSmoke
-            speed={3}
-            size={0.8}
-            outerDistortion={0}
-            innerDistortion={1}
-            outerGlow={0.46}
-            innerGlow={1}
-            offset={0}
-            scale={0.6}
-            angle={-360}
-            shape="diamond"
-            image="/kpi/gem-swift.svg"
-            colors={["#FFFFFF"]}
-            colorInner="#FF4E00"
-            colorBack="#00000000"
-            style={{ position: "absolute", width: "55.3%", height: "41.4%", left: "13.6%", top: "1.3%" }}
-          />
-          <GemSmoke
-            speed={3}
-            size={0.8}
-            outerDistortion={0}
-            innerDistortion={1}
-            outerGlow={0.46}
-            innerGlow={1}
-            offset={0}
-            scale={0.6}
-            angle={-360}
-            shape="diamond"
-            image="/kpi/gem-orb.svg"
-            colors={["#FFFFFF"]}
-            colorInner="#000000"
-            colorBack="#00000000"
-            style={{ position: "absolute", width: "55.3%", height: "41.4%", left: "49.3%", top: "1.3%" }}
-          />
-        </>
-      )}
+      <KpiBurst image="/kpi/gem-swift.svg" colorInner="#FF4E00" x={135.5} y={6} />
+      <KpiBurst image="/kpi/gem-next.svg" colorInner="#000000" x={207.5} y={6} />
 
-      <p className="relative font-[family-name:var(--font-instrument)] text-[16px] leading-none tracking-[-0.06em] text-[#5f5f5f]">
-        Next.js &amp; SwiftUI
-      </p>
-      <p className="relative mt-2 font-[family-name:var(--font-instrument)] text-[24px] leading-[26px] font-medium tracking-[-0.06em] text-black">
+      <KpiText eyebrow="Next.js & SwiftUI" tone="light">
         4 Real, Working
         <br />
         products
-      </p>
-    </div>
+      </KpiText>
+    </KpiShell>
   );
 }
