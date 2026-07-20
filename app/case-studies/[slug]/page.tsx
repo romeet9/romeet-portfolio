@@ -235,7 +235,7 @@ function ActSection({ act }: { act: Act }) {
                   <IconChip icon={pt.icon} />
                 </CardAction>
               </CardHeader>
-              <CardFooter className="text-xs text-muted-foreground">
+              <CardFooter className="text-sm text-muted-foreground">
                 {pt.desc}
               </CardFooter>
             </Card>
@@ -465,7 +465,7 @@ export default async function CaseStudyPage({ params, searchParams }: Params) {
                 </CardAction>
               </CardHeader>
               {m.sub && (
-                <CardFooter className="text-xs text-muted-foreground">
+                <CardFooter className="text-sm text-muted-foreground">
                   {m.sub}
                 </CardFooter>
               )}
