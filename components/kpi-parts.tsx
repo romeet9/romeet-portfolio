@@ -89,15 +89,15 @@ export function KpiCard({
 
       {/* Eyebrow and caption share one line-height (/7 = 1.75rem) and one
           letter-spacing (-0.06em) so the small and large text read as a single
-          type treatment. Only the glyph size differs: 16px label, 24px caption
-          (down from Paper's 28px per Romeet's request). Keeping line-height on
-          the caption at 28px preserves the two-line spacing while the glyph
-          shrinks. */}
+          type treatment. Only the glyph size differs: 16px label, 26px caption
+          (Paper draws it at 28; nudged down for balance, then back up 2px for
+          readability). Line-height stays 28px so the two-line caption keeps its
+          spacing regardless of glyph size. */}
       <div className="flex flex-col items-start gap-1.5 self-stretch">
         <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] text-base/7 tracking-[-0.06em] text-[#5F5F5F]">
           {eyebrow}
         </div>
-        <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] text-2xl/7 tracking-[-0.06em] whitespace-pre text-white">
+        <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] text-[26px]/7 tracking-[-0.06em] whitespace-pre text-white">
           {caption}
         </div>
       </div>
