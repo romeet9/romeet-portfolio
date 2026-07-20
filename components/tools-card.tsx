@@ -8,7 +8,7 @@ import { KpiCard } from "@/components/kpi-parts";
 export function ToolsCard() {
   return (
     <KpiCard
-      iconRowClassName="gap-2"
+      iconRowClassName="gap-3.5"
       icon={
         <>
           <div

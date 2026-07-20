@@ -65,7 +65,7 @@ export function KpiCard({
 }) {
   return (
     <div
-      className="relative flex min-h-[272px] flex-col justify-between gap-6 overflow-clip rounded-[22px] border-2 border-solid border-[#2D2D2D] p-5 antialiased [box-shadow:#131313_0px_0px_27px_-20px_inset] [font-synthesis:none]"
+      className="relative flex min-h-[272px] flex-col justify-between gap-6 overflow-clip rounded-xl p-5 antialiased ring-1 ring-foreground/10 [box-shadow:#131313_0px_0px_27px_-20px_inset] [font-synthesis:none]"
       style={{ backgroundImage: SURFACE }}
     >
       <KpiShaderBg />
