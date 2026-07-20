@@ -1,25 +1,18 @@
-"use client";
-
-import { KpiBurst, KpiCard } from "@/components/kpi-parts";
+import { KpiCard } from "@/components/kpi-parts";
 
 /**
- * kpi-card-3 from Paper's "Gentle nebula" (artboard 3F-0): the orange briefcase
- * burst, "Experience" / "I have 2 year's of experience".
+ * kpi-card-3 from Paper's "Gentle nebula" (artboard 3F-0): the white briefcase
+ * logo over "Experience" / "I have 2 year's of exp."
  */
 export function ExperienceCard() {
   return (
     <KpiCard
-      icons={
-        <div className="flex items-center justify-end self-stretch">
-          <KpiBurst
-            image="/kpi/gem-briefcase.svg"
-            colors={["#FFFFFF"]}
-            colorInner="#FF4E00"
-          />
-        </div>
+      icon={
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src="/kpi/logo-briefcase.svg" alt="" width={40} height={40} className="shrink-0" />
       }
       eyebrow="Experience"
-      caption={"I have 2 year's of\nexperience"}
+      caption="I have 2 year's of exp."
     />
   );
 }
