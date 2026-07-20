@@ -6,52 +6,41 @@ import { GemSmoke } from "@paper-design/shaders-react";
 /**
  * Shared pieces of the four KPI cards, from Paper's "Gentle nebula".
  *
- * Every card is authored on a 302x302 artboard. To reproduce the design exactly
- * rather than approximately, the card is a query container and EVERY dimension
- * below — type, padding, image boxes, burst boxes — is expressed in `cqw`, a
- * percentage of the card's own width. The card is then locked to `aspect-square`.
+ * The redesign stripped these back to one shape: a dark card carrying a single
+ * vertical gradient, a right-aligned row of GemSmoke bursts, and an eyebrow +
+ * caption block. No photographic plates, no scrims, no blur, no radial washes —
+ * all four artboards are now identical apart from their icons and copy.
  *
- * That combination is what makes this a true scale model of the artboard: at any
- * card width the whole composition scales together, exactly as Paper draws it.
- *
- * Two traps this avoids:
- *  - Literal px type (32px) is ~14% oversized once the card renders narrower
- *    than 302, which crowds the captions against the edges.
- *  - Percentage `height` resolves against the card's HEIGHT while `width`
- *    resolves against its WIDTH, so a "square" 26.5%/26.5% burst is only square
- *    if the card happens to be. A stretched box smears the diamond mask into a
- *    featureless blob.
+ * Everything here is Paper's own Tailwind, carried across verbatim.
  */
-const ARTBOARD = 302;
 
-/** Paper artboard pixels -> a share of the card's width. */
-export const q = (px: number) => `${((px / ARTBOARD) * 100).toFixed(4)}cqw`;
+/** The card's only background — artboard-level, identical on all four. */
+const SURFACE =
+  "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)";
 
 /**
- * A GemSmoke burst. Paper gives every one of them `size-20` (80x80) and an
- * identical prop set — only the mask image and inner colour change.
+ * Every burst shares one prop set; only the mask and its two colours change.
+ * Paper sizes them all `size-20` (80x80, square) — the diamond mask smears into a
+ * featureless blob if the box is ever stretched.
  *
- * The mask is a texture the shader loads asynchronously, so the burst renders as
- * a plain glow for a beat after mount. It also needs the SVG to carry a concrete
- * fill and size; a `currentColor` / `1em` export never resolves standalone.
+ * The mask is a texture the shader fetches after mount, so a burst renders as a
+ * plain glow for a beat. It also needs the SVG to carry a concrete fill and size;
+ * a `currentColor` / `1em` export never resolves standalone.
  */
 export function KpiBurst({
   image,
+  colors,
   colorInner,
-  colors = ["#FFFFFF"],
-  x,
-  y,
+  className = "",
 }: {
   image: string;
+  colors: string[];
   colorInner: string;
-  colors?: string[];
-  /** Top-left of the burst in Paper artboard pixels. */
-  x: number;
-  y: number;
+  className?: string;
 }) {
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+  if (!mounted) return <div className={`size-20 shrink-0 ${className}`} />;
 
   return (
     <GemSmoke
@@ -69,119 +58,43 @@ export function KpiBurst({
       colors={colors}
       colorInner={colorInner}
       colorBack="#00000000"
-      style={{
-        position: "absolute",
-        width: q(80),
-        height: q(80),
-        left: q(x),
-        top: q(y),
-      }}
+      className={`size-20 shrink-0 ${className}`}
     />
   );
 }
 
 /**
- * A full-bleed layer positioned by Paper's own box. Used for the photographic
- * plates, which all overhang the artboard.
- */
-export function KpiPlate({
-  className,
-  x,
-  y,
-  width,
-  height,
-}: {
-  className: string;
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-}) {
-  return (
-    <div
-      aria-hidden
-      className={`pointer-events-none absolute bg-cover bg-center ${className}`}
-      style={{ width: q(width), height: q(height), left: q(x), top: q(y) }}
-    />
-  );
-}
-
-/**
- * The eyebrow + caption block, identical on all four cards: eyebrow at (22,178)
- * in 16px/32 #5F5F5F, caption at (22,210) in 32px/32. Only the caption colour
- * changes between the dark and light cards.
+ * The card shell: Paper's own classes, with the icon row and the text block as
+ * the two children it lays out.
  *
- * Paper positions both by absolute y, so they are placed that way here rather
- * than stacked with flow padding — it keeps the baselines where the design puts
- * them regardless of how the caption wraps.
+ * `min-h-[304px]` is the artboard height. Width is left to the grid rather than
+ * pinned to Paper's `w-75` — the row is responsive, and every child is fixed-size
+ * so the composition holds at any column width.
  */
-export function KpiText({
+export function KpiCard({
+  icons,
   eyebrow,
-  children,
-  tone,
+  caption,
 }: {
+  icons: React.ReactNode;
   eyebrow: string;
-  children: React.ReactNode;
-  tone: "light" | "dark";
-}) {
-  return (
-    <>
-      <p
-        className="pointer-events-none absolute font-[family-name:var(--font-instrument)] tracking-[-0.06em] whitespace-pre text-[#5F5F5F]"
-        style={{ left: q(22), top: q(178), fontSize: q(16), lineHeight: q(32) }}
-      >
-        {eyebrow}
-      </p>
-      <p
-        className={`pointer-events-none absolute font-[family-name:var(--font-instrument)] tracking-[-0.06em] whitespace-pre ${
-          tone === "dark" ? "text-white" : "text-black"
-        }`}
-        style={{ left: q(22), top: q(210), fontSize: q(32), lineHeight: q(32) }}
-      >
-        {children}
-      </p>
-    </>
-  );
-}
-
-/**
- * The card box. `aspect-square` matches Paper's 302x302 artboard, and
- * `container-type: inline-size` is what makes every `cqw` above resolve against
- * this element's width.
- */
-export function KpiShell({
-  style,
-  children,
-}: {
-  style?: React.CSSProperties;
-  children: React.ReactNode;
+  caption: string;
 }) {
   return (
     <div
-      className="relative aspect-square overflow-hidden rounded-[22px] border-2 border-[#2d2d2d] shadow-[inset_0_0_27px_-20px_#131313]"
-      style={{ containerType: "inline-size", ...style }}
+      className="flex min-h-[304px] flex-col items-end justify-center gap-25 overflow-clip rounded-[22px] border-2 border-solid border-[#2D2D2D] p-5 antialiased [box-shadow:#131313_0px_0px_27px_-20px_inset] [font-synthesis:none]"
+      style={{ backgroundImage: SURFACE }}
     >
-      {children}
-    </div>
-  );
-}
+      {icons}
 
-/**
- * The scrim Paper lays over each photographic card (nodes 33-0, 34-0, 35-0): a
- * plain oklab radial fading from transparent at the top-left to solid at the
- * bottom-right, sinking the plate behind the captions. Cards 2-4 use this in
- * place of card 1's StaticRadialGradient shader.
- *
- * Paper sizes these 302x302 at (-2,-2) — a deliberate overhang so card 4's 4px
- * blur has material to sample past the edge instead of feathering into
- * transparency and leaving a seam.
- */
-export function KpiScrim({ image, blur = false }: { image: string; blur?: boolean }) {
-  return (
-    <div
-      aria-hidden
-      className={`pointer-events-none absolute ${blur ? "-inset-2" : "-inset-0.5"}`}
-      style={{ backgroundImage: image, filter: blur ? "blur(4px)" : undefined }}
-    />
+      <div className="flex flex-col items-start gap-1.5 self-stretch">
+        <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] text-base/4.5 tracking-[-0.06em] text-[#5F5F5F]">
+          {eyebrow}
+        </div>
+        <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] text-[28px]/7 tracking-[-0.06em] whitespace-pre text-white">
+          {caption}
+        </div>
+      </div>
+    </div>
   );
 }
