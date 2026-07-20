@@ -74,8 +74,23 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
+  /* Instrument Sans is the portfolio's single typeface. Swapping --font-sans
+     here flips every element that uses the default `font-sans` (the body sets
+     it) from Geist to Instrument Sans in one place. */
+  --font-sans: var(--font-instrument);
   --font-mono: var(--font-geist-mono);
+
+  /* One letter-spacing everywhere. Redefining every tracking token to -0.06em
+     (the KPI-card value) means each tracking-* utility across the site —
+     tracking-tight on headings, tracking-wider on labels — collapses to the
+     same tight value, so the whole portfolio shares one spacing. The body rule
+     below covers elements that carry no tracking class at all. */
+  --tracking-tighter: -0.06em;
+  --tracking-tight: -0.06em;
+  --tracking-normal: -0.06em;
+  --tracking-wide: -0.06em;
+  --tracking-wider: -0.06em;
+  --tracking-widest: -0.06em;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -119,6 +134,9 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* The default letter-spacing for every element that carries no tracking
+       utility — the other half of the "one tight value everywhere" system. */
+    letter-spacing: -0.06em;
   }
 }
 

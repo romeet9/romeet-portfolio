@@ -88,7 +88,7 @@ export function ComingSoonCaseCard() {
           <span className="absolute inline-flex size-full animate-ping rounded-full bg-white/70" />
           <span className="relative inline-flex size-1.5 rounded-full bg-white/90" />
         </span>
-        <span className="text-[10px] font-medium tracking-[0.08em] text-white/70 uppercase">
+        <span className="text-[10px] font-medium text-white/70 uppercase">
           In progress
         </span>
       </div>
@@ -100,7 +100,7 @@ export function ComingSoonCaseCard() {
       />
 
       <div className="relative flex flex-col gap-1.5 p-5 sm:p-6">
-        <span className="text-[11px] font-medium tracking-[0.08em] text-white/45 uppercase">
+        <span className="text-[11px] font-medium text-white/45 uppercase">
           12 Grids · 2026
         </span>
 

@@ -13,7 +13,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
 });
-// Used by the Interactive-prototypes KPI card, matching its Paper design.
+// The portfolio's single typeface. Wired to --font-sans in globals.css, so the
+// whole site renders in Instrument Sans; the KPI cards also name it directly.
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
   variable: "--font-instrument",

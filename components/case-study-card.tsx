@@ -71,7 +71,7 @@ export function CaseStudyCard({
       {/* Bottom-left text block: eyebrow, title, one-line summary. No tag pills
           — the chrome they added is exactly what this layout is meant to shed. */}
       <div className="relative mt-auto flex flex-col gap-1.5 p-5 sm:p-6">
-        <span className="text-[11px] font-medium tracking-[0.08em] text-white/55 uppercase">
+        <span className="text-[11px] font-medium text-white/55 uppercase">
           {study.company} · {study.year}
         </span>
 
