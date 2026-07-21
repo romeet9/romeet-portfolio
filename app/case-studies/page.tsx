@@ -10,15 +10,14 @@ export const metadata: Metadata = {
 
 export default function CaseStudiesPage() {
   return (
-    <div className="@container/main flex flex-1 flex-col gap-4 py-4 md:gap-6 md:py-6">
-      <div>
-        <h1 className="text-xl font-semibold tracking-tight">Case studies</h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          The research, decisions and redesigns behind the work — measured by
-          what actually changed for users.
-        </p>
-      </div>
-      <CaseStudiesGrid />
+    <div className="@container/main flex flex-1 flex-col gap-4 py-4 md:py-6">
+      {/* The visible heading and intro are gone, matching the overview. The h1
+          stays for screen readers and SEO — a page with no heading at all is a
+          real accessibility regression. */}
+      <h1 className="sr-only">Case studies</h1>
+
+      {/* No in-progress placeholder, same as the overview. */}
+      <CaseStudiesGrid comingSoon={false} />
     </div>
   );
 }
