@@ -3,12 +3,10 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MenuIcon, MoonIcon, SunIcon, XIcon } from "lucide-react";
-import { useTheme } from "next-themes";
+import { MenuIcon, XIcon } from "lucide-react";
 
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Switch } from "@/components/ui/switch";
 import {
   Tooltip,
   TooltipContent,
@@ -30,19 +28,14 @@ const dockSeparator = "mx-1 h-6 data-vertical:self-center";
 
 /**
  * The site's only navigation: an icon dock floating at the bottom of the
- * viewport. On small screens the links and theme toggle live inside the dock
+ * viewport. On small screens the external links live inside the dock
  * itself — tapping the menu grows the pill upward into a rounded rectangle and
  * reveals them, rather than popping a separate panel on top of it.
  */
 export function FloatingDock() {
   const pathname = usePathname();
-  const { setTheme, resolvedTheme } = useTheme();
   const [open, setOpen] = React.useState(false);
   const dockRef = React.useRef<HTMLDivElement>(null);
-
-  const isDark = resolvedTheme === "dark";
-  const toggleTheme = () => setTheme(isDark ? "light" : "dark");
-  const ThemeIcon = isDark ? MoonIcon : SunIcon;
 
   // Collapse on route change, outside tap, and Escape.
   React.useEffect(() => setOpen(false), [pathname]);
@@ -110,19 +103,6 @@ export function FloatingDock() {
                   </a>
                 ))}
 
-                <label className="flex cursor-pointer items-center justify-between gap-3 rounded-2xl px-3 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
-                  <span className="flex items-center gap-3">
-                    <ThemeIcon className="size-[18px]" />
-                    Dark mode
-                  </span>
-                  <Switch
-                    checked={isDark}
-                    onCheckedChange={toggleTheme}
-                    tabIndex={open ? undefined : -1}
-                    aria-label="Toggle dark mode"
-                  />
-                </label>
-
                 <Separator className="mt-1" />
               </div>
             </div>
@@ -160,7 +140,7 @@ export function FloatingDock() {
 
             <Separator orientation="vertical" className={dockSeparator} />
 
-            {/* Desktop: the links and theme toggle sit in the row itself. */}
+            {/* Desktop: the external links sit in the row itself. */}
             <div className="hidden items-center gap-1.5 sm:flex">
               {navLinks.map((item) => (
                 <Tooltip key={item.title}>
@@ -184,25 +164,6 @@ export function FloatingDock() {
                 </Tooltip>
               ))}
 
-              <Separator orientation="vertical" className={dockSeparator} />
-
-              <Tooltip>
-                <TooltipTrigger
-                  render={
-                    <Button
-                      variant="ghost"
-                      size="icon-lg"
-                      aria-label="Toggle theme"
-                      className={dockButton}
-                      onClick={toggleTheme}
-                    >
-                      <SunIcon className="size-[18px] dark:hidden" />
-                      <MoonIcon className="hidden size-[18px] dark:block" />
-                    </Button>
-                  }
-                />
-                <TooltipContent>Toggle theme</TooltipContent>
-              </Tooltip>
             </div>
 
             {/* Mobile: grows the dock instead of opening anything on top of it. */}

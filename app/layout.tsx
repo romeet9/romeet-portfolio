@@ -4,6 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { BottomScrim } from "@/components/bottom-scrim";
 import { TopScrim } from "@/components/top-scrim";
+import { SmoothScroll } from "@/components/smooth-scroll";
+import { Preloader } from "@/components/preloader";
 import { FloatingDock } from "@/components/floating-dock";
 import { PageTransition } from "@/components/page-transition";
 import { SiteHeader } from "@/components/site-header";
@@ -62,6 +64,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Preloader />
+          <SmoothScroll />
           {/* Bottom padding keeps page content clear of the floating dock. */}
           <div className="flex min-h-svh flex-col pb-28">
             <TopScrim />
