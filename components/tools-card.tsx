@@ -1,10 +1,8 @@
 import { KpiCard, type HalftoneConfig } from "@/components/kpi-parts";
 
 /**
- * kpi-card-4 from Paper's "Graceful petal" (artboard 3I-0): three white tool
- * marks over a halftone image. The canvas artboard still carries card 2's
- * placeholder copy (mid-edit); the intended copy is "Most used Tools" /
- * "Altogether I use 3 tools."
+ * kpi-card-4 from Paper's "Graceful petal" (artboard GL-0). The artboard
+ * still carries card 2's placeholder copy mid-edit; the real copy is used here.
  */
 const SHADER: HalftoneConfig = {
   image: "/kpi/halftone-4.avif",
@@ -18,19 +16,6 @@ export function ToolsCard() {
   return (
     <KpiCard
       shader={SHADER}
-      iconRowClassName="gap-3.5"
-      icon={
-        <>
-          <div
-            className="size-10 shrink-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/kpi/tool-claude.png')" }}
-          />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/kpi/tool-mid.svg" alt="" width={28} height={41} className="shrink-0" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/kpi/tool-right.svg" alt="" width={40} height={40} className="shrink-0" />
-        </>
-      }
       eyebrow="Most used Tools"
       caption={"Altogether I use\n3 tools."}
     />

@@ -1,9 +1,7 @@
 import { KpiCard, type HalftoneConfig } from "@/components/kpi-parts";
 
 /**
- * kpi-card-1 from Paper's "Graceful petal" (artboard 31-0): the coral Claude
- * logo over a halftone petal image, "Interactive prototypes" / "Ships a
- * clickable build."
+ * kpi-card-1 from Paper's "Graceful petal" (artboard GG-0).
  */
 const SHADER: HalftoneConfig = {
   image: "/kpi/halftone-1.avif",
@@ -17,10 +15,6 @@ export function PrototypesCard() {
   return (
     <KpiCard
       shader={SHADER}
-      icon={
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src="/kpi/logo-claude.svg" alt="" width={40} height={40} className="shrink-0" />
-      }
       eyebrow="Interactive prototypes"
       caption={"Ships a clickable\nbuild."}
     />

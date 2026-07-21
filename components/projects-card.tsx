@@ -7,20 +7,23 @@ import { Halftone, GithubIcon, LiveIcon, type Shader } from "@/components/halfto
 
 /**
  * The Projects card, from Paper's "Graceful petal" artboards
- * `projects-card/onIdeal` (7L-0) and `projects-card/onHover` (8K-0).
+ * `projects-card/onIdeal` (EF-0) and `projects-card/onHover` (FD-0).
  *
- * A 410x410 panel: a halftone shader shell, a "Projects" header with a white
+ * A 410x516 panel: a halftone shader shell, a "Projects" header with a white
  * "View all" pill, and two project mini-cards clipped by the card's edges.
  *
  * Idle: the mini-cards are tilted and overlapping, fanned like a hand of cards.
- * Hover: they straighten to 0deg and spread apart. Only left/top/rotate differ
- * between the two artboards, so hover is a pure transition of those three.
+ * Hover: they fan out further — each tilts harder and slides apart, rather than
+ * straightening. Only left/top/rotate differ between the two artboards, so
+ * hover is a pure transition of those three.
  *
  * Geometry is expressed in `cqw` against the 410px artboard, so the whole
  * composition scales as one unit inside whatever column the grid gives it.
  */
 
 const FRAME = 410;
+/** Artboard height, for the card's aspect ratio. */
+const FRAME_H = 516;
 /** Artboard px -> a share of the card's width. */
 const q = (px: number) => `${((px / FRAME) * 100).toFixed(4)}cqw`;
 
@@ -78,7 +81,9 @@ function MiniCard({
     <div
       className={[
         "absolute flex origin-top-left flex-col justify-between overflow-clip rounded-[22px]",
-        "border border-white/10 [box-shadow:#000000_0px_2px_70px]",
+        // Same 1px width as every other card; higher opacity so these read as
+        // distinct panels sitting on top of the shell's halftone.
+        "border border-white/25 [box-shadow:#000000_0px_2px_70px]",
         // Only these three properties differ between the two artboards.
         "left-[var(--l)] top-[var(--t)] rotate-[var(--r)]",
         "group-hover:left-[var(--lh)] group-hover:top-[var(--th)] group-hover:rotate-[var(--rh)]",
@@ -154,8 +159,8 @@ function MiniCard({
 export function ProjectsCard() {
   return (
     <div
-      className="group relative aspect-square w-full overflow-clip rounded-[22px] border border-white/10 bg-[#131313] antialiased [font-synthesis:none]"
-      style={{ containerType: "inline-size" }}
+      className="group relative w-full overflow-clip rounded-[22px] border border-white/10 bg-[#131313] antialiased [font-synthesis:none]"
+      style={{ containerType: "inline-size", aspectRatio: `${FRAME} / ${FRAME_H}` }}
     >
       <Halftone cfg={SHELL} />
 
@@ -195,8 +200,8 @@ export function ProjectsCard() {
         desc="Say your morning brief out loud & get a structured, prioritized plan back."
         live="https://task-planner-seven-zeta.vercel.app"
         github="https://github.com/romeet9/tasky-ai"
-        idle={{ x: 36, y: 157, r: -5.24 }}
-        hover={{ x: -49, y: 158.72, r: 0 }}
+        idle={{ x: 36, y: 192, r: -5.24 }}
+        hover={{ x: -72.913, y: 206.278, r: -11.13 }}
       />
 
       <MiniCard
@@ -204,8 +209,8 @@ export function ProjectsCard() {
         title="InspoFlow"
         desc="Turn a messy screenshot camera roll into a searchable inspiration library."
         github="https://github.com/romeet9/InspoFlow"
-        idle={{ x: 202, y: 116, r: 11.94 }}
-        hover={{ x: 175, y: 252, r: 0 }}
+        idle={{ x: 202, y: 151, r: 11.94 }}
+        hover={{ x: 220.884, y: 214.881, r: 16.62 }}
       />
     </div>
   );

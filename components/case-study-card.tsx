@@ -1,87 +1,139 @@
-import Image from "next/image";
+"use client";
+
+import * as React from "react";
 import Link from "next/link";
-import { ArrowUpRightIcon } from "lucide-react";
 
-import type { CaseStudy } from "@/content/case-studies";
-import { cn } from "@/lib/utils";
+import { Halftone, type Shader } from "@/components/halftone";
 
 /**
- * Full-bleed case study card: the mockup *is* the card. Metadata, title,
- * tagline and tags sit over it in the bottom-left, lifted by a soft gradient
- * that dies out well before the middle of the frame — the artwork is never
- * flattened under a dark box.
+ * The case study preview card, from Paper's "Graceful petal" artboard
+ * `add-case-preview-card` (9Q-0).
+ *
+ * A 406x516 panel: a halftone shader field, a tall phone mockup rotated and
+ * bled off the top edge, and a bottom row carrying the title, the tagline and a
+ * white "View all" pill.
+ *
+ * Geometry is expressed in `cqw` against the 406px artboard, so the whole
+ * composition scales as one unit inside whatever column the grid gives it.
  */
+
+const FRAME = 406;
+/** Artboard px -> a share of the card's width. */
+const q = (px: number) => `${((px / FRAME) * 100).toFixed(4)}cqw`;
+
+const SHADER: Shader = {
+  image: "/kpi/pc-shell.avif",
+  grid: "hex",
+  size: 0.55,
+  mask: "radial-gradient(ellipse 44.305% 48.215% at 18.24% 9.16% in oklab, oklab(57.7% 0 0) 0%, oklab(20% 0 0) 100%)",
+};
+
+/** Hover lifts the halftone, matching the KPI and Vibe cards. */
+const CONTRAST_IDLE = 0.22;
+const CONTRAST_HOVER = 0.4;
+
+
 /**
- * Card copy carries no dashes. Titles take the middot the metadata line already
- * uses; a dash inside a sentence becomes a colon. Display-only — the case study
- * data and its detail page are untouched.
+ * The artboard writes the title with a hyphen rather than the em dash the data
+ * carries, which also keeps Romeet's no-em-dash rule. Display only.
  */
-const asTitle = (s: string) => s.replace(/\s*—\s*/g, " · ");
+const asTitle = (s: string) => s.replace(/\s*—\s*/g, " - ");
+/** Same rule for the tagline: an em dash mid-sentence becomes a colon. */
 const asSentence = (s: string) => s.replace(/\s*—\s*/g, ": ");
 
+function ArrowIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="size-[1em] shrink-0">
+      <path
+        d="m224.49 136.49l-72 72a12 12 0 0 1-17-17L187 140H40a12 12 0 0 1 0-24h147l-51.49-51.52a12 12 0 0 1 17-17l72 72a12 12 0 0 1-.02 17.01"
+        fill="#000000"
+      />
+    </svg>
+  );
+}
+
+/**
+ * Takes plain strings rather than the CaseStudy object: the study carries
+ * Lucide icon *functions* in its metrics and acts, which cannot cross the
+ * server/client boundary.
+ */
 export function CaseStudyCard({
-  study,
   href,
+  name,
+  tagline,
+  mock,
 }: {
-  study: CaseStudy;
   href: string;
+  name: string;
+  tagline: string;
+  mock: string;
 }) {
+  const [hovered, setHovered] = React.useState(false);
+
   return (
     <Link
       href={href}
-      className="group relative flex aspect-[4/5] overflow-hidden rounded-[22px] bg-muted ring-1 ring-foreground/10 transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-xl hover:shadow-black/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring dark:hover:shadow-black/40"
+      onPointerEnter={() => setHovered(true)}
+      onPointerLeave={() => setHovered(false)}
+      className="group relative block aspect-[406/516] w-full overflow-clip rounded-[22px] border border-white/10 bg-[#131313] antialiased [font-synthesis:none] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+      style={{ containerType: "inline-size" }}
     >
-      <Image
-        src={study.cover.src}
-        alt={study.cover.alt}
-        fill
-        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-        quality={95}
-        className={cn(
-          "object-cover object-center transition-transform duration-500 ease-out",
-          study.coverZoom
-            ? // The shot frames the phone small in a wide, empty backdrop. Zoom
-              // and lift the crop so the device fills the card and clears the
-              // caption, instead of sitting in the middle of dead grey space.
-              "scale-[1.4] -translate-y-[7%] group-hover:scale-[1.45]"
-            : "group-hover:scale-[1.03]",
-        )}
-      />
+      <Halftone cfg={SHADER} contrast={hovered ? CONTRAST_HOVER : CONTRAST_IDLE} />
 
-      {/* Legibility lift. The mockups are bright white phone screens, so the ramp
-          has to be deep where the type sits and gone by the midline. Two passes:
-          a long soft one that dies out at 55%, and a short dense one under the
-          text itself. The blur is masked to the bottom edge, diffusing the busy
-          image detail behind the smallest type. */}
+      {/* The mockup, rotated and bled off the top-left corner. Static — the
+          hover travel from the onHover artboard is deliberately not wired up. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black/80 via-black/35 to-transparent"
+        className="absolute origin-top-left bg-cover bg-center"
+        style={{
+          width: q(319),
+          height: q(640),
+          left: "50%",
+          top: 0,
+          translate: `calc(-50% - ${q(170.5)}) ${q(-232)}`,
+          rotate: "344.61deg",
+          filter: "brightness(85%)",
+          backgroundImage: `url(${mock})`,
+        }}
       />
+
+      {/* Pill pinned top-right, title and tagline along the bottom. */}
       <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/85 to-transparent"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 backdrop-blur-[6px] [mask-image:linear-gradient(to_top,black_0%,black_45%,transparent_100%)]"
-      />
+        className="relative flex h-full flex-col justify-between"
+        style={{ padding: q(20) }}
+      >
+        <div
+          className="flex items-center justify-end"
+          style={{ paddingInline: q(12), paddingBlock: q(8) }}
+        >
+          <span
+            className="flex shrink-0 items-center justify-center gap-1.5 rounded-full bg-white font-medium tracking-[-0.06em] text-[#000000F2] transition-transform group-hover:scale-105"
+            style={{ paddingInline: q(12), paddingBlock: q(8), fontSize: q(12) }}
+          >
+            View all
+            <ArrowIcon />
+          </span>
+        </div>
 
-      <ArrowUpRightIcon className="absolute top-5 right-5 size-5 text-white/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-      {/* Bottom-left text block: eyebrow, title, one-line summary. No tag pills
-          — the chrome they added is exactly what this layout is meant to shed. */}
-      <div className="relative mt-auto flex flex-col gap-1.5 p-5 sm:p-6">
-        <span className="text-[11px] font-medium text-white/55 uppercase">
-          {study.company} · {study.year}
-        </span>
-
-        <h3 className="text-xl font-semibold tracking-tight text-white drop-shadow-sm sm:text-2xl">
-          {asTitle(study.name)}
-        </h3>
-
-        <p className="line-clamp-2 max-w-[34ch] text-sm leading-relaxed text-white/75">
-          {asSentence(study.tagline)}
-        </p>
+        {/* Stays visible: with the mockup static, hiding this would just leave
+            a gap. */}
+        <div
+          className="flex flex-col items-start gap-1.5"
+          style={{ paddingInline: q(12), paddingBlock: q(16) }}
+        >
+          <span
+            className="self-stretch tracking-[-0.06em] text-white"
+            style={{ fontSize: q(24), lineHeight: q(28) }}
+          >
+            {asTitle(name)}
+          </span>
+          <span
+            className="self-stretch tracking-[-0.06em] text-[#FFFFFF8C]"
+            style={{ fontSize: q(16), lineHeight: q(18) }}
+          >
+            {asSentence(tagline)}
+          </span>
+        </div>
       </div>
     </Link>
   );

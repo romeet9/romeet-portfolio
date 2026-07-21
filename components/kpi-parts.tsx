@@ -4,12 +4,12 @@ import * as React from "react";
 import { HalftoneDots } from "@paper-design/shaders-react";
 
 /**
- * Shared shell for the four KPI cards, from Paper's "Graceful petal" redesign.
+ * Shared shell for the four KPI cards, from Paper's "Graceful petal" redesign
+ * (artboards kpi-card-1..4).
  *
- * Each card is a dark panel with a HalftoneDots shader rendering a per-card image
- * as a field of halftone dots — bright in the top-right, dissolving to dark at
- * the bottom-left behind the text (the fade comes from the shader's radial mask).
- * A logo sits top-left, an eyebrow + caption at the bottom.
+ * A dark panel with a halftone image field, the eyebrow pinned to the top and
+ * the caption to the bottom. The logos of the previous pass are gone — the card
+ * is now just the shader and the two lines of type.
  */
 
 /** How much hovering lifts the halftone contrast — matches the Vibe cards' 0.22 -> 0.4. */
@@ -30,9 +30,8 @@ export type HalftoneConfig = {
 
 /**
  * The HalftoneDots shader — WebGL, so client-only and mount-gated. Before mount
- * it falls back to the card's base surface so there's no flash. Four cards, four
- * contexts (the budget that renders cleanly on mobile). Params carried over
- * verbatim from Paper's export.
+ * it falls back to the card's base surface so there's no flash. Params carried
+ * over verbatim from Paper's export.
  */
 function KpiShaderBg({ cfg, contrast }: { cfg: HalftoneConfig; contrast: number }) {
   const [mounted, setMounted] = React.useState(false);
@@ -43,8 +42,7 @@ function KpiShaderBg({ cfg, contrast }: { cfg: HalftoneConfig; contrast: number 
   return (
     <HalftoneDots
       // speed 0 stops the render loop entirely — the halftone is a static
-      // texture, so this drops four animating image shaders to a one-time render
-      // with no recurring GPU/battery cost.
+      // texture, so this is a one-time render with no recurring GPU cost.
       speed={0}
       image={cfg.image}
       contrast={contrast}
@@ -69,24 +67,18 @@ function KpiShaderBg({ cfg, contrast }: { cfg: HalftoneConfig; contrast: number 
 
 export function KpiCard({
   shader,
-  icon,
-  iconRowClassName = "",
   eyebrow,
   caption,
 }: {
   shader: HalftoneConfig;
-  icon: React.ReactNode;
-  /** Extra classes for the icon row (card 4 spreads its three tools). */
-  iconRowClassName?: string;
   eyebrow: string;
   /** Caption text; a literal "\n" becomes a hard line break. */
   caption: string;
 }) {
   const [hovered, setHovered] = React.useState(false);
 
-  // Same lift the Vibe Coded Projects cards use: hovering crisps the halftone
-  // rather than moving the card. Each card keeps its own base contrast, so the
-  // boost is relative and clamped.
+  // Hovering crisps the halftone rather than moving the card. Each card keeps
+  // its own base contrast, so the boost is relative and clamped.
   const contrast = hovered
     ? Math.min(1, shader.contrast + CONTRAST_LIFT)
     : shader.contrast;
@@ -95,24 +87,19 @@ export function KpiCard({
     <div
       onPointerEnter={() => setHovered(true)}
       onPointerLeave={() => setHovered(false)}
-      className="relative flex min-h-[276px] flex-col justify-between gap-6 overflow-clip rounded-[22px] border border-white/10 p-5 antialiased [font-synthesis:none]"
+      className="relative flex min-h-[276px] flex-col overflow-clip rounded-[22px] border border-white/10 p-5 antialiased [font-synthesis:none]"
       style={{ backgroundImage: SURFACE }}
     >
       <KpiShaderBg cfg={shader} contrast={contrast} />
 
-      <div
-        className={`relative flex items-center self-stretch p-2.5 ${iconRowClassName}`}
-      >
-        {icon}
-      </div>
-
-      <div className="relative flex flex-col items-start gap-1.5 self-stretch">
-        <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] text-base/4.5 tracking-[-0.06em] text-white/55">
+      {/* Eyebrow top, caption bottom — the block fills the card and splits them. */}
+      <div className="relative flex flex-1 flex-col items-start justify-between gap-1.5 self-stretch">
+        <span className="w-fit text-base/4.5 tracking-[-0.06em] whitespace-pre-line text-[#FFFFFF8C]">
           {eyebrow}
-        </div>
-        <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] text-2xl/7 tracking-[-0.06em] whitespace-pre-line text-white">
+        </span>
+        <span className="w-fit text-2xl/7 tracking-[-0.06em] whitespace-pre-line text-white">
           {caption}
-        </div>
+        </span>
       </div>
     </div>
   );

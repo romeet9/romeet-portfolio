@@ -1,8 +1,7 @@
 import { KpiCard, type HalftoneConfig } from "@/components/kpi-parts";
 
 /**
- * kpi-card-2 from Paper's "Graceful petal" (artboard 39-0): the white Next.js
- * logo over a halftone image, "Next.js & SwiftUI" / "4 Real, working products."
+ * kpi-card-2 from Paper's "Graceful petal" (artboard GB-0).
  */
 const SHADER: HalftoneConfig = {
   image: "/kpi/halftone-2.avif",
@@ -16,10 +15,6 @@ export function ShippedCard() {
   return (
     <KpiCard
       shader={SHADER}
-      icon={
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src="/kpi/logo-next.svg" alt="" width={40} height={40} className="shrink-0" />
-      }
       eyebrow="Next.js & SwiftUI"
       caption={"4 Real, working\nproducts."}
     />

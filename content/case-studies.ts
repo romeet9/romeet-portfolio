@@ -153,6 +153,12 @@ export type CaseStudy = {
   cover: CaseImage;
   /** Zooms the preview card's crop, for shots that frame the device small. */
   coverZoom?: boolean;
+  /**
+   * Tall phone screenshot used by the preview card, which bleeds a rotated
+   * mockup off its top edge. Needs a portrait device shot, not the wider
+   * hand-held `cover`. Falls back to `cover.src`.
+   */
+  previewMock?: string;
   /** The framing "How might we" question — rendered as its own section. */
   hmw: string;
   /** Headline result stats (top strip). */
@@ -180,6 +186,7 @@ export const caseStudies: CaseStudy[] = [
       w: 4994,
       h: 3994,
     },
+    previewMock: "/projects/edge-crm/06-final.png",
     coverZoom: true,
     hmw: "How might we help reps log, scan, and understand the full context of a client case, fast, without navigating across multiple screens?",
     metrics: [
@@ -503,6 +510,7 @@ export const caseStudies: CaseStudy[] = [
       w: 3584,
       h: 4312,
     },
+    previewMock: "/case-studies/case-list/after.png",
     hmw: "Which case needs me right now?",
     metrics: [
       { value: "~52s", label: "Old time-to-answer", sub: "the shared cross-screen cost", icon: ClockIcon },
