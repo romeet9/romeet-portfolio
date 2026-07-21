@@ -12,6 +12,9 @@ import { HalftoneDots } from "@paper-design/shaders-react";
  * A logo sits top-left, an eyebrow + caption at the bottom.
  */
 
+/** How much hovering lifts the halftone contrast — matches the Vibe cards' 0.22 -> 0.4. */
+const CONTRAST_LIFT = 0.18;
+
 /** The base gradient under the shader, identical on every card. */
 const SURFACE =
   "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)";
@@ -31,7 +34,7 @@ export type HalftoneConfig = {
  * contexts (the budget that renders cleanly on mobile). Params carried over
  * verbatim from Paper's export.
  */
-function KpiShaderBg({ cfg }: { cfg: HalftoneConfig }) {
+function KpiShaderBg({ cfg, contrast }: { cfg: HalftoneConfig; contrast: number }) {
   const [mounted, setMounted] = React.useState(false);
   React.useEffect(() => setMounted(true), []);
 
@@ -44,7 +47,7 @@ function KpiShaderBg({ cfg }: { cfg: HalftoneConfig }) {
       // with no recurring GPU/battery cost.
       speed={0}
       image={cfg.image}
-      contrast={cfg.contrast}
+      contrast={contrast}
       radius={cfg.radius}
       colorFront={cfg.colorFront}
       colorBack="#00000000"
@@ -79,12 +82,23 @@ export function KpiCard({
   /** Caption text; a literal "\n" becomes a hard line break. */
   caption: string;
 }) {
+  const [hovered, setHovered] = React.useState(false);
+
+  // Same lift the Vibe Coded Projects cards use: hovering crisps the halftone
+  // rather than moving the card. Each card keeps its own base contrast, so the
+  // boost is relative and clamped.
+  const contrast = hovered
+    ? Math.min(1, shader.contrast + CONTRAST_LIFT)
+    : shader.contrast;
+
   return (
     <div
-      className="relative flex min-h-[276px] flex-col justify-between gap-6 overflow-clip rounded-xl p-5 antialiased ring-1 ring-white/15 [font-synthesis:none]"
+      onPointerEnter={() => setHovered(true)}
+      onPointerLeave={() => setHovered(false)}
+      className="relative flex min-h-[276px] flex-col justify-between gap-6 overflow-clip rounded-[22px] border border-white/10 p-5 antialiased [font-synthesis:none]"
       style={{ backgroundImage: SURFACE }}
     >
-      <KpiShaderBg cfg={shader} />
+      <KpiShaderBg cfg={shader} contrast={contrast} />
 
       <div
         className={`relative flex items-center self-stretch p-2.5 ${iconRowClassName}`}

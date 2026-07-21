@@ -1,154 +1,122 @@
-import Image from "next/image";
+"use client";
+
+import * as React from "react";
 import Link from "next/link";
-import { ArrowRightIcon, CheckIcon, CodeIcon, ExternalLinkIcon } from "lucide-react";
 
 import { projects, type Project } from "@/content/projects";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Halftone, GithubIcon, LiveIcon, type Shader } from "@/components/halftone";
+
+/**
+ * The Vibe Coded Projects grid, in the mini-card style from Paper's
+ * "Graceful petal" project cards: a halftone shader panel with the Live Link /
+ * Github pills on top and the description sitting above the title at the bottom.
+ *
+ * The canvas only defines artboards for Tasky AI and InspoFlow, so the two
+ * halftone images are alternated across the four projects. Each card gets its
+ * own radial mask focal point so the reused images don't read as duplicates.
+ */
+
+const TASKY_IMG = "/kpi/pc-tasky.webp";
+const SHELL_IMG = "/kpi/pc-shell.avif";
+
+/** Mask focal points: the two from the canvas, plus two distinct ones. */
+const SHADERS: Record<string, Shader> = {
+  "tasky-ai": {
+    image: TASKY_IMG,
+    grid: "hex",
+    size: 0.55,
+    mask: "radial-gradient(ellipse 44.47% 48.395% at 78.15% 50% in oklab, oklab(57.7% 0 0) 0%, oklab(27.2% 0 0) 100%)",
+  },
+  complai: {
+    image: SHELL_IMG,
+    grid: "hex",
+    size: 0.55,
+    // Pushed to the lower right so it doesn't read as a twin of InspoFlow,
+    // which shares this image with an upper-left focus.
+    mask: "radial-gradient(ellipse 44.47% 48.395% at 74% 70% in oklab, oklab(57.7% 0 0) 0%, oklab(27.2% 0 0) 100%)",
+  },
+  inspoflow: {
+    image: SHELL_IMG,
+    grid: "hex",
+    size: 0.55,
+    mask: "radial-gradient(ellipse 44.305% 48.215% at 18.24% 9.16% in oklab, oklab(57.7% 0 0) 0%, oklab(27.2% 0 0) 100%)",
+  },
+  claudebar: {
+    image: TASKY_IMG,
+    grid: "hex",
+    size: 0.55,
+    mask: "radial-gradient(ellipse 44.47% 48.395% at 82% 78% in oklab, oklab(57.7% 0 0) 0%, oklab(27.2% 0 0) 100%)",
+  },
+};
+
+/** Idle vs hover contrast — hovering lifts the halftone rather than moving the card. */
+const CONTRAST_IDLE = 0.22;
+const CONTRAST_HOVER = 0.4;
 
 function ProjectCard({ project }: { project: Project }) {
-  const {
-    slug,
-    name,
-    tagline,
-    icon,
-    category,
-    highlights,
-    stack,
-    status,
-    year,
-    links,
-    accent,
-  } = project;
+  const { slug, name, tagline, links } = project;
+  const [hovered, setHovered] = React.useState(false);
+  const shader = SHADERS[slug] ?? SHADERS["tasky-ai"];
 
   return (
-    <Card className="flex flex-col gap-0 p-0">
-      <CardHeader className="gap-2 border-b px-4 py-4">
-        <div className="flex items-center gap-2.5">
-          {icon && (
-            <Image
-              src={icon}
-              alt={`${name} icon`}
-              width={80}
-              height={80}
-              className="size-9 shrink-0 rounded-[0.6rem] object-contain shadow-sm"
-            />
-          )}
-          <CardTitle className="text-base leading-tight">{name}</CardTitle>
-        </div>
-        <CardDescription className="line-clamp-2 text-xs text-pretty">
-          {tagline}
-        </CardDescription>
-        <CardAction>
-          <span
-            className="inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-medium"
-            style={{
-              backgroundColor: `color-mix(in oklab, ${accent} 18%, var(--muted))`,
-              color: `color-mix(in oklab, ${accent} 72%, var(--foreground))`,
-            }}
-          >
-            {category}
-          </span>
-        </CardAction>
-      </CardHeader>
+    <div
+      onPointerEnter={() => setHovered(true)}
+      onPointerLeave={() => setHovered(false)}
+      className="relative flex aspect-square flex-col justify-between overflow-clip rounded-[22px] border border-white/10 p-5 antialiased [box-shadow:#000000_0px_2px_70px] [font-synthesis:none]"
+    >
+      <Halftone cfg={shader} contrast={hovered ? CONTRAST_HOVER : CONTRAST_IDLE} />
 
-      <CardContent className="flex flex-1 flex-col gap-3 px-4 pt-4 pb-4">
-        <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
-          <Badge
-            variant="outline"
-            className="px-1.5 py-0 text-[10px] text-muted-foreground"
-          >
-            {status}
-          </Badge>
-          <span className="font-mono">{year}</span>
-        </div>
-
-        <ul className="flex flex-col gap-1.5">
-          {highlights.slice(0, 3).map((h) => (
-            <li key={h} className="flex gap-2 text-xs leading-snug">
-              <CheckIcon
-                className="mt-0.5 size-3.5 shrink-0"
-                style={{ color: accent }}
-              />
-              <span className="line-clamp-2">{h}</span>
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-auto flex flex-wrap gap-1">
-          {stack.slice(0, 4).map((tech) => (
-            <Badge
-              key={tech}
-              variant="secondary"
-              className="px-1.5 py-0 text-[10px] font-normal"
-            >
-              {tech}
-            </Badge>
-          ))}
-          {stack.length > 4 && (
-            <Badge
-              variant="secondary"
-              className="px-1.5 py-0 text-[10px] font-normal text-muted-foreground"
-            >
-              +{stack.length - 4}
-            </Badge>
-          )}
-        </div>
-      </CardContent>
-
-      <CardFooter className="flex-wrap gap-2 border-t px-4 py-3">
+      {/* Link pills. Github sits right; Live Link only when the project has one. */}
+      <div
+        className={`relative z-20 flex items-center self-stretch px-1.5 py-2 ${
+          links.live ? "justify-between" : "justify-end"
+        }`}
+      >
         {links.live && (
-          <Button
-            size="sm"
-            nativeButton={false}
-            render={
-              <a href={links.live} target="_blank" rel="noopener noreferrer" />
-            }
+          <a
+            href={links.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-1.5 rounded-full bg-white px-3 py-2 text-xs/3.5 font-medium tracking-[-0.06em] text-[#000000F2] transition-transform hover:scale-105"
           >
-            <ExternalLinkIcon />
-            View live
-          </Button>
+            <LiveIcon />
+            Live Link
+          </a>
         )}
         {links.github && (
-          <Button
-            size="sm"
-            variant={links.live ? "outline" : "default"}
-            nativeButton={false}
-            render={
-              <a href={links.github} target="_blank" rel="noopener noreferrer" />
-            }
+          <a
+            href={links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 rounded-full border-solid border-white px-3 py-2 text-base/4.5 tracking-[-0.06em] text-white transition-transform [border-width:0.2px] hover:scale-105"
           >
-            <CodeIcon />
-            GitHub
-          </Button>
+            <GithubIcon />
+            Github
+          </a>
         )}
-        <Button
-          size="icon-sm"
-          variant={links.live || links.github ? "ghost" : "default"}
-          className="ml-auto"
-          aria-label={`${name} case detail`}
-          nativeButton={false}
-          render={<Link href={`/projects/${slug}`} />}
-        >
-          <ArrowRightIcon />
-        </Button>
-      </CardFooter>
-    </Card>
+      </div>
+
+      {/* Description above the title, as in the artboard. */}
+      <div className="relative flex flex-col items-start gap-1.5 self-stretch">
+        <span className="self-stretch text-base/4.5 tracking-[-0.06em] text-[#FFFFFF8C]">
+          {tagline}
+        </span>
+        <span className="self-stretch text-2xl/7 tracking-[-0.06em] text-white">{name}</span>
+      </div>
+
+      {/* The card surface opens the detail page; the pills above it win the click. */}
+      <Link
+        href={`/projects/${slug}`}
+        aria-label={name}
+        className="absolute inset-0 z-10 rounded-[22px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+      />
+    </div>
   );
 }
 
 export function VibeProjectShowcase() {
   return (
-    <div className="grid items-stretch gap-4 @2xl/main:grid-cols-2 @5xl/main:grid-cols-3">
+    <div className="grid items-stretch gap-4 @2xl/main:grid-cols-2 @5xl/main:grid-cols-4">
       {projects.map((project) => (
         <ProjectCard key={project.slug} project={project} />
       ))}

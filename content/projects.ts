@@ -40,7 +40,7 @@ export const projects: Project[] = [
   {
     slug: "tasky-ai",
     name: "Tasky AI",
-    tagline: "Say your morning brief out loud — get a structured, prioritized plan back.",
+    tagline: "Say your morning brief out loud & get a structured, prioritized plan back.",
     category: "Web",
     description:
       "An AI planner that turns a plain-language brief into categorized tasks with subtasks and priorities. It grows into a small productivity suite — meeting capture with auto-generated minutes, team workspaces with role-based access, and an admin analytics console — for individuals and teams who want their to-do list to organize itself.",
@@ -54,7 +54,10 @@ export const projects: Project[] = [
     stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind v4", "Firebase", "Groq", "Framer Motion"],
     status: "Shipped",
     year: "2026",
-    links: { live: "https://task-planner-seven-zeta.vercel.app" },
+    links: {
+      live: "https://task-planner-seven-zeta.vercel.app",
+      github: "https://github.com/romeet9/tasky-ai",
+    },
     accent: "#eeece7",
     onAccent: "#212121",
     icon: "/projects/tasky-ai/icon.svg",
