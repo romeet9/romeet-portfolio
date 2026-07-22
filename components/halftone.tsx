@@ -1,56 +1,51 @@
-"use client";
-
 import * as React from "react";
-import { HalftoneDots } from "@paper-design/shaders-react";
 
 /**
- * Shared pieces of Paper's "Graceful petal" project cards — the halftone shader
- * background and the link-pill icons. Used by both the Projects card on the
- * overview and the Vibe Coded Projects grid.
+ * The halftone field behind the project, case study and vibe cards.
+ *
+ * This used to be a live WebGL shader. Every shader in the app was `speed={0}` —
+ * a fixed image drawn through a GPU pipeline — and nine of them ran at once on
+ * the overview, costing ~60MB of GPU memory. Mobile browsers reclaim WebGL
+ * contexts under that kind of pressure and re-initialise them later, which is
+ * why the cards would blank out and come back.
+ *
+ * They are now pre-baked to images (see app/shader-bake and BAKING.md), so there
+ * is no WebGL on the site at all and nothing that can be evicted.
  */
 
-/** Params identical across every halftone surface in the design. */
-export const SHADER_BASE = {
-  originalColors: false,
-  inverted: false,
-  type: "gooey",
-  fit: "cover",
-  scale: 1,
-  radius: 1.22,
-  grainSize: 0.33,
-  grainMixer: 0.2,
-  grainOverlay: 0.2,
-  colorFront: "#000000",
-  colorBack: "#00000000",
+/** Every baked field, for preloading. Keep in sync with app/shader-bake. */
+export const BAKED = {
+  kpi1: "/baked/kpi-1.jpg",
+  kpi2: "/baked/kpi-2.jpg",
+  kpi3: "/baked/kpi-3.jpg",
+  kpi4: "/baked/kpi-4.jpg",
+  shell: "/baked/pc-shell.jpg",
+  tasky: "/baked/card-tasky.jpg",
+  inspo: "/baked/card-inspo.jpg",
+  study: "/baked/card-study.jpg",
+  complai: "/baked/card-complai.jpg",
+  claudebar: "/baked/card-claudebar.jpg",
 } as const;
 
-export type Shader = {
-  image: string;
-  grid: "square" | "hex";
-  size: number;
-  /** The radial mask Paper puts on the shader div — bright focus, dark falloff. */
-  mask: string;
-};
+export const BAKED_SRCS = Object.values(BAKED);
 
 /**
- * WebGL, so client-only and mount-gated. `speed={0}` stops the render loop —
- * these are static textures, and the overview page already carries several.
+ * The hover lift. The shader used to raise its `contrast` uniform; with a baked
+ * image a CSS filter gets the same read, transitions smoothly, and costs nothing.
  */
-export function Halftone({ cfg, contrast = 0.22 }: { cfg: Shader; contrast?: number }) {
-  const [mounted, setMounted] = React.useState(false);
-  React.useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+const HOVER_FILTER = "contrast(1.12) brightness(1.06)";
 
+export function Halftone({ src, hovered = false }: { src: string; hovered?: boolean }) {
   return (
-    <HalftoneDots
-      {...SHADER_BASE}
-      speed={0}
-      contrast={contrast}
-      image={cfg.image}
-      grid={cfg.grid}
-      size={cfg.size}
-      className="absolute inset-x-0 -top-0.75 -bottom-0.75"
-      style={{ backgroundImage: cfg.mask }}
+    <div
+      aria-hidden
+      // The -top/-bottom bleed is carried over from the shader: it hides the
+      // seam at the card's rounded edges.
+      className="absolute inset-x-0 -top-0.75 -bottom-0.75 bg-cover bg-center transition-[filter] duration-300 ease-out motion-reduce:transition-none"
+      style={{
+        backgroundImage: `url(${src})`,
+        filter: hovered ? HOVER_FILTER : undefined,
+      }}
     />
   );
 }

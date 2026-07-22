@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 
-import { Halftone, type Shader } from "@/components/halftone";
+import { Halftone, BAKED } from "@/components/halftone";
 
 /**
  * The case study preview card, from Paper's "Graceful petal" artboard
@@ -20,17 +20,6 @@ import { Halftone, type Shader } from "@/components/halftone";
 const FRAME = 406;
 /** Artboard px -> a share of the card's width. */
 const q = (px: number) => `${((px / FRAME) * 100).toFixed(4)}cqw`;
-
-const SHADER: Shader = {
-  image: "/kpi/pc-shell.avif",
-  grid: "hex",
-  size: 0.55,
-  mask: "radial-gradient(ellipse 44.305% 48.215% at 18.24% 9.16% in oklab, oklab(57.7% 0 0) 0%, oklab(20% 0 0) 100%)",
-};
-
-/** Hover lifts the halftone, matching the KPI and Vibe cards. */
-const CONTRAST_IDLE = 0.22;
-const CONTRAST_HOVER = 0.4;
 
 
 /**
@@ -78,7 +67,7 @@ export function CaseStudyCard({
       className="group relative block aspect-[406/516] w-full overflow-clip rounded-[22px] border border-white/10 bg-[#131313] antialiased [font-synthesis:none] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
       style={{ containerType: "inline-size" }}
     >
-      <Halftone cfg={SHADER} contrast={hovered ? CONTRAST_HOVER : CONTRAST_IDLE} />
+      <Halftone src={BAKED.study} hovered={hovered} />
 
       {/* The mockup, rotated and bled off the top-left corner. Static — the
           hover travel from the onHover artboard is deliberately not wired up. */}

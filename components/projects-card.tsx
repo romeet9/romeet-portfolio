@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 
-import { Halftone, GithubIcon, LiveIcon, type Shader } from "@/components/halftone";
+import { Halftone, GithubIcon, LiveIcon, BAKED } from "@/components/halftone";
 
 /**
  * The Projects card, from Paper's "Graceful petal" artboards
@@ -27,27 +27,6 @@ const FRAME_H = 516;
 /** Artboard px -> a share of the card's width. */
 const q = (px: number) => `${((px / FRAME) * 100).toFixed(4)}cqw`;
 
-const SHELL: Shader = {
-  image: "/kpi/pc-shell.avif",
-  grid: "square",
-  size: 0.66,
-  mask: "radial-gradient(ellipse 46.01% 60.155% at 82.36% 18.8% in oklab, oklab(57.7% 0 0) 0%, oklab(24.1% 0 0) 100%)",
-};
-
-const TASKY: Shader = {
-  image: "/kpi/pc-tasky.webp",
-  grid: "hex",
-  size: 0.55,
-  mask: "radial-gradient(ellipse 44.47% 48.395% at 78.15% 50% in oklab, oklab(57.7% 0 0) 0%, oklab(27.2% 0 0) 100%)",
-};
-
-const INSPO: Shader = {
-  image: "/kpi/pc-shell.avif",
-  grid: "hex",
-  size: 0.55,
-  mask: "radial-gradient(ellipse 44.305% 48.215% at 18.24% 9.16% in oklab, oklab(57.7% 0 0) 0%, oklab(27.2% 0 0) 100%)",
-};
-
 function ArrowIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="size-[1em] shrink-0">
@@ -61,7 +40,7 @@ function ArrowIcon() {
 
 /** A mini project card. Idle and hover coordinates come straight from the artboards. */
 function MiniCard({
-  shader,
+  field,
   title,
   desc,
   live,
@@ -69,7 +48,7 @@ function MiniCard({
   idle,
   hover,
 }: {
-  shader: Shader;
+  field: string;
   title: string;
   desc: string;
   live?: string;
@@ -103,7 +82,7 @@ function MiniCard({
         } as React.CSSProperties
       }
     >
-      <Halftone cfg={shader} />
+      <Halftone src={field} />
 
       {/* Link pills */}
       <div
@@ -162,7 +141,7 @@ export function ProjectsCard() {
       className="group relative w-full overflow-clip rounded-[22px] border border-white/10 bg-[#131313] antialiased [font-synthesis:none]"
       style={{ containerType: "inline-size", aspectRatio: `${FRAME} / ${FRAME_H}` }}
     >
-      <Halftone cfg={SHELL} />
+      <Halftone src={BAKED.shell} />
 
       {/* Header */}
       <div
@@ -195,7 +174,7 @@ export function ProjectsCard() {
       </div>
 
       <MiniCard
-        shader={TASKY}
+        field={BAKED.tasky}
         title="Tasky AI"
         desc="Say your morning brief out loud & get a structured, prioritized plan back."
         live="https://task-planner-seven-zeta.vercel.app"
@@ -205,7 +184,7 @@ export function ProjectsCard() {
       />
 
       <MiniCard
-        shader={INSPO}
+        field={BAKED.inspo}
         title="InspoFlow"
         desc="Turn a messy screenshot camera roll into a searchable inspiration library."
         github="https://github.com/romeet9/InspoFlow"

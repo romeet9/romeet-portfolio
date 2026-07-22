@@ -3,6 +3,8 @@
 import * as React from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
+import { BAKED_SRCS } from "@/components/halftone";
+
 /**
  * Full-screen preloader shown until the page's assets have finished loading.
  *
@@ -36,19 +38,34 @@ export function Preloader() {
       setDone(true);
     };
 
-    if (document.readyState === "complete") {
-      release();
-    } else {
-      window.addEventListener("load", release);
-    }
+    // Explicitly decode the baked card fields rather than trusting `load`.
+    // These are the heavy assets, and waiting on them is the whole point of the
+    // preloader — a decoded image is guaranteed paintable, so nothing pops in.
+    const fields = Promise.all(
+      BAKED_SRCS.map(
+        (src) =>
+          new Promise<void>((resolve) => {
+            const img = new Image();
+            // Never reject: one missing file must not hold the page.
+            img.onload = () => img.decode().then(() => resolve(), () => resolve());
+            img.onerror = () => resolve();
+            img.src = src;
+          }),
+      ),
+    );
+
+    // Plus the rest of the page's own subresources.
+    const windowLoad = new Promise<void>((resolve) => {
+      if (document.readyState === "complete") return resolve();
+      window.addEventListener("load", () => resolve(), { once: true });
+    });
+
+    void Promise.all([fields, windowLoad]).then(release);
 
     // Safety valve: never let a stalled asset hold the whole page hostage.
     const timeout = window.setTimeout(release, MAX_WAIT_MS);
 
-    return () => {
-      window.removeEventListener("load", release);
-      window.clearTimeout(timeout);
-    };
+    return () => window.clearTimeout(timeout);
   }, []);
 
   // Unmount only after the fade finishes, so the animation doesn't cut out.

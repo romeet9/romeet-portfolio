@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 
 import { projects, type Project } from "@/content/projects";
-import { Halftone, GithubIcon, LiveIcon, type Shader } from "@/components/halftone";
+import { Halftone, GithubIcon, LiveIcon, BAKED } from "@/components/halftone";
 
 /**
  * The Vibe Coded Projects grid, in the mini-card style from Paper's
@@ -16,47 +16,23 @@ import { Halftone, GithubIcon, LiveIcon, type Shader } from "@/components/halfto
  * own radial mask focal point so the reused images don't read as duplicates.
  */
 
-const TASKY_IMG = "/kpi/pc-tasky.webp";
-const SHELL_IMG = "/kpi/pc-shell.avif";
-
-/** Mask focal points: the two from the canvas, plus two distinct ones. */
-const SHADERS: Record<string, Shader> = {
-  "tasky-ai": {
-    image: TASKY_IMG,
-    grid: "hex",
-    size: 0.55,
-    mask: "radial-gradient(ellipse 44.47% 48.395% at 78.15% 50% in oklab, oklab(57.7% 0 0) 0%, oklab(27.2% 0 0) 100%)",
-  },
-  complai: {
-    image: SHELL_IMG,
-    grid: "hex",
-    size: 0.55,
-    // Pushed to the lower right so it doesn't read as a twin of InspoFlow,
-    // which shares this image with an upper-left focus.
-    mask: "radial-gradient(ellipse 44.47% 48.395% at 74% 70% in oklab, oklab(57.7% 0 0) 0%, oklab(27.2% 0 0) 100%)",
-  },
-  inspoflow: {
-    image: SHELL_IMG,
-    grid: "hex",
-    size: 0.55,
-    mask: "radial-gradient(ellipse 44.305% 48.215% at 18.24% 9.16% in oklab, oklab(57.7% 0 0) 0%, oklab(27.2% 0 0) 100%)",
-  },
-  claudebar: {
-    image: TASKY_IMG,
-    grid: "hex",
-    size: 0.55,
-    mask: "radial-gradient(ellipse 44.47% 48.395% at 82% 78% in oklab, oklab(57.7% 0 0) 0%, oklab(27.2% 0 0) 100%)",
-  },
+/**
+ * Baked halftone field per project. The canvas only defines artboards for Tasky
+ * AI and InspoFlow, so those two fields are reused for Complai and ClaudeBar
+ * with their own mask focal points (baked separately) so they don't read as
+ * duplicates.
+ */
+const FIELDS: Record<string, string> = {
+  "tasky-ai": BAKED.tasky,
+  complai: BAKED.complai,
+  inspoflow: BAKED.inspo,
+  claudebar: BAKED.claudebar,
 };
-
-/** Idle vs hover contrast — hovering lifts the halftone rather than moving the card. */
-const CONTRAST_IDLE = 0.22;
-const CONTRAST_HOVER = 0.4;
 
 function ProjectCard({ project }: { project: Project }) {
   const { slug, name, tagline, links } = project;
   const [hovered, setHovered] = React.useState(false);
-  const shader = SHADERS[slug] ?? SHADERS["tasky-ai"];
+  const field = FIELDS[slug] ?? BAKED.tasky;
 
   return (
     <div
@@ -64,7 +40,7 @@ function ProjectCard({ project }: { project: Project }) {
       onPointerLeave={() => setHovered(false)}
       className="relative flex aspect-square flex-col justify-between overflow-clip rounded-[22px] border border-white/10 p-5 antialiased [box-shadow:#000000_0px_2px_70px] [font-synthesis:none]"
     >
-      <Halftone cfg={shader} contrast={hovered ? CONTRAST_HOVER : CONTRAST_IDLE} />
+      <Halftone src={field} hovered={hovered} />
 
       {/* Link pills. Github sits right; Live Link only when the project has one. */}
       <div
