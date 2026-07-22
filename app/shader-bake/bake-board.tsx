@@ -126,6 +126,17 @@ export function BakeBoard() {
 
   return (
     <div className="fixed inset-0 z-[9999] overflow-hidden bg-neutral-900">
+      {/* Hide the site chrome while baking.
+          z-index alone is not enough: PageTransition applies a CSS `filter`,
+          which creates a stacking context, so this board's z-9999 is trapped
+          inside it and the TopScrim (a white gradient at z-30) paints straight
+          over the targets. That got baked into the top of every image as a
+          near-white band. */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `header, nav[aria-label="Primary"], div[aria-hidden].fixed { display: none !important; }`,
+        }}
+      />
       {target ? (
         <div
           data-bake={target.name}
