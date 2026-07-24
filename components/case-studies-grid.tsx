@@ -9,6 +9,7 @@ export function CaseStudiesGrid({
   from,
   comingSoon = true,
   trailing,
+  columnsClassName = "sm:grid-cols-2 lg:grid-cols-3",
 }: {
   limit?: number;
   /** Tags the card links so the case study's back button returns here. */
@@ -17,12 +18,14 @@ export function CaseStudiesGrid({
   comingSoon?: boolean;
   /** Rendered as the last cell — the overview puts the Projects card here. */
   trailing?: React.ReactNode;
+  /** Column layout. The overview overrides this to a 2x2 square. */
+  columnsClassName?: string;
 }) {
   const rows = limit ? caseStudies.slice(0, limit) : caseStudies;
   const query = from ? `?from=${from}` : "";
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className={`grid gap-4 ${columnsClassName}`}>
       {rows.map((c) => (
         <CaseStudyCard
           key={c.slug}

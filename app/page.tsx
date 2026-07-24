@@ -18,9 +18,12 @@ export default function OverviewPage() {
       {/* Case studies sit in one unlabelled row with the Projects card in the
           third cell. No section heading, no "View all", no in-progress
           placeholder, and the build-activity card is gone. */}
+      {/* Four cards — two case studies, Projects and Behance — arranged as a
+          2x2 square so no card is left orphaned in a row of three. */}
       <CaseStudiesGrid
         from="overview"
         comingSoon={false}
+        columnsClassName="sm:grid-cols-2"
         trailing={
           <>
             <ProjectsCard />
