@@ -20,6 +20,7 @@ export const BAKED = {
   kpi3: "/baked/kpi-3.jpg",
   kpi4: "/baked/kpi-4.jpg",
   shell: "/baked/pc-shell.jpg",
+  behance: "/baked/behance-shell.jpg",
   tasky: "/baked/card-tasky.jpg",
   inspo: "/baked/card-inspo.jpg",
   study: "/baked/card-study.jpg",

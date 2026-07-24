@@ -82,6 +82,13 @@ export const BAKES: Bake[] = [
     grid: "square", size: 0.66,
     mask: "radial-gradient(ellipse 46.01% 60.155% at 82.36% 18.8% in oklab, oklab(57.7% 0 0) 0%, oklab(24.1% 0 0) 100%)",
   },
+  // Behance / Visual Branding card shell — same square-grid treatment as the
+  // Projects shell, its own source image.
+  {
+    ...CARD, name: "behance-shell", w: 616, h: 776, image: "/kpi/behance-shell.avif",
+    grid: "square", size: 0.66,
+    mask: "radial-gradient(ellipse 46.01% 60.155% at 82.36% 18.8% in oklab, oklab(57.7% 0 0) 0%, oklab(24.1% 0 0) 100%)",
+  },
   // Shared by the Projects mini-card and the vibe Tasky AI card.
   {
     ...CARD, name: "card-tasky", w: 460, h: 460, image: "/kpi/pc-tasky.webp",

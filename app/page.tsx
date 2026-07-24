@@ -1,5 +1,6 @@
 import { SectionCards } from "@/components/section-cards";
 import { ProjectsCard } from "@/components/projects-card";
+import { BehanceCard } from "@/components/behance-card";
 import { CaseStudiesGrid } from "@/components/case-studies-grid";
 
 export default function OverviewPage() {
@@ -17,7 +18,16 @@ export default function OverviewPage() {
       {/* Case studies sit in one unlabelled row with the Projects card in the
           third cell. No section heading, no "View all", no in-progress
           placeholder, and the build-activity card is gone. */}
-      <CaseStudiesGrid from="overview" comingSoon={false} trailing={<ProjectsCard />} />
+      <CaseStudiesGrid
+        from="overview"
+        comingSoon={false}
+        trailing={
+          <>
+            <ProjectsCard />
+            <BehanceCard />
+          </>
+        }
+      />
     </div>
   );
 }
