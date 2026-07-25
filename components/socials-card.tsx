@@ -16,9 +16,8 @@ import { BAKED } from "@/components/halftone";
 const SURFACE =
   "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)";
 
-/** Swap in the real profile URLs once known. */
-const LINKEDIN_URL = "https://www.linkedin.com/in/";
-const INSTAGRAM_URL = "https://www.instagram.com/";
+const LINKEDIN_URL = "https://www.linkedin.com/in/romeet-in/";
+const INSTAGRAM_URL = "https://www.instagram.com/rom33t/";
 
 export function SocialsCard() {
   return (
