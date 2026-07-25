@@ -10,6 +10,7 @@ import { FloatingDock } from "@/components/floating-dock";
 import { PageTransition } from "@/components/page-transition";
 import { SiteHeader } from "@/components/site-header";
 import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 const geistMono = Geist_Mono({
@@ -79,6 +80,7 @@ export default function RootLayout({
           <BottomScrim />
           <FloatingDock />
           <Toaster />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
