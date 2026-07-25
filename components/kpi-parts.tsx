@@ -38,7 +38,7 @@ export function KpiCard({
     <div
       onPointerEnter={() => setHovered(true)}
       onPointerLeave={() => setHovered(false)}
-      className="relative flex min-h-[276px] flex-col overflow-clip rounded-[22px] border border-white/10 p-5 antialiased [font-synthesis:none]"
+      className="relative flex aspect-square flex-col overflow-clip rounded-[22px] border border-white/10 p-5 antialiased [font-synthesis:none]"
       style={{ backgroundImage: SURFACE }}
     >
       <div

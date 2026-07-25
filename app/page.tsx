@@ -1,36 +1,16 @@
-import { SectionCards } from "@/components/section-cards";
-import { ProjectsCard } from "@/components/projects-card";
-import { BehanceCard } from "@/components/behance-card";
-import { CaseStudiesGrid } from "@/components/case-studies-grid";
+import { OverviewBento } from "@/components/overview-bento";
 
 export default function OverviewPage() {
   return (
-    // gap-4 throughout, so the vertical space between the KPI row and the cards
-    // below matches the 16px horizontal gap between the cards themselves.
     <div className="@container/main flex flex-1 flex-col gap-4 py-4 md:py-6">
       {/* Hero temporarily disabled per request — the shimmering "AI Product
           Designer" heading, its "Design + build" badge, and the intro note.
           Restore this block (and the Badge + SparklesIcon imports) to bring it
           back. */}
 
-      <SectionCards />
-
-      {/* Case studies sit in one unlabelled row with the Projects card in the
-          third cell. No section heading, no "View all", no in-progress
-          placeholder, and the build-activity card is gone. */}
-      {/* Four cards — two case studies, Projects and Behance — arranged as a
-          2x2 square so no card is left orphaned in a row of three. */}
-      <CaseStudiesGrid
-        from="overview"
-        comingSoon={false}
-        columnsClassName="sm:grid-cols-2"
-        trailing={
-          <>
-            <ProjectsCard />
-            <BehanceCard />
-          </>
-        }
-      />
+      {/* All eight cards — four KPIs and four tall cards — interleaved as one
+          masonry bento so nothing is orphaned and every card keeps its size. */}
+      <OverviewBento />
     </div>
   );
 }

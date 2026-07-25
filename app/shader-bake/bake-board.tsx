@@ -89,6 +89,13 @@ export const BAKES: Bake[] = [
     grid: "square", size: 0.66,
     mask: "radial-gradient(ellipse 46.01% 60.155% at 82.36% 18.8% in oklab, oklab(57.7% 0 0) 0%, oklab(24.1% 0 0) 100%)",
   },
+  // Socials (kpi-card-5) field — same shader as the Behance shell, baked in a
+  // landscape frame so the card that fills the notch under Projects reads right.
+  {
+    ...CARD, name: "socials", w: 746, h: 544, image: "/kpi/behance-shell.avif",
+    grid: "square", size: 0.66,
+    mask: "radial-gradient(ellipse 46.01% 60.155% at 82.36% 18.8% in oklab, oklab(57.7% 0 0) 0%, oklab(24.1% 0 0) 100%)",
+  },
   // Shared by the Projects mini-card and the vibe Tasky AI card.
   {
     ...CARD, name: "card-tasky", w: 460, h: 460, image: "/kpi/pc-tasky.webp",
