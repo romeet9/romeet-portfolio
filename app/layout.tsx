@@ -80,6 +80,7 @@ export default function RootLayout({
           <BottomScrim />
           <FloatingDock />
           <Toaster />
+          <Analytics />
         </ThemeProvider>
         {/* First-party visitor analytics — aggregate counts only, no cookies.
             Collects only in production and once Web Analytics is enabled for the
