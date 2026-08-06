@@ -28,6 +28,9 @@ export function SmoothScroll() {
       smoothWheel: true,
       syncTouch: false,
     });
+    // Expose the instance so case-study nav / anchor code can drive it too
+    // (scrollIntoView with behavior "smooth" is hijacked by Lenis otherwise).
+    (window as { __lenis?: Lenis }).__lenis = lenis;
 
     let frame = 0;
     const raf = (time: number) => {
@@ -39,6 +42,7 @@ export function SmoothScroll() {
     return () => {
       cancelAnimationFrame(frame);
       lenis.destroy();
+      delete (window as { __lenis?: Lenis }).__lenis;
     };
   }, []);
 

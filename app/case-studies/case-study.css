@@ -1,0 +1,394 @@
+/* ── Editorial case study ─────────────────────────────────────────────────
+   Dark-mode adaptation of Sugandha's case-study layout: a 600px reading
+   column, a fixed scroll-spy nav in the left gutter, framed figures with
+   click-to-zoom captions, numbered metric cards, accent blockquotes, and a
+   sprout-footer. Scoped to .cs-study so it never leaks into the dashboard
+   chrome around it. */
+
+.cs-study {
+  --cs-accent: #ef8b6e;                      /* warm terracotta (dark red stand-in) */
+  --cs-accent-soft: color-mix(in oklab, #ef8b6e 14%, transparent);
+  --cs-text: var(--foreground);
+  --cs-body: oklch(0.9 0 0);                 /* body copy, slightly softer than text */
+  --cs-muted: var(--muted-foreground);
+  --cs-faint: oklch(0.62 0 0);               /* labels / eyebrows */
+  --cs-quote: oklch(0.78 0 0);               /* blockquote body */
+  --cs-card: var(--card);
+  --cs-border: var(--border);
+
+  color: var(--cs-body);
+  letter-spacing: -0.02em;                   /* relaxed from the site-wide -0.06em for long-form reading */
+}
+
+/* ── Content column ─────────────────────────────────────────────────────── */
+.cs-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 64px 20px 120px;
+}
+@media (min-width: 641px) {
+  .cs-content { padding: 88px 0 140px; }
+}
+
+/* ── Back button ───────────────────────────────────────────────────────── */
+.cs-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 20px;
+  border-radius: 999px;
+  background: var(--cs-card);
+  border: 0.5px solid var(--cs-border);
+  color: var(--cs-muted);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 20px -8px rgba(0, 0, 0, 0.4);
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+.cs-back:hover {
+  color: var(--cs-text);
+  border-color: color-mix(in oklab, var(--foreground) 30%, transparent);
+}
+.cs-back svg { display: block; }
+@media (min-width: 641px) {
+  .cs-back {
+    position: fixed;
+    top: 88px;
+    left: max(20px, calc(50% - 358px));
+    z-index: 30;
+    margin-bottom: 0;
+  }
+}
+
+/* ── Title + meta ──────────────────────────────────────────────────────── */
+.cs-title {
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--cs-accent);
+  margin-bottom: 24px;
+}
+.cs-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px 40px;
+  padding-bottom: 24px;
+  margin-bottom: 40px;
+  border-bottom: 0.5px solid var(--cs-border);
+}
+.cs-meta-col { display: flex; flex-direction: column; gap: 6px; }
+.cs-meta-label {
+  font-family: var(--font-geist-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cs-faint);
+}
+.cs-meta-val { font-size: 14px; line-height: 20px; color: var(--cs-text); }
+
+/* ── Cover ──────────────────────────────────────────────────────────────── */
+.cs-cover {
+  margin-bottom: 40px;
+  background: var(--cs-card);
+  border: 0.5px solid var(--cs-border);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4), 0 6px 24px -14px rgba(0, 0, 0, 0.5);
+}
+.cs-cover img { display: block; width: 100%; height: auto; }
+
+/* ── Sections ───────────────────────────────────────────────────────────── */
+.cs-section {
+  scroll-margin-top: 96px;
+  margin-bottom: 56px;
+}
+.cs-eyebrow {
+  font-family: var(--font-geist-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cs-faint);
+  margin-bottom: 8px;
+}
+.cs-section h2 {
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 500;
+  color: var(--cs-text);
+  margin-bottom: 8px;
+}
+.cs-section h3 {
+  font-size: 15px;
+  line-height: 26px;
+  font-weight: 500;
+  color: var(--cs-text);
+  margin: 20px 0 4px;
+}
+.cs-section p {
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--cs-body);
+  margin-bottom: 12px;
+}
+.cs-section strong { font-weight: 500; color: var(--cs-text); }
+.cs-section ul,
+.cs-section ol {
+  margin: 12px 0;
+  padding-left: 22px;
+}
+.cs-section li {
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--cs-body);
+  margin-bottom: 6px;
+}
+.cs-section blockquote {
+  margin: 24px 0;
+  padding-left: 16px;
+  border-left: 3px solid var(--cs-accent);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--cs-quote);
+}
+.cs-section blockquote strong { color: var(--cs-text); }
+
+/* inline date / subtitle beside a heading */
+.cs-date,
+.cs-subtitle {
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--cs-muted);
+  margin-left: 10px;
+}
+
+/* ── Skill chips (data preserved from the old badge row) ────────────────── */
+.cs-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+.cs-skill {
+  font-family: var(--font-geist-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--cs-muted);
+  padding: 5px 10px;
+  border: 0.5px solid var(--cs-border);
+  border-radius: 999px;
+}
+
+/* ── Metric cards (numbered) ────────────────────────────────────────────── */
+.cs-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 32px 0 0;
+}
+.cs-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--cs-card);
+  border: 0.5px solid var(--cs-border);
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25), 0 6px 24px -14px rgba(0, 0, 0, 0.35);
+}
+.cs-metric-num {
+  font-family: var(--font-geist-mono);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--cs-accent);
+}
+.cs-metric-text { display: flex; flex-direction: column; gap: 2px; }
+.cs-metric-title {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+  color: var(--cs-text);
+}
+.cs-metric-desc {
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--cs-muted);
+}
+
+/* ── Framed figures (click to zoom) ─────────────────────────────────────── */
+.cs-frame {
+  display: block;
+  margin: 24px 0;
+  padding: 6px;
+  background: var(--cs-card);
+  border: 0.5px solid var(--cs-border);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 6px 24px -14px rgba(0, 0, 0, 0.4);
+}
+.cs-frame button { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.cs-fig {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
+.cs-caption {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 20px;
+  font-style: italic;
+  color: var(--cs-muted);
+  text-align: center;
+}
+
+/* ── Editorial point blocks (h3 + p + optional framed illustration) ────── */
+.cs-points { display: flex; flex-direction: column; }
+
+/* ── Divider ────────────────────────────────────────────────────────────── */
+.cs-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--cs-faint);
+  opacity: 0.7;
+  margin: 0 0 56px;
+}
+
+/* ── Next-study teaser ──────────────────────────────────────────────────── */
+.cs-next {
+  display: block;
+  margin-top: 8px;
+  padding: 20px;
+  border: 0.5px solid var(--cs-border);
+  border-radius: 8px;
+  background: var(--cs-card);
+  transition: border-color 0.2s ease;
+}
+.cs-next:hover { border-color: color-mix(in oklab, var(--cs-accent) 40%, transparent); }
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+.cs-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 80px;
+  text-align: center;
+  color: var(--cs-muted);
+}
+.cs-footer-illo { color: var(--cs-faint); opacity: 0.8; }
+.cs-footer-note {
+  font-size: 15px;
+  line-height: 24px;
+  font-style: italic;
+}
+.cs-social { display: flex; gap: 12px; }
+.cs-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: var(--cs-card);
+  border: 0.5px solid var(--cs-border);
+  color: var(--cs-muted);
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+.cs-social a:hover {
+  color: var(--cs-text);
+  border-color: color-mix(in oklab, var(--foreground) 30%, transparent);
+}
+
+/* ── Scroll-spy nav (left gutter, desktop only) ─────────────────────────── */
+.cs-nav {
+  position: fixed;
+  top: 50%;
+  left: 56px;
+  transform: translateY(-50%);
+  z-index: 30;
+  display: none;
+  flex-direction: column;
+  gap: 18px;
+}
+.cs-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--cs-muted);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+.cs-nav-item::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: transparent;
+  flex: none;
+  transition: background 0.25s ease;
+}
+.cs-nav-item:hover { color: var(--cs-text); }
+.cs-nav-item.active { color: var(--cs-text); }
+.cs-nav-item.active::before { background: var(--cs-accent); }
+@media (min-width: 1080px) {
+  .cs-nav { display: flex; }
+}
+
+/* ── Lightbox ───────────────────────────────────────────────────────────── */
+.cs-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  padding: 40px 24px;
+  background: rgba(0, 0, 0, 0.72);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  cursor: zoom-out;
+}
+.cs-lightbox-img {
+  display: block;
+  max-width: min(900px, 92vw);
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  background: var(--cs-card);
+  padding: 6px;
+  border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.cs-lightbox-caption {
+  color: oklch(0.85 0 0 / 0.9);
+  font-size: 15px;
+  line-height: 24px;
+  text-align: center;
+}
+
+/* ── Scroll reveal ──────────────────────────────────────────────────────── */
+.cs-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.cs-reveal.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cs-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
