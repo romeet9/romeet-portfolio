@@ -965,7 +965,7 @@ export function VoteInCaseStudy() {
             {/* SEPARATOR 5 */}
             <GrungeSeparator />
 
-            {/* 6. SIMPLIFYING THE VERIFICATION PROCESS (NEW SECTION WITH ANNOTATED SCREEN) */}
+            {/* 6. SIMPLIFYING THE VERIFICATION PROCESS (ANNOTATED SCREEN WITH CONNECTING LINES) */}
             <section id="simplifying-verification" className="flex w-full flex-col items-start gap-3 scroll-mt-24">
               <h2
                 style={{
@@ -1004,40 +1004,79 @@ export function VoteInCaseStudy() {
                 {/* Annotated Interface Showcase Card */}
                 <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                   <div
-                    className="relative flex rounded-xl overflow-hidden items-center justify-between w-full h-[366px] px-6 py-5 border-[0.5px] border-[#FFFFFF1A]"
+                    className="relative flex rounded-xl overflow-hidden items-center justify-between w-full h-[357px] px-2.5 py-3 border-[0.5px] border-[#FFFFFF1A]"
                     style={{
                       backgroundImage:
                         "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                     }}
                   >
                     {/* Screen Tag */}
-                    <div className="absolute left-6 top-5 text-white text-xl font-medium">
+                    <div className="absolute left-4 top-4.5 text-white text-xl font-normal">
                       Login Page
                     </div>
 
-                    {/* Left Side Callouts */}
-                    <div className="relative z-10 flex flex-col gap-5 max-w-[270px] mt-12">
-                      <div className="text-[13px] leading-5 text-white">
-                        A progress bar, so the user is familiar where are they
-                        in the verification process.
-                      </div>
-                      <div className="text-[13px] leading-5 text-white">
-                        A section to show real time notification of the user
-                      </div>
-                      <div className="text-[13px] leading-5 text-white">
-                        Added prominent &lsquo;CTA&rsquo;, ensuring users feel
-                        that physically they are feeling a form
-                      </div>
-                    </div>
-
-                    {/* Right Side Phone Mockup Bleeding */}
+                    {/* Smartphone Screen Mockup */}
                     <div
-                      className="absolute right-6 -top-24 w-[220px] h-[450px] bg-contain bg-no-repeat bg-top rounded-[32px] shadow-2xl pointer-events-none"
+                      className="absolute left-[348px] -top-[114px] w-[219px] h-[446px] bg-cover bg-center pointer-events-none z-10 shadow-2xl"
                       style={{
                         backgroundImage:
                           "url(https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png)",
                       }}
                     />
+
+                    {/* Left Side Callout Texts */}
+                    <div className="absolute left-7 top-[140px] flex flex-col gap-5 w-[266px] z-10">
+                      <p className="text-[13px] leading-5 text-white text-justify font-normal">
+                        A progress bar, so the user is familiar where are they in the verification process.
+                      </p>
+                      <p className="text-[13px] leading-5 text-white text-justify font-normal">
+                        A section to show real time notification of the user
+                      </p>
+                      <p className="text-[13px] leading-5 text-white text-justify font-normal">
+                        Added prominent &lsquo;CTA&rsquo; ,ensuring users feel that physically they are feeling a form
+                      </p>
+                    </div>
+
+                    {/* SVG Connecting Lines and Indicator Dots */}
+                    <svg
+                      className="absolute inset-0 w-full h-full pointer-events-none z-20"
+                      viewBox="0 0 589 357"
+                      preserveAspectRatio="none"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      {/* Path 1: Progress Bar Annotation */}
+                      <circle cx="298.75" cy="171.22" r="2.5" fill="#DDDDDD" />
+                      <polyline
+                        points="298.75,171.22 320.75,171.22 320.75,209.22 363.75,209.22"
+                        stroke="#DDDDDD"
+                        strokeWidth="1"
+                        fill="none"
+                      />
+                      <circle cx="363.75" cy="209.22" r="2.5" fill="#DDDDDD" />
+
+                      {/* Path 2: Notification Area Annotation */}
+                      <circle cx="91.75" cy="231.22" r="2.5" fill="#DDDDDD" />
+                      <polyline
+                        points="91.75,231.22 320.75,231.22 320.75,262.22 411.75,262.22"
+                        stroke="#DDDDDD"
+                        strokeWidth="1"
+                        fill="none"
+                      />
+                      <circle cx="411.75" cy="262.22" r="2.5" fill="#DDDDDD" />
+
+                      {/* Path 3: CTA Button Annotation */}
+                      <circle cx="299.75" cy="291.22" r="2.5" fill="#DDDDDD" />
+                      <line
+                        x1="299.75"
+                        y1="291.22"
+                        x2="379.75"
+                        y2="291.22"
+                        stroke="#DDDDDD"
+                        strokeWidth="1"
+                      />
+                      <circle cx="379.75" cy="291.22" r="2.5" fill="#DDDDDD" />
+                    </svg>
                   </div>
                 </div>
               </div>
