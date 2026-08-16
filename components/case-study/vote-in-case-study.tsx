@@ -8,6 +8,8 @@ const SECTIONS = [
   { id: "about", label: "About" },
   { id: "the-problem", label: "The Problem" },
   { id: "problem-buckets", label: "Problem Buckets" },
+  { id: "breaking-problem", label: "Breaking Problem" },
+  { id: "simplifying-verification", label: "Verification Flow" },
   { id: "phase-1", label: "Phase I" },
   { id: "phase-2", label: "Phase II" },
   { id: "fluid-interface", label: "Fluid Interface" },
@@ -19,6 +21,19 @@ const SECTIONS = [
 const HELVETICA =
   "\"Helvetica Neue\", Helvetica, Arial, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif";
 const FIRA_CODE = "\"Fira Code\", ui-monospace, SFMono-Regular, Menlo, monospace";
+
+function GrungeSeparator() {
+  return (
+    <div className="flex w-full justify-center py-2" aria-hidden>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05ZA7AQR379995KJKXBG29X.png"
+        alt=""
+        className="w-[197px] h-[10px] object-contain opacity-60 select-none pointer-events-none"
+      />
+    </div>
+  );
+}
 
 export function VoteInCaseStudy() {
   const [activeSection, setActiveSection] = useState("about");
@@ -84,12 +99,12 @@ export function VoteInCaseStudy() {
       }}
     >
       {/* ========================================================================= */}
-      {/* FIXED LEFT-SIDE NAVIGATION (Stays fixed on screen as user scrolls)        */}
+      {/* FIXED LEFT-SIDE NAVIGATION (Borderless floating text + indicator dot)     */}
       {/* ========================================================================= */}
       <aside
         className="hidden xl:flex fixed left-8 2xl:left-14 top-1/2 -translate-y-1/2 z-50 pointer-events-auto flex-col gap-[18px]"
         style={{
-          width: "140px",
+          width: "150px",
         }}
         aria-label="Case study sections"
       >
@@ -433,11 +448,11 @@ export function VoteInCaseStudy() {
               </div>
             </section>
 
-            {/* DIVIDER 1 */}
-            <hr className="w-full border-t border-[#DDDDDD1A]" />
+            {/* SEPARATOR 1 */}
+            <GrungeSeparator />
 
-            {/* 2. ABOUT SECTION (UPDATED 3-COLUMN BENTO CARDS) */}
-            <section id="about" className="flex w-full flex-col items-start gap-4 scroll-mt-24">
+            {/* 2. ABOUT SECTION (3-COLUMN BENTO CARDS) */}
+            <section id="about" className="flex w-full flex-col items-start gap-3 scroll-mt-24">
               <h2
                 style={{
                   fontFamily: HELVETICA,
@@ -451,7 +466,7 @@ export function VoteInCaseStudy() {
                 About
               </h2>
 
-              <div className="flex w-full flex-col gap-6">
+              <div className="flex w-full flex-col gap-8">
                 <div
                   className="flex flex-col gap-3"
                   style={{
@@ -620,14 +635,14 @@ export function VoteInCaseStudy() {
               </div>
             </section>
 
-            {/* DIVIDER 2 */}
-            <hr className="w-full border-t border-[#DDDDDD1A]" />
+            {/* SEPARATOR 2 */}
+            <GrungeSeparator />
 
-            {/* 3. PROBLEM STATEMENT SECTION (NEW BENTO CARD CONTAINER WITH 3 COLUMNS) */}
+            {/* 3. PROBLEM STATEMENT SECTION (CONTAINER CARD WITH 3 COLUMNS) */}
             <section id="the-problem" className="flex w-full flex-col items-start gap-4 scroll-mt-24">
               <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                 <div
-                  className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full px-3 py-4 min-h-[220px] sm:min-h-[240px]"
+                  className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full px-3.5 py-4 min-h-[220px] sm:min-h-[240px]"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -636,7 +651,7 @@ export function VoteInCaseStudy() {
                   <div className="w-fit text-white text-base font-normal mb-4">
                     Problem Statement.
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full items-end">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full items-end">
                     <div className="text-white/70 text-sm sm:text-base leading-5 font-light">
                       The Government of India is transitioning from traditional offline voting to a centralized online voting system.
                     </div>
@@ -651,11 +666,11 @@ export function VoteInCaseStudy() {
               </div>
             </section>
 
-            {/* DIVIDER 3 */}
-            <hr className="w-full border-t border-[#DDDDDD1A]" />
+            {/* SEPARATOR 3 */}
+            <GrungeSeparator />
 
-            {/* 4. BREAKDOWN / PROBLEM BUCKETS SECTION (UPDATED 3-COLUMN BENTO CARDS) */}
-            <section id="problem-buckets" className="flex w-full flex-col items-start gap-4 scroll-mt-24">
+            {/* 4. BREAKDOWN / PROBLEM BUCKETS SECTION (3-COLUMN BENTO CARDS) */}
+            <section id="problem-buckets" className="flex w-full flex-col items-start gap-3 scroll-mt-24">
               <h2
                 style={{
                   fontFamily: HELVETICA,
@@ -669,7 +684,7 @@ export function VoteInCaseStudy() {
                 Let&apos;s stream down the actual problem statement.
               </h2>
 
-              <div className="flex w-full flex-col gap-6">
+              <div className="flex w-full flex-col gap-8">
                 <div
                   className="flex flex-col gap-3"
                   style={{
@@ -832,6 +847,197 @@ export function VoteInCaseStudy() {
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* SEPARATOR 4 */}
+            <GrungeSeparator />
+
+            {/* 5. BREAKING PROBLEM STATEMENT SECTION (NEW SECTION) */}
+            <section id="breaking-problem" className="flex w-full flex-col items-start gap-3 scroll-mt-24">
+              <h2
+                style={{
+                  fontFamily: HELVETICA,
+                  fontSize: "20px",
+                  lineHeight: "24px",
+                  letterSpacing: "normal",
+                  fontWeight: 400,
+                  color: "#FFFFFF",
+                }}
+              >
+                Breaking problem statement.
+              </h2>
+
+              <div className="flex w-full flex-col gap-8">
+                <div
+                  className="flex flex-col gap-3"
+                  style={{
+                    fontFamily: HELVETICA,
+                    fontSize: "16px",
+                    lineHeight: "20px",
+                    letterSpacing: "normal",
+                    fontWeight: 300,
+                    color: "rgba(255, 255, 255, 0.7)",
+                  }}
+                >
+                  <p>
+                    I usually try to break the problem statement into small
+                    blocks, then eventually pick the ones which actually align
+                    with the main goal, which is giving the Indian citizens a
+                    platform to cast there vote in online.
+                  </p>
+                  <p className="text-white font-normal">
+                    So, I stood with three problem buckets.
+                  </p>
+                </div>
+
+                {/* 3 Square Cards in a Row (Text focus) */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
+                  {/* Card 1: Verification Complexity */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 border-[0.5px] border-[#FFFFFF1A]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch h-full">
+                        <div className="w-fit whitespace-pre text-white text-base leading-[18px]">
+                          Verification{"\n"}Complexity
+                        </div>
+                        <div className="self-stretch text-[#747474] text-sm leading-5">
+                          Users used to struggle with identity verification
+                          steps, especially if they involve multiple documents.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Card 2: Trust in Digital Systems */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 border-[0.5px] border-[#FFFFFF1A]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch h-full">
+                        <div className="w-fit whitespace-pre text-white text-base leading-[18px]">
+                          Trust in Digital{"\n"}Systems
+                        </div>
+                        <div className="self-stretch text-[#747474] text-sm leading-5">
+                          Users feel apprehensive about the security and
+                          transparency of the online voting process.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Card 3: Fraud Concerns */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 border-[0.5px] border-[#FFFFFF1A]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch h-full">
+                        <div className="w-fit text-white text-base leading-[18px]">
+                          Fraud Concerns
+                        </div>
+                        <div className="self-stretch text-[#747474] text-sm leading-5">
+                          Users may worry about the possibility of their identity
+                          being misused for duplicate voting or other fraudulent
+                          activities.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* SEPARATOR 5 */}
+            <GrungeSeparator />
+
+            {/* 6. SIMPLIFYING THE VERIFICATION PROCESS (NEW SECTION WITH ANNOTATED SCREEN) */}
+            <section id="simplifying-verification" className="flex w-full flex-col items-start gap-3 scroll-mt-24">
+              <h2
+                style={{
+                  fontFamily: HELVETICA,
+                  fontSize: "20px",
+                  lineHeight: "24px",
+                  letterSpacing: "normal",
+                  fontWeight: 400,
+                  color: "#FFFFFF",
+                }}
+              >
+                Simplifying the Verification Process
+              </h2>
+
+              <div className="flex w-full flex-col gap-8">
+                <div
+                  className="flex flex-col gap-3"
+                  style={{
+                    fontFamily: HELVETICA,
+                    fontSize: "16px",
+                    lineHeight: "20px",
+                    letterSpacing: "normal",
+                    fontWeight: 300,
+                    color: "rgba(255, 255, 255, 0.7)",
+                  }}
+                >
+                  <p>
+                    These solutions focus on reducing frustration and providing
+                    clear guidance throughout the process.
+                  </p>
+                  <p className="text-white font-normal">
+                    So, I stood with three problem buckets.
+                  </p>
+                </div>
+
+                {/* Annotated Interface Showcase Card */}
+                <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                  <div
+                    className="relative flex rounded-xl overflow-hidden items-center justify-between w-full h-[366px] px-6 py-5 border-[0.5px] border-[#FFFFFF1A]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                    }}
+                  >
+                    {/* Screen Tag */}
+                    <div className="absolute left-6 top-5 text-white text-xl font-medium">
+                      Login Page
+                    </div>
+
+                    {/* Left Side Callouts */}
+                    <div className="relative z-10 flex flex-col gap-5 max-w-[270px] mt-12">
+                      <div className="text-[13px] leading-5 text-white">
+                        A progress bar, so the user is familiar where are they
+                        in the verification process.
+                      </div>
+                      <div className="text-[13px] leading-5 text-white">
+                        A section to show real time notification of the user
+                      </div>
+                      <div className="text-[13px] leading-5 text-white">
+                        Added prominent &lsquo;CTA&rsquo;, ensuring users feel
+                        that physically they are feeling a form
+                      </div>
+                    </div>
+
+                    {/* Right Side Phone Mockup Bleeding */}
+                    <div
+                      className="absolute right-6 -top-24 w-[220px] h-[450px] bg-contain bg-no-repeat bg-top rounded-[32px] shadow-2xl pointer-events-none"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png)",
+                      }}
+                    />
                   </div>
                 </div>
               </div>
