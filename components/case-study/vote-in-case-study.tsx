@@ -87,7 +87,7 @@ export function VoteInCaseStudy() {
       {/* FIXED LEFT-SIDE NAVIGATION (Stays fixed on screen as user scrolls)        */}
       {/* ========================================================================= */}
       <aside
-        className="hidden xl:flex fixed left-8 2xl:left-14 top-1/2 -translate-y-1/2 z-50 pointer-events-auto flex-col gap-[18px] bg-background/80 p-2 rounded-lg backdrop-blur-md border border-white/5 shadow-lg"
+        className="hidden xl:flex fixed left-8 2xl:left-14 top-1/2 -translate-y-1/2 z-50 pointer-events-auto flex-col gap-[18px]"
         style={{
           width: "140px",
         }}
