@@ -89,7 +89,7 @@ function Device({ src, label }: { src: string; label: string }) {
         quality={95}
         className="h-auto w-[180px] max-w-full select-none drop-shadow-[0_34px_55px_rgba(0,0,0,0.55)] sm:w-[270px]"
       />
-      <figcaption className="rounded-full border border-white/10 bg-white/5 px-3 py-0.5 font-mono text-[11px] tracking-wide text-white/70 uppercase backdrop-blur-sm">
+      <figcaption className="rounded-full border border-white/10 bg-white/5 px-3 py-0.5 font-mono text-[11px] text-white/70 uppercase backdrop-blur-sm">
         {label}
       </figcaption>
     </figure>

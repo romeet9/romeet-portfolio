@@ -40,7 +40,7 @@ export function ToolsMarqueeCard() {
           </CardDescription>
           <CardIconBadge icon={WrenchIcon} label="Design + build" />
         </div>
-        <CardTitle className="text-2xl font-semibold tracking-tight whitespace-nowrap @[250px]/card:text-3xl">
+        <CardTitle className="text-2xl font-semibold whitespace-nowrap @[250px]/card:text-3xl">
           {tools.length}
         </CardTitle>
       </CardHeader>

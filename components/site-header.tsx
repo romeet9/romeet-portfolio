@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -7,11 +10,21 @@ import { Button } from "@/components/ui/button";
  * the top edge with a gap, is constrained to the same max-width and gutters as
  * the page content, and wears the dock's border / translucent blur / shadow.
  *
- * `sticky top-0` with `pt-4` keeps a constant gap above the pill — initially and
- * while it's stuck — and the TopScrim behind it dissolves content that scrolls
- * up underneath, the same way BottomScrim does for the dock.
+ * Automatically hidden when reading a case study page.
  */
 export function SiteHeader() {
+  const pathname = usePathname();
+
+  // Hide the top header & "Hire me" CTA on case study pages
+  const isCaseStudy =
+    pathname.startsWith("/case-studies/") ||
+    pathname.startsWith("/case-study/") ||
+    pathname === "/case-studies/vote-in";
+
+  if (isCaseStudy) {
+    return null;
+  }
+
   return (
     <header className="sticky top-0 z-40 px-4 pt-4 lg:px-6">
       <div className="mx-auto flex w-full max-w-6xl items-center gap-2 rounded-full border bg-background/80 py-2 pr-2 pl-3 shadow-lg shadow-black/10 backdrop-blur-md supports-[backdrop-filter]:bg-background/70 lg:gap-3 dark:shadow-black/40">

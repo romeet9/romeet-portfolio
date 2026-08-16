@@ -31,7 +31,7 @@ function FArm({
           <p key={l}>{l}</p>
         ))}
       </div>
-      <p className="mt-2 text-xl font-medium tracking-tight text-foreground sm:text-2xl">
+      <p className="mt-2 text-xl font-medium text-foreground sm:text-2xl">
         {question}
       </p>
     </div>
@@ -131,7 +131,7 @@ export function CaseIterations() {
             {/* content */}
             <div className="min-w-0 flex-1 pb-10">
               <div className="mb-3 flex items-center gap-2">
-                <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+                <span className="font-mono text-[11px] uppercase text-muted-foreground">
                   Iteration 0{it.n}
                 </span>
                 {it.final && (

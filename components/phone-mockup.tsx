@@ -37,7 +37,7 @@ export function PhoneMockup({
         className="h-auto w-full select-none drop-shadow-[0_16px_36px_rgba(0,0,0,0.20)] dark:drop-shadow-[0_0_2px_rgba(255,255,255,0.14)]"
       />
       {state && (
-        <figcaption className="rounded-full border bg-background px-2.5 py-0.5 font-mono text-[11px] tracking-wide text-muted-foreground uppercase">
+        <figcaption className="rounded-full border bg-background px-2.5 py-0.5 font-mono text-[11px] text-muted-foreground uppercase">
           {state}
         </figcaption>
       )}

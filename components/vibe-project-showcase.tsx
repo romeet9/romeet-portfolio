@@ -53,7 +53,7 @@ function ProjectCard({ project }: { project: Project }) {
             href={links.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1.5 rounded-full bg-white px-3 py-2 text-xs/3.5 font-medium tracking-[-0.06em] text-[#000000F2] transition-transform hover:scale-105"
+            className="flex items-center justify-center gap-1.5 rounded-full bg-white px-3 py-2 text-xs/3.5 font-medium text-[#000000F2] transition-transform hover:scale-105"
           >
             <LiveIcon />
             Live Link
@@ -64,7 +64,7 @@ function ProjectCard({ project }: { project: Project }) {
             href={links.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 rounded-full border-solid border-white px-3 py-2 text-base/4.5 tracking-[-0.06em] text-white transition-transform [border-width:0.2px] hover:scale-105"
+            className="flex items-center gap-1.5 rounded-full border-solid border-white px-3 py-2 text-base/4.5 text-white transition-transform [border-width:0.2px] hover:scale-105"
           >
             <GithubIcon />
             Github
@@ -74,10 +74,10 @@ function ProjectCard({ project }: { project: Project }) {
 
       {/* Description above the title, as in the artboard. */}
       <div className="relative flex flex-col items-start gap-1.5 self-stretch">
-        <span className="self-stretch text-base/4.5 tracking-[-0.06em] text-[#FFFFFF8C]">
+        <span className="self-stretch text-base/4.5 text-[#FFFFFF8C]">
           {tagline}
         </span>
-        <span className="self-stretch text-2xl/7 tracking-[-0.06em] text-white">{name}</span>
+        <span className="self-stretch text-2xl/7 text-white">{name}</span>
       </div>
 
       {/* The card surface opens the detail page; the pills above it win the click. */}

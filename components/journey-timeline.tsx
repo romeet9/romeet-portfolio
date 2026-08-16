@@ -76,7 +76,7 @@ export function JourneyTimeline() {
               <div key={i} className="text-center">
                 <span
                   className={cn(
-                    "text-2xl font-semibold tracking-tight tabular-nums",
+                    "text-2xl font-semibold tabular-nums",
                     i === steps.length - 1 ? "text-white" : "text-white/80",
                   )}
                 >
@@ -96,7 +96,7 @@ export function JourneyTimeline() {
               s.segment ? (
                 <span
                   key={i}
-                  className="absolute bottom-1/2 mb-2.5 -translate-x-1/2 whitespace-nowrap text-[11px] tracking-wide text-white/40"
+                  className="absolute bottom-1/2 mb-2.5 -translate-x-1/2 whitespace-nowrap text-[11px] text-white/40"
                   style={{ left: midAt(i) }}
                 >
                   {s.segment}
@@ -145,7 +145,7 @@ export function JourneyTimeline() {
                 </span>
                 <p className="text-sm text-white/55">{s.caption}</p>
                 {s.segment && (
-                  <span className="text-[11px] tracking-wide text-white/40">{s.segment}</span>
+                  <span className="text-[11px] text-white/40">{s.segment}</span>
                 )}
               </div>
             </div>

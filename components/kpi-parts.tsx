@@ -52,10 +52,10 @@ export function KpiCard({
 
       {/* Eyebrow top, caption bottom — the block fills the card and splits them. */}
       <div className="relative flex flex-1 flex-col items-start justify-between gap-1.5 self-stretch">
-        <span className="w-fit text-base/4.5 tracking-[-0.06em] whitespace-pre-line text-[#FFFFFF8C]">
+        <span className="w-fit text-base/4.5 whitespace-pre-line text-[#FFFFFF8C]">
           {eyebrow}
         </span>
-        <span className="w-fit text-2xl/7 tracking-[-0.06em] whitespace-pre-line text-white">
+        <span className="w-fit text-2xl/7 whitespace-pre-line text-white">
           {caption}
         </span>
       </div>

@@ -57,7 +57,7 @@ export function ExperienceTimeline() {
             <Card key={job.company} className="@container/card">
               <CardHeader>
                 <CardDescription>{job.company}</CardDescription>
-                <CardTitle className="text-2xl font-semibold tracking-tight tabular-nums @[250px]/card:text-3xl">
+                <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
                   {job.metric.value}
                 </CardTitle>
                 <CardAction>

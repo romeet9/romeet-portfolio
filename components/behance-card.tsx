@@ -127,13 +127,13 @@ export function BehanceCard() {
       >
         <div className="flex flex-col items-start" style={{ gap: q(6) }}>
           <span
-            className="self-stretch tracking-[-0.06em] text-white"
+            className="self-stretch text-white"
             style={{ fontSize: q(24), lineHeight: q(28) }}
           >
             Visual Branding
           </span>
           <span
-            className="self-stretch whitespace-pre-wrap tracking-[-0.06em] text-[#FFFFFF8C]"
+            className="self-stretch whitespace-pre-wrap text-[#FFFFFF8C]"
             style={{ fontSize: q(16), lineHeight: q(18) }}
           >
             Yup I do branding as well, check{"\n"}out all my branding works in behance
@@ -141,7 +141,7 @@ export function BehanceCard() {
         </div>
 
         <span
-          className="flex shrink-0 items-center justify-center gap-1.5 rounded-full bg-white font-medium tracking-[-0.06em] text-[#000000F2] transition-transform group-hover:scale-105"
+          className="flex shrink-0 items-center justify-center gap-1.5 rounded-full bg-white font-medium text-[#000000F2] transition-transform group-hover:scale-105"
           style={{ paddingInline: q(12), paddingBlock: q(8), fontSize: q(12) }}
         >
           Behance

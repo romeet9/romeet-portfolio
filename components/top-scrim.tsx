@@ -1,10 +1,12 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+
 /**
  * A progressive blur along the top edge of the viewport: content dissolves as it
  * scrolls up behind the floating header — the mirror of BottomScrim.
  *
- * Each layer blurs harder than the one above it but is masked to a shorter band
- * near the top edge, so the blur ramps up gradually instead of showing the hard
- * seam a single backdrop-filter would leave at its bottom edge.
+ * Automatically hidden on case study pages.
  */
 const LAYERS = [
   { blur: 1, stop: "100%" },
@@ -14,6 +16,17 @@ const LAYERS = [
 ];
 
 export function TopScrim() {
+  const pathname = usePathname();
+
+  const isCaseStudy =
+    pathname.startsWith("/case-studies/") ||
+    pathname.startsWith("/case-study/") ||
+    pathname === "/case-studies/vote-in";
+
+  if (isCaseStudy) {
+    return null;
+  }
+
   return (
     <div
       aria-hidden

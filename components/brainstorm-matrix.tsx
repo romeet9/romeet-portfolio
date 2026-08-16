@@ -36,7 +36,7 @@ export function BrainstormMatrix({ rows }: { rows: BrainstormRow[] }) {
           {["Major findings", "Action to take", "How I'd solve it"].map((h) => (
             <span
               key={h}
-              className="font-mono text-xs uppercase tracking-wider text-white/45"
+              className="font-mono text-xs uppercase text-white/45"
             >
               {h}
             </span>
@@ -51,7 +51,7 @@ export function BrainstormMatrix({ rows }: { rows: BrainstormRow[] }) {
           >
             {/* Finding */}
             <div className="flex flex-col gap-1.5">
-              <span className="font-mono text-[10px] uppercase tracking-wider text-white/35 md:hidden">
+              <span className="font-mono text-[10px] uppercase text-white/35 md:hidden">
                 Finding
               </span>
               <h4 className="w-fit text-sm font-medium text-white underline decoration-white/25 decoration-2 underline-offset-4">
@@ -66,7 +66,7 @@ export function BrainstormMatrix({ rows }: { rows: BrainstormRow[] }) {
 
             {/* Action */}
             <div className="flex flex-col gap-1.5">
-              <span className="font-mono text-[10px] uppercase tracking-wider text-white/35 md:hidden">
+              <span className="font-mono text-[10px] uppercase text-white/35 md:hidden">
                 Action
               </span>
               <h4 className="w-fit text-sm font-medium text-white underline decoration-white/30 decoration-2 underline-offset-4">
@@ -81,7 +81,7 @@ export function BrainstormMatrix({ rows }: { rows: BrainstormRow[] }) {
 
             {/* Ideas */}
             <div className="flex flex-col gap-2.5">
-              <span className="font-mono text-[10px] uppercase tracking-wider text-white/35 md:hidden">
+              <span className="font-mono text-[10px] uppercase text-white/35 md:hidden">
                 How I'd solve it
               </span>
               {row.ideas.map((idea, j) => (

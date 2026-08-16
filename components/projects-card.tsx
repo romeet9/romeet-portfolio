@@ -91,7 +91,7 @@ function MiniCard({
       >
         {live && (
           <span
-            className="flex items-center justify-center gap-1.5 rounded-full bg-white font-medium tracking-[-0.06em] text-[#000000F2]"
+            className="flex items-center justify-center gap-1.5 rounded-full bg-white font-medium text-[#000000F2]"
             style={{ paddingInline: q(12), paddingBlock: q(8), fontSize: q(12) }}
           >
             <LiveIcon />
@@ -99,7 +99,7 @@ function MiniCard({
           </span>
         )}
         <span
-          className="flex items-center gap-1.5 rounded-full border-solid border-white tracking-[-0.06em] text-white [border-width:0.2px]"
+          className="flex items-center gap-1.5 rounded-full border-solid border-white text-white [border-width:0.2px]"
           style={{ paddingInline: q(12), paddingBlock: q(8), fontSize: q(16) }}
         >
           <GithubIcon />
@@ -110,13 +110,13 @@ function MiniCard({
       {/* Description sits above the title, as in the artboard. */}
       <div className="relative flex flex-col items-start gap-1.5 self-stretch">
         <span
-          className="self-stretch tracking-[-0.06em] text-[#FFFFFF8C]"
+          className="self-stretch text-[#FFFFFF8C]"
           style={{ fontSize: q(16), lineHeight: q(18) }}
         >
           {desc}
         </span>
         <span
-          className="self-stretch tracking-[-0.06em] text-white"
+          className="self-stretch text-white"
           style={{ fontSize: q(24), lineHeight: q(28) }}
         >
           {title}
@@ -150,13 +150,13 @@ export function ProjectsCard() {
       >
         <div className="flex flex-col items-start gap-1.5">
           <span
-            className="tracking-[-0.06em] text-white"
+            className="text-white"
             style={{ fontSize: q(24), lineHeight: q(28) }}
           >
             Projects
           </span>
           <span
-            className="whitespace-pre-wrap tracking-[-0.06em] text-[#FFFFFF8C]"
+            className="whitespace-pre-wrap text-[#FFFFFF8C]"
             style={{ fontSize: q(16), lineHeight: q(18) }}
           >
             Real, shipped products{"\n"}I designed &amp; built
@@ -165,7 +165,7 @@ export function ProjectsCard() {
 
         <Link
           href="/projects"
-          className="relative z-20 flex shrink-0 items-center justify-center gap-1.5 rounded-full bg-white font-medium tracking-[-0.06em] text-[#000000F2] transition-transform hover:scale-105"
+          className="relative z-20 flex shrink-0 items-center justify-center gap-1.5 rounded-full bg-white font-medium text-[#000000F2] transition-transform hover:scale-105"
           style={{ paddingInline: q(12), paddingBlock: q(8), fontSize: q(12) }}
         >
           View all

@@ -28,7 +28,7 @@ export default function ContactPage() {
   return (
     <div className="@container/main flex flex-1 flex-col gap-4 py-4 md:gap-6 md:py-6">
       <div>
-        <h1 className="text-xl font-semibold tracking-tight">Contact</h1>
+        <h1 className="text-xl font-semibold">Contact</h1>
         <p className="mt-1 max-w-xl text-sm text-muted-foreground">
           Open to product design roles. Send a note, or reach me directly.
         </p>

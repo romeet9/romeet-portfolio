@@ -17,7 +17,6 @@
   --cs-border: var(--border);
 
   color: var(--cs-body);
-  letter-spacing: -0.02em;                   /* relaxed from the site-wide -0.06em for long-form reading */
 }
 
 /* ── Content column ─────────────────────────────────────────────────────── */
@@ -65,7 +64,6 @@
   font-size: 24px;
   line-height: 36px;
   font-weight: 500;
-  letter-spacing: -0.02em;
   color: var(--cs-accent);
   margin-bottom: 24px;
 }
@@ -82,7 +80,6 @@
 .cs-meta-label {
   font-family: var(--font-geist-mono);
   font-size: 11px;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--cs-faint);
 }
@@ -107,7 +104,6 @@
 .cs-eyebrow {
   font-family: var(--font-geist-mono);
   font-size: 12px;
-  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--cs-faint);
   margin-bottom: 8px;
@@ -174,7 +170,6 @@
 .cs-skill {
   font-family: var(--font-geist-mono);
   font-size: 12px;
-  letter-spacing: 0.04em;
   color: var(--cs-muted);
   padding: 5px 10px;
   border: 0.5px solid var(--cs-border);

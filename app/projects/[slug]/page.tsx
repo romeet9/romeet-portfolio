@@ -74,7 +74,7 @@ function Showcase({
           className="size-28 rounded-3xl sm:size-36"
         />
       )}
-      <span className="text-5xl font-semibold tracking-tight sm:text-7xl">
+      <span className="text-5xl font-semibold sm:text-7xl">
         {name}
       </span>
     </div>
@@ -111,7 +111,7 @@ export default async function ProjectPage({ params }: Params) {
             </Badge>
             <span className="text-xs text-muted-foreground">{year}</span>
           </div>
-          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h1 className="text-3xl font-semibold sm:text-4xl">
             {name}
           </h1>
           <p className="max-w-2xl text-muted-foreground">{tagline}</p>

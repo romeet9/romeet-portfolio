@@ -33,10 +33,10 @@ export function SocialsCard() {
 
       {/* Eyebrow top, links bottom — the block fills the card and splits them. */}
       <div className="relative flex flex-1 flex-col items-start justify-between gap-1.5 self-stretch">
-        <span className="w-fit text-base/4.5 tracking-[-0.06em] text-[#FFFFFF8C]">
+        <span className="w-fit text-base/4.5 text-[#FFFFFF8C]">
           Socials
         </span>
-        <div className="flex items-start gap-2 text-2xl/7 tracking-[-0.06em]">
+        <div className="flex items-start gap-2 text-2xl/7">
           {/* The comma hugs "Linkedin"; only the words are links. */}
           <span className="flex items-start">
             <a

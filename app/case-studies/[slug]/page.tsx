@@ -18,6 +18,7 @@ import { PhoneMockup } from "@/components/phone-mockup";
 import { ImpactChart } from "@/components/portfolio-charts";
 import { ErrorRateChart, TimeToAnswerChart } from "@/components/case-study-charts";
 import { JourneyTimeline } from "@/components/journey-timeline";
+import { VoteInCaseStudy } from "@/components/case-study/vote-in-case-study";
 
 import "../case-study.css";
 
@@ -302,6 +303,10 @@ function NextStudyTeaser({
 
 export default async function CaseStudyPage({ params, searchParams }: Params) {
   const { slug } = await params;
+  if (slug === "vote-in") {
+    return <VoteInCaseStudy />;
+  }
+
   const { from } = await searchParams;
   const study = getCaseStudy(slug);
   if (!study) notFound();

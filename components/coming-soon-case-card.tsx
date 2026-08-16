@@ -104,7 +104,7 @@ export function ComingSoonCaseCard() {
           12 Grids · 2026
         </span>
 
-        <h3 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
+        <h3 className="text-xl font-semibold text-white sm:text-2xl">
           Edge CRM · Case Detail
         </h3>
 
