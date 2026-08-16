@@ -436,7 +436,7 @@ export function VoteInCaseStudy() {
             {/* DIVIDER 1 */}
             <hr className="w-full border-t border-[#DDDDDD1A]" />
 
-            {/* 2. ABOUT SECTION (UPDATED 2+1 BENTO CARDS) */}
+            {/* 2. ABOUT SECTION (UPDATED 3-COLUMN BENTO CARDS) */}
             <section id="about" className="flex w-full flex-col items-start gap-4 scroll-mt-24">
               <h2
                 style={{
@@ -474,120 +474,147 @@ export function VoteInCaseStudy() {
                   </p>
                 </div>
 
-                {/* 2 Top Square Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
-                  {/* Card 1 */}
-                  <div
-                    className="relative aspect-square overflow-hidden rounded-[22px] border border-[#FFFFFF1A] p-4 flex flex-col justify-between"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                    }}
-                  >
-                    {mounted && (
-                      <HalftoneDots
-                        contrast={0.4}
-                        originalColors={false}
-                        inverted={false}
-                        grid="hex"
-                        radius={1.23}
-                        size={0.61}
-                        scale={1}
-                        image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M04JV5DYPW2RBXSQ1JFMHVFX.jpg"
-                        grainMixer={0.2}
-                        grainOverlay={0.2}
-                        grainSize={0.5}
-                        type="gooey"
-                        fit="cover"
-                        colorFront="#0D0D0D"
-                        colorBack="#00000000"
-                        className="absolute inset-0 h-full w-full opacity-80"
+                {/* 3 Square Cards in a Row */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
+                  {/* Card 1: Fraud Concerns */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 relative bg-origin-border"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      {mounted && (
+                        <HalftoneDots
+                          contrast={0.4}
+                          originalColors
+                          inverted
+                          grid="hex"
+                          radius={0.71}
+                          size={0.62}
+                          scale={1}
+                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05MHM5GY8RQ6K3W7DNJ7EMK.jpg"
+                          grainMixer={0.91}
+                          grainOverlay={0.2}
+                          grainSize={0.61}
+                          type="gooey"
+                          fit="cover"
+                          colorFront="#0D0D0D"
+                          colorBack="#00000000"
+                          className="w-[180%] h-[180%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#62626200]"
+                        />
+                      )}
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.1% 0 0) 0%, oklab(71.8% 0 0 / 0%) 300.1%)",
+                        }}
                       />
-                    )}
-                    <div className="relative z-10 flex flex-col justify-between h-full">
-                      <span className="text-base text-white/55 font-normal">
-                        Interactive prototypes
-                      </span>
-                      <h3 className="text-2xl font-normal text-white leading-7">
-                        Verifying individual votes got easier.
-                      </h3>
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative z-10 h-full">
+                        <div className="w-fit text-white text-base leading-[18px]">
+                          Fraud Concerns
+                        </div>
+                        <div className="self-stretch text-white text-base leading-5">
+                          Fraudulent actions reduced by huge margin
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Card 2 */}
-                  <div
-                    className="relative aspect-square overflow-hidden rounded-[22px] border border-[#FFFFFF1A] p-4 flex flex-col justify-between"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                    }}
-                  >
-                    {mounted && (
-                      <HalftoneDots
-                        contrast={0.4}
-                        originalColors={false}
-                        inverted={false}
-                        grid="hex"
-                        radius={1.23}
-                        size={0.61}
-                        scale={1}
-                        image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M04JV5DYPW2RBXSQ1JFMHVFX.jpg"
-                        grainMixer={0.2}
-                        grainOverlay={0.2}
-                        grainSize={0.5}
-                        type="gooey"
-                        fit="cover"
-                        colorFront="#0D0D0D"
-                        colorBack="#00000000"
-                        className="absolute inset-0 h-full w-full opacity-80"
+                  {/* Card 2: Long Queues */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 relative bg-origin-border"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      {mounted && (
+                        <HalftoneDots
+                          contrast={0.4}
+                          originalColors
+                          inverted
+                          grid="hex"
+                          radius={0.71}
+                          size={0.62}
+                          scale={1}
+                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05MHM5GY8RQ6K3W7DNJ7EMK.jpg"
+                          grainMixer={0.91}
+                          grainOverlay={0.2}
+                          grainSize={0.61}
+                          type="gooey"
+                          fit="cover"
+                          colorFront="#0D0D0D"
+                          colorBack="#00000000"
+                          className="w-[180%] h-[180%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#62626200]"
+                        />
+                      )}
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.1% 0 0) 0%, oklab(71.8% 0 0 / 0%) 300.1%)",
+                        }}
                       />
-                    )}
-                    <div className="relative z-10 flex flex-col justify-between h-full">
-                      <span className="text-base text-white/55 font-normal">
-                        Interactive prototypes
-                      </span>
-                      <h3 className="text-2xl font-normal text-white leading-7">
-                        Citizens need not wait in long queues.
-                      </h3>
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative z-10 h-full">
+                        <div className="w-fit text-white text-base leading-[18px]">
+                          Long Queues
+                        </div>
+                        <div className="self-stretch text-white text-base leading-5">
+                          Verifying individual votes got easier.
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* 1 Bottom Wide Card */}
-                <div
-                  className="relative h-[240px] sm:h-[300px] w-full overflow-hidden rounded-[22px] border border-[#FFFFFF1A] p-5 flex flex-col justify-between"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                  }}
-                >
-                  {mounted && (
-                    <HalftoneDots
-                      contrast={0.4}
-                      originalColors={false}
-                      inverted={false}
-                      grid="hex"
-                      radius={1.23}
-                      size={0.61}
-                      scale={1}
-                      image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M04JV5DYPW2RBXSQ1JFMHVFX.jpg"
-                      grainMixer={0.2}
-                      grainOverlay={0.2}
-                      grainSize={0.5}
-                      type="gooey"
-                      fit="cover"
-                      colorFront="#0D0D0D"
-                      colorBack="#00000000"
-                      className="absolute inset-0 h-full w-full opacity-80"
-                    />
-                  )}
-                  <div className="relative z-10 flex flex-col justify-between h-full max-w-[320px]">
-                    <span className="text-base text-white/55 font-normal">
-                      Interactive prototypes
-                    </span>
-                    <h3 className="text-2xl font-normal text-white leading-7">
-                      Fraudulent actions reduced by huge margin
-                    </h3>
+                  {/* Card 3: Fraud Concerns */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 relative bg-origin-border"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      {mounted && (
+                        <HalftoneDots
+                          contrast={0.4}
+                          originalColors
+                          inverted
+                          grid="hex"
+                          radius={0.71}
+                          size={0.62}
+                          scale={1}
+                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05MHM5GY8RQ6K3W7DNJ7EMK.jpg"
+                          grainMixer={0.91}
+                          grainOverlay={0.2}
+                          grainSize={0.61}
+                          type="gooey"
+                          fit="cover"
+                          colorFront="#0D0D0D"
+                          colorBack="#00000000"
+                          className="w-[180%] h-[180%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#62626200]"
+                        />
+                      )}
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.1% 0 0) 0%, oklab(71.8% 0 0 / 0%) 300.1%)",
+                        }}
+                      />
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative z-10 h-full">
+                        <div className="w-fit text-white text-base leading-[18px]">
+                          Fraud Concerns
+                        </div>
+                        <div className="self-stretch text-white text-base leading-5">
+                          Fraudulent actions reduced by huge margin
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -596,53 +623,38 @@ export function VoteInCaseStudy() {
             {/* DIVIDER 2 */}
             <hr className="w-full border-t border-[#DDDDDD1A]" />
 
-            {/* 3. PROBLEM STATEMENT SECTION */}
+            {/* 3. PROBLEM STATEMENT SECTION (NEW BENTO CARD CONTAINER WITH 3 COLUMNS) */}
             <section id="the-problem" className="flex w-full flex-col items-start gap-4 scroll-mt-24">
-              <h2
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "20px",
-                  lineHeight: "24px",
-                  letterSpacing: "normal",
-                  fontWeight: 400,
-                  color: "#FFFFFF",
-                }}
-              >
-                Problem Statement.
-              </h2>
-
-              <div
-                className="flex flex-col gap-3"
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "16px",
-                  lineHeight: "20px",
-                  letterSpacing: "normal",
-                  fontWeight: 300,
-                  color: "rgba(255, 255, 255, 0.7)",
-                }}
-              >
-                <p>
-                  The Government of India is transitioning from traditional
-                  offline voting to a centralized online voting system.
-                </p>
-                <p>
-                  This system will enable citizens to cast their votes digitally,
-                  eliminating the need for physical polling stations.
-                </p>
-                <p>
-                  The goal is to design a secure and seamless platform where
-                  users can register, verify their identity, and cast their
-                  votes online, ensuring the process is transparent and
-                  protected against fraud, duplicate voting, and misuse.
-                </p>
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                <div
+                  className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full px-3 py-4 min-h-[220px] sm:min-h-[240px]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                  }}
+                >
+                  <div className="w-fit text-white text-base font-normal mb-4">
+                    Problem Statement.
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full items-end">
+                    <div className="text-white/70 text-sm sm:text-base leading-5 font-light">
+                      The Government of India is transitioning from traditional offline voting to a centralized online voting system.
+                    </div>
+                    <div className="text-white/70 text-sm sm:text-base leading-5 font-light">
+                      This system will enable citizens to cast their votes digitally, eliminating the need for physical polling stations.
+                    </div>
+                    <div className="text-white/70 text-sm sm:text-base leading-5 font-light">
+                      A secure, seamless voting platform for identity verification & transparent voting, protected against fraud, duplicate votes.
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
 
             {/* DIVIDER 3 */}
             <hr className="w-full border-t border-[#DDDDDD1A]" />
 
-            {/* 4. BREAKDOWN / PROBLEM BUCKETS SECTION */}
+            {/* 4. BREAKDOWN / PROBLEM BUCKETS SECTION (UPDATED 3-COLUMN BENTO CARDS) */}
             <section id="problem-buckets" className="flex w-full flex-col items-start gap-4 scroll-mt-24">
               <h2
                 style={{
@@ -679,120 +691,147 @@ export function VoteInCaseStudy() {
                   </p>
                 </div>
 
-                {/* 2 Top Square Bucket Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
-                  {/* Bucket Card 1 */}
-                  <div
-                    className="relative aspect-square overflow-hidden rounded-[22px] border border-[#FFFFFF1A] p-4 flex flex-col justify-between"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                    }}
-                  >
-                    {mounted && (
-                      <HalftoneDots
-                        contrast={0.4}
-                        originalColors={false}
-                        inverted={false}
-                        grid="hex"
-                        radius={1.23}
-                        size={0.61}
-                        scale={1}
-                        image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M04JV5DYPW2RBXSQ1JFMHVFX.jpg"
-                        grainMixer={0.2}
-                        grainOverlay={0.2}
-                        grainSize={0.5}
-                        type="gooey"
-                        fit="cover"
-                        colorFront="#0D0D0D"
-                        colorBack="#00000000"
-                        className="absolute inset-0 h-full w-full opacity-80"
+                {/* 3 Square Cards in a Row */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
+                  {/* Bucket Card 1: Verification */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 relative bg-origin-border"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      {mounted && (
+                        <HalftoneDots
+                          contrast={0.4}
+                          originalColors
+                          inverted
+                          grid="hex"
+                          radius={0.71}
+                          size={0.62}
+                          scale={1}
+                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05MHM5GY8RQ6K3W7DNJ7EMK.jpg"
+                          grainMixer={0.91}
+                          grainOverlay={0.2}
+                          grainSize={0.61}
+                          type="gooey"
+                          fit="cover"
+                          colorFront="#0D0D0D"
+                          colorBack="#00000000"
+                          className="w-[180%] h-[180%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#62626200]"
+                        />
+                      )}
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.1% 0 0) 0%, oklab(71.8% 0 0 / 0%) 300.1%)",
+                        }}
                       />
-                    )}
-                    <div className="relative z-10 flex flex-col justify-between h-full">
-                      <span className="text-base text-white/55 font-normal">
-                        Interactive prototypes
-                      </span>
-                      <h3 className="text-2xl font-normal text-white leading-7">
-                        Seamless account verification
-                      </h3>
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative z-10 h-full">
+                        <div className="w-fit text-white text-base leading-[18px]">
+                          Verification
+                        </div>
+                        <div className="self-stretch text-white text-base leading-5">
+                          Seamless account verification
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Bucket Card 2 */}
-                  <div
-                    className="relative aspect-square overflow-hidden rounded-[22px] border border-[#FFFFFF1A] p-4 flex flex-col justify-between"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                    }}
-                  >
-                    {mounted && (
-                      <HalftoneDots
-                        contrast={0.4}
-                        originalColors={false}
-                        inverted={false}
-                        grid="hex"
-                        radius={1.23}
-                        size={0.61}
-                        scale={1}
-                        image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M04JV5DYPW2RBXSQ1JFMHVFX.jpg"
-                        grainMixer={0.2}
-                        grainOverlay={0.2}
-                        grainSize={0.5}
-                        type="gooey"
-                        fit="cover"
-                        colorFront="#0D0D0D"
-                        colorBack="#00000000"
-                        className="absolute inset-0 h-full w-full opacity-80"
+                  {/* Bucket Card 2: Voting Process */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 relative bg-origin-border"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      {mounted && (
+                        <HalftoneDots
+                          contrast={0.4}
+                          originalColors
+                          inverted
+                          grid="hex"
+                          radius={0.71}
+                          size={0.62}
+                          scale={1}
+                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05MHM5GY8RQ6K3W7DNJ7EMK.jpg"
+                          grainMixer={0.91}
+                          grainOverlay={0.2}
+                          grainSize={0.61}
+                          type="gooey"
+                          fit="cover"
+                          colorFront="#0D0D0D"
+                          colorBack="#00000000"
+                          className="w-[180%] h-[180%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#62626200]"
+                        />
+                      )}
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.1% 0 0) 0%, oklab(71.8% 0 0 / 0%) 300.1%)",
+                        }}
                       />
-                    )}
-                    <div className="relative z-10 flex flex-col justify-between h-full">
-                      <span className="text-base text-white/55 font-normal">
-                        Interactive prototypes
-                      </span>
-                      <h3 className="text-2xl font-normal text-white leading-7 whitespace-pre-line">
-                        Streamline Flow for Voting
-                      </h3>
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative z-10 h-full">
+                        <div className="w-fit text-white text-base leading-[18px]">
+                          Voting Process
+                        </div>
+                        <div className="self-stretch whitespace-pre-wrap text-white text-base leading-5">
+                          Streamline Flow for Voting
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* 1 Bottom Wide Bucket Card */}
-                <div
-                  className="relative h-[240px] sm:h-[300px] w-full overflow-hidden rounded-[22px] border border-[#FFFFFF1A] p-5 flex flex-col justify-between"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                  }}
-                >
-                  {mounted && (
-                    <HalftoneDots
-                      contrast={0.4}
-                      originalColors={false}
-                      inverted={false}
-                      grid="hex"
-                      radius={1.23}
-                      size={0.61}
-                      scale={1}
-                      image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M04JV5DYPW2RBXSQ1JFMHVFX.jpg"
-                      grainMixer={0.2}
-                      grainOverlay={0.2}
-                      grainSize={0.5}
-                      type="gooey"
-                      fit="cover"
-                      colorFront="#0D0D0D"
-                      colorBack="#00000000"
-                      className="absolute inset-0 h-full w-full opacity-80"
-                    />
-                  )}
-                  <div className="relative z-10 flex flex-col justify-between h-full max-w-[320px]">
-                    <span className="text-base text-white/55 font-normal">
-                      Interactive prototypes
-                    </span>
-                    <h3 className="text-2xl font-normal text-white leading-7">
-                      Verifying vote in one click
-                    </h3>
+                  {/* Bucket Card 3: Fraud Concerns */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 relative bg-origin-border"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      {mounted && (
+                        <HalftoneDots
+                          contrast={0.4}
+                          originalColors
+                          inverted
+                          grid="hex"
+                          radius={0.71}
+                          size={0.62}
+                          scale={1}
+                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05MHM5GY8RQ6K3W7DNJ7EMK.jpg"
+                          grainMixer={0.91}
+                          grainOverlay={0.2}
+                          grainSize={0.61}
+                          type="gooey"
+                          fit="cover"
+                          colorFront="#0D0D0D"
+                          colorBack="#00000000"
+                          className="w-[180%] h-[180%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#62626200]"
+                        />
+                      )}
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.1% 0 0) 0%, oklab(71.8% 0 0 / 0%) 300.1%)",
+                        }}
+                      />
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative z-10 h-full">
+                        <div className="w-fit text-white text-base leading-[18px]">
+                          Fraud Concerns
+                        </div>
+                        <div className="self-stretch text-white text-base leading-5">
+                          Verifying vote in one click
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
