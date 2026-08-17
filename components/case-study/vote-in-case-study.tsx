@@ -10,7 +10,7 @@ const SECTIONS = [
   { id: "the-problem", label: "The Problem" },
   { id: "problem-buckets", label: "Problem Buckets" },
   { id: "breaking-problem", label: "Breaking Problem" },
-  { id: "simplifying-verification", label: "Verification Flow" },
+  { id: "verification-complexity", label: "Verification Complexity" },
   { id: "phase-1", label: "Phase I" },
   { id: "phase-2", label: "Phase II" },
   { id: "fluid-interface", label: "Fluid Interface" },
@@ -33,275 +33,6 @@ function GrungeSeparator() {
         className="w-[197px] h-[10px] object-contain opacity-60 select-none pointer-events-none"
       />
     </div>
-  );
-}
-
-const VERIFICATION_SLIDES = [
-  {
-    id: "login-page",
-    label: "Login Page",
-    text: "A clear progress bar helps users understand where they are in the verification process, while real-time notifications keep them informed of important updates. A prominent CTA guides users through each step, creating a familiar, form-like experience that feels clear and intuitive.",
-    image:
-      "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png",
-    imageStyle: {
-      left: "349px",
-      top: "-114px",
-      width: "219px",
-      height: "446px",
-    },
-  },
-  {
-    id: "retrieving-documents",
-    label: "Retriving Documents",
-    text: "Users no longer need to wait for manual document verification. They simply enter their phone number, and the required documents are securely retrieved from DigiLocker, making the verification process faster and more seamless.",
-    image:
-      "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M070C9C1JDDENP7HQ2RWSQA8.png",
-    imageStyle: {
-      left: "349px",
-      top: "34px",
-      width: "219px",
-      height: "449px",
-    },
-  },
-  {
-    id: "digilocker-integration",
-    label: "Digilocker Integration",
-    text: "I used a notification section to provide real-time updates while documents are being fetched from DigiLocker. Since the retrieval process can take some time, these updates keep users informed about the verification status and reduce uncertainty or the need to wait without feedback.",
-    image:
-      "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M070C9C1JDDENP7HQ2RWSQA8.png",
-    imageStyle: {
-      left: "349px",
-      top: "-118px",
-      width: "219px",
-      height: "449px",
-    },
-  },
-];
-
-function VerificationCarousel() {
-  const [currentIdx, setCurrentIdx] = useState(0);
-  const [animatingCard, setAnimatingCard] = useState<number | null>(null);
-  const [animDirection, setAnimDirection] = useState<"next" | "prev">("next");
-
-  const prevSlide = () => {
-    if (animatingCard !== null) return;
-    const targetIdx = (currentIdx === 0 ? VERIFICATION_SLIDES.length - 1 : currentIdx - 1);
-    setAnimDirection("prev");
-    setAnimatingCard(targetIdx);
-    setCurrentIdx(targetIdx);
-    setTimeout(() => {
-      setAnimatingCard(null);
-    }, 450);
-  };
-
-  const nextSlide = () => {
-    if (animatingCard !== null) return;
-    const leavingIdx = currentIdx;
-    setAnimDirection("next");
-    setAnimatingCard(leavingIdx);
-    setCurrentIdx((prev) => (prev === VERIFICATION_SLIDES.length - 1 ? 0 : prev + 1));
-    setTimeout(() => {
-      setAnimatingCard(null);
-    }, 450);
-  };
-
-  return (
-    <section
-      id="simplifying-verification"
-      className="flex w-full flex-col items-start gap-3 scroll-mt-24"
-    >
-      <h2
-        style={{
-          fontFamily: HELVETICA,
-          fontSize: "20px",
-          lineHeight: "24px",
-          letterSpacing: "normal",
-          fontWeight: 400,
-          color: "#FFFFFF",
-        }}
-      >
-        Simplifying the Verification Process
-      </h2>
-
-      <div className="flex w-full flex-col items-center gap-10 justify-center">
-        {/* Intro text */}
-        <div className="flex flex-col items-start gap-3 w-full">
-          <p
-            className="w-full font-light text-[rgba(255,255,255,0.7)] text-base leading-5"
-            style={{ fontFamily: HELVETICA }}
-          >
-            These solutions focus on reducing frustration and providing clear
-            guidance throughout the process.
-          </p>
-          <p
-            className="w-full font-light text-white text-base leading-5"
-            style={{ fontFamily: HELVETICA }}
-          >
-            Use the next button in the bottom of the cards to view all the UX descisons.
-          </p>
-        </div>
-
-        {/* Carousel Stack Container & Controls */}
-        <div className="flex flex-col items-center gap-6 w-full">
-          {/* Stack Container */}
-          <div className="relative w-full max-w-[598px] h-[400px] flex justify-center">
-            {VERIFICATION_SLIDES.map((slide, idx) => {
-              // position in stack: 0 (front), 1 (middle), 2 (back)
-              const position =
-                (idx - currentIdx + VERIFICATION_SLIDES.length) %
-                VERIFICATION_SLIDES.length;
-
-              const isFront = position === 0;
-              const isMiddle = position === 1;
-              const isBack = position === 2;
-              const isLeavingToBack = animDirection === "next" && animatingCard === idx;
-              const isEnteringFromBack = animDirection === "prev" && animatingCard === idx;
-
-              // Top offset and zIndex matching Paper canvas specs
-              const targetTop = isFront ? 24 : isMiddle ? 12 : 0;
-              const targetZ = isFront ? 30 : isMiddle ? 20 : 10;
-              const targetOpacity = isFront ? 1 : isMiddle ? 0.95 : 0.85;
-
-              return (
-                <motion.div
-                  key={slide.id}
-                  layout={!isLeavingToBack && !isEnteringFromBack}
-                  initial={false}
-                  animate={
-                    isLeavingToBack
-                      ? {
-                          y: [0, 130, 0],
-                          top: [24, 50, 0],
-                          zIndex: [35, 35, 5],
-                          opacity: [1, 0.9, 0.85],
-                        }
-                      : isEnteringFromBack
-                      ? {
-                          y: [0, 130, 0],
-                          top: [0, 50, 24],
-                          zIndex: [5, 35, 30],
-                          opacity: [0.85, 0.95, 1],
-                        }
-                      : {
-                          y: 0,
-                          top: targetTop,
-                          zIndex: targetZ,
-                          opacity: targetOpacity,
-                        }
-                  }
-                  transition={
-                    isLeavingToBack || isEnteringFromBack
-                      ? {
-                          duration: 0.45,
-                          times: [0, 0.5, 1],
-                          ease: [0.32, 0.72, 0, 1],
-                        }
-                      : {
-                          type: "spring",
-                          stiffness: 240,
-                          damping: 22,
-                          mass: 0.8,
-                        }
-                  }
-                  onClick={() => {
-                    if (!isFront && animatingCard === null) {
-                      setAnimDirection("next");
-                      setAnimatingCard(currentIdx);
-                      setCurrentIdx(idx);
-                      setTimeout(() => setAnimatingCard(null), 450);
-                    }
-                  }}
-                  className={`absolute left-0 right-0 mx-auto flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 h-[366px] bg-[#242424] border-[0.5px] border-[#FFFFFF1F] shadow-[0_4px_20px_rgba(0,0,0,0.5),inset_0_2px_3px_rgba(0,0,0,0.2)] select-none transition-[width,max-width] duration-300 ${
-                    isFront
-                      ? "w-full max-w-[598px] cursor-default"
-                      : isMiddle
-                      ? "w-[92.5%] max-w-[553px] cursor-pointer hover:border-[#FFFFFF33]"
-                      : "w-[84.5%] max-w-[505px] cursor-pointer hover:border-[#FFFFFF33]"
-                  }`}
-                >
-                  <div
-                    className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 px-4.5 py-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                    }}
-                  >
-                    {/* Smartphone Mockup */}
-                    <div
-                      className="absolute bg-cover bg-center pointer-events-none z-10"
-                      style={{
-                        backgroundImage: `url(${slide.image})`,
-                        ...slide.imageStyle,
-                      }}
-                    />
-
-                    {/* Text Description */}
-                    <div className="w-[266px] text-justify relative z-10 text-[13px] leading-5 text-white font-normal">
-                      {slide.text}
-                    </div>
-
-                    {/* Tag Label */}
-                    <div className="w-fit relative z-10 text-[#FFFFFF66] text-base leading-5 font-normal">
-                      {slide.label}
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Prev / Next Navigation Buttons */}
-          <div className="flex items-center justify-center gap-4 pt-1">
-            <button
-              onClick={prevSlide}
-              className="h-6.5 w-6.5 flex items-center justify-center rounded-full bg-white border-[0.5px] border-[#E6E6E6] shadow-[inset_0_0_0_1px_rgba(10,13,18,0.04),0_1px_2px_rgba(10,13,18,0.08)] transition-transform hover:scale-110 active:scale-95 cursor-pointer"
-              aria-label="Previous verification decision"
-            >
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="shrink-0"
-              >
-                <path
-                  d="M12 5L7 10L12 15"
-                  stroke="#463F3F"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-
-            <button
-              onClick={nextSlide}
-              className="h-6.5 w-6.5 flex items-center justify-center rounded-full bg-white border-[0.5px] border-[#E6E6E6] shadow-[inset_0_0_0_1px_rgba(10,13,18,0.04),0_1px_2px_rgba(10,13,18,0.08)] transition-transform hover:scale-110 active:scale-95 cursor-pointer origin-center"
-              style={{ transform: "rotate(180deg)" }}
-              aria-label="Next verification decision"
-            >
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="shrink-0"
-              >
-                <path
-                  d="M12 5L7 10L12 15"
-                  stroke="#463F3F"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -1239,8 +970,275 @@ export function VoteInCaseStudy() {
             {/* SEPARATOR 5 */}
             <GrungeSeparator />
 
-            {/* 6. SIMPLIFYING THE VERIFICATION PROCESS (3-CARD CAROUSEL) */}
-            <VerificationCarousel />
+            {/* 6. VERIFICATION COMPLEXITY SECTION */}
+            <section
+              id="verification-complexity"
+              className="flex w-full flex-col items-start gap-9 scroll-mt-24"
+            >
+              {/* Section Title Bar */}
+              <div className="flex items-center gap-3 w-full">
+                <h2
+                  style={{
+                    fontFamily: HELVETICA,
+                    fontSize: "20px",
+                    lineHeight: "24px",
+                    letterSpacing: "normal",
+                    fontWeight: 500,
+                    color: "#FFFFFF",
+                  }}
+                >
+                  Verification Complexity
+                </h2>
+                <span
+                  style={{
+                    fontFamily: HELVETICA,
+                    fontSize: "12px",
+                    lineHeight: "16px",
+                    letterSpacing: "normal",
+                    fontWeight: 400,
+                    color: "rgba(255, 255, 255, 0.4)",
+                  }}
+                >
+                  Simplifying the Verification Process
+                </span>
+              </div>
+
+              <div className="flex w-full flex-col items-start gap-15">
+                {/* Subsection 1: 1. Lack of Visibility */}
+                <div className="flex w-full flex-col items-start gap-3">
+                  <h3
+                    style={{
+                      fontFamily: HELVETICA,
+                      fontSize: "18px",
+                      lineHeight: "22px",
+                      letterSpacing: "normal",
+                      fontWeight: 500,
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    1. Lack of Visibility
+                  </h3>
+                  <div className="flex w-full flex-col items-start gap-9">
+                    <div className="flex w-full flex-col items-start gap-6">
+                      <p
+                        className="w-full font-light text-[rgba(255,255,255,0.7)] text-base leading-5"
+                        style={{ fontFamily: HELVETICA }}
+                      >
+                        Users had limited visibility into where they were in the verification process, making the journey feel uncertain and disconnected.
+                      </p>
+                      <p
+                        className="w-full font-medium text-white text-base leading-5"
+                        style={{ fontFamily: HELVETICA }}
+                      >
+                        For the new verification flow, we improved clarity by:
+                      </p>
+                      <div className="flex w-full flex-col items-start gap-3">
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • Introducing a progress bar to show users where they are in the process
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • Adding real-time notifications to keep users informed of verification updates
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • Using a prominent CTA to create a familiar, form-like experience and guide users
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Card 1: Login Page */}
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full h-[366px] shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                      <div
+                        className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 px-4.5 py-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        {/* Smartphone Mockup */}
+                        <div
+                          className="absolute bg-cover bg-center pointer-events-none z-10"
+                          style={{
+                            backgroundImage:
+                              "url(https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png)",
+                            left: "349px",
+                            top: "-114px",
+                            width: "219px",
+                            height: "446px",
+                          }}
+                        />
+
+                        {/* Text Description */}
+                        <div className="w-[266px] text-justify relative z-10 text-[13px] leading-5 text-white font-normal">
+                          A clear progress bar helps users understand where they are in the verification process, while real-time notifications keep them informed of important updates. A prominent CTA guides users through each step, creating a familiar, form-like experience that feels clear and intuitive.
+                        </div>
+
+                        {/* Tag Label */}
+                        <div className="w-fit relative z-10 text-[#FFFFFF66] text-base leading-5 font-normal">
+                          Login Page
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Subsection 2: 2. Time-Consuming Verification */}
+                <div className="flex w-full flex-col items-start gap-3">
+                  <h3
+                    style={{
+                      fontFamily: HELVETICA,
+                      fontSize: "18px",
+                      lineHeight: "22px",
+                      letterSpacing: "normal",
+                      fontWeight: 500,
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    2. Time-Consuming Verification
+                  </h3>
+                  <div className="flex w-full flex-col items-start gap-9">
+                    <div className="flex w-full flex-col items-start gap-6">
+                      <p
+                        className="w-full font-light text-[rgba(255,255,255,0.7)] text-base leading-5"
+                        style={{ fontFamily: HELVETICA }}
+                      >
+                        Users previously had to wait while their documents were manually verified, making the process unnecessarily slow.
+                      </p>
+                      <p
+                        className="w-full font-medium text-white text-base leading-5"
+                        style={{ fontFamily: HELVETICA }}
+                      >
+                        We streamlined verification by:
+                      </p>
+                      <div className="flex w-full flex-col items-start gap-3">
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • Requiring users to enter only their phone number
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • Automatically retrieving required documents from DigiLocker
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • Eliminating unnecessary manual document uploads and verification steps
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Card 2: Digilocker Integration */}
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full h-[366px] shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                      <div
+                        className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 px-4.5 py-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        {/* Smartphone Mockup */}
+                        <div
+                          className="absolute bg-cover bg-center pointer-events-none z-10"
+                          style={{
+                            backgroundImage:
+                              "url(https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M070C9C1JDDENP7HQ2RWSQA8.png)",
+                            left: "349px",
+                            top: "-118px",
+                            width: "219px",
+                            height: "449px",
+                          }}
+                        />
+
+                        {/* Text Description */}
+                        <div className="w-[266px] text-justify relative z-10 text-[13px] leading-5 text-white font-normal">
+                          Users no longer need to wait for manual document verification. They simply enter their phone number, and the required documents are securely retrieved from DigiLocker, making the verification process faster and more seamless.
+                        </div>
+
+                        {/* Tag Label */}
+                        <div className="w-fit relative z-10 text-[#FFFFFF66] text-base leading-5 font-normal">
+                          Digilocker Integration
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Subsection 3: 3. Uncertainty During Document Retrieval */}
+                <div className="flex w-full flex-col items-start gap-3">
+                  <h3
+                    style={{
+                      fontFamily: HELVETICA,
+                      fontSize: "18px",
+                      lineHeight: "22px",
+                      letterSpacing: "normal",
+                      fontWeight: 500,
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    3. Uncertainty During Document Retrieval
+                  </h3>
+                  <div className="flex w-full flex-col items-start gap-9">
+                    <div className="flex w-full flex-col items-start gap-6">
+                      <p
+                        className="w-full font-light text-[rgba(255,255,255,0.7)] text-base leading-5"
+                        style={{ fontFamily: HELVETICA }}
+                      >
+                        Fetching documents from DigiLocker can take some time, leaving users unsure whether the process is still running.
+                      </p>
+                      <p
+                        className="w-full font-medium text-white text-base leading-5"
+                        style={{ fontFamily: HELVETICA }}
+                      >
+                        To keep users informed, we introduced:
+                      </p>
+                      <div className="flex w-full flex-col items-start gap-3">
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • A real-time notification section showing the current retrieval status
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • Clear updates while documents are being fetched from DigiLocker
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • A Refetch Data option if the information is not retrieved successfully
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Card 3: Retrieving Documents */}
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full h-[366px] shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                      <div
+                        className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 px-4.5 py-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        {/* Smartphone Mockup */}
+                        <div
+                          className="absolute bg-cover bg-center pointer-events-none z-10"
+                          style={{
+                            backgroundImage:
+                              "url(https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M070C9C1JDDENP7HQ2RWSQA8.png)",
+                            left: "349px",
+                            top: "-60px",
+                            width: "219px",
+                            height: "449px",
+                          }}
+                        />
+
+                        {/* Text Description */}
+                        <div className="w-[266px] text-justify relative z-10 text-[13px] leading-5 text-white font-normal">
+                          I used a notification section to provide real-time updates while documents are being fetched from DigiLocker. Since the retrieval process can take some time, these updates keep users informed about the verification status and reduce uncertainty or the need to wait without feedback.
+                        </div>
+
+                        {/* Tag Label */}
+                        <div className="w-fit relative z-10 text-[#FFFFFF66] text-base leading-5 font-normal">
+                          Retriving Documents
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* SEPARATOR 6 */}
+            <GrungeSeparator />
           </div>
         </main>
       </div>
