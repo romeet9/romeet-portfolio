@@ -556,7 +556,7 @@ export function VoteInCaseStudy() {
                           radius={0.71}
                           size={0.62}
                           scale={1}
-                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05MHM5GY8RQ6K3W7DNJ7EMK.jpg"
+                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05PSD8DDRMVX6V0K90RJ3Q3.jpg"
                           grainMixer={0.91}
                           grainOverlay={0.2}
                           grainSize={0.61}
@@ -603,7 +603,7 @@ export function VoteInCaseStudy() {
                           radius={0.71}
                           size={0.62}
                           scale={1}
-                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05MHM5GY8RQ6K3W7DNJ7EMK.jpg"
+                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05PST8J25JQRT8JR53JG7M4.jpg"
                           grainMixer={0.91}
                           grainOverlay={0.2}
                           grainSize={0.61}
@@ -730,7 +730,7 @@ export function VoteInCaseStudy() {
                           radius={0.71}
                           size={0.62}
                           scale={1}
-                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05MHM5GY8RQ6K3W7DNJ7EMK.jpg"
+                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05PVRTNZR3D0P3C0YXYBQWC.jpg"
                           grainMixer={0.91}
                           grainOverlay={0.2}
                           grainSize={0.61}
@@ -777,7 +777,7 @@ export function VoteInCaseStudy() {
                           radius={0.71}
                           size={0.62}
                           scale={1}
-                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05MHM5GY8RQ6K3W7DNJ7EMK.jpg"
+                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05PWCW46Z7Z0HRMYCKHKXDE.jpg"
                           grainMixer={0.91}
                           grainOverlay={0.2}
                           grainSize={0.61}
@@ -824,7 +824,7 @@ export function VoteInCaseStudy() {
                           radius={0.71}
                           size={0.62}
                           scale={1}
-                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05MHM5GY8RQ6K3W7DNJ7EMK.jpg"
+                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05PZD5JM3XGJ9VH2X66HKC9.jpg"
                           grainMixer={0.91}
                           grainOverlay={0.2}
                           grainSize={0.61}
@@ -897,12 +897,12 @@ export function VoteInCaseStudy() {
                   </p>
                 </div>
 
-                {/* 3 Square Cards in a Row (Text focus) */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
+                {/* 3 Taller Cards in a Row (Text focus, h-73.5 = 294px) */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full h-auto sm:h-[294px]">
                   {/* Card 1: Verification Complexity */}
                   <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                     <div
-                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 border-[0.5px] border-[#FFFFFF1A]"
+                      className="flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 border-[0.5px] border-[#FFFFFF1A]"
                       style={{
                         backgroundImage:
                           "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -923,7 +923,7 @@ export function VoteInCaseStudy() {
                   {/* Card 2: Trust in Digital Systems */}
                   <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                     <div
-                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 border-[0.5px] border-[#FFFFFF1A]"
+                      className="flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 border-[0.5px] border-[#FFFFFF1A]"
                       style={{
                         backgroundImage:
                           "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -944,7 +944,7 @@ export function VoteInCaseStudy() {
                   {/* Card 3: Fraud Concerns */}
                   <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                     <div
-                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 border-[0.5px] border-[#FFFFFF1A]"
+                      className="flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 border-[0.5px] border-[#FFFFFF1A]"
                       style={{
                         backgroundImage:
                           "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
