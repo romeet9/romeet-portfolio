@@ -80,15 +80,12 @@ const VERIFICATION_SLIDES = [
 
 function VerificationCarousel() {
   const [currentIdx, setCurrentIdx] = useState(0);
-  const [direction, setDirection] = useState(1);
 
   const prevSlide = () => {
-    setDirection(-1);
     setCurrentIdx((prev) => (prev === 0 ? VERIFICATION_SLIDES.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    setDirection(1);
     setCurrentIdx((prev) => (prev === VERIFICATION_SLIDES.length - 1 ? 0 : prev + 1));
   };
 
@@ -110,7 +107,7 @@ function VerificationCarousel() {
         Simplifying the Verification Process
       </h2>
 
-      <div className="flex w-full flex-col items-center gap-14 justify-center">
+      <div className="flex w-full flex-col items-center gap-10 justify-center">
         {/* Intro text */}
         <div className="flex flex-col items-start gap-3 w-full">
           <p
@@ -130,21 +127,22 @@ function VerificationCarousel() {
 
         {/* Carousel Stack Container & Controls */}
         <div className="flex flex-col items-center gap-6 w-full">
-          {/* Stack Container (387px height matching Paper canvas 1FY-0) */}
-          <div className="relative w-full max-w-[598px] h-[387px]">
+          {/* Stack Container (400px height to fully showcase the 3 stacked card tabs) */}
+          <div className="relative w-full max-w-[598px] h-[400px] flex justify-center">
             {VERIFICATION_SLIDES.map((slide, idx) => {
               // position in stack: 0 (front), 1 (middle), 2 (back)
-              const position = (idx - currentIdx + VERIFICATION_SLIDES.length) % VERIFICATION_SLIDES.length;
+              const position =
+                (idx - currentIdx + VERIFICATION_SLIDES.length) %
+                VERIFICATION_SLIDES.length;
 
               const isFront = position === 0;
               const isMiddle = position === 1;
               const isBack = position === 2;
 
-              // Top offset and scale matching Paper canvas specs
-              const topVal = isFront ? 21 : isMiddle ? 9 : 0;
-              const scaleVal = isFront ? 1 : isMiddle ? 553 / 598 : 505 / 598;
+              // Exact layout values matching Paper canvas specs
+              const topVal = isFront ? 24 : isMiddle ? 12 : 0;
               const zIndexVal = isFront ? 30 : isMiddle ? 20 : 10;
-              const opacityVal = isFront ? 1 : isMiddle ? 0.95 : 0.8;
+              const opacityVal = isFront ? 1 : isMiddle ? 0.95 : 0.85;
 
               return (
                 <motion.div
@@ -153,28 +151,27 @@ function VerificationCarousel() {
                   initial={false}
                   animate={{
                     top: topVal,
-                    scale: scaleVal,
                     zIndex: zIndexVal,
                     opacity: opacityVal,
                   }}
                   transition={{
                     type: "spring",
-                    stiffness: 280,
-                    damping: 26,
+                    stiffness: 260,
+                    damping: 24,
                     mass: 0.8,
                   }}
                   onClick={() => {
                     if (!isFront) {
-                      setDirection(1);
                       setCurrentIdx(idx);
                     }
                   }}
-                  className={`absolute left-0 right-0 mx-auto origin-top flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full h-[366px] shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F] select-none ${
-                    isFront ? "cursor-default" : "cursor-pointer hover:brightness-110"
+                  className={`absolute left-0 right-0 mx-auto flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 h-[366px] bg-[#242424] border-[0.5px] border-[#FFFFFF1F] shadow-[0_4px_20px_rgba(0,0,0,0.5),inset_0_2px_3px_rgba(0,0,0,0.2)] select-none transition-all duration-300 ${
+                    isFront
+                      ? "w-full max-w-[598px] cursor-default"
+                      : isMiddle
+                      ? "w-[92.5%] max-w-[553px] cursor-pointer hover:border-[#FFFFFF33]"
+                      : "w-[84.5%] max-w-[505px] cursor-pointer hover:border-[#FFFFFF33]"
                   }`}
-                  style={{
-                    transformOrigin: "top center",
-                  }}
                 >
                   <div
                     className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 px-4.5 py-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A]"
@@ -185,7 +182,7 @@ function VerificationCarousel() {
                   >
                     {/* Smartphone Mockup */}
                     <div
-                      className="absolute bg-cover bg-center pointer-events-none z-10 transition-all duration-300"
+                      className="absolute bg-cover bg-center pointer-events-none z-10"
                       style={{
                         backgroundImage: `url(${slide.image})`,
                         ...slide.imageStyle,
