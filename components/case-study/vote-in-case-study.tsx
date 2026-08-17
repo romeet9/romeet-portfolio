@@ -638,28 +638,32 @@ export function VoteInCaseStudy() {
             {/* SEPARATOR 2 */}
             <GrungeSeparator />
 
-            {/* 3. PROBLEM STATEMENT SECTION (CONTAINER CARD WITH 3 COLUMNS) */}
+            {/* 3. PROBLEM STATEMENT SECTION (2×2 LAYOUT CONTAINER CARD) */}
             <section id="the-problem" className="flex w-full flex-col items-start gap-4 scroll-mt-24">
               <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                 <div
-                  className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full px-3.5 py-4 min-h-[220px] sm:min-h-[240px]"
+                  className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full px-2.5 py-3 h-[310px]"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                   }}
                 >
-                  <div className="w-fit text-white text-base font-normal mb-4">
-                    Problem Statement.
+                  {/* Top Row: Title + Description */}
+                  <div className="flex items-start gap-[142px] w-full">
+                    <div className="w-fit shrink-0 text-white text-base leading-[18px]">
+                      Problem Statement.
+                    </div>
+                    <div className="flex-1 font-light text-[rgba(255,255,255,0.7)] text-base leading-5">
+                      A secure, seamless voting platform for identity verification & transparent voting, protected against fraud, duplicate votes.
+                    </div>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full items-end">
-                    <div className="text-white/70 text-sm sm:text-base leading-5 font-light">
+                  {/* Bottom Row: 2 Columns */}
+                  <div className="flex items-end gap-3 w-full justify-center">
+                    <div className="flex-1 font-light text-[rgba(255,255,255,0.7)] text-base leading-5">
                       The Government of India is transitioning from traditional offline voting to a centralized online voting system.
                     </div>
-                    <div className="text-white/70 text-sm sm:text-base leading-5 font-light">
+                    <div className="flex-1 font-light text-[rgba(255,255,255,0.7)] text-base leading-5">
                       This system will enable citizens to cast their votes digitally, eliminating the need for physical polling stations.
-                    </div>
-                    <div className="text-white/70 text-sm sm:text-base leading-5 font-light">
-                      A secure, seamless voting platform for identity verification & transparent voting, protected against fraud, duplicate votes.
                     </div>
                   </div>
                 </div>
@@ -1001,82 +1005,33 @@ export function VoteInCaseStudy() {
                   </p>
                 </div>
 
-                {/* Annotated Interface Showcase Card */}
-                <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                {/* Annotated Interface Showcase Card (Single merged paragraph + bottom Login Page label) */}
+                <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full h-[366px] shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                   <div
-                    className="relative flex rounded-xl overflow-hidden items-center justify-between w-full h-[357px] px-2.5 py-3 border-[0.5px] border-[#FFFFFF1A]"
+                    className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 px-4.5 py-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A]"
                     style={{
                       backgroundImage:
                         "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                     }}
                   >
-                    {/* Screen Tag */}
-                    <div className="absolute left-4 top-4.5 text-white text-xl font-normal">
-                      Login Page
-                    </div>
-
                     {/* Smartphone Screen Mockup */}
                     <div
-                      className="absolute left-[348px] -top-[114px] w-[219px] h-[446px] bg-cover bg-center pointer-events-none z-10 shadow-2xl"
+                      className="absolute left-[349px] -top-[114px] w-[219px] h-[446px] bg-cover bg-center pointer-events-none z-10"
                       style={{
                         backgroundImage:
                           "url(https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png)",
                       }}
                     />
 
-                    {/* Left Side Callout Texts */}
-                    <div className="absolute left-7 top-[140px] flex flex-col gap-5 w-[266px] z-10">
-                      <p className="text-[13px] leading-5 text-white text-justify font-normal">
-                        A progress bar, so the user is familiar where are they in the verification process.
-                      </p>
-                      <p className="text-[13px] leading-5 text-white text-justify font-normal">
-                        A section to show real time notification of the user
-                      </p>
-                      <p className="text-[13px] leading-5 text-white text-justify font-normal">
-                        Added prominent &lsquo;CTA&rsquo; ,ensuring users feel that physically they are feeling a form
-                      </p>
+                    {/* Single Merged Callout Paragraph */}
+                    <div className="w-[266px] text-justify relative z-10 text-[13px] leading-5 text-white">
+                      A clear progress bar helps users understand where they are in the verification process, while real-time notifications keep them informed of important updates. A prominent CTA guides users through each step, creating a familiar, form-like experience that feels clear and intuitive.
                     </div>
 
-                    {/* SVG Connecting Lines and Indicator Dots */}
-                    <svg
-                      className="absolute inset-0 w-full h-full pointer-events-none z-20"
-                      viewBox="0 0 589 357"
-                      preserveAspectRatio="none"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      {/* Path 1: Progress Bar Annotation */}
-                      <circle cx="298.75" cy="171.22" r="2.5" fill="#DDDDDD" />
-                      <polyline
-                        points="298.75,171.22 320.75,171.22 320.75,209.22 363.75,209.22"
-                        stroke="#DDDDDD"
-                        strokeWidth="1"
-                        fill="none"
-                      />
-                      <circle cx="363.75" cy="209.22" r="2.5" fill="#DDDDDD" />
-
-                      {/* Path 2: Notification Area Annotation */}
-                      <circle cx="91.75" cy="231.22" r="2.5" fill="#DDDDDD" />
-                      <polyline
-                        points="91.75,231.22 320.75,231.22 320.75,262.22 411.75,262.22"
-                        stroke="#DDDDDD"
-                        strokeWidth="1"
-                        fill="none"
-                      />
-                      <circle cx="411.75" cy="262.22" r="2.5" fill="#DDDDDD" />
-
-                      {/* Path 3: CTA Button Annotation */}
-                      <circle cx="299.75" cy="291.22" r="2.5" fill="#DDDDDD" />
-                      <line
-                        x1="299.75"
-                        y1="291.22"
-                        x2="379.75"
-                        y2="291.22"
-                        stroke="#DDDDDD"
-                        strokeWidth="1"
-                      />
-                      <circle cx="379.75" cy="291.22" r="2.5" fill="#DDDDDD" />
-                    </svg>
+                    {/* Bottom-left Login Page Label */}
+                    <div className="w-fit relative z-10 text-[#FFFFFF66] text-base leading-5">
+                      Login Page
+                    </div>
                   </div>
                 </div>
               </div>
