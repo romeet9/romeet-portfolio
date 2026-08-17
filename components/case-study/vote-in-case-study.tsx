@@ -35,6 +35,185 @@ function GrungeSeparator() {
   );
 }
 
+const VERIFICATION_SLIDES = [
+  {
+    id: "login-page",
+    label: "Login Page",
+    text: "A clear progress bar helps users understand where they are in the verification process, while real-time notifications keep them informed of important updates. A prominent CTA guides users through each step, creating a familiar, form-like experience that feels clear and intuitive.",
+    image:
+      "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png",
+    imageStyle: {
+      left: "349px",
+      top: "-114px",
+      width: "219px",
+      height: "446px",
+    },
+  },
+  {
+    id: "retrieving-documents",
+    label: "Retriving Documents",
+    text: "Users no longer need to wait for manual document verification. They simply enter their phone number, and the required documents are securely retrieved from DigiLocker, making the verification process faster and more seamless.",
+    image:
+      "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M070C9C1JDDENP7HQ2RWSQA8.png",
+    imageStyle: {
+      left: "349px",
+      top: "34px",
+      width: "219px",
+      height: "449px",
+    },
+  },
+  {
+    id: "digilocker-integration",
+    label: "Digilocker Integration",
+    text: "I used a notification section to provide real-time updates while documents are being fetched from DigiLocker. Since the retrieval process can take some time, these updates keep users informed about the verification status and reduce uncertainty or the need to wait without feedback.",
+    image:
+      "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M070C9C1JDDENP7HQ2RWSQA8.png",
+    imageStyle: {
+      left: "349px",
+      top: "-118px",
+      width: "219px",
+      height: "449px",
+    },
+  },
+];
+
+function VerificationCarousel() {
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIdx((prev) => (prev === 0 ? VERIFICATION_SLIDES.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIdx((prev) => (prev === VERIFICATION_SLIDES.length - 1 ? 0 : prev + 1));
+  };
+
+  const slide = VERIFICATION_SLIDES[currentIdx];
+
+  return (
+    <section
+      id="simplifying-verification"
+      className="flex w-full flex-col items-start gap-3 scroll-mt-24"
+    >
+      <h2
+        style={{
+          fontFamily: HELVETICA,
+          fontSize: "20px",
+          lineHeight: "24px",
+          letterSpacing: "normal",
+          fontWeight: 400,
+          color: "#FFFFFF",
+        }}
+      >
+        Simplifying the Verification Process
+      </h2>
+
+      <div className="flex w-full flex-col items-center gap-14 justify-center">
+        {/* Intro text */}
+        <div className="flex flex-col items-start gap-3 w-full">
+          <p
+            className="w-full font-light text-[rgba(255,255,255,0.7)] text-base leading-5"
+            style={{ fontFamily: HELVETICA }}
+          >
+            These solutions focus on reducing frustration and providing clear
+            guidance throughout the process.
+          </p>
+          <p
+            className="w-full font-light text-white text-base leading-5"
+            style={{ fontFamily: HELVETICA }}
+          >
+            Use the next button in the bottom of the cards to view all the UX descisons.
+          </p>
+        </div>
+
+        {/* Carousel Card & Controls */}
+        <div className="flex flex-col items-center gap-6 w-full">
+          {/* Card Container */}
+          <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full h-[366px] shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+            <div
+              key={slide.id}
+              className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 px-4.5 py-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A] transition-all duration-300"
+              style={{
+                backgroundImage:
+                  "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+              }}
+            >
+              {/* Smartphone Mockup with exact position per slide */}
+              <div
+                className="absolute bg-cover bg-center pointer-events-none z-10 transition-all duration-300"
+                style={{
+                  backgroundImage: `url(${slide.image})`,
+                  ...slide.imageStyle,
+                }}
+              />
+
+              {/* Text Description */}
+              <div className="w-[266px] text-justify relative z-10 text-[13px] leading-5 text-white font-normal transition-opacity duration-300">
+                {slide.text}
+              </div>
+
+              {/* Tag Label */}
+              <div className="w-fit relative z-10 text-[#FFFFFF66] text-base leading-5 font-normal transition-opacity duration-300">
+                {slide.label}
+              </div>
+            </div>
+          </div>
+
+          {/* Prev / Next Navigation Buttons */}
+          <div className="flex items-center justify-center gap-4">
+            <button
+              onClick={prevSlide}
+              className="h-6.5 w-6.5 flex items-center justify-center rounded-full bg-white border-[0.5px] border-[#E6E6E6] shadow-[inset_0_0_0_1px_rgba(10,13,18,0.04),0_1px_2px_rgba(10,13,18,0.08)] transition-transform hover:scale-105 active:scale-95 cursor-pointer"
+              aria-label="Previous verification decision"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="shrink-0"
+              >
+                <path
+                  d="M12 5L7 10L12 15"
+                  stroke="#463F3F"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+
+            <button
+              onClick={nextSlide}
+              className="h-6.5 w-6.5 flex items-center justify-center rounded-full bg-white border-[0.5px] border-[#E6E6E6] shadow-[inset_0_0_0_1px_rgba(10,13,18,0.04),0_1px_2px_rgba(10,13,18,0.08)] transition-transform hover:scale-105 active:scale-95 cursor-pointer origin-center"
+              style={{ transform: "rotate(180deg)" }}
+              aria-label="Next verification decision"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="shrink-0"
+              >
+                <path
+                  d="M12 5L7 10L12 15"
+                  stroke="#463F3F"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function VoteInCaseStudy() {
   const [activeSection, setActiveSection] = useState("about");
   const [mounted, setMounted] = useState(false);
@@ -969,73 +1148,8 @@ export function VoteInCaseStudy() {
             {/* SEPARATOR 5 */}
             <GrungeSeparator />
 
-            {/* 6. SIMPLIFYING THE VERIFICATION PROCESS (ANNOTATED SCREEN WITH CONNECTING LINES) */}
-            <section id="simplifying-verification" className="flex w-full flex-col items-start gap-3 scroll-mt-24">
-              <h2
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "20px",
-                  lineHeight: "24px",
-                  letterSpacing: "normal",
-                  fontWeight: 400,
-                  color: "#FFFFFF",
-                }}
-              >
-                Simplifying the Verification Process
-              </h2>
-
-              <div className="flex w-full flex-col gap-8">
-                <div
-                  className="flex flex-col gap-3"
-                  style={{
-                    fontFamily: HELVETICA,
-                    fontSize: "16px",
-                    lineHeight: "20px",
-                    letterSpacing: "normal",
-                    fontWeight: 300,
-                    color: "rgba(255, 255, 255, 0.7)",
-                  }}
-                >
-                  <p>
-                    These solutions focus on reducing frustration and providing
-                    clear guidance throughout the process.
-                  </p>
-                  <p className="text-white font-normal">
-                    So, I stood with three problem buckets.
-                  </p>
-                </div>
-
-                {/* Annotated Interface Showcase Card (Single merged paragraph + bottom Login Page label) */}
-                <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full h-[366px] shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                  <div
-                    className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 px-4.5 py-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                    }}
-                  >
-                    {/* Smartphone Screen Mockup */}
-                    <div
-                      className="absolute left-[349px] -top-[114px] w-[219px] h-[446px] bg-cover bg-center pointer-events-none z-10"
-                      style={{
-                        backgroundImage:
-                          "url(https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png)",
-                      }}
-                    />
-
-                    {/* Single Merged Callout Paragraph */}
-                    <div className="w-[266px] text-justify relative z-10 text-[13px] leading-5 text-white">
-                      A clear progress bar helps users understand where they are in the verification process, while real-time notifications keep them informed of important updates. A prominent CTA guides users through each step, creating a familiar, form-like experience that feels clear and intuitive.
-                    </div>
-
-                    {/* Bottom-left Login Page Label */}
-                    <div className="w-fit relative z-10 text-[#FFFFFF66] text-base leading-5">
-                      Login Page
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
+            {/* 6. SIMPLIFYING THE VERIFICATION PROCESS (3-CARD CAROUSEL) */}
+            <VerificationCarousel />
           </div>
         </main>
       </div>
