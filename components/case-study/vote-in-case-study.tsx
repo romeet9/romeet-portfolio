@@ -311,8 +311,8 @@ export function VoteInCaseStudy() {
             {/* 1. INTRO HERO SECTION */}
             <section className="flex w-full flex-col items-start gap-7">
               {/* HERO MOCKUP CARD WITH HALFTONE SHADER */}
-              <div className="relative flex w-full flex-col items-center justify-center rounded-lg bg-[#242424] p-1 border-[0.5px] border-[#FFFFFF0F] shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)]">
-                <div className="relative h-[378px] w-full overflow-hidden rounded-sm bg-[#9A8DE9] shadow-[0_0_5px_rgba(0,0,0,0.2)]">
+              <div className="relative flex w-full flex-col items-center justify-center rounded-2xl bg-[#242424] p-1 border-[0.5px] border-[#FFFFFF0F] shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)]">
+                <div className="relative h-[378px] w-full overflow-hidden rounded-xl bg-[#9A8DE9] shadow-[0_0_5px_rgba(0,0,0,0.2)]">
                   {/* Background Base */}
                   <div className="absolute inset-0 bg-[#2B2B2B]" />
 
@@ -338,20 +338,20 @@ export function VoteInCaseStudy() {
                         className="h-full w-full"
                         style={{
                           backgroundImage:
-                            "linear-gradient(in oklab 180deg, oklab(64.3% 0.037 -0.078 / 0%) 0%, oklab(80.4% 0.037 -0.078) 100%)",
+                            "linear-gradient(in oklab 180deg, oklab(0% 0 0 / 0%) 0%, oklab(80.4% -0.050 0.070) 100.01%)",
                         }}
                       />
                     </div>
                   )}
 
                   {/* Headline Banner */}
-                  <div className="absolute left-0 right-0 top-7 z-10 flex flex-col items-center justify-center py-2">
+                  <div className="absolute left-0 right-0 top-[29.5px] z-10 flex flex-col items-center justify-center py-4">
                     <h2
                       style={{
                         fontFamily: HELVETICA,
                         fontSize: "24px",
                         lineHeight: "30px",
-                        letterSpacing: "normal",
+                        letterSpacing: "-0.02em",
                         fontWeight: 400,
                         color: "#FFFFFF",
                       }}
@@ -362,31 +362,31 @@ export function VoteInCaseStudy() {
 
                   {/* Smartphone App Screen Mockup */}
                   <div
-                    className="absolute left-1/2 top-[118px] h-[550px] w-[272px] -translate-x-1/2 rounded-[47px] bg-cover bg-center shadow-[0_2px_35px_rgba(0,0,0,0.3)] z-10"
+                    className="absolute left-1/2 top-[104.5px] w-[219px] h-[446px] -translate-x-1/2 bg-cover bg-center pointer-events-none z-10"
                     style={{
                       backgroundImage:
-                        "url(https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M04G53XKS8SPJ4M4TVNHJBVD.png)",
+                        "url(https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png)",
                     }}
                   />
                 </div>
               </div>
 
-              {/* PURPLE ACCENT CALLOUT */}
+              {/* BRAND ACCENT CALLOUT */}
               <div
-                className="flex h-6 w-full items-center gap-3 rounded-[1px] px-0.5"
+                className="flex h-8.5 w-full items-center gap-3 rounded-[1px] px-0.5"
                 style={{
                   backgroundImage:
-                    "linear-gradient(90deg, rgba(157, 157, 157, 0.16) 50%, rgba(204, 204, 204, 0) 100%)",
+                    "linear-gradient(in oklab 90.67deg, oklab(61.5% 0 0 / 16%) 50%, oklab(80% 0 0 / 0%) 99.99%)",
                 }}
               >
-                <div className="h-full w-0.5 rounded-full bg-[#A26ED7]" />
+                <div className="h-full w-0.5 rounded-full bg-[#989100] shrink-0" />
                 <div
-                  className="flex items-center gap-1.5"
+                  className="flex items-center gap-1.25"
                   style={{
                     fontFamily: HELVETICA,
-                    fontSize: "14px",
-                    lineHeight: "18px",
-                    letterSpacing: "normal",
+                    fontSize: "16px",
+                    lineHeight: "20px",
+                    letterSpacing: "-0.02em",
                   }}
                 >
                   <span
