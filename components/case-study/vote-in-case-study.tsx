@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "motion/react";
 import { HalftoneDots } from "@paper-design/shaders-react";
 
 const SECTIONS = [
@@ -79,16 +80,17 @@ const VERIFICATION_SLIDES = [
 
 function VerificationCarousel() {
   const [currentIdx, setCurrentIdx] = useState(0);
+  const [direction, setDirection] = useState(1);
 
   const prevSlide = () => {
+    setDirection(-1);
     setCurrentIdx((prev) => (prev === 0 ? VERIFICATION_SLIDES.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
+    setDirection(1);
     setCurrentIdx((prev) => (prev === VERIFICATION_SLIDES.length - 1 ? 0 : prev + 1));
   };
-
-  const slide = VERIFICATION_SLIDES[currentIdx];
 
   return (
     <section
@@ -126,44 +128,90 @@ function VerificationCarousel() {
           </p>
         </div>
 
-        {/* Carousel Card & Controls */}
+        {/* Carousel Stack Container & Controls */}
         <div className="flex flex-col items-center gap-6 w-full">
-          {/* Card Container */}
-          <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full h-[366px] shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-            <div
-              key={slide.id}
-              className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 px-4.5 py-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A] transition-all duration-300"
-              style={{
-                backgroundImage:
-                  "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-              }}
-            >
-              {/* Smartphone Mockup with exact position per slide */}
-              <div
-                className="absolute bg-cover bg-center pointer-events-none z-10 transition-all duration-300"
-                style={{
-                  backgroundImage: `url(${slide.image})`,
-                  ...slide.imageStyle,
-                }}
-              />
+          {/* Stack Container (387px height matching Paper canvas 1FY-0) */}
+          <div className="relative w-full max-w-[598px] h-[387px]">
+            {VERIFICATION_SLIDES.map((slide, idx) => {
+              // position in stack: 0 (front), 1 (middle), 2 (back)
+              const position = (idx - currentIdx + VERIFICATION_SLIDES.length) % VERIFICATION_SLIDES.length;
 
-              {/* Text Description */}
-              <div className="w-[266px] text-justify relative z-10 text-[13px] leading-5 text-white font-normal transition-opacity duration-300">
-                {slide.text}
-              </div>
+              const isFront = position === 0;
+              const isMiddle = position === 1;
+              const isBack = position === 2;
 
-              {/* Tag Label */}
-              <div className="w-fit relative z-10 text-[#FFFFFF66] text-base leading-5 font-normal transition-opacity duration-300">
-                {slide.label}
-              </div>
-            </div>
+              // Top offset and scale matching Paper canvas specs
+              const topVal = isFront ? 21 : isMiddle ? 9 : 0;
+              const scaleVal = isFront ? 1 : isMiddle ? 553 / 598 : 505 / 598;
+              const zIndexVal = isFront ? 30 : isMiddle ? 20 : 10;
+              const opacityVal = isFront ? 1 : isMiddle ? 0.95 : 0.8;
+
+              return (
+                <motion.div
+                  key={slide.id}
+                  layout
+                  initial={false}
+                  animate={{
+                    top: topVal,
+                    scale: scaleVal,
+                    zIndex: zIndexVal,
+                    opacity: opacityVal,
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 280,
+                    damping: 26,
+                    mass: 0.8,
+                  }}
+                  onClick={() => {
+                    if (!isFront) {
+                      setDirection(1);
+                      setCurrentIdx(idx);
+                    }
+                  }}
+                  className={`absolute left-0 right-0 mx-auto origin-top flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full h-[366px] shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F] select-none ${
+                    isFront ? "cursor-default" : "cursor-pointer hover:brightness-110"
+                  }`}
+                  style={{
+                    transformOrigin: "top center",
+                  }}
+                >
+                  <div
+                    className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 px-4.5 py-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                    }}
+                  >
+                    {/* Smartphone Mockup */}
+                    <div
+                      className="absolute bg-cover bg-center pointer-events-none z-10 transition-all duration-300"
+                      style={{
+                        backgroundImage: `url(${slide.image})`,
+                        ...slide.imageStyle,
+                      }}
+                    />
+
+                    {/* Text Description */}
+                    <div className="w-[266px] text-justify relative z-10 text-[13px] leading-5 text-white font-normal">
+                      {slide.text}
+                    </div>
+
+                    {/* Tag Label */}
+                    <div className="w-fit relative z-10 text-[#FFFFFF66] text-base leading-5 font-normal">
+                      {slide.label}
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Prev / Next Navigation Buttons */}
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-4 pt-1">
             <button
               onClick={prevSlide}
-              className="h-6.5 w-6.5 flex items-center justify-center rounded-full bg-white border-[0.5px] border-[#E6E6E6] shadow-[inset_0_0_0_1px_rgba(10,13,18,0.04),0_1px_2px_rgba(10,13,18,0.08)] transition-transform hover:scale-105 active:scale-95 cursor-pointer"
+              className="h-6.5 w-6.5 flex items-center justify-center rounded-full bg-white border-[0.5px] border-[#E6E6E6] shadow-[inset_0_0_0_1px_rgba(10,13,18,0.04),0_1px_2px_rgba(10,13,18,0.08)] transition-transform hover:scale-110 active:scale-95 cursor-pointer"
               aria-label="Previous verification decision"
             >
               <svg
@@ -186,7 +234,7 @@ function VerificationCarousel() {
 
             <button
               onClick={nextSlide}
-              className="h-6.5 w-6.5 flex items-center justify-center rounded-full bg-white border-[0.5px] border-[#E6E6E6] shadow-[inset_0_0_0_1px_rgba(10,13,18,0.04),0_1px_2px_rgba(10,13,18,0.08)] transition-transform hover:scale-105 active:scale-95 cursor-pointer origin-center"
+              className="h-6.5 w-6.5 flex items-center justify-center rounded-full bg-white border-[0.5px] border-[#E6E6E6] shadow-[inset_0_0_0_1px_rgba(10,13,18,0.04),0_1px_2px_rgba(10,13,18,0.08)] transition-transform hover:scale-110 active:scale-95 cursor-pointer origin-center"
               style={{ transform: "rotate(180deg)" }}
               aria-label="Next verification decision"
             >
