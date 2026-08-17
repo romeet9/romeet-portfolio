@@ -80,13 +80,29 @@ const VERIFICATION_SLIDES = [
 
 function VerificationCarousel() {
   const [currentIdx, setCurrentIdx] = useState(0);
+  const [animatingCard, setAnimatingCard] = useState<number | null>(null);
+  const [animDirection, setAnimDirection] = useState<"next" | "prev">("next");
 
   const prevSlide = () => {
-    setCurrentIdx((prev) => (prev === 0 ? VERIFICATION_SLIDES.length - 1 : prev - 1));
+    if (animatingCard !== null) return;
+    const targetIdx = (currentIdx === 0 ? VERIFICATION_SLIDES.length - 1 : currentIdx - 1);
+    setAnimDirection("prev");
+    setAnimatingCard(targetIdx);
+    setCurrentIdx(targetIdx);
+    setTimeout(() => {
+      setAnimatingCard(null);
+    }, 450);
   };
 
   const nextSlide = () => {
+    if (animatingCard !== null) return;
+    const leavingIdx = currentIdx;
+    setAnimDirection("next");
+    setAnimatingCard(leavingIdx);
     setCurrentIdx((prev) => (prev === VERIFICATION_SLIDES.length - 1 ? 0 : prev + 1));
+    setTimeout(() => {
+      setAnimatingCard(null);
+    }, 450);
   };
 
   return (
@@ -127,7 +143,7 @@ function VerificationCarousel() {
 
         {/* Carousel Stack Container & Controls */}
         <div className="flex flex-col items-center gap-6 w-full">
-          {/* Stack Container (400px height to fully showcase the 3 stacked card tabs) */}
+          {/* Stack Container */}
           <div className="relative w-full max-w-[598px] h-[400px] flex justify-center">
             {VERIFICATION_SLIDES.map((slide, idx) => {
               // position in stack: 0 (front), 1 (middle), 2 (back)
@@ -138,34 +154,64 @@ function VerificationCarousel() {
               const isFront = position === 0;
               const isMiddle = position === 1;
               const isBack = position === 2;
+              const isLeavingToBack = animDirection === "next" && animatingCard === idx;
+              const isEnteringFromBack = animDirection === "prev" && animatingCard === idx;
 
-              // Exact layout values matching Paper canvas specs
-              const topVal = isFront ? 24 : isMiddle ? 12 : 0;
-              const zIndexVal = isFront ? 30 : isMiddle ? 20 : 10;
-              const opacityVal = isFront ? 1 : isMiddle ? 0.95 : 0.85;
+              // Top offset and zIndex matching Paper canvas specs
+              const targetTop = isFront ? 24 : isMiddle ? 12 : 0;
+              const targetZ = isFront ? 30 : isMiddle ? 20 : 10;
+              const targetOpacity = isFront ? 1 : isMiddle ? 0.95 : 0.85;
 
               return (
                 <motion.div
                   key={slide.id}
-                  layout
+                  layout={!isLeavingToBack && !isEnteringFromBack}
                   initial={false}
-                  animate={{
-                    top: topVal,
-                    zIndex: zIndexVal,
-                    opacity: opacityVal,
-                  }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 260,
-                    damping: 24,
-                    mass: 0.8,
-                  }}
+                  animate={
+                    isLeavingToBack
+                      ? {
+                          y: [0, 130, 0],
+                          top: [24, 50, 0],
+                          zIndex: [35, 35, 5],
+                          opacity: [1, 0.9, 0.85],
+                        }
+                      : isEnteringFromBack
+                      ? {
+                          y: [0, 130, 0],
+                          top: [0, 50, 24],
+                          zIndex: [5, 35, 30],
+                          opacity: [0.85, 0.95, 1],
+                        }
+                      : {
+                          y: 0,
+                          top: targetTop,
+                          zIndex: targetZ,
+                          opacity: targetOpacity,
+                        }
+                  }
+                  transition={
+                    isLeavingToBack || isEnteringFromBack
+                      ? {
+                          duration: 0.45,
+                          times: [0, 0.5, 1],
+                          ease: [0.32, 0.72, 0, 1],
+                        }
+                      : {
+                          type: "spring",
+                          stiffness: 240,
+                          damping: 22,
+                          mass: 0.8,
+                        }
+                  }
                   onClick={() => {
-                    if (!isFront) {
+                    if (!isFront && animatingCard === null) {
+                      setAnimDirection("next");
+                      setAnimatingCard(currentIdx);
                       setCurrentIdx(idx);
+                      setTimeout(() => setAnimatingCard(null), 450);
                     }
                   }}
-                  className={`absolute left-0 right-0 mx-auto flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 h-[366px] bg-[#242424] border-[0.5px] border-[#FFFFFF1F] shadow-[0_4px_20px_rgba(0,0,0,0.5),inset_0_2px_3px_rgba(0,0,0,0.2)] select-none transition-all duration-300 ${
+                  className={`absolute left-0 right-0 mx-auto flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 h-[366px] bg-[#242424] border-[0.5px] border-[#FFFFFF1F] shadow-[0_4px_20px_rgba(0,0,0,0.5),inset_0_2px_3px_rgba(0,0,0,0.2)] select-none transition-[width,max-width] duration-300 ${
                     isFront
                       ? "w-full max-w-[598px] cursor-default"
                       : isMiddle
