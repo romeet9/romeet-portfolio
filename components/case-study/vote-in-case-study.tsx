@@ -392,7 +392,7 @@ export function VoteInCaseStudy() {
                   <span
                     style={{
                       fontStyle: "italic",
-                      fontWeight: 300,
+                      fontWeight: 400,
                       color: "rgba(255, 255, 255, 0.5)",
                     }}
                   >
@@ -476,7 +476,7 @@ export function VoteInCaseStudy() {
                     fontSize: "16px",
                     lineHeight: "20px",
                     letterSpacing: "normal",
-                    fontWeight: 300,
+                    fontWeight: 400,
                     color: "rgba(255, 255, 255, 0.7)",
                   }}
                 >
@@ -655,16 +655,16 @@ export function VoteInCaseStudy() {
                     <div className="w-fit shrink-0 text-white text-base leading-[18px]">
                       Problem Statement.
                     </div>
-                    <div className="flex-1 font-light text-[rgba(255,255,255,0.7)] text-base leading-5">
+                    <div className="flex-1 font-normal text-[rgba(255,255,255,0.7)] text-base leading-5">
                       A secure, seamless voting platform for identity verification & transparent voting, protected against fraud, duplicate votes.
                     </div>
                   </div>
                   {/* Bottom Row: 2 Columns */}
                   <div className="flex items-end gap-3 w-full justify-center">
-                    <div className="flex-1 font-light text-[rgba(255,255,255,0.7)] text-base leading-5">
+                    <div className="flex-1 font-normal text-[rgba(255,255,255,0.7)] text-base leading-5">
                       The Government of India is transitioning from traditional offline voting to a centralized online voting system.
                     </div>
-                    <div className="flex-1 font-light text-[rgba(255,255,255,0.7)] text-base leading-5">
+                    <div className="flex-1 font-normal text-[rgba(255,255,255,0.7)] text-base leading-5">
                       This system will enable citizens to cast their votes digitally, eliminating the need for physical polling stations.
                     </div>
                   </div>
@@ -698,7 +698,7 @@ export function VoteInCaseStudy() {
                     fontSize: "16px",
                     lineHeight: "20px",
                     letterSpacing: "normal",
-                    fontWeight: 300,
+                    fontWeight: 400,
                     color: "rgba(255, 255, 255, 0.7)",
                   }}
                 >
@@ -884,7 +884,7 @@ export function VoteInCaseStudy() {
                     fontSize: "16px",
                     lineHeight: "20px",
                     letterSpacing: "normal",
-                    fontWeight: 300,
+                    fontWeight: 400,
                     color: "rgba(255, 255, 255, 0.7)",
                   }}
                 >
@@ -1022,7 +1022,7 @@ export function VoteInCaseStudy() {
                   <div className="flex w-full flex-col items-start gap-9">
                     <div className="flex w-full flex-col items-start gap-6">
                       <p
-                        className="w-full font-light text-[rgba(255,255,255,0.7)] text-base leading-5"
+                        className="w-full font-normal text-[rgba(255,255,255,0.7)] text-base leading-5"
                         style={{ fontFamily: HELVETICA }}
                       >
                         Users had limited visibility into where they were in the verification process, making the journey feel uncertain and disconnected.
@@ -1099,7 +1099,7 @@ export function VoteInCaseStudy() {
                   <div className="flex w-full flex-col items-start gap-9">
                     <div className="flex w-full flex-col items-start gap-6">
                       <p
-                        className="w-full font-light text-[rgba(255,255,255,0.7)] text-base leading-5"
+                        className="w-full font-normal text-[rgba(255,255,255,0.7)] text-base leading-5"
                         style={{ fontFamily: HELVETICA }}
                       >
                         Users previously had to wait while their documents were manually verified, making the process unnecessarily slow.
@@ -1176,7 +1176,7 @@ export function VoteInCaseStudy() {
                   <div className="flex w-full flex-col items-start gap-9">
                     <div className="flex w-full flex-col items-start gap-6">
                       <p
-                        className="w-full font-light text-[rgba(255,255,255,0.7)] text-base leading-5"
+                        className="w-full font-normal text-[rgba(255,255,255,0.7)] text-base leading-5"
                         style={{ fontFamily: HELVETICA }}
                       >
                         Fetching documents from DigiLocker can take some time, leaving users unsure whether the process is still running.
@@ -1452,7 +1452,7 @@ export function VoteInCaseStudy() {
                   <div className="flex w-full flex-col items-start gap-9">
                     <div className="flex w-full flex-col items-start gap-6">
                       <p
-                        className="w-full font-light text-[rgba(255,255,255,0.7)] text-base leading-5"
+                        className="w-full font-normal text-[rgba(255,255,255,0.7)] text-base leading-5"
                         style={{ fontFamily: HELVETICA }}
                       >
                         Fetching documents from DigiLocker can take some time, leaving users unsure whether the process is still running.
