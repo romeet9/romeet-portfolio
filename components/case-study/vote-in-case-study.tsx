@@ -11,6 +11,7 @@ const SECTIONS = [
   { id: "problem-buckets", label: "Problem Buckets" },
   { id: "breaking-problem", label: "Breaking Problem" },
   { id: "verification-complexity", label: "Verification Complexity" },
+  { id: "trust-in-digital-systems", label: "Trust in Digital Systems" },
   { id: "phase-1", label: "Phase I" },
   { id: "phase-2", label: "Phase II" },
   { id: "fluid-interface", label: "Fluid Interface" },
@@ -1238,6 +1239,282 @@ export function VoteInCaseStudy() {
             </section>
 
             {/* SEPARATOR 6 */}
+            <GrungeSeparator />
+
+            {/* 7. TRUST IN DIGITAL SYSTEMS SECTION */}
+            <section
+              id="trust-in-digital-systems"
+              className="flex w-full flex-col items-start gap-9 scroll-mt-24"
+            >
+              {/* Section Title Bar */}
+              <div className="flex items-center gap-3 w-full">
+                <h2
+                  style={{
+                    fontFamily: HELVETICA,
+                    fontSize: "20px",
+                    lineHeight: "24px",
+                    letterSpacing: "normal",
+                    fontWeight: 500,
+                    color: "#FFFFFF",
+                  }}
+                >
+                  Trust in DigitalSystems
+                </h2>
+                <span
+                  style={{
+                    fontFamily: HELVETICA,
+                    fontSize: "12px",
+                    lineHeight: "16px",
+                    letterSpacing: "normal",
+                    fontWeight: 400,
+                    color: "rgba(255, 255, 255, 0.4)",
+                  }}
+                >
+                  Ensuring Trust and Preventing Fraud
+                </span>
+              </div>
+
+              <div className="flex w-full flex-col items-start gap-15">
+                {/* Subsection 1: 1. Vote Confirmation */}
+                <div className="flex w-full flex-col items-start gap-3">
+                  <h3
+                    style={{
+                      fontFamily: HELVETICA,
+                      fontSize: "18px",
+                      lineHeight: "22px",
+                      letterSpacing: "normal",
+                      fontWeight: 500,
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    1. Vote Confirmation
+                  </h3>
+                  <div className="flex w-full flex-col items-start gap-9">
+                    <div className="flex w-full flex-col items-start gap-6">
+                      <p
+                        className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5 font-normal"
+                        style={{ fontFamily: HELVETICA }}
+                      >
+                        Once the user successfully casts their vote, the system generates a unique voting ID as a digital proof of submission. This gives users a clear confirmation that their vote has been successfully recorded without requiring them to rely solely on the confirmation screen.
+                      </p>
+                      <p
+                        className="w-full font-medium text-white text-base leading-5"
+                        style={{ fontFamily: HELVETICA }}
+                      >
+                        The flow was designed to:
+                      </p>
+                      <div className="flex w-full flex-col items-start gap-3">
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • Generate a unique ID immediately after voting
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • Clearly communicate that the vote has been recorded
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • Give users a reference they can save for later verification
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • Create a clear separation between casting the vote and verifying the vote
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Card 1: Login Page */}
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full h-[366px] shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                      <div
+                        className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 px-4.5 py-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        {/* Smartphone Mockup */}
+                        <div
+                          className="absolute bg-cover bg-center pointer-events-none z-10"
+                          style={{
+                            backgroundImage:
+                              "url(https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png)",
+                            left: "349px",
+                            top: "-114px",
+                            width: "219px",
+                            height: "446px",
+                          }}
+                        />
+
+                        {/* Text Description */}
+                        <div className="w-[266px] text-justify relative z-10 text-[13px] leading-5 text-white font-normal">
+                          A clear progress bar helps users understand where they are in the verification process, while real-time notifications keep them informed of important updates. A prominent CTA guides users through each step, creating a familiar, form-like experience that feels clear and intuitive.
+                        </div>
+
+                        {/* Tag Label */}
+                        <div className="w-fit relative z-10 text-[#FFFFFF66] text-base leading-5 font-normal">
+                          Login Page
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Subsection 2: 2. Independent Vote Verification */}
+                <div className="flex w-full flex-col items-start gap-3">
+                  <h3
+                    style={{
+                      fontFamily: HELVETICA,
+                      fontSize: "18px",
+                      lineHeight: "22px",
+                      letterSpacing: "normal",
+                      fontWeight: 500,
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    2. Independent Vote Verification
+                  </h3>
+                  <div className="flex w-full flex-col items-start gap-9">
+                    <div className="flex w-full flex-col items-start gap-6">
+                      <p
+                        className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5 font-normal"
+                        style={{ fontFamily: HELVETICA }}
+                      >
+                        After receiving their unique ID, users can return to the verification section and enter the ID to independently confirm their vote. The system checks the ID against the recorded voting data and shows the party associated with that vote, allowing users to validate that their vote was recorded as intended.
+                      </p>
+                      <p
+                        className="w-full font-medium text-white text-base leading-5"
+                        style={{ fontFamily: HELVETICA }}
+                      >
+                        This helps to:
+                      </p>
+                      <div className="flex w-full flex-col items-start gap-3">
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • Let users verify their vote independently
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • Confirm that their unique ID is valid
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • Show the party linked to the recorded vote
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • Increase transparency and trust in the voting process
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Card 2: Digilocker Integration */}
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full h-[366px] shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                      <div
+                        className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 px-4.5 py-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        {/* Smartphone Mockup */}
+                        <div
+                          className="absolute bg-cover bg-center pointer-events-none z-10"
+                          style={{
+                            backgroundImage:
+                              "url(https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M070C9C1JDDENP7HQ2RWSQA8.png)",
+                            left: "349px",
+                            top: "-118px",
+                            width: "219px",
+                            height: "449px",
+                          }}
+                        />
+
+                        {/* Text Description */}
+                        <div className="w-[266px] text-justify relative z-10 text-[13px] leading-5 text-white font-normal">
+                          Users no longer need to wait for manual document verification. They simply enter their phone number, and the required documents are securely retrieved from DigiLocker, making the verification process faster and more seamless.
+                        </div>
+
+                        {/* Tag Label */}
+                        <div className="w-fit relative z-10 text-[#FFFFFF66] text-base leading-5 font-normal">
+                          Digilocker Integration
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Subsection 3: 3. Uncertainty During Document Retrieval */}
+                <div className="flex w-full flex-col items-start gap-3">
+                  <h3
+                    style={{
+                      fontFamily: HELVETICA,
+                      fontSize: "18px",
+                      lineHeight: "22px",
+                      letterSpacing: "normal",
+                      fontWeight: 500,
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    3. Uncertainty During Document Retrieval
+                  </h3>
+                  <div className="flex w-full flex-col items-start gap-9">
+                    <div className="flex w-full flex-col items-start gap-6">
+                      <p
+                        className="w-full font-light text-[rgba(255,255,255,0.7)] text-base leading-5"
+                        style={{ fontFamily: HELVETICA }}
+                      >
+                        Fetching documents from DigiLocker can take some time, leaving users unsure whether the process is still running.
+                      </p>
+                      <p
+                        className="w-full font-medium text-white text-base leading-5"
+                        style={{ fontFamily: HELVETICA }}
+                      >
+                        To keep users informed, we introduced:
+                      </p>
+                      <div className="flex w-full flex-col items-start gap-3">
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • A real-time notification section showing the current retrieval status
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • Clear updates while documents are being fetched from DigiLocker
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • A Refetch Data option if the information is not retrieved successfully
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Card 3: Retrieving Documents */}
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full h-[366px] shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                      <div
+                        className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 px-4.5 py-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        {/* Smartphone Mockup */}
+                        <div
+                          className="absolute bg-cover bg-center pointer-events-none z-10"
+                          style={{
+                            backgroundImage:
+                              "url(https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M070C9C1JDDENP7HQ2RWSQA8.png)",
+                            left: "349px",
+                            top: "-60px",
+                            width: "219px",
+                            height: "449px",
+                          }}
+                        />
+
+                        {/* Text Description */}
+                        <div className="w-[266px] text-justify relative z-10 text-[13px] leading-5 text-white font-normal">
+                          I used a notification section to provide real-time updates while documents are being fetched from DigiLocker. Since the retrieval process can take some time, these updates keep users informed about the verification status and reduce uncertainty or the need to wait without feedback.
+                        </div>
+
+                        {/* Tag Label */}
+                        <div className="w-fit relative z-10 text-[#FFFFFF66] text-base leading-5 font-normal">
+                          Retriving Documents
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* SEPARATOR 7 */}
             <GrungeSeparator />
           </div>
         </main>
