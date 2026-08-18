@@ -1378,26 +1378,24 @@ export function VoteInCaseStudy() {
                           }}
                         />
 
-                        {/* Enlarge / Shrink Icon Button at Bottom-Left */}
-                        <button
-                          type="button"
+                        {/* Enlarge Icon from Paper Canvas */}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="17"
+                          viewBox="0 -819.68 680 680"
+                          width="17"
                           onClick={() => setExpandedCard1(!expandedCard1)}
-                          className="relative z-20 flex items-center justify-center w-8 h-8 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/20 transition-all text-[#7F7F7F] hover:text-white group cursor-pointer"
-                          title={expandedCard1 ? "Collapse card" : "Enlarge card"}
+                          className="cursor-pointer z-20 hover:opacity-80 transition-opacity"
+                          style={{ bottom: 18, left: 18, position: "absolute" }}
                           aria-label={expandedCard1 ? "Collapse card" : "Enlarge card"}
+                          role="button"
+                          tabIndex={0}
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            height="17"
-                            viewBox="0 -819.68 680 680"
-                            width="17"
-                            className={`fill-current text-[#7F7F7F] group-hover:text-white transition-all duration-300 ${
-                              expandedCard1 ? "rotate-180 text-white" : ""
-                            }`}
-                          >
-                            <path d="M85.001-224.986v-226.667h56.667v130.334l357-357H368.334v-56.667h226.667v226.667h-56.667v-130.334L181.334-281.653h130.334v56.667H85.001Z" />
-                          </svg>
-                        </button>
+                          <path
+                            d="M85.001-224.986v-226.667h56.667v130.334l357-357H368.334v-56.667h226.667v226.667h-56.667v-130.334L181.334-281.653h130.334v56.667H85.001Z"
+                            fill="#7F7F7F"
+                          />
+                        </svg>
                       </div>
                     </div>
                   </div>
@@ -1476,26 +1474,24 @@ export function VoteInCaseStudy() {
                           }}
                         />
 
-                        {/* Enlarge / Shrink Icon Button at Bottom-Left */}
-                        <button
-                          type="button"
+                        {/* Enlarge Icon from Paper Canvas */}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="17"
+                          viewBox="0 -819.68 680 680"
+                          width="17"
                           onClick={() => setExpandedCard2(!expandedCard2)}
-                          className="relative z-20 flex items-center justify-center w-8 h-8 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/20 transition-all text-[#7F7F7F] hover:text-white group cursor-pointer"
-                          title={expandedCard2 ? "Collapse card" : "Enlarge card"}
+                          className="cursor-pointer z-20 hover:opacity-80 transition-opacity"
+                          style={{ bottom: 18, left: 22, position: "absolute" }}
                           aria-label={expandedCard2 ? "Collapse card" : "Enlarge card"}
+                          role="button"
+                          tabIndex={0}
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            height="17"
-                            viewBox="0 -819.68 680 680"
-                            width="17"
-                            className={`fill-current text-[#7F7F7F] group-hover:text-white transition-all duration-300 ${
-                              expandedCard2 ? "rotate-180 text-white" : ""
-                            }`}
-                          >
-                            <path d="M85.001-224.986v-226.667h56.667v130.334l357-357H368.334v-56.667h226.667v226.667h-56.667v-130.334L181.334-281.653h130.334v56.667H85.001Z" />
-                          </svg>
-                        </button>
+                          <path
+                            d="M85.001-224.986v-226.667h56.667v130.334l357-357H368.334v-56.667h226.667v226.667h-56.667v-130.334L181.334-281.653h130.334v56.667H85.001Z"
+                            fill="#7F7F7F"
+                          />
+                        </svg>
                       </div>
                     </div>
                   </div>
