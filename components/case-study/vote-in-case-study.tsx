@@ -2347,6 +2347,170 @@ export function VoteInCaseStudy() {
                 </div>
               </div>
             </section>
+
+            {/* SEPARATOR 10 */}
+            <GrungeSeparator />
+
+            {/* SECTION 11: FULL APP MOCKUPS SHOWCASE CAROUSEL */}
+            <section
+              id="mockups-showcase"
+              className="flex w-full flex-col items-start gap-9 pb-12 scroll-mt-24"
+            >
+              <div className="flex w-full items-center gap-3">
+                <h2
+                  style={{
+                    fontFamily: HELVETICA,
+                    fontSize: "20px",
+                    lineHeight: "24px",
+                    letterSpacing: "normal",
+                    fontWeight: 500,
+                    color: "#FFFFFF",
+                  }}
+                >
+                  App Design & Interaction Flow
+                </h2>
+                <span
+                  style={{
+                    fontFamily: HELVETICA,
+                    fontSize: "12px",
+                    lineHeight: "16px",
+                    letterSpacing: "normal",
+                    fontWeight: 400,
+                    color: "rgba(255, 255, 255, 0.4)",
+                  }}
+                >
+                  Complete Mobile Experience
+                </span>
+              </div>
+
+              {/* Bento Card Outer Frame */}
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                <div
+                  className="relative flex rounded-xl overflow-hidden flex-col items-center justify-center w-full min-h-[480px] sm:min-h-[520px] border-[0.5px] border-[#FFFFFF1A]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                  }}
+                >
+                  {/* Halftone Shader Layer with Breaking Problem Image */}
+                  {mounted && (
+                    <HalftoneDots
+                      contrast={0.4}
+                      originalColors
+                      inverted
+                      grid="hex"
+                      radius={0.71}
+                      size={0.62}
+                      scale={1}
+                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M0A06WWM5VXW3Z9XY10931SY.jpg"
+                      grainMixer={0.91}
+                      grainOverlay={0.2}
+                      grainSize={0.61}
+                      type="gooey"
+                      fit="cover"
+                      colorFront="#0D0D0D"
+                      colorBack="#00000000"
+                      className="w-full h-full absolute inset-0 bg-[#62626200] pointer-events-none opacity-45"
+                    />
+                  )}
+
+                  {/* Gradient Overlay for Depth & Contrast */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(20.1% 0 0 / 60%) 0%, oklab(16% 0 0 / 85%) 100%)",
+                    }}
+                  />
+
+                  {/* Soft Fade Edges */}
+                  <div className="absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#171717] via-[#171717]/80 to-transparent z-20 pointer-events-none" />
+                  <div className="absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#171717] via-[#171717]/80 to-transparent z-20 pointer-events-none" />
+
+                  {/* Infinite Marquee Track */}
+                  <div className="flex w-full overflow-hidden relative z-10 py-8 group">
+                    {/* Track 1 */}
+                    <div
+                      className="flex gap-8 animate-marquee shrink-0 items-center [will-change:transform] group-hover:[animation-play-state:paused]"
+                      style={{ animationDuration: "36s" }}
+                    >
+                      {[
+                        {
+                          title: "Vote IN Home & Fingerprint",
+                          src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png",
+                        },
+                        {
+                          title: "EVM Candidate Selection",
+                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6BXBYPSSZPQ64C6RJNCJZMWW80.png",
+                        },
+                        {
+                          title: "Vote Confirmation",
+                          src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M09QHN4SN8XPHHGTMD6DE1D6.png",
+                        },
+                        {
+                          title: "Independent Vote Verification",
+                          src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M09QDFD1C23RFRA0RJQB88JY.png",
+                        },
+                        {
+                          title: "Biometric & Security Verification",
+                          src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M070C9C1JDDENP7HQ2RWSQA8.png",
+                        },
+                      ].map((mockup, idx) => (
+                        <div
+                          key={`mockup-a-${idx}`}
+                          className="relative shrink-0 w-[190px] sm:w-[220px] h-[380px] sm:h-[430px] rounded-[30px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10 transition-transform duration-300 hover:scale-[1.03]"
+                        >
+                          <div
+                            className="w-full h-full bg-cover bg-center"
+                            style={{ backgroundImage: `url(${mockup.src})` }}
+                          />
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Track 2 (Seamless loop copy) */}
+                    <div
+                      aria-hidden="true"
+                      className="flex gap-8 animate-marquee shrink-0 items-center [will-change:transform] group-hover:[animation-play-state:paused]"
+                      style={{ animationDuration: "36s" }}
+                    >
+                      {[
+                        {
+                          title: "Vote IN Home & Fingerprint",
+                          src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png",
+                        },
+                        {
+                          title: "EVM Candidate Selection",
+                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6BXBYPSSZPQ64C6RJNCJZMWW80.png",
+                        },
+                        {
+                          title: "Vote Confirmation",
+                          src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M09QHN4SN8XPHHGTMD6DE1D6.png",
+                        },
+                        {
+                          title: "Independent Vote Verification",
+                          src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M09QDFD1C23RFRA0RJQB88JY.png",
+                        },
+                        {
+                          title: "Biometric & Security Verification",
+                          src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M070C9C1JDDENP7HQ2RWSQA8.png",
+                        },
+                      ].map((mockup, idx) => (
+                        <div
+                          key={`mockup-b-${idx}`}
+                          className="relative shrink-0 w-[190px] sm:w-[220px] h-[380px] sm:h-[430px] rounded-[30px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10 transition-transform duration-300 hover:scale-[1.03]"
+                        >
+                          <div
+                            className="w-full h-full bg-cover bg-center"
+                            style={{ backgroundImage: `url(${mockup.src})` }}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
         </main>
       </div>
