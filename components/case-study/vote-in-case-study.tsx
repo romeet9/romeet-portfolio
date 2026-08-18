@@ -1681,22 +1681,205 @@ export function VoteInCaseStudy() {
                       >
                         I designed the candidate-selection interface to resemble the structure of a physical voting machine:
                       </p>
-                      <div className="flex w-full flex-col items-start gap-3">
-                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5 font-normal" style={{ fontFamily: HELVETICA }}>
-                          • Candidate information and party symbols are presented in a structured row, similar to how they appear on an EVM.
-                        </p>
-                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5 font-normal" style={{ fontFamily: HELVETICA }}>
-                          • The large selection control on the right creates the feeling of physically pressing a voting button.
-                        </p>
-                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5 font-normal" style={{ fontFamily: HELVETICA }}>
-                          • Clear separation between candidates prevents accidental selection and makes each choice easy to distinguish.
-                        </p>
-                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5 font-normal" style={{ fontFamily: HELVETICA }}>
-                          • Familiar party symbols provide an additional visual cue, helping users identify their preferred representative quickly.
-                        </p>
-                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5 font-normal" style={{ fontFamily: HELVETICA }}>
-                          • The minimal interface removes unnecessary actions and keeps the user&apos;s focus on the single decision that matters: selecting a candidate.
-                        </p>
+                      {/* 5 Feature Cards Grid matching Paper Canvas */}
+                      <div className="flex flex-col gap-4 w-full">
+                        {/* Row 1: Familiar Layout & Clear Choices */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                          {/* Card 1: Familiar Layout */}
+                          <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                            <div
+                              className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3 border-[0.5px] border-[#FFFFFF1A]"
+                              style={{
+                                backgroundImage:
+                                  "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                              }}
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="64"
+                                viewBox="0 -960.32 2560 2560"
+                                width="64"
+                                className="shrink-0"
+                              >
+                                <path
+                                  d="M1158.904 282.399q-64.64 0-110.267-45.627-45.627-45.627-45.626-110.266v-350.16q0-65.547 45.626-109.387 45.627-43.84 110.267-43.84h878.08q65.547 0 109.387 43.84 43.84 43.84 43.84 109.387v350.16q0 64.64-43.84 110.266-43.84 45.627-109.387 45.627H1158.904Zm627.84 734.48q-64.667 0-110.293-45.627-45.627-45.6-45.627-110.266v-351.52q0-64.48 45.627-108.854t110.293-44.373h250.24q65.547 0 109.387 44.373 43.84 44.373 43.84 108.854v351.52q0 64.667-43.84 110.266-43.84 45.627-109.387 45.627h-250.24Zm-627.84 0q-64.64 0-110.267-45.627-45.627-45.6-45.626-110.266v-351.52q0-64.48 45.626-108.854t110.267-44.373h244.854q65.547 0 109.386 44.373 43.84 44.373 43.84 108.854v351.52q0 64.667-43.84 110.266-43.84 45.627-109.386 45.627h-244.854Zm-633.227 0q-64.667 0-110.266-45.627-45.627-45.6-45.627-110.266v-1084.64q0-65.547 45.627-109.387 45.6-43.84 110.266-43.84h250.24q65.547 0 109.387 43.84 43.867 43.84 43.867 109.387v1084.64q0 64.667-43.867 110.266-43.84 45.627-109.387 45.627h-250.24Z"
+                                  fill="#FFFFFF"
+                                />
+                              </svg>
+                              <div className="flex flex-col items-start gap-3 w-full">
+                                <div
+                                  className="text-white text-base leading-[1.2] font-medium"
+                                  style={{ fontFamily: HELVETICA }}
+                                >
+                                  Familiar Layout
+                                </div>
+                                <div
+                                  className="text-[#747474] text-sm leading-5 font-normal"
+                                  style={{ fontFamily: HELVETICA }}
+                                >
+                                  Candidate information and party symbols are presented in a structured row, similar to how they appear on an EVM.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Card 2: Clear Choices */}
+                          <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                            <div
+                              className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3 border-[0.5px] border-[#FFFFFF1A]"
+                              style={{
+                                backgroundImage:
+                                  "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                              }}
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="64"
+                                viewBox="0 -960.32 2560 2560"
+                                width="64"
+                                className="shrink-0"
+                              >
+                                <path
+                                  d="M1684.316 1258.666q-57.173 0-99.253-42.08-42.08-42.08-42.08-99.254v-483.68q0-57.173 42.08-99.253 42.08-42.08 99.253-42.08H2167.996q57.173 0 99.254 42.08Q2309.33 576.479 2309.33 633.652V1117.332q0 57.173-42.08 99.254Q2225.17 1258.666 2167.996 1258.666H1684.316ZM250.663 963.492v-176h947.28v176H250.663Zm1433.653-815.813q-57.173 0-99.253-42.08-42.08-42.08-42.08-99.253V-477.334q0-57.173 42.08-99.254Q1627.143-618.668 1684.316-618.668H2167.996q57.173 0 99.254 42.08Q2309.33-534.508 2309.33-477.334v483.68q0 57.173-42.08 99.253-42.08 42.08-99.254 42.08H1684.316ZM250.663-147.494v-176h947.28v176H250.663Z"
+                                  fill="#FFFFFF"
+                                />
+                              </svg>
+                              <div className="flex flex-col items-start gap-3 w-full">
+                                <div
+                                  className="text-white text-base leading-[1.2] font-medium"
+                                  style={{ fontFamily: HELVETICA }}
+                                >
+                                  Clear Choices
+                                </div>
+                                <div
+                                  className="text-[#747474] text-sm leading-5 font-normal"
+                                  style={{ fontFamily: HELVETICA }}
+                                >
+                                  The large selection control on the right creates the feeling of physically pressing a voting button.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Row 2: Physical Press & Visual Cues */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                          {/* Card 3: Physical Press */}
+                          <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                            <div
+                              className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3 border-[0.5px] border-[#FFFFFF1A]"
+                              style={{
+                                backgroundImage:
+                                  "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                              }}
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="65"
+                                viewBox="0 -960.32 2600 2600"
+                                width="65"
+                                className="shrink-0"
+                              >
+                                <path
+                                  d="M1242.288 1401.648q-109.985 0-211.548-44.795t-170.11-133.738L325.625 505.813l20.421-33.963q35.208-51.458 91.461-73.016 56.252-21.558 114.373-1.761l303.116 118.111v-847.492q0-36.562 26.434-62.969t63.023-26.406q36.59 0 61.912 26.406 25.296 26.406 25.296 62.969v584.377h745.225q152.696 0 260.406 107.711T2145.002 620.186v366.952q0 174.308-121.468 294.396Q1902.065 1401.648 1728.542 1401.648H1242.288ZM580.425-121.058q-28.952-49.156-42.412-101.21-13.433-52.054-13.433-107.332 0-175.635 120.737-296.345 120.737-120.737 296.346-120.738 175.635 0 296.373 120.738 120.71 120.71 120.71 296.075 0 56.09-13.433 107.873-13.433 51.783-42.386 100.939l-93.139-54.167q21.667-35.208 31.146-73.125t9.479-81.25q0-130-89.375-219.374t-219.375-89.375q-130 0-219.375 89.375t-89.375 219.374q0 43.333 9.479 81.25t31.146 73.125l-93.113 54.167Z"
+                                  fill="#FFFFFF"
+                                />
+                              </svg>
+                              <div className="flex flex-col items-start gap-3 w-full">
+                                <div
+                                  className="text-white text-base leading-[1.2] font-medium"
+                                  style={{ fontFamily: HELVETICA }}
+                                >
+                                  Physical Press
+                                </div>
+                                <div
+                                  className="text-[#747474] text-sm leading-5 font-normal"
+                                  style={{ fontFamily: HELVETICA }}
+                                >
+                                  Clear separation between candidates prevents accidental selection and makes each choice easy to distinguish.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Card 4: Visual Cues */}
+                          <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                            <div
+                              className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3 border-[0.5px] border-[#FFFFFF1A]"
+                              style={{
+                                backgroundImage:
+                                  "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                              }}
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="64"
+                                viewBox="0 -960.32 2560 2560"
+                                width="64"
+                                className="shrink-0"
+                              >
+                                <path
+                                  d="M137.65 584v-176H567.996v176H137.65Zm576.613-530.266L402.663-259.893l121.44-119.387 311.573 311.6-121.413 121.414ZM765.33 920v-282.666h1029.333v282.666H765.33Zm426.666-1136v-537.013h176V-216h-176Zm649.654 270.347l-121.44-126.133L2033.836-381.333l119.387 126.16-311.573 309.52ZM1991.996 584v-176h430.347v176H1991.996Z"
+                                  fill="#FFFCFB"
+                                />
+                              </svg>
+                              <div className="flex flex-col items-start gap-3 w-full">
+                                <div
+                                  className="text-white text-base leading-[1.2] font-medium"
+                                  style={{ fontFamily: HELVETICA }}
+                                >
+                                  Visual Cues
+                                </div>
+                                <div
+                                  className="text-[#747474] text-sm leading-5 font-normal"
+                                  style={{ fontFamily: HELVETICA }}
+                                >
+                                  Familiar party symbols provide an additional visual cue, helping users identify their preferred representative quickly.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Row 3: Safe Selection (Full width card) */}
+                        <div className="w-full">
+                          <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                            <div
+                              className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3 border-[0.5px] border-[#FFFFFF1A]"
+                              style={{
+                                backgroundImage:
+                                  "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                              }}
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="64"
+                                viewBox="0 -960.32 2560 2560"
+                                width="64"
+                                className="shrink-0"
+                              >
+                                <path
+                                  d="M1167.998 678.136L1755.491 90.643l-124.107-124.107L1167.998 429.923l-236.107-236.107-124.107 124.107L1167.998 678.136Zm112 688.4q-356.107-95.387-591.387-417.44Q453.331 627.043 453.331 223.976v-635.493l826.667-310.96 826.666 310.96V223.976q0 403.067-235.28 725.12Q1636.104 1271.149 1279.998 1366.536Z"
+                                  fill="#FFFFFF"
+                                />
+                              </svg>
+                              <div className="flex flex-col items-start gap-3 w-full">
+                                <div
+                                  className="text-white text-base leading-[1.2] font-medium"
+                                  style={{ fontFamily: HELVETICA }}
+                                >
+                                  Safe Selection
+                                </div>
+                                <div
+                                  className="text-[#747474] text-sm leading-5 font-normal"
+                                  style={{ fontFamily: HELVETICA }}
+                                >
+                                  The minimal interface removes unnecessary actions and keeps the user&apos;s focus on the single decision that matters: selecting a candidate.
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
 
