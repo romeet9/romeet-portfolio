@@ -1046,10 +1046,10 @@ export function VoteInCaseStudy() {
                       </div>
                     </div>
 
-                    {/* Card 1: Login Page */}
+                    {/* Card 1: Login Page with Annotations */}
                     <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full h-[366px] shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                       <div
-                        className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 px-4.5 py-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A]"
+                        className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 flex-col border-[0.5px] border-[#FFFFFF1A]"
                         style={{
                           backgroundImage:
                             "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -1057,25 +1057,38 @@ export function VoteInCaseStudy() {
                       >
                         {/* Smartphone Mockup */}
                         <div
-                          className="absolute bg-cover bg-center pointer-events-none z-10"
+                          className="w-[327px] h-[664px] top-[-324px] left-[235px] absolute bg-cover bg-center pointer-events-none z-10"
                           style={{
                             backgroundImage:
                               "url(https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png)",
-                            left: "349px",
-                            top: "-114px",
-                            width: "219px",
-                            height: "446px",
                           }}
                         />
 
-                        {/* Text Description */}
-                        <div className="w-[266px] text-justify relative z-10 text-[13px] leading-5 text-white font-normal">
-                          A clear progress bar helps users understand where they are in the verification process, while real-time notifications keep them informed of important updates. A prominent CTA guides users through each step, creating a familiar, form-like experience that feels clear and intuitive.
+                        {/* Tag Label at Top-Left */}
+                        <div className="w-fit absolute left-5 top-[18px] text-[#FFFFFF66] text-base leading-5 font-normal z-10">
+                          Login Page
                         </div>
 
-                        {/* Tag Label */}
-                        <div className="w-fit relative z-10 text-[#FFFFFF66] text-base leading-5 font-normal">
-                          Login Page
+                        {/* Annotation 1: Progress Bar */}
+                        <div className="w-[162px] text-justify left-[29px] top-[134px] absolute text-white text-[13px] leading-5 font-normal z-10">
+                          Progress bar to let the user know where are they in the verification process
+                        </div>
+                        {/* Connecting Line 1 */}
+                        <div className="w-[63px] h-[3px] left-[202px] top-[157px] absolute z-10 pointer-events-none">
+                          <div className="top-[1px] h-px absolute bg-[#5E5E5E] inset-x-0" />
+                          <div className="-left-px top-0 w-[3px] h-[3px] rounded-full absolute bg-[#5E5E5E]" />
+                          <div className="top-0 w-[3px] h-[3px] rounded-full right-0 absolute bg-[#5E5E5E]" />
+                        </div>
+
+                        {/* Annotation 2: Notification Section */}
+                        <div className="w-[162px] text-justify left-[29px] top-[220px] absolute text-white text-[13px] leading-5 font-normal z-10">
+                          Notification section to give feeadback to the user
+                        </div>
+                        {/* Connecting Line 2 */}
+                        <div className="w-[136px] h-[3px] left-[202px] top-[236px] absolute z-10 pointer-events-none">
+                          <div className="top-[1px] h-px absolute bg-[#5E5E5E] inset-x-0" />
+                          <div className="-left-px top-0 w-[3px] h-[3px] rounded-full absolute bg-[#5E5E5E]" />
+                          <div className="top-0 w-[3px] h-[3px] rounded-full right-0 absolute bg-[#5E5E5E]" />
                         </div>
                       </div>
                     </div>
@@ -1123,10 +1136,10 @@ export function VoteInCaseStudy() {
                       </div>
                     </div>
 
-                    {/* Card 2: Digilocker Integration */}
+                    {/* Card 2: Digilocker Integration with Annotations */}
                     <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full h-[366px] shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                       <div
-                        className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 px-4.5 py-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A]"
+                        className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 flex-col border-[0.5px] border-[#FFFFFF1A]"
                         style={{
                           backgroundImage:
                             "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -1134,24 +1147,39 @@ export function VoteInCaseStudy() {
                       >
                         {/* Smartphone Mockup */}
                         <div
-                          className="absolute bg-cover bg-center pointer-events-none z-10"
+                          className="w-[327px] h-[664px] top-[-324px] left-[236px] absolute bg-cover bg-center pointer-events-none z-10"
                           style={{
                             backgroundImage:
                               "url(https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M070C9C1JDDENP7HQ2RWSQA8.png)",
-                            left: "349px",
-                            top: "-118px",
-                            width: "219px",
-                            height: "449px",
                           }}
                         />
 
-                        {/* Text Description */}
-                        <div className="w-[266px] text-justify relative z-10 text-[13px] leading-5 text-white font-normal">
-                          Users no longer need to wait for manual document verification. They simply enter their phone number, and the required documents are securely retrieved from DigiLocker, making the verification process faster and more seamless.
+                        {/* Annotation 1: Notification section feedback */}
+                        <div className="w-[162px] text-justify left-[34px] top-[68px] absolute text-white text-[13px] leading-5 font-normal z-10">
+                          The notification section gives the user a feedback that there informations are fetched properly.
+                        </div>
+                        {/* Connecting Line 1 */}
+                        <div className="w-[136px] h-[3px] left-[145px] top-[138px] absolute z-10 pointer-events-none">
+                          <div className="top-[1px] h-px absolute bg-[#5E5E5E] inset-x-0" />
+                          <div className="-left-px top-0 w-[3px] h-[3px] rounded-full absolute bg-[#5E5E5E]" />
+                          <div className="top-0 w-[3px] h-[3px] rounded-full right-0 absolute bg-[#5E5E5E]" />
                         </div>
 
-                        {/* Tag Label */}
-                        <div className="w-fit relative z-10 text-[#FFFFFF66] text-base leading-5 font-normal">
+                        {/* Annotation 2: Refetch data */}
+                        <div className="w-[162px] text-justify left-[34px] top-[175px] absolute text-white text-[13px] leading-5 font-normal z-10">
+                          Users can refetch there data if there is some issue in the server or so some data is incorrect.
+                        </div>
+                        {/* Stepped Connecting Line 2 */}
+                        <div className="w-[153px] h-[33px] left-[204px] top-[164px] absolute z-10 pointer-events-none">
+                          <div className="left-px top-[31px] h-px right-[133px] absolute bg-[#5E5E5E]" />
+                          <div className="left-[19px] top-px h-px right-px absolute bg-[#5E5E5E]" />
+                          <div className="left-[19px] top-px w-px h-[31px] absolute bg-[#5E5E5E]" />
+                          <div className="top-[30px] -left-px w-[3px] h-[3px] rounded-full absolute bg-[#5E5E5E]" />
+                          <div className="top-0 right-0 w-[3px] h-[3px] rounded-full absolute bg-[#5E5E5E]" />
+                        </div>
+
+                        {/* Tag Label at Bottom-Left */}
+                        <div className="w-fit absolute left-5 top-[317px] text-[#FFFFFF66] text-base leading-5 font-normal z-10">
                           Digilocker Integration
                         </div>
                       </div>
@@ -1216,7 +1244,7 @@ export function VoteInCaseStudy() {
                             backgroundImage:
                               "url(https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M070C9C1JDDENP7HQ2RWSQA8.png)",
                             left: "349px",
-                            top: "-60px",
+                            top: "-113px",
                             width: "219px",
                             height: "449px",
                           }}
