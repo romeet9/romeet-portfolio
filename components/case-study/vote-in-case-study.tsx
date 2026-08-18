@@ -40,7 +40,8 @@ function GrungeSeparator() {
 export function VoteInCaseStudy() {
   const [activeSection, setActiveSection] = useState("about");
   const [mounted, setMounted] = useState(false);
-  const [enlargedMockup, setEnlargedMockup] = useState<{ title: string; image: string } | null>(null);
+  const [expandedCard1, setExpandedCard1] = useState(false);
+  const [expandedCard2, setExpandedCard2] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -1349,9 +1350,13 @@ export function VoteInCaseStudy() {
                     </div>
 
                     {/* Card 1: Vote Confirmation */}
-                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full h-[366px] shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F] transition-all duration-500 ease-in-out ${
+                        expandedCard1 ? "h-[640px]" : "h-[366px]"
+                      }`}
+                    >
                       <div
-                        className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 p-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A]"
+                        className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 p-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A] transition-all duration-500 ease-in-out"
                         style={{
                           backgroundImage:
                             "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -1362,35 +1367,33 @@ export function VoteInCaseStudy() {
                           Once a vote is cast, a unique voting ID is generated immediately as digital proof of submission. This gives voters a tangible reference to verify their ballot independently while keeping casting and verification decoupled.
                         </div>
 
-                        {/* Smartphone Mockup (Intentionally cropped) */}
+                        {/* Smartphone Mockup - expands from cropped to full view */}
                         <div
-                          className="w-[300px] h-[614px] left-[279px] top-[-76px] absolute bg-cover bg-position-[50%] pointer-events-none z-10"
+                          className={`w-[300px] h-[614px] left-[279px] absolute bg-cover bg-position-[50%] pointer-events-none z-10 transition-all duration-500 ease-in-out ${
+                            expandedCard1 ? "top-3" : "top-[-76px]"
+                          }`}
                           style={{
                             backgroundImage:
                               "url(https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M09QHN4SN8XPHHGTMD6DE1D6.png)",
                           }}
                         />
 
-                        {/* Enlarge Icon Button at Bottom-Left */}
+                        {/* Enlarge / Shrink Icon Button at Bottom-Left */}
                         <button
                           type="button"
-                          onClick={() =>
-                            setEnlargedMockup({
-                              title: "Vote Confirmation",
-                              image:
-                                "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M09QHN4SN8XPHHGTMD6DE1D6.png",
-                            })
-                          }
+                          onClick={() => setExpandedCard1(!expandedCard1)}
                           className="relative z-20 flex items-center justify-center w-8 h-8 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/20 transition-all text-[#7F7F7F] hover:text-white group cursor-pointer"
-                          title="Enlarge mockup"
-                          aria-label="Enlarge Vote Confirmation mockup"
+                          title={expandedCard1 ? "Collapse card" : "Enlarge card"}
+                          aria-label={expandedCard1 ? "Collapse card" : "Enlarge card"}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             height="17"
                             viewBox="0 -819.68 680 680"
                             width="17"
-                            className="fill-current text-[#7F7F7F] group-hover:text-white transition-colors"
+                            className={`fill-current text-[#7F7F7F] group-hover:text-white transition-all duration-300 ${
+                              expandedCard1 ? "rotate-180 text-white" : ""
+                            }`}
                           >
                             <path d="M85.001-224.986v-226.667h56.667v130.334l357-357H368.334v-56.667h226.667v226.667h-56.667v-130.334L181.334-281.653h130.334v56.667H85.001Z" />
                           </svg>
@@ -1445,9 +1448,13 @@ export function VoteInCaseStudy() {
                     </div>
 
                     {/* Card 2: Independent Vote Verification */}
-                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full h-[366px] shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F] transition-all duration-500 ease-in-out ${
+                        expandedCard2 ? "h-[600px]" : "h-[366px]"
+                      }`}
+                    >
                       <div
-                        className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 p-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A]"
+                        className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 p-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A] transition-all duration-500 ease-in-out"
                         style={{
                           backgroundImage:
                             "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -1458,35 +1465,33 @@ export function VoteInCaseStudy() {
                           Users can independently enter their unique voting ID to confirm that their ballot was recorded accurately. The system validates the ID against recorded voting data, displaying the registered candidate and party for full transparency.
                         </div>
 
-                        {/* Smartphone Mockup (Intentionally cropped) */}
+                        {/* Smartphone Mockup - expands from cropped to full view */}
                         <div
-                          className="w-[270px] h-[551px] left-[314px] top-[10px] absolute bg-cover bg-position-[50%] pointer-events-none z-10"
+                          className={`w-[270px] h-[551px] left-[314px] absolute bg-cover bg-position-[50%] pointer-events-none z-10 transition-all duration-500 ease-in-out ${
+                            expandedCard2 ? "top-5" : "top-[10px]"
+                          }`}
                           style={{
                             backgroundImage:
                               "url(https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M09QDFD1C23RFRA0RJQB88JY.png)",
                           }}
                         />
 
-                        {/* Enlarge Icon Button at Bottom-Left */}
+                        {/* Enlarge / Shrink Icon Button at Bottom-Left */}
                         <button
                           type="button"
-                          onClick={() =>
-                            setEnlargedMockup({
-                              title: "Independent Vote Verification",
-                              image:
-                                "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M09QDFD1C23RFRA0RJQB88JY.png",
-                            })
-                          }
+                          onClick={() => setExpandedCard2(!expandedCard2)}
                           className="relative z-20 flex items-center justify-center w-8 h-8 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 hover:border-white/20 transition-all text-[#7F7F7F] hover:text-white group cursor-pointer"
-                          title="Enlarge mockup"
-                          aria-label="Enlarge Independent Vote Verification mockup"
+                          title={expandedCard2 ? "Collapse card" : "Enlarge card"}
+                          aria-label={expandedCard2 ? "Collapse card" : "Enlarge card"}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             height="17"
                             viewBox="0 -819.68 680 680"
                             width="17"
-                            className="fill-current text-[#7F7F7F] group-hover:text-white transition-colors"
+                            className={`fill-current text-[#7F7F7F] group-hover:text-white transition-all duration-300 ${
+                              expandedCard2 ? "rotate-180 text-white" : ""
+                            }`}
                           >
                             <path d="M85.001-224.986v-226.667h56.667v130.334l357-357H368.334v-56.667h226.667v226.667h-56.667v-130.334L181.334-281.653h130.334v56.667H85.001Z" />
                           </svg>
@@ -1503,70 +1508,6 @@ export function VoteInCaseStudy() {
           </div>
         </main>
       </div>
-
-      {/* FULLSCREEN / ENLARGED MOBILE MOCKUP MODAL VIEWER */}
-      <AnimatePresence>
-        {enlargedMockup && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md cursor-zoom-out"
-            onClick={() => setEnlargedMockup(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative max-w-[92vw] max-h-[92vh] flex flex-col items-center cursor-default"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Header Bar */}
-              <div className="flex items-center justify-between w-full mb-3 px-1">
-                <span
-                  className="text-sm font-medium text-white/90"
-                  style={{ fontFamily: HELVETICA }}
-                >
-                  {enlargedMockup.title}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setEnlargedMockup(null)}
-                  className="flex items-center gap-1.5 text-xs text-white/70 hover:text-white px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors border border-white/10 cursor-pointer"
-                >
-                  <span>Close</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                  </svg>
-                </button>
-              </div>
-
-              {/* Full Uncut Mobile Mockup Screen */}
-              <div className="relative rounded-[32px] overflow-hidden border border-white/15 shadow-2xl bg-[#1c1c1e] p-2">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={enlargedMockup.image}
-                  alt={enlargedMockup.title}
-                  className="max-h-[80vh] w-auto object-contain rounded-[24px] shadow-lg"
-                />
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }
