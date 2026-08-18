@@ -9,6 +9,7 @@ import { Preloader } from "@/components/preloader";
 import { FloatingDock } from "@/components/floating-dock";
 import { PageTransition } from "@/components/page-transition";
 import { SiteHeader } from "@/components/site-header";
+import { CustomMousePointer } from "@/components/custom-mouse-pointer";
 import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -78,6 +79,7 @@ export default function RootLayout({
           </div>
           <BottomScrim />
           <FloatingDock />
+          <CustomMousePointer />
           <Toaster />
         </ThemeProvider>
         {/* First-party visitor analytics — aggregate counts only, no cookies.
