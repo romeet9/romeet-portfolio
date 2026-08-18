@@ -56,6 +56,7 @@ import {
   TimeToAnswerChart,
 } from "@/components/case-study-charts";
 import { JourneyTimeline } from "@/components/journey-timeline";
+import { CaseStudyNav } from "@/components/case-study/case-study-nav";
 import { VoteInCaseStudy } from "@/components/case-study/vote-in-case-study";
 import { cn } from "@/lib/utils";
 
@@ -64,9 +65,25 @@ type Params = {
   searchParams?: Promise<{ from?: string }>;
 };
 
-/** The dashboard "3D" card wash — top gradient + soft shadow on every <Card>. */
+const HELVETICA =
+  "\"Helvetica Neue\", Helvetica, Arial, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif";
+
+/** Card styles matching the clean dark card surfaces of Vote IN. */
 const CARD_3D =
-  "*:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card *:data-[slot=card]:shadow-xs dark:*:data-[slot=card]:bg-card";
+  "*:data-[slot=card]:bg-[#18181a] *:data-[slot=card]:border-white/10 *:data-[slot=card]:shadow-xs dark:*:data-[slot=card]:bg-[#18181a]";
+
+function GrungeSeparator() {
+  return (
+    <div className="flex w-full justify-center py-4" aria-hidden>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05ZA7AQR379995KJKXBG29X.png"
+        alt=""
+        className="w-[197px] h-[10px] object-contain opacity-60 select-none pointer-events-none"
+      />
+    </div>
+  );
+}
 
 export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -95,7 +112,7 @@ function IconChip({
   return (
     <span
       className={cn(
-        "flex size-8 shrink-0 items-center justify-center rounded-lg border bg-muted/50 text-foreground shadow-xs",
+        "flex size-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-foreground shadow-xs",
         className,
       )}
     >
@@ -118,13 +135,16 @@ function ActSection({ act }: { act: Act }) {
   const Charts = act.charts ?? [];
 
   return (
-    <section id={`act-${act.n}`} className="flex scroll-mt-20 flex-col gap-6">
+    <section id={`act-${act.n}`} className="flex scroll-mt-24 flex-col gap-6">
       {/* Act header */}
       <div className="flex flex-col gap-1">
         <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
           {act.step}
         </span>
-        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+        <h2
+          className="text-2xl font-semibold tracking-tight text-white sm:text-3xl"
+          style={{ fontFamily: HELVETICA }}
+        >
           {act.title}
         </h2>
       </div>
@@ -138,7 +158,7 @@ function ActSection({ act }: { act: Act }) {
       >
         <div className="flex flex-col gap-5">
           {act.lead.map((p, i) => (
-            <p key={i} className="leading-relaxed text-muted-foreground">
+            <p key={i} className="leading-relaxed text-neutral-300" style={{ fontFamily: HELVETICA }}>
               {p}
             </p>
           ))}
@@ -151,7 +171,7 @@ function ActSection({ act }: { act: Act }) {
         )}
       </div>
 
-      {/* Before / after showcase */}
+      {/* Before / after showcase on Vote IN Bento background */}
       {act.beforeAfter && (
         <BeforeAfterShowcase
           before={act.beforeAfter.before}
@@ -159,7 +179,7 @@ function ActSection({ act }: { act: Act }) {
         />
       )}
 
-      {/* Premium final-design showcase */}
+      {/* Premium final-design showcase on Vote IN Bento background */}
       {act.finalImage && (
         <FinalDesignShowcase src={act.finalImage.src} alt={act.finalImage.alt} />
       )}
@@ -198,45 +218,53 @@ function ActSection({ act }: { act: Act }) {
       {act.points && act.points.length > 0 && act.pointsAs === "items" && (
         <ItemGroup className="gap-2.5">
           {act.points.map((pt) => (
-            <Item key={pt.title} variant="outline" className="bg-card">
+            <Item key={pt.title} variant="outline" className="bg-[#18181a] border-white/10 text-white">
               <ItemMedia variant="icon">
                 <pt.icon />
               </ItemMedia>
               <ItemContent>
                 <ItemTitle>{pt.title}</ItemTitle>
-                <ItemDescription>{pt.desc}</ItemDescription>
+                <ItemDescription className="text-neutral-400">{pt.desc}</ItemDescription>
               </ItemContent>
             </Item>
           ))}
         </ItemGroup>
       )}
 
-      {/* Points — dark "spotlight" bento cards (full-bleed illustration + caption), 2x2 */}
+      {/* Points — Vote IN signature Bento container cards, 2x2 */}
       {act.points && act.points.length > 0 && act.pointsAs === "bento" && (
         <div className="grid gap-3 sm:grid-cols-2">
           {act.points.map((pt) => (
             <div
               key={pt.title}
-              className="relative flex min-h-[340px] flex-col justify-end overflow-hidden rounded-2xl bg-[#0c0c0e] ring-1 ring-white/[0.07]"
+              className="flex flex-col rounded-2xl justify-end gap-1.5 p-1 min-h-[340px] [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]"
             >
-              {pt.illustration && (
-                <Image
-                  src={pt.illustration}
-                  alt=""
-                  fill
-                  sizes="(min-width: 640px) 500px, 90vw"
-                  className="object-cover object-center"
-                />
-              )}
-              {/* bottom fade so the caption stays readable */}
-              <div className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-[#0c0c0e] via-[#0c0c0e]/85 to-transparent" />
-              <div className="relative p-6">
-                <h3 className="text-[15px] font-medium tracking-tight text-white">
-                  {pt.title}
-                </h3>
-                <p className="mt-1.5 max-w-[92%] text-sm leading-relaxed text-white/45">
-                  {pt.desc}
-                </p>
+              <div
+                className="rounded-xl overflow-hidden self-stretch flex-1 relative bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A] flex flex-col justify-end p-6"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                }}
+              >
+                {pt.illustration && (
+                  <Image
+                    src={pt.illustration}
+                    alt=""
+                    fill
+                    sizes="(min-width: 640px) 500px, 90vw"
+                    className="object-cover object-center"
+                  />
+                )}
+                {/* bottom fade so the caption stays readable */}
+                <div className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-[#18181a] via-[#18181a]/85 to-transparent pointer-events-none" />
+                <div className="relative">
+                  <h3 className="text-[15px] font-medium tracking-tight text-white">
+                    {pt.title}
+                  </h3>
+                  <p className="mt-1.5 max-w-[92%] text-sm leading-relaxed text-neutral-300">
+                    {pt.desc}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
@@ -250,14 +278,14 @@ function ActSection({ act }: { act: Act }) {
             <Card key={pt.title}>
               <CardHeader>
                 <CardDescription>{act.kpiLabel ?? "Point"} 0{i + 1}</CardDescription>
-                <CardTitle className="text-lg leading-snug font-semibold tracking-tight">
+                <CardTitle className="text-lg leading-snug font-semibold tracking-tight text-white">
                   {pt.title}
                 </CardTitle>
                 <CardAction>
                   <IconChip icon={pt.icon} />
                 </CardAction>
               </CardHeader>
-              <CardFooter className="text-xs text-muted-foreground">
+              <CardFooter className="text-xs text-neutral-400">
                 {pt.desc}
               </CardFooter>
             </Card>
@@ -276,10 +304,10 @@ function ActSection({ act }: { act: Act }) {
               <Card key={pt.title}>
                 <CardHeader>
                   <IconChip icon={pt.icon} />
-                  <CardTitle className="mt-2.5 text-sm">{pt.title}</CardTitle>
+                  <CardTitle className="mt-2.5 text-sm font-medium text-white">{pt.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
+                  <p className="text-sm leading-relaxed text-neutral-400">
                     {pt.desc}
                   </p>
                 </CardContent>
@@ -291,16 +319,18 @@ function ActSection({ act }: { act: Act }) {
   );
 }
 
-/** The "How might we" framing question — its own section, styled like a shadcn
- * dashboard-01 KPI "top card" (gradient wash + header/action/footer). */
+/** The "How might we" framing question — styled with shadcn KPI card. */
 function HmwSection({ hmw }: { hmw: string }) {
   return (
-    <section className="flex scroll-mt-20 flex-col gap-6">
+    <section id="cs-hmw" className="flex scroll-mt-24 flex-col gap-6">
       <div className="flex flex-col gap-1">
         <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
           The design question
         </span>
-        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+        <h2
+          className="text-2xl font-semibold tracking-tight text-white sm:text-3xl"
+          style={{ fontFamily: HELVETICA }}
+        >
           How might we?
         </h2>
       </div>
@@ -308,17 +338,17 @@ function HmwSection({ hmw }: { hmw: string }) {
         <Card className="@container/card">
           <CardHeader>
             <CardDescription>Reframing the problem</CardDescription>
-            <CardTitle className="text-xl leading-snug font-medium @[420px]/card:text-2xl">
+            <CardTitle className="text-xl leading-snug font-medium text-white @[420px]/card:text-2xl">
               {hmw}
             </CardTitle>
             <CardAction>
-              <Badge variant="outline" className="gap-1.5">
+              <Badge variant="outline" className="gap-1.5 border-white/10 text-neutral-300">
                 <LightbulbIcon className="size-3.5" />
                 HMW
               </Badge>
             </CardAction>
           </CardHeader>
-          <CardFooter className="text-sm text-muted-foreground">
+          <CardFooter className="text-sm text-neutral-400">
             The single question the redesign had to answer.
           </CardFooter>
         </Card>
@@ -327,20 +357,20 @@ function HmwSection({ hmw }: { hmw: string }) {
   );
 }
 
-/** "Read the next case study" teaser CTA. Becomes a link once `href` is set. */
+/** "Read the next case study" teaser CTA. */
 function NextStudyCard({
   next,
 }: {
   next: { kicker: string; name: string; tagline: string; href?: string };
 }) {
   const card = (
-    <div className={CARD_3D}>
+    <div id="cs-next" className={cn("scroll-mt-24", CARD_3D)}>
       <Card className="@container/card transition-colors group-hover:border-ring/40">
         <CardHeader>
           <CardDescription>{next.kicker}</CardDescription>
-          <CardTitle className="text-xl @[420px]/card:text-2xl">{next.name}</CardTitle>
+          <CardTitle className="text-xl text-white @[420px]/card:text-2xl">{next.name}</CardTitle>
           <CardAction>
-            <Badge variant="outline" className="gap-1.5">
+            <Badge variant="outline" className="gap-1.5 border-white/10 text-neutral-300">
               {next.href ? (
                 <>
                   <ArrowUpRightIcon className="size-3.5" />
@@ -355,7 +385,7 @@ function NextStudyCard({
             </Badge>
           </CardAction>
         </CardHeader>
-        <CardFooter className="text-sm text-muted-foreground">{next.tagline}</CardFooter>
+        <CardFooter className="text-sm text-neutral-400">{next.tagline}</CardFooter>
       </Card>
     </div>
   );
@@ -398,44 +428,69 @@ export default async function CaseStudyPage({ params, searchParams }: Params) {
     next,
   } = study;
 
+  // Build navigation items matching Vote IN side navigation
+  const navItems = [
+    { id: "cs-intro", label: "Overview" },
+    ...acts.map((a) => ({
+      id: `act-${a.n}`,
+      label: a.kicker ?? (a.step ? a.step.replace(/Act \d+\s*·\s*/i, "") : `Act ${a.n}`),
+    })),
+    ...(hmw ? [{ id: "cs-hmw", label: "How Might We" }] : []),
+    ...(next ? [{ id: "cs-next", label: "Next Study" }] : []),
+  ];
+
   return (
-    <div className="flex flex-1 flex-col gap-6 p-4 md:p-6">
-      <Button
-        variant="ghost"
-        size="sm"
-        className="-ml-2 w-fit text-muted-foreground"
-        nativeButton={false}
-        render={<Link href={backHref} />}
-      >
-        <ArrowLeftIcon />
-        {backLabel}
-      </Button>
+    <div
+      className="relative w-full text-white antialiased pt-8 sm:pt-12 pb-36 px-4"
+      style={{
+        fontFamily: HELVETICA,
+      }}
+    >
+      {/* Floating Side Navigation matching Vote IN */}
+      <CaseStudyNav items={navItems} />
 
       <article className="mx-auto flex w-full max-w-5xl flex-col gap-12">
-        {/* Header */}
-        <header className="flex flex-col gap-4">
+        {/* Back Link */}
+        <div>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="-ml-2 w-fit text-neutral-400 hover:text-white"
+            nativeButton={false}
+            render={<Link href={backHref} />}
+          >
+            <ArrowLeftIcon />
+            {backLabel}
+          </Button>
+        </div>
+
+        {/* Header (Overview / Intro) */}
+        <header id="cs-intro" className="flex scroll-mt-24 flex-col gap-4">
           <div className="flex flex-wrap items-center gap-2">
-            <Badge variant="secondary">Case study</Badge>
-            <Badge variant="outline" className="gap-1.5 text-muted-foreground">
+            <Badge variant="secondary" className="bg-white/10 text-white">Case study</Badge>
+            <Badge variant="outline" className="gap-1.5 border-white/10 text-neutral-300">
               <Building2Icon className="size-3.5" />
               {company}
             </Badge>
-            <Badge variant="outline" className="gap-1.5 text-muted-foreground">
+            <Badge variant="outline" className="gap-1.5 border-white/10 text-neutral-300">
               <BriefcaseIcon className="size-3.5" />
               {role}
             </Badge>
-            <Badge variant="outline" className="gap-1.5 text-muted-foreground">
+            <Badge variant="outline" className="gap-1.5 border-white/10 text-neutral-300">
               <CalendarIcon className="size-3.5" />
               {year}
             </Badge>
           </div>
-          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h1
+            className="text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+            style={{ fontFamily: HELVETICA }}
+          >
             {name}
           </h1>
-          <p className="text-lg text-muted-foreground">{tagline}</p>
+          <p className="text-lg text-neutral-300">{tagline}</p>
           <div className="flex flex-wrap gap-1.5">
             {skills.map((s) => (
-              <Badge key={s} variant="secondary" className="font-normal">
+              <Badge key={s} variant="secondary" className="bg-white/10 text-neutral-200 font-normal">
                 {s}
               </Badge>
             ))}
@@ -478,7 +533,7 @@ export default async function CaseStudyPage({ params, searchParams }: Params) {
             <Card key={m.label}>
               <CardHeader>
                 <CardDescription>{m.label}</CardDescription>
-                <CardTitle className="text-3xl font-semibold tracking-tight tabular-nums">
+                <CardTitle className="text-3xl font-semibold tracking-tight tabular-nums text-white">
                   {m.value}
                 </CardTitle>
                 <CardAction>
@@ -486,7 +541,7 @@ export default async function CaseStudyPage({ params, searchParams }: Params) {
                 </CardAction>
               </CardHeader>
               {m.sub && (
-                <CardFooter className="text-xs text-muted-foreground">
+                <CardFooter className="text-xs text-neutral-400">
                   {m.sub}
                 </CardFooter>
               )}
@@ -494,24 +549,37 @@ export default async function CaseStudyPage({ params, searchParams }: Params) {
           ))}
         </section>
 
-        {/* The Hero's Journey */}
+        <GrungeSeparator />
+
+        {/* The Hero's Journey Acts */}
         <div className="flex flex-col gap-16">
-          {acts.map((a) => (
+          {acts.map((a, i) => (
             <Fragment key={a.n}>
               <ActSection act={a} />
-              {a.n === 1 && <HmwSection hmw={hmw} />}
+              {a.n === 1 && (
+                <>
+                  <GrungeSeparator />
+                  <HmwSection hmw={hmw} />
+                </>
+              )}
+              {i < acts.length - 1 && <GrungeSeparator />}
             </Fragment>
           ))}
         </div>
 
         {/* Next case study */}
-        {next && <NextStudyCard next={next} />}
+        {next && (
+          <>
+            <GrungeSeparator />
+            <NextStudyCard next={next} />
+          </>
+        )}
 
         {/* Footer CTA */}
         <div className={CARD_3D}>
           <Card>
             <CardHeader>
-              <CardTitle className="text-lg">Want a flow like this?</CardTitle>
+              <CardTitle className="text-lg text-white">Want a flow like this?</CardTitle>
               <CardDescription>
                 I redesign information-heavy B2B products end to end, from research to handoff.
               </CardDescription>
