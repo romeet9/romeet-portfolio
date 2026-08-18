@@ -11,6 +11,7 @@ const SECTIONS = [
   { id: "problem-buckets", label: "Problem Buckets" },
   { id: "breaking-problem", label: "Breaking Problem" },
   { id: "verification-complexity", label: "Verification Complexity" },
+  { id: "fraud-concerns", label: "Fraud Concerns" },
   { id: "trust-in-digital-systems", label: "Trust in Digital Systems" },
   { id: "phase-1", label: "Phase I" },
   { id: "phase-2", label: "Phase II" },
@@ -40,8 +41,10 @@ function GrungeSeparator() {
 export function VoteInCaseStudy() {
   const [activeSection, setActiveSection] = useState("about");
   const [mounted, setMounted] = useState(false);
-  const [expandedCard1, setExpandedCard1] = useState(false);
-  const [expandedCard2, setExpandedCard2] = useState(false);
+  const [expandedFraud1, setExpandedFraud1] = useState(false);
+  const [expandedFraud2, setExpandedFraud2] = useState(false);
+  const [expandedFraud3, setExpandedFraud3] = useState(false);
+  const [expandedTrust1, setExpandedTrust1] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -1288,7 +1291,7 @@ export function VoteInCaseStudy() {
                     color: "#FFFFFF",
                   }}
                 >
-                  Trust in DigitalSystems
+                  Fraud Concerns
                 </h2>
                 <span
                   style={{
@@ -1352,7 +1355,7 @@ export function VoteInCaseStudy() {
                     {/* Card 1: Vote Confirmation */}
                     <div
                       className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F] transition-all duration-500 ease-in-out ${
-                        expandedCard1 ? "h-[640px]" : "h-[366px]"
+                        expandedFraud1 ? "h-[640px]" : "h-[366px]"
                       }`}
                     >
                       <div
@@ -1364,13 +1367,13 @@ export function VoteInCaseStudy() {
                       >
                         {/* Text Description on Left */}
                         <div className="w-[203px] text-justify relative z-10 text-[13px] leading-5 text-white font-normal">
-                          Once a vote is cast, a unique voting ID is generated immediately as digital proof of submission. This gives voters a tangible reference to verify their ballot independently while keeping casting and verification decoupled.
+                          A clear progress bar helps users understand where they are in the verification process, while real-time notifications keep them informed of important updates. A prominent CTA guides users through each step, creating a familiar, form-like experience that feels clear and intuitive.
                         </div>
 
                         {/* Smartphone Mockup - expands from cropped to full view */}
                         <div
                           className={`w-[300px] h-[614px] left-[279px] absolute bg-cover bg-position-[50%] pointer-events-none z-10 transition-all duration-500 ease-in-out ${
-                            expandedCard1 ? "top-3" : "top-[-76px]"
+                            expandedFraud1 ? "top-3" : "top-[-76px]"
                           }`}
                           style={{
                             backgroundImage:
@@ -1384,10 +1387,10 @@ export function VoteInCaseStudy() {
                           height="17"
                           viewBox="0 -819.68 680 680"
                           width="17"
-                          onClick={() => setExpandedCard1(!expandedCard1)}
+                          onClick={() => setExpandedFraud1(!expandedFraud1)}
                           className="cursor-pointer z-20 hover:opacity-80 transition-opacity"
                           style={{ bottom: 18, left: 18, position: "absolute" }}
-                          aria-label={expandedCard1 ? "Collapse card" : "Enlarge card"}
+                          aria-label={expandedFraud1 ? "Collapse card" : "Enlarge card"}
                           role="button"
                           tabIndex={0}
                         >
@@ -1448,7 +1451,7 @@ export function VoteInCaseStudy() {
                     {/* Card 2: Independent Vote Verification */}
                     <div
                       className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F] transition-all duration-500 ease-in-out ${
-                        expandedCard2 ? "h-[600px]" : "h-[366px]"
+                        expandedFraud2 ? "h-[600px]" : "h-[366px]"
                       }`}
                     >
                       <div
@@ -1460,13 +1463,13 @@ export function VoteInCaseStudy() {
                       >
                         {/* Text Description on Left */}
                         <div className="w-[266px] text-justify relative z-10 text-[13px] leading-5 text-white font-normal">
-                          Users can independently enter their unique voting ID to confirm that their ballot was recorded accurately. The system validates the ID against recorded voting data, displaying the registered candidate and party for full transparency.
+                          Users no longer need to wait for manual document verification. They simply enter their phone number, and the required documents are securely retrieved from DigiLocker, making the verification process faster and more seamless.
                         </div>
 
                         {/* Smartphone Mockup - expands from cropped to full view */}
                         <div
                           className={`w-[270px] h-[551px] left-[314px] absolute bg-cover bg-position-[50%] pointer-events-none z-10 transition-all duration-500 ease-in-out ${
-                            expandedCard2 ? "top-5" : "top-[10px]"
+                            expandedFraud2 ? "top-5" : "top-[10px]"
                           }`}
                           style={{
                             backgroundImage:
@@ -1480,10 +1483,107 @@ export function VoteInCaseStudy() {
                           height="17"
                           viewBox="0 -819.68 680 680"
                           width="17"
-                          onClick={() => setExpandedCard2(!expandedCard2)}
+                          onClick={() => setExpandedFraud2(!expandedFraud2)}
                           className="cursor-pointer z-20 hover:opacity-80 transition-opacity"
                           style={{ bottom: 18, left: 22, position: "absolute" }}
-                          aria-label={expandedCard2 ? "Collapse card" : "Enlarge card"}
+                          aria-label={expandedFraud2 ? "Collapse card" : "Enlarge card"}
+                          role="button"
+                          tabIndex={0}
+                        >
+                          <path
+                            d="M85.001-224.986v-226.667h56.667v130.334l357-357H368.334v-56.667h226.667v226.667h-56.667v-130.334L181.334-281.653h130.334v56.667H85.001Z"
+                            fill="#7F7F7F"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Subsection 3: 3. Uncertainty During Document Retrieval */}
+                <div className="flex w-full flex-col items-start gap-3">
+                  <h3
+                    style={{
+                      fontFamily: HELVETICA,
+                      fontSize: "18px",
+                      lineHeight: "22px",
+                      letterSpacing: "normal",
+                      fontWeight: 500,
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    3. Uncertainty During Document Retrieval
+                  </h3>
+                  <div className="flex w-full flex-col items-start gap-9">
+                    <div className="flex w-full flex-col items-start gap-6">
+                      <p
+                        className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5 font-normal"
+                        style={{ fontFamily: HELVETICA }}
+                      >
+                        Fetching documents from DigiLocker can take some time, leaving users unsure whether the process is still running.
+                      </p>
+                      <p
+                        className="w-full font-medium text-white text-base leading-5"
+                        style={{ fontFamily: HELVETICA }}
+                      >
+                        To keep users informed, we introduced:
+                      </p>
+                      <div className="flex w-full flex-col items-start gap-3">
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • A real-time notification section showing the current retrieval status
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • Clear updates while documents are being fetched from DigiLocker
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          • A Refetch Data option if the information is not retrieved successfully
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Card 3: Uncertainty During Document Retrieval */}
+                    <div
+                      className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F] transition-all duration-500 ease-in-out ${
+                        expandedFraud3 ? "h-[600px]" : "h-[366px]"
+                      }`}
+                    >
+                      <div
+                        className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 p-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A] transition-all duration-500 ease-in-out"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        {/* Text Description on Left */}
+                        <div className="w-[266px] text-justify relative z-10 text-[13px] leading-5 text-white font-normal">
+                          I used a notification section to provide real-time updates while documents are being fetched from DigiLocker. Since the retrieval process can take some time, these updates keep users informed about the verification status and reduce uncertainty or the need to wait without feedback.
+                        </div>
+
+                        <div className="relative z-10 text-[rgba(255,255,255,0.4)] text-base leading-5" style={{ fontFamily: HELVETICA }}>
+                          Retriving Documents
+                        </div>
+
+                        {/* Smartphone Mockup - expands from cropped to full view */}
+                        <div
+                          className={`w-[219px] h-[449px] left-[349px] absolute bg-cover bg-position-[50%] pointer-events-none z-10 transition-all duration-500 ease-in-out ${
+                            expandedFraud3 ? "top-5" : "top-[-60px]"
+                          }`}
+                          style={{
+                            backgroundImage:
+                              "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png)",
+                          }}
+                        />
+
+                        {/* Enlarge Icon from Paper Canvas */}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="17"
+                          viewBox="0 -819.68 680 680"
+                          width="17"
+                          onClick={() => setExpandedFraud3(!expandedFraud3)}
+                          className="cursor-pointer z-20 hover:opacity-80 transition-opacity"
+                          style={{ bottom: 18, left: 18, position: "absolute" }}
+                          aria-label={expandedFraud3 ? "Collapse card" : "Enlarge card"}
                           role="button"
                           tabIndex={0}
                         >
@@ -1499,7 +1599,256 @@ export function VoteInCaseStudy() {
               </div>
             </section>
 
-            {/* SEPARATOR 7 */}
+            {/* SECTION 7: TRUST IN DIGITAL SYSTEMS */}
+            <section
+              id="trust-in-digital-systems"
+              className="flex w-full flex-col items-start gap-9"
+            >
+              <div className="flex w-full items-center gap-3">
+                <h2
+                  style={{
+                    fontFamily: HELVETICA,
+                    fontSize: "20px",
+                    lineHeight: "24px",
+                    letterSpacing: "normal",
+                    fontWeight: 500,
+                    color: "#FFFFFF",
+                  }}
+                >
+                  Trust in DigitalSystems
+                </h2>
+                <span
+                  style={{
+                    fontFamily: HELVETICA,
+                    fontSize: "12px",
+                    lineHeight: "16px",
+                    letterSpacing: "normal",
+                    fontWeight: 400,
+                    color: "rgba(255, 255, 255, 0.4)",
+                  }}
+                >
+                  Ensuring Trust and Preventing Fraud
+                </span>
+              </div>
+
+              <div className="flex w-full flex-col items-start gap-15">
+                {/* Subsection 1: 1. Familiarity Through Physical Interaction */}
+                <div className="flex w-full flex-col items-start gap-3">
+                  <h3
+                    style={{
+                      fontFamily: HELVETICA,
+                      fontSize: "18px",
+                      lineHeight: "22px",
+                      letterSpacing: "normal",
+                      fontWeight: 500,
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    1. Familiarity Through Physical Interaction
+                  </h3>
+                  <div className="flex w-full flex-col items-start gap-9">
+                    <div className="flex w-full flex-col items-start gap-6">
+                      <p
+                        className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5 font-normal"
+                        style={{ fontFamily: HELVETICA }}
+                      >
+                        For a digital voting experience, one of the biggest challenges was making the interaction feel as trustworthy and tangible as the physical voting process. Instead of designing a conventional candidate-selection list, I intentionally took visual and interaction cues from the Electronic Voting Machine (EVM) used in physical elections.
+                      </p>
+
+                      {/* Accent Callout Bar matching Paper Canvas */}
+                      <div
+                        className="flex items-center rounded-[1px] gap-3 w-full py-2"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 90.67deg, oklab(61.5% 0 0 / 16%) 50%, oklab(80% 0 0 / 0%) 99.99%)",
+                        }}
+                      >
+                        <div className="w-0.5 rounded-full self-stretch shrink-0 bg-[#989100]" />
+                        <div
+                          className="flex-1 font-normal italic text-[rgba(255,255,255,0.5)] text-base leading-5 tracking-[-0.02em]"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          The goal was to make the digital interaction feel familiar, so users immediately understand who they are selecting, where they need to tap, and when their choice has been registered.
+                        </div>
+                      </div>
+
+                      <p
+                        className="w-full font-medium text-white text-base leading-5"
+                        style={{ fontFamily: HELVETICA }}
+                      >
+                        Building Trust Through Familiarity :
+                      </p>
+                      <p
+                        className="w-full text-white text-base leading-5 font-normal"
+                        style={{ fontFamily: HELVETICA }}
+                      >
+                        I designed the candidate-selection interface to resemble the structure of a physical voting machine:
+                      </p>
+                      <div className="flex w-full flex-col items-start gap-3">
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5 font-normal" style={{ fontFamily: HELVETICA }}>
+                          • Candidate information and party symbols are presented in a structured row, similar to how they appear on an EVM.
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5 font-normal" style={{ fontFamily: HELVETICA }}>
+                          • The large selection control on the right creates the feeling of physically pressing a voting button.
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5 font-normal" style={{ fontFamily: HELVETICA }}>
+                          • Clear separation between candidates prevents accidental selection and makes each choice easy to distinguish.
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5 font-normal" style={{ fontFamily: HELVETICA }}>
+                          • Familiar party symbols provide an additional visual cue, helping users identify their preferred representative quickly.
+                        </p>
+                        <p className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5 font-normal" style={{ fontFamily: HELVETICA }}>
+                          • The minimal interface removes unnecessary actions and keeps the user&apos;s focus on the single decision that matters: selecting a candidate.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Card: EVM Candidate Selection Interaction */}
+                    <div
+                      className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F] transition-all duration-500 ease-in-out ${
+                        expandedTrust1 ? "h-[670px]" : "h-[366px]"
+                      }`}
+                    >
+                      <div
+                        className="relative flex rounded-xl overflow-hidden items-start w-full flex-1 p-5 flex-col justify-between border-[0.5px] border-[#FFFFFF1A] transition-all duration-500 ease-in-out"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        {/* Text Description on Left */}
+                        <div className="w-[203px] text-justify relative z-10 text-[13px] leading-5 text-white font-normal">
+                          The interaction was designed around the mental model of “pressing a button to vote.” Rather than using a conventional checkbox or radio button, the large control gives the user a more deliberate tap target.
+                        </div>
+
+                        {/* Smartphone Mockup - expands from cropped to full view */}
+                        <div
+                          className={`w-[330px] h-[674px] left-[248px] absolute bg-cover bg-position-[50%] pointer-events-none z-10 transition-all duration-500 ease-in-out ${
+                            expandedTrust1 ? "top-3" : "top-[10px]"
+                          }`}
+                          style={{
+                            backgroundImage:
+                              "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6BXBYPSSZPQ64C6RJNCJZMWW80.png)",
+                          }}
+                        />
+
+                        {/* Enlarge Icon from Paper Canvas */}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="17"
+                          viewBox="0 -819.68 680 680"
+                          width="17"
+                          onClick={() => setExpandedTrust1(!expandedTrust1)}
+                          className="cursor-pointer z-20 hover:opacity-80 transition-opacity"
+                          style={{ bottom: 18, left: 18, position: "absolute" }}
+                          aria-label={expandedTrust1 ? "Collapse card" : "Enlarge card"}
+                          role="button"
+                          tabIndex={0}
+                        >
+                          <path
+                            d="M85.001-224.986v-226.667h56.667v130.334l357-357H368.334v-56.667h226.667v226.667h-56.667v-130.334L181.334-281.653h130.334v56.667H85.001Z"
+                            fill="#7F7F7F"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Subsection 2: 2. Why This Interaction Matters */}
+                <div className="flex w-full flex-col items-start gap-3">
+                  <h3
+                    style={{
+                      fontFamily: HELVETICA,
+                      fontSize: "18px",
+                      lineHeight: "22px",
+                      letterSpacing: "normal",
+                      fontWeight: 500,
+                      color: "#FFFFFF",
+                    }}
+                  >
+                    2. Why This Interaction Matters
+                  </h3>
+                  <div className="flex w-full flex-col items-start gap-14 self-stretch">
+                    <div className="flex w-full flex-col items-start gap-6">
+                      <div className="flex w-full flex-col items-start gap-3">
+                        <p
+                          className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5 font-normal"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          I translated the familiarity of a physical EVM into the digital experience, making the interaction feel recognizable, intentional, and trustworthy while keeping candidate selection simple and clear.
+                        </p>
+                        <p
+                          className="w-full text-white text-base leading-5 font-normal"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          So, I stood with three main reasons.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* 3 Metric / Reason Cards Side-by-Side */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full h-auto md:h-[294px]">
+                      {/* Reason Card 1 */}
+                      <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                        <div
+                          className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full p-4 border-[0.5px] border-[#FFFFFF1A]"
+                          style={{
+                            backgroundImage:
+                              "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                          }}
+                        >
+                          <div className="text-white text-base leading-[1.2] font-medium" style={{ fontFamily: HELVETICA }}>
+                            Builds trust <br />through familiarity
+                          </div>
+                          <div className="text-[#747474] text-sm leading-5 font-normal" style={{ fontFamily: HELVETICA }}>
+                            Mirroring the physical EVM makes the digital voting process feel recognizable and credible.
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Reason Card 2 */}
+                      <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                        <div
+                          className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full p-4 border-[0.5px] border-[#FFFFFF1A]"
+                          style={{
+                            backgroundImage:
+                              "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                          }}
+                        >
+                          <div className="text-white text-base leading-[1.2] font-medium" style={{ fontFamily: HELVETICA }}>
+                            Creates a sense <br />of intent
+                          </div>
+                          <div className="text-[#747474] text-sm leading-5 font-normal" style={{ fontFamily: HELVETICA }}>
+                            A large, button-like interaction makes selecting a candidate feel deliberate, similar to physically pressing a voting button.
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Reason Card 3 */}
+                      <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                        <div
+                          className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full p-4 border-[0.5px] border-[#FFFFFF1A]"
+                          style={{
+                            backgroundImage:
+                              "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                          }}
+                        >
+                          <div className="text-white text-base leading-[1.2] font-medium" style={{ fontFamily: HELVETICA }}>
+                            Reduces selection <br />errors
+                          </div>
+                          <div className="text-[#747474] text-sm leading-5 font-normal" style={{ fontFamily: HELVETICA }}>
+                            Clear candidate rows, party symbols, and distinct touch targets help users quickly identify and confidently select their representative.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* SEPARATOR 8 */}
             <GrungeSeparator />
           </div>
         </main>
