@@ -13,12 +13,6 @@ const SECTIONS = [
   { id: "verification-complexity", label: "Verification Complexity" },
   { id: "fraud-concerns", label: "Fraud Concerns" },
   { id: "trust-in-digital-systems", label: "Trust in Digital Systems" },
-  { id: "phase-1", label: "Phase I" },
-  { id: "phase-2", label: "Phase II" },
-  { id: "fluid-interface", label: "Fluid Interface" },
-  { id: "solving-3ts", label: "Solving for 3Ts" },
-  { id: "impact", label: "Impact" },
-  { id: "reflection", label: "Reflection" },
 ];
 
 const HELVETICA =
@@ -1274,9 +1268,9 @@ export function VoteInCaseStudy() {
             {/* SEPARATOR 6 */}
             <GrungeSeparator />
 
-            {/* 7. TRUST IN DIGITAL SYSTEMS SECTION */}
+            {/* 7. FRAUD CONCERNS SECTION */}
             <section
-              id="trust-in-digital-systems"
+              id="fraud-concerns"
               className="flex w-full flex-col items-start gap-9 scroll-mt-24"
             >
               {/* Section Title Bar */}
@@ -1599,10 +1593,13 @@ export function VoteInCaseStudy() {
               </div>
             </section>
 
-            {/* SECTION 7: TRUST IN DIGITAL SYSTEMS */}
+            {/* SEPARATOR 7 */}
+            <GrungeSeparator />
+
+            {/* SECTION 8: TRUST IN DIGITAL SYSTEMS */}
             <section
               id="trust-in-digital-systems"
-              className="flex w-full flex-col items-start gap-9"
+              className="flex w-full flex-col items-start gap-9 scroll-mt-24"
             >
               <div className="flex w-full items-center gap-3">
                 <h2
