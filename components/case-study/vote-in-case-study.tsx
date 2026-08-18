@@ -14,6 +14,7 @@ const SECTIONS = [
   { id: "trust-in-digital-systems", label: "Trust in Digital Systems" },
   { id: "impact", label: "Impact" },
   { id: "reflection", label: "Reflection" },
+  { id: "ui-mockups", label: "UI Mockups" },
 ];
 
 const HELVETICA =
@@ -2346,6 +2347,144 @@ export function VoteInCaseStudy() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </section>
+
+            {/* SEPARATOR 10 */}
+            <GrungeSeparator />
+
+            {/* SECTION 11: UI MOCKUPS (Exact FE-1 from Paper Canvas) */}
+            <section
+              id="ui-mockups"
+              className="[font-synthesis:none] flex flex-col items-center gap-9 self-stretch justify-center antialiased w-full pb-12 scroll-mt-24"
+            >
+              {/* Section Header matching Paper HQ-1 / HS-1 */}
+              <div className="flex items-center gap-3 self-stretch">
+                <h2
+                  className="tracking-[-0.02em] font-medium text-white text-xl/6"
+                  style={{ fontFamily: HELVETICA }}
+                >
+                  UI Mockups
+                </h2>
+              </div>
+
+              {/* Bento Card Outer Frame (h-149.5 = 598px in Paper) */}
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch h-[598px] shrink-0 [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                <div
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 relative bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A] w-full h-full"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                  }}
+                >
+                  {/* Halftone Shader Layer matching Paper exactly */}
+                  {mounted && (
+                    <HalftoneDots
+                      contrast={0.4}
+                      originalColors
+                      inverted
+                      grid="hex"
+                      radius={0.71}
+                      size={0.62}
+                      scale={1}
+                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M0A06WWM5VXW3Z9XY10931SY.jpg"
+                      grainMixer={0.91}
+                      grainOverlay={0.2}
+                      grainSize={0.61}
+                      type="gooey"
+                      fit="cover"
+                      colorFront="#0D0D0D"
+                      colorBack="#00000000"
+                      className="w-full h-full absolute inset-0 bg-[#62626200]"
+                    />
+                  )}
+
+                  {/* Gradient Overlay from Paper */}
+                  <div
+                    className="w-full h-full absolute inset-0 pointer-events-none"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(20.1% 0 0) 0%, 215.41%, oklab(71.8% 0 0 / 0%) 300.1%)",
+                    }}
+                  />
+
+                  {/* Mockups Row matching Paper canvas exactly */}
+                  <div
+                    ref={mockupScrollRef}
+                    className="flex items-center gap-4 overflow-x-auto no-scrollbar scroll-smooth w-full h-full relative z-10 px-4"
+                  >
+                    <div
+                      className="w-[242px] h-[490px] shrink-0 bg-cover bg-center rounded-[32px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/7GN69EPV75NRVXHCDTJFA6TDPZ.png)",
+                      }}
+                    />
+                    <div
+                      className="w-[239px] h-[490px] shrink-0 bg-cover bg-center rounded-[32px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png)",
+                      }}
+                    />
+                    <div
+                      className="w-[239px] h-[490px] shrink-0 bg-cover bg-center rounded-[32px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QHN4SN8XPHHGTMD6DE1D6.png)",
+                      }}
+                    />
+                    <div
+                      className="w-[241px] h-[490px] shrink-0 bg-cover bg-center rounded-[32px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QDFD1C23RFRA0RJQB88JY.png)",
+                      }}
+                    />
+                    <div
+                      className="w-[239px] h-[490px] shrink-0 bg-cover bg-center rounded-[32px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png)",
+                      }}
+                    />
+                    <div
+                      className="w-[241px] h-[490px] shrink-0 bg-cover bg-center rounded-[32px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6BXBYPSSZPQ64C6RJNCJZMWW80.png)",
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Navigation Arrows matching Paper canvas exactly */}
+              <div className="flex items-start gap-3 justify-center w-full">
+                <button
+                  type="button"
+                  onClick={() => {
+                    mockupScrollRef.current?.scrollBy({ left: -260, behavior: "smooth" });
+                  }}
+                  className="items-center h-6.5 flex w-6.5 justify-center rounded-[50%] shrink-0 [box-shadow:#0A0D120A_0px_0px_0px_1px_inset,#0A0D120D_0px_1px_2px] bg-white [border-width:0.5px] border-solid border-[#E6E6E6] cursor-pointer hover:bg-neutral-100 transition-colors"
+                  aria-label="Previous mockup"
+                >
+                  <svg width="14" height="14" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fontSize="13.333px" style={{ height: "14px", width: "14px", overflow: "clip", flexShrink: 0 }}>
+                    <path d="M12 5L7 10L12 15" fontSize="13.333px" fill="none" stroke="#463F3F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ boxSizing: "border-box", transformOrigin: "0px 0px" }} />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    mockupScrollRef.current?.scrollBy({ left: 260, behavior: "smooth" });
+                  }}
+                  className="items-center h-6.5 flex w-6.5 justify-center rounded-[50%] shrink-0 [box-shadow:#0A0D120A_0px_0px_0px_1px_inset,#0A0D120D_0px_1px_2px] bg-white [border-width:0.5px] border-solid border-[#E6E6E6] origin-center rotate-180 cursor-pointer hover:bg-neutral-100 transition-colors"
+                  aria-label="Next mockup"
+                >
+                  <svg width="14" height="14" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fontSize="13.333px" style={{ height: "14px", width: "14px", overflow: "clip", flexShrink: 0 }}>
+                    <path d="M12 5L7 10L12 15" fontSize="13.333px" fill="none" stroke="#463F3F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ boxSizing: "border-box", transformOrigin: "0px 0px" }} />
+                  </svg>
+                </button>
               </div>
             </section>
           </div>
