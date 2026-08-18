@@ -2117,7 +2117,7 @@ export function VoteInCaseStudy() {
                           fill="#FFFFFF"
                           className="shrink-0"
                         >
-                          <path d="M18 13h-.68l-2 2h2.68v4H6v-4h2.68l-2-2H6c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2zm-6-3.83l3.54-3.54c.78-.78.78-2.05 0-2.83-.78-.78-2.05-.78-2.83 0L12 3.46 9.29.75c-.78-.78-2.05-.78-2.83 0-.78.78-.78 2.05 0 2.83L10 7.17V17h4V9.17l-2-2z" />
+                          <path d="M9 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 8c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4zm-6 4c.22-.72 3.31-2 6-2 2.7 0 5.8 1.29 6 2H3zm15.6-7.6l-3.2-3.2-1.4 1.4 4.6 4.6 7.4-7.4-1.4-1.4z" />
                         </svg>
                         <div className="flex flex-col items-start gap-3 w-full">
                           <div
@@ -2347,55 +2347,6 @@ export function VoteInCaseStudy() {
                 </div>
               </div>
             </section>
-
-            {/* SEPARATOR 10 */}
-            <GrungeSeparator />
-
-            {/* CASE STUDY FOOTER NAVIGATION */}
-            <div className="flex flex-col sm:flex-row items-center justify-between w-full pt-8 pb-12 gap-4">
-              <Link
-                href="/case-studies"
-                className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-sm text-white/80 hover:text-white transition-all cursor-pointer"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="transition-transform group-hover:-translate-x-0.5"
-                >
-                  <path d="m15 18-6-6 6-6"/>
-                </svg>
-                <span>Back to Case Studies</span>
-              </Link>
-
-              <button
-                type="button"
-                onClick={() => scrollTo("about")}
-                className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-sm text-white/80 hover:text-white transition-all cursor-pointer"
-              >
-                <span>Back to Top</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="transition-transform group-hover:-translate-y-0.5"
-                >
-                  <path d="m18 15-6-6-6 6"/>
-                </svg>
-              </button>
-            </div>
           </div>
         </main>
       </div>
