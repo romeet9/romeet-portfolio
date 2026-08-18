@@ -13,6 +13,8 @@ const SECTIONS = [
   { id: "verification-complexity", label: "Verification Complexity" },
   { id: "fraud-concerns", label: "Fraud Concerns" },
   { id: "trust-in-digital-systems", label: "Trust in Digital Systems" },
+  { id: "impact", label: "Impact" },
+  { id: "reflection", label: "Reflection" },
 ];
 
 const HELVETICA =
@@ -2030,6 +2032,438 @@ export function VoteInCaseStudy() {
 
             {/* SEPARATOR 8 */}
             <GrungeSeparator />
+
+            {/* SECTION 9: THE OVERALL IMPACT */}
+            <section
+              id="impact"
+              className="flex w-full flex-col items-start gap-9 scroll-mt-24"
+            >
+              <div className="flex w-full items-center gap-3">
+                <h2
+                  style={{
+                    fontFamily: HELVETICA,
+                    fontSize: "20px",
+                    lineHeight: "24px",
+                    letterSpacing: "normal",
+                    fontWeight: 500,
+                    color: "#FFFFFF",
+                  }}
+                >
+                  The Overall Impact
+                </h2>
+                <span
+                  style={{
+                    fontFamily: HELVETICA,
+                    fontSize: "12px",
+                    lineHeight: "16px",
+                    letterSpacing: "normal",
+                    fontWeight: 400,
+                    color: "rgba(255, 255, 255, 0.4)",
+                  }}
+                >
+                  Outcomes & Civic Adoption
+                </span>
+              </div>
+
+              <div className="flex w-full flex-col items-start gap-6">
+                <p
+                  className="w-full text-[rgba(255,255,255,0.7)] text-base leading-5 font-normal"
+                  style={{ fontFamily: HELVETICA }}
+                >
+                  By decoupling voting from physical boundaries and introducing real-time independent verification, Vote IN transformed the digital election experience into a transparent, dependable civic platform.
+                </p>
+
+                {/* 4 Impact Cards Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                  {/* Impact Card 1 */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[160px] p-5 border-[0.5px] border-[#FFFFFF1A]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      <div className="flex items-center justify-between w-full">
+                        <span
+                          className="text-xs text-[#989100] font-medium tracking-wider"
+                          style={{ fontFamily: FIRA_CODE }}
+                        >
+                          01
+                        </span>
+                        <div className="size-1.5 rounded-full bg-[#989100]" />
+                      </div>
+                      <div className="flex flex-col items-start gap-1.5 w-full mt-3">
+                        <h3
+                          className="text-white text-base leading-5 font-medium"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          Improved Accessibility
+                        </h3>
+                        <p
+                          className="text-[#747474] text-sm leading-5 font-normal"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          Improved accessibility and ease-of-use in the voting process.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Impact Card 2 */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[160px] p-5 border-[0.5px] border-[#FFFFFF1A]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      <div className="flex items-center justify-between w-full">
+                        <span
+                          className="text-xs text-[#989100] font-medium tracking-wider"
+                          style={{ fontFamily: FIRA_CODE }}
+                        >
+                          02
+                        </span>
+                        <div className="size-1.5 rounded-full bg-[#989100]" />
+                      </div>
+                      <div className="flex flex-col items-start gap-1.5 w-full mt-3">
+                        <h3
+                          className="text-white text-base leading-5 font-medium"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          Increased Confidence
+                        </h3>
+                        <p
+                          className="text-[#747474] text-sm leading-5 font-normal"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          Increased user confidence through transparent and secure interactions.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Impact Card 3 */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[160px] p-5 border-[0.5px] border-[#FFFFFF1A]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      <div className="flex items-center justify-between w-full">
+                        <span
+                          className="text-xs text-[#989100] font-medium tracking-wider"
+                          style={{ fontFamily: FIRA_CODE }}
+                        >
+                          03
+                        </span>
+                        <div className="size-1.5 rounded-full bg-[#989100]" />
+                      </div>
+                      <div className="flex flex-col items-start gap-1.5 w-full mt-3">
+                        <h3
+                          className="text-white text-base leading-5 font-medium"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          Enhanced User Engagement
+                        </h3>
+                        <p
+                          className="text-[#747474] text-sm leading-5 font-normal"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          Enhanced user engagement by making digital voting trustworthy and intuitive.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Impact Card 4 */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[160px] p-5 border-[0.5px] border-[#FFFFFF1A]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      <div className="flex items-center justify-between w-full">
+                        <span
+                          className="text-xs text-[#989100] font-medium tracking-wider"
+                          style={{ fontFamily: FIRA_CODE }}
+                        >
+                          04
+                        </span>
+                        <div className="size-1.5 rounded-full bg-[#989100]" />
+                      </div>
+                      <div className="flex flex-col items-start gap-1.5 w-full mt-3">
+                        <h3
+                          className="text-white text-base leading-5 font-medium"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          Civic Duty Adoption
+                        </h3>
+                        <p
+                          className="text-[#747474] text-sm leading-5 font-normal"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          Fostered a greater willingness to adopt online voting for civic duties.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* SEPARATOR 9 */}
+            <GrungeSeparator />
+
+            {/* SECTION 10: MY LEARNING FROM THIS CASE STUDY */}
+            <section
+              id="reflection"
+              className="flex w-full flex-col items-start gap-9 scroll-mt-24"
+            >
+              <div className="flex w-full items-center gap-3">
+                <h2
+                  style={{
+                    fontFamily: HELVETICA,
+                    fontSize: "20px",
+                    lineHeight: "24px",
+                    letterSpacing: "normal",
+                    fontWeight: 500,
+                    color: "#FFFFFF",
+                  }}
+                >
+                  My Learning from this Case Study
+                </h2>
+                <span
+                  style={{
+                    fontFamily: HELVETICA,
+                    fontSize: "12px",
+                    lineHeight: "16px",
+                    letterSpacing: "normal",
+                    fontWeight: 400,
+                    color: "rgba(255, 255, 255, 0.4)",
+                  }}
+                >
+                  Reflection & Design Principles
+                </span>
+              </div>
+
+              <div className="flex w-full flex-col items-start gap-6">
+                {/* Accent Callout Bar matching Paper Canvas */}
+                <div
+                  className="flex items-center rounded-[1px] gap-3 w-full py-2"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 90.67deg, oklab(61.5% 0 0 / 16%) 50%, oklab(80% 0 0 / 0%) 99.99%)",
+                  }}
+                >
+                  <div className="w-0.5 rounded-full self-stretch shrink-0 bg-[#989100]" />
+                  <div
+                    className="flex-1 font-normal italic text-[rgba(255,255,255,0.5)] text-base leading-5 tracking-[-0.02em]"
+                    style={{ fontFamily: HELVETICA }}
+                  >
+                    Designing for democracy requires balancing effortless usability with perceptible, undeniable security. Trust is not assumed—it must be intentionally designed at every touchpoint.
+                  </div>
+                </div>
+
+                {/* 4 Reflection / Learning Cards Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                  {/* Learning Card 1 */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[160px] p-5 border-[0.5px] border-[#FFFFFF1A]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      <div className="flex items-center justify-between w-full">
+                        <span
+                          className="text-xs text-white/40 font-medium tracking-wider"
+                          style={{ fontFamily: FIRA_CODE }}
+                        >
+                          01
+                        </span>
+                        <div className="size-1.5 rounded-full bg-white/30" />
+                      </div>
+                      <div className="flex flex-col items-start gap-1.5 w-full mt-3">
+                        <h3
+                          className="text-white text-base leading-5 font-medium"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          Simplifying Complexity
+                        </h3>
+                        <p
+                          className="text-[#747474] text-sm leading-5 font-normal"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          Simplifying complex processes like verification and voting is crucial for user satisfaction.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Learning Card 2 */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[160px] p-5 border-[0.5px] border-[#FFFFFF1A]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      <div className="flex items-center justify-between w-full">
+                        <span
+                          className="text-xs text-white/40 font-medium tracking-wider"
+                          style={{ fontFamily: FIRA_CODE }}
+                        >
+                          02
+                        </span>
+                        <div className="size-1.5 rounded-full bg-white/30" />
+                      </div>
+                      <div className="flex flex-col items-start gap-1.5 w-full mt-3">
+                        <h3
+                          className="text-white text-base leading-5 font-medium"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          Familiar Mental Models
+                        </h3>
+                        <p
+                          className="text-[#747474] text-sm leading-5 font-normal"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          Breaking down steps and using familiar patterns helps users navigate confidently.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Learning Card 3 */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[160px] p-5 border-[0.5px] border-[#FFFFFF1A]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      <div className="flex items-center justify-between w-full">
+                        <span
+                          className="text-xs text-white/40 font-medium tracking-wider"
+                          style={{ fontFamily: FIRA_CODE }}
+                        >
+                          03
+                        </span>
+                        <div className="size-1.5 rounded-full bg-white/30" />
+                      </div>
+                      <div className="flex flex-col items-start gap-1.5 w-full mt-3">
+                        <h3
+                          className="text-white text-base leading-5 font-medium"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          Building Systemic Trust
+                        </h3>
+                        <p
+                          className="text-[#747474] text-sm leading-5 font-normal"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          Addressing security and transparency concerns builds trust in digital systems.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Learning Card 4 */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[160px] p-5 border-[0.5px] border-[#FFFFFF1A]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      <div className="flex items-center justify-between w-full">
+                        <span
+                          className="text-xs text-white/40 font-medium tracking-wider"
+                          style={{ fontFamily: FIRA_CODE }}
+                        >
+                          04
+                        </span>
+                        <div className="size-1.5 rounded-full bg-white/30" />
+                      </div>
+                      <div className="flex flex-col items-start gap-1.5 w-full mt-3">
+                        <h3
+                          className="text-white text-base leading-5 font-medium"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          Empathy-Driven Insights
+                        </h3>
+                        <p
+                          className="text-[#747474] text-sm leading-5 font-normal"
+                          style={{ fontFamily: HELVETICA }}
+                        >
+                          Insights from user surveys guided the design to meet both functional and emotional needs.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* SEPARATOR 10 */}
+            <GrungeSeparator />
+
+            {/* CASE STUDY FOOTER NAVIGATION */}
+            <div className="flex flex-col sm:flex-row items-center justify-between w-full pt-8 pb-12 gap-4">
+              <Link
+                href="/case-studies"
+                className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-sm text-white/80 hover:text-white transition-all cursor-pointer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition-transform group-hover:-translate-x-0.5"
+                >
+                  <path d="m15 18-6-6 6-6"/>
+                </svg>
+                <span>Back to Case Studies</span>
+              </Link>
+
+              <button
+                type="button"
+                onClick={() => scrollTo("about")}
+                className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-sm text-white/80 hover:text-white transition-all cursor-pointer"
+              >
+                <span>Back to Top</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition-transform group-hover:-translate-y-0.5"
+                >
+                  <path d="m18 15-6-6-6 6"/>
+                </svg>
+              </button>
+            </div>
           </div>
         </main>
       </div>
