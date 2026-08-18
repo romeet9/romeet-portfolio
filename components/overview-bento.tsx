@@ -47,7 +47,7 @@ export function OverviewBento() {
   return (
     <div className="flex flex-col gap-4 @5xl/main:flex-row @5xl/main:items-stretch">
       <Column>
-        <StudyCard slug="edge-crm" />
+        <StudyCard slug="vote-in" />
         <ProjectsCard />
         {/* The one flexible tile: fills the leftover height so its bottom lines
             up with the KPI cards ending the other two columns. */}
@@ -63,7 +63,7 @@ export function OverviewBento() {
       </Column>
 
       <Column>
-        <StudyCard slug="edge-crm-case-list" />
+        <StudyCard slug="edge-crm" />
         <ExperienceCard />
         <ToolsCard />
       </Column>
