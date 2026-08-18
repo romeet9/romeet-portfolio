@@ -2401,44 +2401,44 @@ export function VoteInCaseStudy() {
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                   }}
                 >
-                  {/* Scattered Mockups matching Paper playground/onIdeal */}
+                  {/* Scattered Mockups matching Paper playground/onIdeal (no shadows) */}
                   <div
-                    className="w-[242px] h-[490px] left-32 top-[387px] absolute bg-cover bg-center rounded-[32px] shadow-2xl opacity-90 pointer-events-none"
+                    className="w-[242px] h-[490px] left-32 top-[387px] absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
                     style={{
                       backgroundImage:
                         "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/7GN69EPV75NRVXHCDTJFA6TDPZ.png)",
                     }}
                   />
                   <div
-                    className="w-[239px] h-[490px] -left-40 top-48 absolute bg-cover bg-center rounded-[32px] shadow-2xl opacity-90 pointer-events-none"
+                    className="w-[239px] h-[490px] -left-40 top-48 absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
                     style={{
                       backgroundImage:
                         "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png)",
                     }}
                   />
                   <div
-                    className="w-[239px] h-[490px] left-3.75 -top-[336px] absolute bg-cover bg-center rounded-[32px] shadow-2xl opacity-90 pointer-events-none"
+                    className="w-[239px] h-[490px] left-3.75 -top-[336px] absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
                     style={{
                       backgroundImage:
                         "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QHN4SN8XPHHGTMD6DE1D6.png)",
                     }}
                   />
                   <div
-                    className="w-[241px] h-[490px] -top-[262px] left-71 absolute bg-cover bg-center rounded-[32px] shadow-2xl opacity-90 pointer-events-none"
+                    className="w-[241px] h-[490px] -top-[262px] left-71 absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
                     style={{
                       backgroundImage:
                         "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QDFD1C23RFRA0RJQB88JY.png)",
                     }}
                   />
                   <div
-                    className="w-[239px] h-[490px] left-[418px] top-[421px] absolute bg-cover bg-center rounded-[32px] shadow-2xl opacity-90 pointer-events-none"
+                    className="w-[239px] h-[490px] left-[418px] top-[421px] absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
                     style={{
                       backgroundImage:
                         "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png)",
                     }}
                   />
                   <div
-                    className="w-[241px] h-[490px] left-[550px] -top-[111px] absolute bg-cover bg-center rounded-[32px] shadow-2xl opacity-90 pointer-events-none"
+                    className="w-[241px] h-[490px] left-[550px] -top-[111px] absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
                     style={{
                       backgroundImage:
                         "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6BXBYPSSZPQ64C6RJNCJZMWW80.png)",
@@ -2506,9 +2506,12 @@ export function VoteInCaseStudy() {
                   <div className="relative w-full max-w-[1200px] h-[88vh] max-h-[920px] rounded-3xl overflow-hidden bg-[#161616] border border-white/15 shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex flex-col">
                     {/* Top Header Bar */}
                     <div className="absolute top-4 left-4 right-4 z-20 flex items-center justify-between pointer-events-none">
-                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#242424]/90 border border-white/10 backdrop-blur-md text-xs font-mono text-neutral-300 pointer-events-auto">
+                      <div
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#242424]/90 border border-white/10 backdrop-blur-md text-xs text-neutral-300 pointer-events-auto shadow-lg"
+                        style={{ fontFamily: HELVETICA }}
+                      >
                         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                        <span>UI Playground</span>
+                        <span className="font-medium text-white">UI Playground</span>
                         <span className="text-neutral-500">|</span>
                         <span className="text-neutral-400">Drag to pan · Scroll to zoom</span>
                       </div>
@@ -2517,9 +2520,15 @@ export function VoteInCaseStudy() {
                         type="button"
                         onClick={() => setIsPlaygroundOpen(false)}
                         className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#242424]/90 border border-white/10 hover:bg-[#333333] hover:border-white/20 text-white text-xs font-medium backdrop-blur-md cursor-pointer transition-all duration-200 pointer-events-auto shadow-lg"
+                        style={{ fontFamily: HELVETICA }}
                       >
                         <span>Close</span>
-                        <span className="text-[10px] text-neutral-400 bg-white/10 px-1.5 py-0.5 rounded">Esc</span>
+                        <span
+                          className="text-[10px] text-neutral-400 bg-white/10 px-1.5 py-0.5 rounded"
+                          style={{ fontFamily: FIRA_CODE }}
+                        >
+                          Esc
+                        </span>
                       </button>
                     </div>
 
@@ -2569,7 +2578,7 @@ export function VoteInCaseStudy() {
                         }}
                       />
 
-                      {/* Unified Zoom & Pan Workspace */}
+                      {/* Unified Zoom & Pan Workspace (Mockups float directly without outer box) */}
                       <div
                         className="absolute left-1/2 top-1/2 transition-transform duration-75 will-change-transform"
                         style={{
@@ -2577,65 +2586,60 @@ export function VoteInCaseStudy() {
                           transformOrigin: "center center",
                         }}
                       >
-                        {/* Signature J1-0 Canvas Frame (1041px x 1094px) */}
-                        <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-[1041px] h-[1094px] [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                        {/* Direct 6 Mockups Workspace (1041px x 1094px, no bounding box, no shadows) */}
+                        <div className="relative w-[1041px] h-[1094px]">
+                          {/* 6 Mockups */}
                           <div
-                            className="rounded-xl overflow-hidden self-stretch flex-1 relative bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A] w-full h-full"
+                            className="w-[242px] h-[490px] left-1/2 bottom-[31.5px] absolute -translate-x-1/2 bg-cover bg-center rounded-[32px] border border-white/10"
                             style={{
                               backgroundImage:
-                                "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                                "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/7GN69EPV75NRVXHCDTJFA6TDPZ.png)",
                             }}
-                          >
-                            {/* 6 Mockups laid out exactly as in J1-0 */}
-                            <div
-                              className="w-[242px] h-[490px] left-1/2 bottom-[31.5px] absolute -translate-x-1/2 bg-cover bg-center rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/10"
-                              style={{
-                                backgroundImage:
-                                  "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/7GN69EPV75NRVXHCDTJFA6TDPZ.png)",
-                              }}
-                            />
-                            <div
-                              className="w-[239px] h-[490px] left-[31.5px] bottom-[31.5px] absolute bg-cover bg-center rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/10"
-                              style={{
-                                backgroundImage:
-                                  "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png)",
-                              }}
-                            />
-                            <div
-                              className="w-[239px] h-[490px] left-[31.5px] top-[31.5px] absolute bg-cover bg-center rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/10"
-                              style={{
-                                backgroundImage:
-                                  "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QHN4SN8XPHHGTMD6DE1D6.png)",
-                              }}
-                            />
-                            <div
-                              className="w-[241px] h-[490px] top-[31.5px] left-1/2 absolute -translate-x-1/2 bg-cover bg-center rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/10"
-                              style={{
-                                backgroundImage:
-                                  "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QDFD1C23RFRA0RJQB88JY.png)",
-                              }}
-                            />
-                            <div
-                              className="w-[239px] h-[490px] bottom-[31.5px] right-[31.5px] absolute bg-cover bg-center rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/10"
-                              style={{
-                                backgroundImage:
-                                  "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png)",
-                              }}
-                            />
-                            <div
-                              className="w-[241px] h-[490px] top-[31.5px] right-[31.5px] absolute bg-cover bg-center rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/10"
-                              style={{
-                                backgroundImage:
-                                  "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6BXBYPSSZPQ64C6RJNCJZMWW80.png)",
-                              }}
-                            />
-                          </div>
+                          />
+                          <div
+                            className="w-[239px] h-[490px] left-[31.5px] bottom-[31.5px] absolute bg-cover bg-center rounded-[32px] border border-white/10"
+                            style={{
+                              backgroundImage:
+                                "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png)",
+                            }}
+                          />
+                          <div
+                            className="w-[239px] h-[490px] left-[31.5px] top-[31.5px] absolute bg-cover bg-center rounded-[32px] border border-white/10"
+                            style={{
+                              backgroundImage:
+                                "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QHN4SN8XPHHGTMD6DE1D6.png)",
+                            }}
+                          />
+                          <div
+                            className="w-[241px] h-[490px] top-[31.5px] left-1/2 absolute -translate-x-1/2 bg-cover bg-center rounded-[32px] border border-white/10"
+                            style={{
+                              backgroundImage:
+                                "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QDFD1C23RFRA0RJQB88JY.png)",
+                            }}
+                          />
+                          <div
+                            className="w-[239px] h-[490px] bottom-[31.5px] right-[31.5px] absolute bg-cover bg-center rounded-[32px] border border-white/10"
+                            style={{
+                              backgroundImage:
+                                "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png)",
+                            }}
+                          />
+                          <div
+                            className="w-[241px] h-[490px] top-[31.5px] right-[31.5px] absolute bg-cover bg-center rounded-[32px] border border-white/10"
+                            style={{
+                              backgroundImage:
+                                "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6BXBYPSSZPQ64C6RJNCJZMWW80.png)",
+                            }}
+                          />
                         </div>
                       </div>
                     </div>
 
                     {/* Floating Zoom & Controls Toolbar at Bottom */}
-                    <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#242424]/95 border border-white/15 backdrop-blur-lg shadow-[0_10px_30px_rgba(0,0,0,0.7)]">
+                    <div
+                      className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#242424]/95 border border-white/15 backdrop-blur-lg shadow-[0_10px_30px_rgba(0,0,0,0.7)]"
+                      style={{ fontFamily: HELVETICA }}
+                    >
                       <button
                         type="button"
                         onClick={() =>
@@ -2663,7 +2667,8 @@ export function VoteInCaseStudy() {
                           setCanvasZoom(0.75);
                           setCanvasPan({ x: 0, y: 0 });
                         }}
-                        className="px-2.5 py-1 text-xs font-mono text-white font-medium hover:bg-white/10 rounded-md transition-colors cursor-pointer"
+                        className="px-2.5 py-1 text-xs text-white font-medium hover:bg-white/10 rounded-md transition-colors cursor-pointer"
+                        style={{ fontFamily: FIRA_CODE }}
                         title="Click to reset view"
                       >
                         {Math.round(canvasZoom * 100)}%
@@ -2699,7 +2704,8 @@ export function VoteInCaseStudy() {
                           setCanvasZoom(0.75);
                           setCanvasPan({ x: 0, y: 0 });
                         }}
-                        className="px-2.5 py-1 text-xs text-neutral-300 hover:text-white hover:bg-white/10 rounded-md transition-colors flex items-center gap-1.5 cursor-pointer"
+                        className="px-2.5 py-1 text-xs text-neutral-300 hover:text-white hover:bg-white/10 rounded-md transition-colors flex items-center gap-1.5 cursor-pointer font-medium"
+                        style={{ fontFamily: HELVETICA }}
                       >
                         <svg
                           width="12"
