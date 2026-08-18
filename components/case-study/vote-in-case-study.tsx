@@ -2588,44 +2588,44 @@ export function VoteInCaseStudy() {
                       >
                         {/* Direct 6 Mockups Workspace (1041px x 1094px, no bounding box, no shadows) */}
                         <div className="relative w-[1041px] h-[1094px]">
-                          {/* 6 Mockups */}
+                          {/* 6 Mockups (clean PNGs with no CSS borders) */}
                           <div
-                            className="w-[242px] h-[490px] left-1/2 bottom-[31.5px] absolute -translate-x-1/2 bg-cover bg-center rounded-[32px] border border-white/10"
+                            className="w-[242px] h-[490px] left-1/2 bottom-[31.5px] absolute -translate-x-1/2 bg-cover bg-center"
                             style={{
                               backgroundImage:
                                 "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/7GN69EPV75NRVXHCDTJFA6TDPZ.png)",
                             }}
                           />
                           <div
-                            className="w-[239px] h-[490px] left-[31.5px] bottom-[31.5px] absolute bg-cover bg-center rounded-[32px] border border-white/10"
+                            className="w-[239px] h-[490px] left-[31.5px] bottom-[31.5px] absolute bg-cover bg-center"
                             style={{
                               backgroundImage:
                                 "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png)",
                             }}
                           />
                           <div
-                            className="w-[239px] h-[490px] left-[31.5px] top-[31.5px] absolute bg-cover bg-center rounded-[32px] border border-white/10"
+                            className="w-[239px] h-[490px] left-[31.5px] top-[31.5px] absolute bg-cover bg-center"
                             style={{
                               backgroundImage:
                                 "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QHN4SN8XPHHGTMD6DE1D6.png)",
                             }}
                           />
                           <div
-                            className="w-[241px] h-[490px] top-[31.5px] left-1/2 absolute -translate-x-1/2 bg-cover bg-center rounded-[32px] border border-white/10"
+                            className="w-[241px] h-[490px] top-[31.5px] left-1/2 absolute -translate-x-1/2 bg-cover bg-center"
                             style={{
                               backgroundImage:
                                 "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QDFD1C23RFRA0RJQB88JY.png)",
                             }}
                           />
                           <div
-                            className="w-[239px] h-[490px] bottom-[31.5px] right-[31.5px] absolute bg-cover bg-center rounded-[32px] border border-white/10"
+                            className="w-[239px] h-[490px] bottom-[31.5px] right-[31.5px] absolute bg-cover bg-center"
                             style={{
                               backgroundImage:
                                 "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png)",
                             }}
                           />
                           <div
-                            className="w-[241px] h-[490px] top-[31.5px] right-[31.5px] absolute bg-cover bg-center rounded-[32px] border border-white/10"
+                            className="w-[241px] h-[490px] top-[31.5px] right-[31.5px] absolute bg-cover bg-center"
                             style={{
                               backgroundImage:
                                 "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6BXBYPSSZPQ64C6RJNCJZMWW80.png)",
