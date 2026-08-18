@@ -8,7 +8,6 @@ import { HalftoneDots } from "@paper-design/shaders-react";
 const SECTIONS = [
   { id: "about", label: "About" },
   { id: "the-problem", label: "The Problem" },
-  { id: "problem-buckets", label: "Problem Buckets" },
   { id: "breaking-problem", label: "Breaking Problem" },
   { id: "verification-complexity", label: "Verification Complexity" },
   { id: "fraud-concerns", label: "Fraud Concerns" },
@@ -676,193 +675,7 @@ export function VoteInCaseStudy() {
             {/* SEPARATOR 3 */}
             <GrungeSeparator />
 
-            {/* 4. BREAKDOWN / PROBLEM BUCKETS SECTION (3-COLUMN BENTO CARDS) */}
-            <section id="problem-buckets" className="flex w-full flex-col items-start gap-3 scroll-mt-24">
-              <h2
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "20px",
-                  lineHeight: "24px",
-                  letterSpacing: "normal",
-                  fontWeight: 400,
-                  color: "#FFFFFF",
-                }}
-              >
-                Let&apos;s stream down the actual problem statement.
-              </h2>
-
-              <div className="flex w-full flex-col gap-8">
-                <div
-                  className="flex flex-col gap-3"
-                  style={{
-                    fontFamily: HELVETICA,
-                    fontSize: "16px",
-                    lineHeight: "20px",
-                    letterSpacing: "normal",
-                    fontWeight: 400,
-                    color: "rgba(255, 255, 255, 0.7)",
-                  }}
-                >
-                  <p>
-                    So before directly jumping on the solution, I usually break
-                    the problem statements into buckets.
-                  </p>
-                  <p>
-                    So during my brainstorming session, I broke it down into
-                    three main problem buckets.
-                  </p>
-                </div>
-
-                {/* 3 Square Cards in a Row */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
-                  {/* Bucket Card 1: Verification */}
-                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                    <div
-                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 relative bg-origin-border"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                      }}
-                    >
-                      {mounted && (
-                        <HalftoneDots
-                          contrast={0.4}
-                          originalColors
-                          inverted
-                          grid="hex"
-                          radius={0.71}
-                          size={0.62}
-                          scale={1}
-                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05PVRTNZR3D0P3C0YXYBQWC.jpg"
-                          grainMixer={0.91}
-                          grainOverlay={0.2}
-                          grainSize={0.61}
-                          type="gooey"
-                          fit="cover"
-                          colorFront="#0D0D0D"
-                          colorBack="#00000000"
-                          className="w-[180%] h-[180%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#62626200]"
-                        />
-                      )}
-                      <div
-                        className="absolute inset-0 pointer-events-none"
-                        style={{
-                          backgroundImage:
-                            "linear-gradient(in oklab 180deg, oklab(20.1% 0 0) 0%, oklab(71.8% 0 0 / 0%) 300.1%)",
-                        }}
-                      />
-                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative z-10 h-full">
-                        <div className="w-fit text-white text-base leading-[18px]">
-                          Verification
-                        </div>
-                        <div className="self-stretch text-white text-base leading-5">
-                          Seamless account verification
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Bucket Card 2: Voting Process */}
-                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                    <div
-                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 relative bg-origin-border"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                      }}
-                    >
-                      {mounted && (
-                        <HalftoneDots
-                          contrast={0.4}
-                          originalColors
-                          inverted
-                          grid="hex"
-                          radius={0.71}
-                          size={0.62}
-                          scale={1}
-                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05PWCW46Z7Z0HRMYCKHKXDE.jpg"
-                          grainMixer={0.91}
-                          grainOverlay={0.2}
-                          grainSize={0.61}
-                          type="gooey"
-                          fit="cover"
-                          colorFront="#0D0D0D"
-                          colorBack="#00000000"
-                          className="w-[180%] h-[180%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#62626200]"
-                        />
-                      )}
-                      <div
-                        className="absolute inset-0 pointer-events-none"
-                        style={{
-                          backgroundImage:
-                            "linear-gradient(in oklab 180deg, oklab(20.1% 0 0) 0%, oklab(71.8% 0 0 / 0%) 300.1%)",
-                        }}
-                      />
-                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative z-10 h-full">
-                        <div className="w-fit text-white text-base leading-[18px]">
-                          Voting Process
-                        </div>
-                        <div className="self-stretch whitespace-pre-wrap text-white text-base leading-5">
-                          Streamline Flow for Voting
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Bucket Card 3: Fraud Concerns */}
-                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                    <div
-                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 relative bg-origin-border"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                      }}
-                    >
-                      {mounted && (
-                        <HalftoneDots
-                          contrast={0.4}
-                          originalColors
-                          inverted
-                          grid="hex"
-                          radius={0.71}
-                          size={0.62}
-                          scale={1}
-                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05PZD5JM3XGJ9VH2X66HKC9.jpg"
-                          grainMixer={0.91}
-                          grainOverlay={0.2}
-                          grainSize={0.61}
-                          type="gooey"
-                          fit="cover"
-                          colorFront="#0D0D0D"
-                          colorBack="#00000000"
-                          className="w-[180%] h-[180%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#62626200]"
-                        />
-                      )}
-                      <div
-                        className="absolute inset-0 pointer-events-none"
-                        style={{
-                          backgroundImage:
-                            "linear-gradient(in oklab 180deg, oklab(20.1% 0 0) 0%, oklab(71.8% 0 0 / 0%) 300.1%)",
-                        }}
-                      />
-                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative z-10 h-full">
-                        <div className="w-fit text-white text-base leading-[18px]">
-                          Fraud Concerns
-                        </div>
-                        <div className="self-stretch text-white text-base leading-5">
-                          Verifying vote in one click
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* SEPARATOR 4 */}
-            <GrungeSeparator />
-
-            {/* 5. BREAKING PROBLEM STATEMENT SECTION (NEW SECTION) */}
+            {/* 4. BREAKING PROBLEM STATEMENT SECTION */}
             <section id="breaking-problem" className="flex w-full flex-col items-start gap-3 scroll-mt-24">
               <h2
                 style={{
@@ -2073,144 +1886,162 @@ export function VoteInCaseStudy() {
                   By decoupling voting from physical boundaries and introducing real-time independent verification, Vote IN transformed the digital election experience into a transparent, dependable civic platform.
                 </p>
 
-                {/* 4 Impact Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-                  {/* Impact Card 1 */}
-                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                    <div
-                      className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[160px] p-5 border-[0.5px] border-[#FFFFFF1A]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                      }}
-                    >
-                      <div className="flex items-center justify-between w-full">
-                        <span
-                          className="text-xs text-[#989100] font-medium tracking-wider"
-                          style={{ fontFamily: FIRA_CODE }}
+                {/* 4 Impact Bento Cards Grid (2x2) */}
+                <div className="flex flex-col gap-4 w-full">
+                  {/* Row 1 */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                    {/* Impact Card 1: Improved Accessibility */}
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                      <div
+                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3.5 border-[0.5px] border-[#FFFFFF1A]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="64"
+                          viewBox="0 -960.32 2560 2560"
+                          width="64"
+                          className="shrink-0"
                         >
-                          01
-                        </span>
-                        <div className="size-1.5 rounded-full bg-[#989100]" />
+                          <path
+                            d="M1280 1360q-266 0-453-187T640 720q0-266 187-453t453-187q266 0 453 187t187 453q0 266-187 453t-453 187Zm0-176q193 0 328.5-135.5T1744 720q0-193-135.5-328.5T1280 256q-193 0-328.5 135.5T816 720q0 193 135.5 328.5T1280 1184Zm0-176q-120 0-204-84t-84-204q0-120 84-204t204-84q120 0 204 84t84 204q0 120-84 204t-204 84Z"
+                            fill="#FFFFFF"
+                          />
+                        </svg>
+                        <div className="flex flex-col items-start gap-3 w-full">
+                          <div
+                            className="text-white text-base leading-[1.2] font-medium"
+                            style={{ fontFamily: HELVETICA }}
+                          >
+                            Improved Accessibility
+                          </div>
+                          <div
+                            className="text-[#747474] text-sm leading-5 font-normal"
+                            style={{ fontFamily: HELVETICA }}
+                          >
+                            Improved accessibility and ease-of-use in the voting process.
+                          </div>
+                        </div>
                       </div>
-                      <div className="flex flex-col items-start gap-1.5 w-full mt-3">
-                        <h3
-                          className="text-white text-base leading-5 font-medium"
-                          style={{ fontFamily: HELVETICA }}
+                    </div>
+
+                    {/* Impact Card 2: Increased Confidence */}
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                      <div
+                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3.5 border-[0.5px] border-[#FFFFFF1A]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="64"
+                          viewBox="0 -960.32 2560 2560"
+                          width="64"
+                          className="shrink-0"
                         >
-                          Improved Accessibility
-                        </h3>
-                        <p
-                          className="text-[#747474] text-sm leading-5 font-normal"
-                          style={{ fontFamily: HELVETICA }}
-                        >
-                          Improved accessibility and ease-of-use in the voting process.
-                        </p>
+                          <path
+                            d="M1280 1366.536q-356.107-95.387-591.387-417.44Q453.331 627.043 453.331 223.976v-635.493l826.667-310.96 826.666 310.96V223.976q0 403.067-235.28 725.12Q1636.104 1271.149 1279.998 1366.536Zm-112-688.4L1755.491 90.643l-124.107-124.107L1167.998 429.923l-236.107-236.107-124.107 124.107L1167.998 678.136Z"
+                            fill="#FFFFFF"
+                          />
+                        </svg>
+                        <div className="flex flex-col items-start gap-3 w-full">
+                          <div
+                            className="text-white text-base leading-[1.2] font-medium"
+                            style={{ fontFamily: HELVETICA }}
+                          >
+                            Increased User Confidence
+                          </div>
+                          <div
+                            className="text-[#747474] text-sm leading-5 font-normal"
+                            style={{ fontFamily: HELVETICA }}
+                          >
+                            Increased user confidence through transparent and secure interactions.
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Impact Card 2 */}
-                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                    <div
-                      className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[160px] p-5 border-[0.5px] border-[#FFFFFF1A]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                      }}
-                    >
-                      <div className="flex items-center justify-between w-full">
-                        <span
-                          className="text-xs text-[#989100] font-medium tracking-wider"
-                          style={{ fontFamily: FIRA_CODE }}
+                  {/* Row 2 */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                    {/* Impact Card 3: Enhanced User Engagement */}
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                      <div
+                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3.5 border-[0.5px] border-[#FFFFFF1A]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="64"
+                          viewBox="0 -960.32 2560 2560"
+                          width="64"
+                          className="shrink-0"
                         >
-                          02
-                        </span>
-                        <div className="size-1.5 rounded-full bg-[#989100]" />
-                      </div>
-                      <div className="flex flex-col items-start gap-1.5 w-full mt-3">
-                        <h3
-                          className="text-white text-base leading-5 font-medium"
-                          style={{ fontFamily: HELVETICA }}
-                        >
-                          Increased Confidence
-                        </h3>
-                        <p
-                          className="text-[#747474] text-sm leading-5 font-normal"
-                          style={{ fontFamily: HELVETICA }}
-                        >
-                          Increased user confidence through transparent and secure interactions.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Impact Card 3 */}
-                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                    <div
-                      className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[160px] p-5 border-[0.5px] border-[#FFFFFF1A]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                      }}
-                    >
-                      <div className="flex items-center justify-between w-full">
-                        <span
-                          className="text-xs text-[#989100] font-medium tracking-wider"
-                          style={{ fontFamily: FIRA_CODE }}
-                        >
-                          03
-                        </span>
-                        <div className="size-1.5 rounded-full bg-[#989100]" />
-                      </div>
-                      <div className="flex flex-col items-start gap-1.5 w-full mt-3">
-                        <h3
-                          className="text-white text-base leading-5 font-medium"
-                          style={{ fontFamily: HELVETICA }}
-                        >
-                          Enhanced User Engagement
-                        </h3>
-                        <p
-                          className="text-[#747474] text-sm leading-5 font-normal"
-                          style={{ fontFamily: HELVETICA }}
-                        >
-                          Enhanced user engagement by making digital voting trustworthy and intuitive.
-                        </p>
+                          <path
+                            d="M137.65 584v-176H567.996v176H137.65Zm576.613-530.266L402.663-259.893l121.44-119.387 311.573 311.6-121.413 121.414ZM765.33 920v-282.666h1029.333v282.666H765.33Zm426.666-1136v-537.013h176V-216h-176Zm649.654 270.347l-121.44-126.133L2033.836-381.333l119.387 126.16-311.573 309.52ZM1991.996 584v-176h430.347v176H1991.996Z"
+                            fill="#FFFFFF"
+                          />
+                        </svg>
+                        <div className="flex flex-col items-start gap-3 w-full">
+                          <div
+                            className="text-white text-base leading-[1.2] font-medium"
+                            style={{ fontFamily: HELVETICA }}
+                          >
+                            Enhanced User Engagement
+                          </div>
+                          <div
+                            className="text-[#747474] text-sm leading-5 font-normal"
+                            style={{ fontFamily: HELVETICA }}
+                          >
+                            Enhanced user engagement by making digital voting trustworthy and intuitive.
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Impact Card 4 */}
-                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                    <div
-                      className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[160px] p-5 border-[0.5px] border-[#FFFFFF1A]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                      }}
-                    >
-                      <div className="flex items-center justify-between w-full">
-                        <span
-                          className="text-xs text-[#989100] font-medium tracking-wider"
-                          style={{ fontFamily: FIRA_CODE }}
+                    {/* Impact Card 4: Civic Duty Adoption */}
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                      <div
+                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3.5 border-[0.5px] border-[#FFFFFF1A]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="64"
+                          viewBox="0 -960.32 2560 2560"
+                          width="64"
+                          className="shrink-0"
                         >
-                          04
-                        </span>
-                        <div className="size-1.5 rounded-full bg-[#989100]" />
-                      </div>
-                      <div className="flex flex-col items-start gap-1.5 w-full mt-3">
-                        <h3
-                          className="text-white text-base leading-5 font-medium"
-                          style={{ fontFamily: HELVETICA }}
-                        >
-                          Civic Duty Adoption
-                        </h3>
-                        <p
-                          className="text-[#747474] text-sm leading-5 font-normal"
-                          style={{ fontFamily: HELVETICA }}
-                        >
-                          Fostered a greater willingness to adopt online voting for civic duties.
-                        </p>
+                          <path
+                            d="M1684.316 1258.666q-57.173 0-99.253-42.08-42.08-42.08-42.08-99.254v-483.68q0-57.173 42.08-99.253 42.08-42.08 99.253-42.08H2167.996q57.173 0 99.254 42.08Q2309.33 576.479 2309.33 633.652V1117.332q0 57.173-42.08 99.254Q2225.17 1258.666 2167.996 1258.666H1684.316ZM250.663 963.492v-176h947.28v176H250.663Zm1433.653-815.813q-57.173 0-99.253-42.08-42.08-42.08-42.08-99.253V-477.334q0-57.173 42.08-99.254Q1627.143-618.668 1684.316-618.668H2167.996q57.173 0 99.254 42.08Q2309.33-534.508 2309.33-477.334v483.68q0 57.173-42.08 99.253-42.08 42.08-99.254 42.08H1684.316ZM250.663-147.494v-176h947.28v176H250.663Z"
+                            fill="#FFFFFF"
+                          />
+                        </svg>
+                        <div className="flex flex-col items-start gap-3 w-full">
+                          <div
+                            className="text-white text-base leading-[1.2] font-medium"
+                            style={{ fontFamily: HELVETICA }}
+                          >
+                            Civic Duty Adoption
+                          </div>
+                          <div
+                            className="text-[#747474] text-sm leading-5 font-normal"
+                            style={{ fontFamily: HELVETICA }}
+                          >
+                            Fostered a greater willingness to adopt online voting for civic duties.
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2271,144 +2102,162 @@ export function VoteInCaseStudy() {
                   </div>
                 </div>
 
-                {/* 4 Reflection / Learning Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-                  {/* Learning Card 1 */}
-                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                    <div
-                      className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[160px] p-5 border-[0.5px] border-[#FFFFFF1A]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                      }}
-                    >
-                      <div className="flex items-center justify-between w-full">
-                        <span
-                          className="text-xs text-white/40 font-medium tracking-wider"
-                          style={{ fontFamily: FIRA_CODE }}
+                {/* 4 Reflection Bento Cards Grid (2x2) */}
+                <div className="flex flex-col gap-4 w-full">
+                  {/* Row 1 */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                    {/* Learning Card 1: Simplifying Complexity */}
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                      <div
+                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3.5 border-[0.5px] border-[#FFFFFF1A]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="64"
+                          viewBox="0 -960.32 2560 2560"
+                          width="64"
+                          className="shrink-0"
                         >
-                          01
-                        </span>
-                        <div className="size-1.5 rounded-full bg-white/30" />
+                          <path
+                            d="M1158.904 282.399q-64.64 0-110.267-45.627-45.627-45.627-45.626-110.266v-350.16q0-65.547 45.626-109.387 45.627-43.84 110.267-43.84h878.08q65.547 0 109.387 43.84 43.84 43.84 43.84 109.387v350.16q0 64.64-43.84 110.266-43.84 45.627-109.387 45.627H1158.904Zm627.84 734.48q-64.667 0-110.293-45.627-45.627-45.6-45.627-110.266v-351.52q0-64.48 45.627-108.854t110.293-44.373h250.24q65.547 0 109.387 44.373 43.84 44.373 43.84 108.854v351.52q0 64.667-43.84 110.266-43.84 45.627-109.387 45.627h-250.24Zm-627.84 0q-64.64 0-110.267-45.627-45.627-45.6-45.626-110.266v-351.52q0-64.48 45.626-108.854t110.267-44.373h244.854q65.547 0 109.386 44.373 43.84 44.373 43.84 108.854v351.52q0 64.667-43.84 110.266-43.84 45.627-109.386 45.627h-244.854Zm-633.227 0q-64.667 0-110.266-45.627-45.627-45.6-45.627-110.266v-1084.64q0-65.547 45.627-109.387 45.6-43.84 110.266-43.84h250.24q65.547 0 109.387 43.84 43.867 43.84 43.867 109.387v1084.64q0 64.667-43.867 110.266-43.84 45.627-109.387 45.627h-250.24Z"
+                            fill="#FFFFFF"
+                          />
+                        </svg>
+                        <div className="flex flex-col items-start gap-3 w-full">
+                          <div
+                            className="text-white text-base leading-[1.2] font-medium"
+                            style={{ fontFamily: HELVETICA }}
+                          >
+                            Simplifying Complexity
+                          </div>
+                          <div
+                            className="text-[#747474] text-sm leading-5 font-normal"
+                            style={{ fontFamily: HELVETICA }}
+                          >
+                            Simplifying complex processes like verification and voting is crucial for user satisfaction.
+                          </div>
+                        </div>
                       </div>
-                      <div className="flex flex-col items-start gap-1.5 w-full mt-3">
-                        <h3
-                          className="text-white text-base leading-5 font-medium"
-                          style={{ fontFamily: HELVETICA }}
+                    </div>
+
+                    {/* Learning Card 2: Familiar Mental Models */}
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                      <div
+                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3.5 border-[0.5px] border-[#FFFFFF1A]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="65"
+                          viewBox="0 -960.32 2600 2600"
+                          width="65"
+                          className="shrink-0"
                         >
-                          Simplifying Complexity
-                        </h3>
-                        <p
-                          className="text-[#747474] text-sm leading-5 font-normal"
-                          style={{ fontFamily: HELVETICA }}
-                        >
-                          Simplifying complex processes like verification and voting is crucial for user satisfaction.
-                        </p>
+                          <path
+                            d="M1242.288 1401.648q-109.985 0-211.548-44.795t-170.11-133.738L325.625 505.813l20.421-33.963q35.208-51.458 91.461-73.016 56.252-21.558 114.373-1.761l303.116 118.111v-847.492q0-36.562 26.434-62.969t63.023-26.406q36.59 0 61.912 26.406 25.296 26.406 25.296 62.969v584.377h745.225q152.696 0 260.406 107.711T2145.002 620.186v366.952q0 174.308-121.468 294.396Q1902.065 1401.648 1728.542 1401.648H1242.288ZM580.425-121.058q-28.952-49.156-42.412-101.21-13.433-52.054-13.433-107.332 0-175.635 120.737-296.345 120.737-120.737 296.346-120.738 175.635 0 296.373 120.738 120.71 120.71 120.71 296.075 0 56.09-13.433 107.873-13.433 51.783-42.386 100.939l-93.139-54.167q21.667-35.208 31.146-73.125t9.479-81.25q0-130-89.375-219.374t-219.375-89.375q-130 0-219.375 89.375t-89.375 219.374q0 43.333 9.479 81.25t31.146 73.125l-93.113 54.167Z"
+                            fill="#FFFFFF"
+                          />
+                        </svg>
+                        <div className="flex flex-col items-start gap-3 w-full">
+                          <div
+                            className="text-white text-base leading-[1.2] font-medium"
+                            style={{ fontFamily: HELVETICA }}
+                          >
+                            Familiar Mental Models
+                          </div>
+                          <div
+                            className="text-[#747474] text-sm leading-5 font-normal"
+                            style={{ fontFamily: HELVETICA }}
+                          >
+                            Breaking down steps and using familiar patterns helps users navigate confidently.
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Learning Card 2 */}
-                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                    <div
-                      className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[160px] p-5 border-[0.5px] border-[#FFFFFF1A]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                      }}
-                    >
-                      <div className="flex items-center justify-between w-full">
-                        <span
-                          className="text-xs text-white/40 font-medium tracking-wider"
-                          style={{ fontFamily: FIRA_CODE }}
+                  {/* Row 2 */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                    {/* Learning Card 3: Building Systemic Trust */}
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                      <div
+                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3.5 border-[0.5px] border-[#FFFFFF1A]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="64"
+                          viewBox="0 -960.32 2560 2560"
+                          width="64"
+                          className="shrink-0"
                         >
-                          02
-                        </span>
-                        <div className="size-1.5 rounded-full bg-white/30" />
-                      </div>
-                      <div className="flex flex-col items-start gap-1.5 w-full mt-3">
-                        <h3
-                          className="text-white text-base leading-5 font-medium"
-                          style={{ fontFamily: HELVETICA }}
-                        >
-                          Familiar Mental Models
-                        </h3>
-                        <p
-                          className="text-[#747474] text-sm leading-5 font-normal"
-                          style={{ fontFamily: HELVETICA }}
-                        >
-                          Breaking down steps and using familiar patterns helps users navigate confidently.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Learning Card 3 */}
-                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                    <div
-                      className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[160px] p-5 border-[0.5px] border-[#FFFFFF1A]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                      }}
-                    >
-                      <div className="flex items-center justify-between w-full">
-                        <span
-                          className="text-xs text-white/40 font-medium tracking-wider"
-                          style={{ fontFamily: FIRA_CODE }}
-                        >
-                          03
-                        </span>
-                        <div className="size-1.5 rounded-full bg-white/30" />
-                      </div>
-                      <div className="flex flex-col items-start gap-1.5 w-full mt-3">
-                        <h3
-                          className="text-white text-base leading-5 font-medium"
-                          style={{ fontFamily: HELVETICA }}
-                        >
-                          Building Systemic Trust
-                        </h3>
-                        <p
-                          className="text-[#747474] text-sm leading-5 font-normal"
-                          style={{ fontFamily: HELVETICA }}
-                        >
-                          Addressing security and transparency concerns builds trust in digital systems.
-                        </p>
+                          <path
+                            d="M1280 1366.536q-356.107-95.387-591.387-417.44Q453.331 627.043 453.331 223.976v-635.493l826.667-310.96 826.666 310.96V223.976q0 403.067-235.28 725.12Q1636.104 1271.149 1279.998 1366.536Zm-112-688.4L1755.491 90.643l-124.107-124.107L1167.998 429.923l-236.107-236.107-124.107 124.107L1167.998 678.136Z"
+                            fill="#FFFFFF"
+                          />
+                        </svg>
+                        <div className="flex flex-col items-start gap-3 w-full">
+                          <div
+                            className="text-white text-base leading-[1.2] font-medium"
+                            style={{ fontFamily: HELVETICA }}
+                          >
+                            Building Systemic Trust
+                          </div>
+                          <div
+                            className="text-[#747474] text-sm leading-5 font-normal"
+                            style={{ fontFamily: HELVETICA }}
+                          >
+                            Addressing security and transparency concerns builds trust in digital systems.
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Learning Card 4 */}
-                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                    <div
-                      className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[160px] p-5 border-[0.5px] border-[#FFFFFF1A]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                      }}
-                    >
-                      <div className="flex items-center justify-between w-full">
-                        <span
-                          className="text-xs text-white/40 font-medium tracking-wider"
-                          style={{ fontFamily: FIRA_CODE }}
+                    {/* Learning Card 4: Empathy-Driven Insights */}
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                      <div
+                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3.5 border-[0.5px] border-[#FFFFFF1A]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="64"
+                          viewBox="0 -960.32 2560 2560"
+                          width="64"
+                          className="shrink-0"
                         >
-                          04
-                        </span>
-                        <div className="size-1.5 rounded-full bg-white/30" />
-                      </div>
-                      <div className="flex flex-col items-start gap-1.5 w-full mt-3">
-                        <h3
-                          className="text-white text-base leading-5 font-medium"
-                          style={{ fontFamily: HELVETICA }}
-                        >
-                          Empathy-Driven Insights
-                        </h3>
-                        <p
-                          className="text-[#747474] text-sm leading-5 font-normal"
-                          style={{ fontFamily: HELVETICA }}
-                        >
-                          Insights from user surveys guided the design to meet both functional and emotional needs.
-                        </p>
+                          <path
+                            d="M1280 480q-132.8 0-226.4-93.6Q960 292.8 960 160t93.6-226.4Q1147.2-160 1280-160t226.4 93.6Q1600 27.2 1600 160t-93.6 226.4Q1412.8 480 1280 480Zm0 880q-266.4 0-484-118-217.6-118-316-322 28.8-44.8 80.8-85.2 52-40.4 120-72.8 68-32.4 152.8-54 84.8-21.6 186.4-32 30.4 76.8 98.4 122.4 68 45.6 161.6 45.6 93.6 0 161.6-45.6 68-45.6 98.4-122.4 101.6 10.4 186.4 32 84.8 21.6 152.8 54 68 32.4 120 72.8 52 40.4 80.8 85.2-98.4 204-316 322-217.6 118-484 118Z"
+                            fill="#FFFFFF"
+                          />
+                        </svg>
+                        <div className="flex flex-col items-start gap-3 w-full">
+                          <div
+                            className="text-white text-base leading-[1.2] font-medium"
+                            style={{ fontFamily: HELVETICA }}
+                          >
+                            Empathy-Driven Insights
+                          </div>
+                          <div
+                            className="text-[#747474] text-sm leading-5 font-normal"
+                            style={{ fontFamily: HELVETICA }}
+                          >
+                            Insights from user surveys guided the design to meet both functional and emotional needs.
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
