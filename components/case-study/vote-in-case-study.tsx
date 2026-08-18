@@ -2351,48 +2351,31 @@ export function VoteInCaseStudy() {
             {/* SEPARATOR 10 */}
             <GrungeSeparator />
 
-            {/* SECTION 11: FULL APP MOCKUPS SHOWCASE CAROUSEL */}
+            {/* SECTION 11: APP DESIGN & INTERACTION FLOW (FE-1 from Paper) */}
             <section
-              id="mockups-showcase"
-              className="flex w-full flex-col items-start gap-9 pb-12 scroll-mt-24"
+              id="app-design-interaction-flow"
+              className="[font-synthesis:none] flex flex-col items-center gap-9 self-stretch justify-center antialiased w-full pb-8 scroll-mt-24"
             >
-              <div className="flex w-full items-center gap-3">
+              {/* Section Header matching Paper HQ-1 / HS-1 */}
+              <div className="flex items-center gap-3 self-stretch">
                 <h2
-                  style={{
-                    fontFamily: HELVETICA,
-                    fontSize: "20px",
-                    lineHeight: "24px",
-                    letterSpacing: "normal",
-                    fontWeight: 500,
-                    color: "#FFFFFF",
-                  }}
+                  className="tracking-[-0.02em] font-medium text-white text-xl/6"
+                  style={{ fontFamily: HELVETICA }}
                 >
                   App Design & Interaction Flow
                 </h2>
-                <span
-                  style={{
-                    fontFamily: HELVETICA,
-                    fontSize: "12px",
-                    lineHeight: "16px",
-                    letterSpacing: "normal",
-                    fontWeight: 400,
-                    color: "rgba(255, 255, 255, 0.4)",
-                  }}
-                >
-                  Complete Mobile Experience
-                </span>
               </div>
 
-              {/* Bento Card Outer Frame */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+              {/* Bento Card Outer Frame (h-149.5 = 598px in Paper) */}
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch h-[598px] shrink-0 [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
                 <div
-                  className="relative flex rounded-xl overflow-hidden flex-col items-center justify-center w-full min-h-[480px] sm:min-h-[520px] border-[0.5px] border-[#FFFFFF1A]"
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 relative bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A] w-full h-full"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                   }}
                 >
-                  {/* Halftone Shader Layer with Breaking Problem Image */}
+                  {/* Halftone Shader Layer matching Paper exactly */}
                   {mounted && (
                     <HalftoneDots
                       contrast={0.4}
@@ -2410,104 +2393,118 @@ export function VoteInCaseStudy() {
                       fit="cover"
                       colorFront="#0D0D0D"
                       colorBack="#00000000"
-                      className="w-full h-full absolute inset-0 bg-[#62626200] pointer-events-none opacity-45"
+                      className="w-full h-full absolute inset-0 bg-[#62626200]"
                     />
                   )}
 
-                  {/* Gradient Overlay for Depth & Contrast */}
+                  {/* Gradient Overlay from Paper */}
                   <div
-                    className="absolute inset-0 pointer-events-none"
+                    className="w-full h-full absolute inset-0 pointer-events-none"
                     style={{
                       backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(20.1% 0 0 / 60%) 0%, oklab(16% 0 0 / 85%) 100%)",
+                        "linear-gradient(in oklab 180deg, oklab(20.1% 0 0) 0%, 215.41%, oklab(71.8% 0 0 / 0%) 300.1%)",
                     }}
                   />
 
-                  {/* Soft Fade Edges */}
+                  {/* Soft Edge Fade Masks */}
                   <div className="absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#171717] via-[#171717]/80 to-transparent z-20 pointer-events-none" />
                   <div className="absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#171717] via-[#171717]/80 to-transparent z-20 pointer-events-none" />
 
-                  {/* Infinite Marquee Track */}
-                  <div className="flex w-full overflow-hidden relative z-10 py-8 group">
+                  {/* Infinite Scrolling Track of 6 Paper Mockups */}
+                  <div className="flex w-full overflow-hidden relative z-10 py-4 group">
                     {/* Track 1 */}
                     <div
-                      className="flex gap-8 animate-marquee shrink-0 items-center [will-change:transform] group-hover:[animation-play-state:paused]"
+                      className="flex items-center gap-4 animate-marquee shrink-0 [will-change:transform] group-hover:[animation-play-state:paused]"
                       style={{ animationDuration: "36s" }}
                     >
                       {[
                         {
-                          title: "Vote IN Home & Fingerprint",
-                          src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png",
+                          w: "w-[242px]",
+                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/7GN69EPV75NRVXHCDTJFA6TDPZ.png",
                         },
                         {
-                          title: "EVM Candidate Selection",
+                          w: "w-[239px]",
+                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png",
+                        },
+                        {
+                          w: "w-[239px]",
+                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QHN4SN8XPHHGTMD6DE1D6.png",
+                        },
+                        {
+                          w: "w-[241px]",
+                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QDFD1C23RFRA0RJQB88JY.png",
+                        },
+                        {
+                          w: "w-[239px]",
+                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png",
+                        },
+                        {
+                          w: "w-[241px]",
                           src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6BXBYPSSZPQ64C6RJNCJZMWW80.png",
                         },
-                        {
-                          title: "Vote Confirmation",
-                          src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M09QHN4SN8XPHHGTMD6DE1D6.png",
-                        },
-                        {
-                          title: "Independent Vote Verification",
-                          src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M09QDFD1C23RFRA0RJQB88JY.png",
-                        },
-                        {
-                          title: "Biometric & Security Verification",
-                          src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M070C9C1JDDENP7HQ2RWSQA8.png",
-                        },
-                      ].map((mockup, idx) => (
+                      ].map((mock, idx) => (
                         <div
-                          key={`mockup-a-${idx}`}
-                          className="relative shrink-0 w-[190px] sm:w-[220px] h-[380px] sm:h-[430px] rounded-[30px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10 transition-transform duration-300 hover:scale-[1.03]"
-                        >
-                          <div
-                            className="w-full h-full bg-cover bg-center"
-                            style={{ backgroundImage: `url(${mockup.src})` }}
-                          />
-                        </div>
+                          key={`mock-a-${idx}`}
+                          className={`${mock.w} h-[490px] shrink-0 bg-cover bg-center rounded-[32px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10 transition-transform duration-300 hover:scale-[1.02]`}
+                          style={{ backgroundImage: `url(${mock.src})` }}
+                        />
                       ))}
                     </div>
 
                     {/* Track 2 (Seamless loop copy) */}
                     <div
                       aria-hidden="true"
-                      className="flex gap-8 animate-marquee shrink-0 items-center [will-change:transform] group-hover:[animation-play-state:paused]"
+                      className="flex items-center gap-4 animate-marquee shrink-0 [will-change:transform] group-hover:[animation-play-state:paused]"
                       style={{ animationDuration: "36s" }}
                     >
                       {[
                         {
-                          title: "Vote IN Home & Fingerprint",
-                          src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png",
+                          w: "w-[242px]",
+                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/7GN69EPV75NRVXHCDTJFA6TDPZ.png",
                         },
                         {
-                          title: "EVM Candidate Selection",
+                          w: "w-[239px]",
+                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png",
+                        },
+                        {
+                          w: "w-[239px]",
+                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QHN4SN8XPHHGTMD6DE1D6.png",
+                        },
+                        {
+                          w: "w-[241px]",
+                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QDFD1C23RFRA0RJQB88JY.png",
+                        },
+                        {
+                          w: "w-[239px]",
+                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png",
+                        },
+                        {
+                          w: "w-[241px]",
                           src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6BXBYPSSZPQ64C6RJNCJZMWW80.png",
                         },
-                        {
-                          title: "Vote Confirmation",
-                          src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M09QHN4SN8XPHHGTMD6DE1D6.png",
-                        },
-                        {
-                          title: "Independent Vote Verification",
-                          src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M09QDFD1C23RFRA0RJQB88JY.png",
-                        },
-                        {
-                          title: "Biometric & Security Verification",
-                          src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M070C9C1JDDENP7HQ2RWSQA8.png",
-                        },
-                      ].map((mockup, idx) => (
+                      ].map((mock, idx) => (
                         <div
-                          key={`mockup-b-${idx}`}
-                          className="relative shrink-0 w-[190px] sm:w-[220px] h-[380px] sm:h-[430px] rounded-[30px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10 transition-transform duration-300 hover:scale-[1.03]"
-                        >
-                          <div
-                            className="w-full h-full bg-cover bg-center"
-                            style={{ backgroundImage: `url(${mockup.src})` }}
-                          />
-                        </div>
+                          key={`mock-b-${idx}`}
+                          className={`${mock.w} h-[490px] shrink-0 bg-cover bg-center rounded-[32px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10 transition-transform duration-300 hover:scale-[1.02]`}
+                          style={{ backgroundImage: `url(${mock.src})` }}
+                        />
                       ))}
                     </div>
                   </div>
+                </div>
+              </div>
+
+              {/* Navigation Arrows matching Paper canvas */}
+              <div className="flex items-start gap-3 justify-center w-full">
+                <div className="items-center h-6.5 flex w-6.5 justify-center rounded-[50%] shrink-0 [box-shadow:#0A0D120A_0px_0px_0px_1px_inset,#0A0D120D_0px_1px_2px] bg-white [border-width:0.5px] border-solid border-[#E6E6E6] cursor-pointer hover:bg-neutral-100 transition-colors">
+                  <svg width="14" height="14" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fontSize="13.333px" style={{ height: "14px", width: "14px", overflow: "clip", flexShrink: 0 }}>
+                    <path d="M12 5L7 10L12 15" fontSize="13.333px" fill="none" stroke="#463F3F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ boxSizing: "border-box", transformOrigin: "0px 0px" }} />
+                  </svg>
+                </div>
+                <div className="items-center h-6.5 flex w-6.5 justify-center rounded-[50%] shrink-0 [box-shadow:#0A0D120A_0px_0px_0px_1px_inset,#0A0D120D_0px_1px_2px] bg-white [border-width:0.5px] border-solid border-[#E6E6E6] origin-center rotate-180 cursor-pointer hover:bg-neutral-100 transition-colors">
+                  <svg width="14" height="14" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fontSize="13.333px" style={{ height: "14px", width: "14px", overflow: "clip", flexShrink: 0 }}>
+                    <path d="M12 5L7 10L12 15" fontSize="13.333px" fill="none" stroke="#463F3F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ boxSizing: "border-box", transformOrigin: "0px 0px" }} />
+                  </svg>
                 </div>
               </div>
             </section>
