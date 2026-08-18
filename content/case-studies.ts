@@ -166,6 +166,8 @@ export type CaseStudy = {
   /** The Hero's Journey. */
   acts: Act[];
   links?: { live?: string; figma?: string };
+  /** Optional badge label shown on the preview card (e.g. "Best work"). */
+  badge?: string;
   /** Teaser CTA for the next case study in the series. */
   next?: { kicker: string; name: string; tagline: string; href?: string };
 };
@@ -709,6 +711,7 @@ export const caseStudies: CaseStudy[] = [
       h: 1098,
     },
     previewMock: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png",
+    badge: "Best work",
     hmw: "A digital platform for the Indian citizens to cast and verify their vote online.",
     metrics: [
       { value: "<10", label: "Clicks to vote", sub: "Streamlined flow", icon: GaugeIcon },

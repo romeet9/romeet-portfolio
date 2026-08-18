@@ -31,6 +31,7 @@ function StudyCard({ slug }: { slug: string }) {
       name={c.name}
       tagline={c.tagline}
       mock={c.previewMock ?? c.cover.src}
+      badge={c.badge}
     />
   );
 }

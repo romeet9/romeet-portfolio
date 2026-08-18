@@ -30,6 +30,7 @@ export function CaseStudiesGrid({
           name={c.name}
           tagline={c.tagline}
           mock={c.previewMock ?? c.cover.src}
+          badge={c.badge}
         />
       ))}
       {comingSoon && !limit && <ComingSoonCaseCard />}

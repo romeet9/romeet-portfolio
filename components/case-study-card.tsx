@@ -51,11 +51,13 @@ export function CaseStudyCard({
   name,
   tagline,
   mock,
+  badge,
 }: {
   href: string;
   name: string;
   tagline: string;
   mock: string;
+  badge?: string;
 }) {
   const [hovered, setHovered] = React.useState(false);
 
@@ -86,15 +88,28 @@ export function CaseStudyCard({
         }}
       />
 
-      {/* Pill pinned top-right, title and tagline along the bottom. */}
+      {/* Top row: optional "Best work" badge pill on top-left + "View all" pill on top-right,
+          title and tagline along the bottom. */}
       <div
         className="relative flex h-full flex-col justify-between"
         style={{ padding: q(20) }}
       >
         <div
-          className="flex items-center justify-end"
+          className="flex items-center justify-between"
           style={{ paddingInline: q(12), paddingBlock: q(8) }}
         >
+          {badge ? (
+            <span
+              className="flex shrink-0 items-center justify-center gap-1.5 rounded-full border border-white/20 bg-black/50 text-white font-medium backdrop-blur-md transition-transform group-hover:scale-105"
+              style={{ paddingInline: q(12), paddingBlock: q(6), fontSize: q(12) }}
+            >
+              <span className="size-1.5 rounded-full bg-[#B81919] shadow-[0_0_8px_#B81919]" />
+              {badge}
+            </span>
+          ) : (
+            <div />
+          )}
+
           <span
             className="flex shrink-0 items-center justify-center gap-1.5 rounded-full bg-white font-medium text-[#000000F2] transition-transform group-hover:scale-105"
             style={{ paddingInline: q(12), paddingBlock: q(8), fontSize: q(12) }}
