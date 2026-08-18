@@ -713,22 +713,55 @@ export function VoteInCaseStudy() {
                   </p>
                 </div>
 
-                {/* 3 Taller Cards in a Row (Text focus, h-73.5 = 294px) */}
+                {/* 3 Taller Cards in a Row with HalftoneDots shader and gradient overlay */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full h-auto sm:h-[294px]">
                   {/* Card 1: Verification Complexity */}
                   <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                     <div
-                      className="flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 border-[0.5px] border-[#FFFFFF1A]"
+                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 relative bg-origin-border border-[0.5px] border-[#FFFFFF1A]"
                       style={{
                         backgroundImage:
                           "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                       }}
                     >
-                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch h-full">
-                        <div className="w-fit whitespace-pre text-white text-base leading-[18px]">
+                      {mounted && (
+                        <HalftoneDots
+                          contrast={0.4}
+                          originalColors
+                          inverted
+                          grid="hex"
+                          radius={0.71}
+                          size={0.62}
+                          scale={1}
+                          image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M05PVRTNZR3D0P3C0YXYBQWC.jpg"
+                          grainMixer={0.91}
+                          grainOverlay={0.2}
+                          grainSize={0.61}
+                          type="gooey"
+                          fit="cover"
+                          colorFront="#0D0D0D"
+                          colorBack="#00000000"
+                          className="w-[180%] h-[180%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#62626200]"
+                        />
+                      )}
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.1% 0 0) 0%, 215.41%, oklab(71.8% 0 0 / 0%) 300.1%)",
+                        }}
+                      />
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative z-10 h-full">
+                        <div
+                          className="w-fit whitespace-pre text-white text-base leading-[18px]"
+                          style={{ fontFamily: HELVETICA }}
+                        >
                           Verification{"\n"}Complexity
                         </div>
-                        <div className="self-stretch text-[#747474] text-sm leading-5">
+                        <div
+                          className="self-stretch text-[#747474] text-sm leading-5"
+                          style={{ fontFamily: HELVETICA }}
+                        >
                           Users used to struggle with identity verification
                           steps, especially if they involve multiple documents.
                         </div>
@@ -739,17 +772,50 @@ export function VoteInCaseStudy() {
                   {/* Card 2: Trust in Digital Systems */}
                   <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                     <div
-                      className="flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 border-[0.5px] border-[#FFFFFF1A]"
+                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 relative bg-origin-border border-[0.5px] border-[#FFFFFF1A]"
                       style={{
                         backgroundImage:
                           "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                       }}
                     >
-                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch h-full">
-                        <div className="w-fit whitespace-pre text-white text-base leading-[18px]">
+                      {mounted && (
+                        <HalftoneDots
+                          contrast={0.4}
+                          originalColors
+                          inverted
+                          grid="hex"
+                          radius={0.71}
+                          size={0.62}
+                          scale={1}
+                          image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M0A06WWM5VXW3Z9XY10931SY.jpg"
+                          grainMixer={0.91}
+                          grainOverlay={0.2}
+                          grainSize={0.61}
+                          type="gooey"
+                          fit="cover"
+                          colorFront="#0D0D0D"
+                          colorBack="#00000000"
+                          className="w-[180%] h-[180%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#62626200]"
+                        />
+                      )}
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.1% 0 0) 0%, 215.41%, oklab(71.8% 0 0 / 0%) 300.1%)",
+                        }}
+                      />
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative z-10 h-full">
+                        <div
+                          className="w-fit whitespace-pre text-white text-base leading-[18px]"
+                          style={{ fontFamily: HELVETICA }}
+                        >
                           Trust in Digital{"\n"}Systems
                         </div>
-                        <div className="self-stretch text-[#747474] text-sm leading-5">
+                        <div
+                          className="self-stretch text-[#747474] text-sm leading-5"
+                          style={{ fontFamily: HELVETICA }}
+                        >
                           Users feel apprehensive about the security and
                           transparency of the online voting process.
                         </div>
@@ -760,17 +826,50 @@ export function VoteInCaseStudy() {
                   {/* Card 3: Fraud Concerns */}
                   <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                     <div
-                      className="flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 border-[0.5px] border-[#FFFFFF1A]"
+                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 relative bg-origin-border border-[0.5px] border-[#FFFFFF1A]"
                       style={{
                         backgroundImage:
                           "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                       }}
                     >
-                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch h-full">
-                        <div className="w-fit text-white text-base leading-[18px]">
+                      {mounted && (
+                        <HalftoneDots
+                          contrast={0.4}
+                          originalColors
+                          inverted
+                          grid="hex"
+                          radius={0.71}
+                          size={0.62}
+                          scale={1}
+                          image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M0A0743YCW2T79PNCNJGA2S0.jpg"
+                          grainMixer={0.91}
+                          grainOverlay={0.2}
+                          grainSize={0.61}
+                          type="gooey"
+                          fit="cover"
+                          colorFront="#0D0D0D"
+                          colorBack="#00000000"
+                          className="w-[180%] h-[180%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#62626200]"
+                        />
+                      )}
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.1% 0 0) 0%, 215.41%, oklab(71.8% 0 0 / 0%) 300.1%)",
+                        }}
+                      />
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative z-10 h-full">
+                        <div
+                          className="w-fit text-white text-base leading-[18px]"
+                          style={{ fontFamily: HELVETICA }}
+                        >
                           Fraud Concerns
                         </div>
-                        <div className="self-stretch text-[#747474] text-sm leading-5">
+                        <div
+                          className="self-stretch text-[#747474] text-sm leading-5"
+                          style={{ fontFamily: HELVETICA }}
+                        >
                           Users may worry about the possibility of their identity
                           being misused for duplicate voting or other fraudulent
                           activities.
@@ -1893,7 +1992,7 @@ export function VoteInCaseStudy() {
                     {/* Impact Card 1: Improved Accessibility */}
                     <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                       <div
-                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3.5 border-[0.5px] border-[#FFFFFF1A]"
+                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-4 border-[0.5px] border-[#FFFFFF1A]"
                         style={{
                           backgroundImage:
                             "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -1901,15 +2000,13 @@ export function VoteInCaseStudy() {
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          height="64"
-                          viewBox="0 -960.32 2560 2560"
-                          width="64"
+                          height="48"
+                          viewBox="0 0 24 24"
+                          width="48"
+                          fill="#FFFFFF"
                           className="shrink-0"
                         >
-                          <path
-                            d="M1280 1360q-266 0-453-187T640 720q0-266 187-453t453-187q266 0 453 187t187 453q0 266-187 453t-453 187Zm0-176q193 0 328.5-135.5T1744 720q0-193-135.5-328.5T1280 256q-193 0-328.5 135.5T816 720q0 193 135.5 328.5T1280 1184Zm0-176q-120 0-204-84t-84-204q0-120 84-204t204-84q120 0 204 84t84 204q0 120-84 204t-204 84Z"
-                            fill="#FFFFFF"
-                          />
+                          <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z" />
                         </svg>
                         <div className="flex flex-col items-start gap-3 w-full">
                           <div
@@ -1931,7 +2028,7 @@ export function VoteInCaseStudy() {
                     {/* Impact Card 2: Increased Confidence */}
                     <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                       <div
-                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3.5 border-[0.5px] border-[#FFFFFF1A]"
+                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-4 border-[0.5px] border-[#FFFFFF1A]"
                         style={{
                           backgroundImage:
                             "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -1939,15 +2036,13 @@ export function VoteInCaseStudy() {
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          height="64"
-                          viewBox="0 -960.32 2560 2560"
-                          width="64"
+                          height="48"
+                          viewBox="0 0 24 24"
+                          width="48"
+                          fill="#FFFFFF"
                           className="shrink-0"
                         >
-                          <path
-                            d="M1280 1366.536q-356.107-95.387-591.387-417.44Q453.331 627.043 453.331 223.976v-635.493l826.667-310.96 826.666 310.96V223.976q0 403.067-235.28 725.12Q1636.104 1271.149 1279.998 1366.536Zm-112-688.4L1755.491 90.643l-124.107-124.107L1167.998 429.923l-236.107-236.107-124.107 124.107L1167.998 678.136Z"
-                            fill="#FFFFFF"
-                          />
+                          <path d="m23 12-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5l3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z" />
                         </svg>
                         <div className="flex flex-col items-start gap-3 w-full">
                           <div
@@ -1972,7 +2067,7 @@ export function VoteInCaseStudy() {
                     {/* Impact Card 3: Enhanced User Engagement */}
                     <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                       <div
-                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3.5 border-[0.5px] border-[#FFFFFF1A]"
+                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-4 border-[0.5px] border-[#FFFFFF1A]"
                         style={{
                           backgroundImage:
                             "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -1980,15 +2075,13 @@ export function VoteInCaseStudy() {
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          height="64"
-                          viewBox="0 -960.32 2560 2560"
-                          width="64"
+                          height="48"
+                          viewBox="0 0 24 24"
+                          width="48"
+                          fill="#FFFFFF"
                           className="shrink-0"
                         >
-                          <path
-                            d="M137.65 584v-176H567.996v176H137.65Zm576.613-530.266L402.663-259.893l121.44-119.387 311.573 311.6-121.413 121.414ZM765.33 920v-282.666h1029.333v282.666H765.33Zm426.666-1136v-537.013h176V-216h-176Zm649.654 270.347l-121.44-126.133L2033.836-381.333l119.387 126.16-311.573 309.52ZM1991.996 584v-176h430.347v176H1991.996Z"
-                            fill="#FFFFFF"
-                          />
+                          <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
                         </svg>
                         <div className="flex flex-col items-start gap-3 w-full">
                           <div
@@ -2010,7 +2103,7 @@ export function VoteInCaseStudy() {
                     {/* Impact Card 4: Civic Duty Adoption */}
                     <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                       <div
-                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3.5 border-[0.5px] border-[#FFFFFF1A]"
+                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-4 border-[0.5px] border-[#FFFFFF1A]"
                         style={{
                           backgroundImage:
                             "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -2018,15 +2111,13 @@ export function VoteInCaseStudy() {
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          height="64"
-                          viewBox="0 -960.32 2560 2560"
-                          width="64"
+                          height="48"
+                          viewBox="0 0 24 24"
+                          width="48"
+                          fill="#FFFFFF"
                           className="shrink-0"
                         >
-                          <path
-                            d="M1684.316 1258.666q-57.173 0-99.253-42.08-42.08-42.08-42.08-99.254v-483.68q0-57.173 42.08-99.253 42.08-42.08 99.253-42.08H2167.996q57.173 0 99.254 42.08Q2309.33 576.479 2309.33 633.652V1117.332q0 57.173-42.08 99.254Q2225.17 1258.666 2167.996 1258.666H1684.316ZM250.663 963.492v-176h947.28v176H250.663Zm1433.653-815.813q-57.173 0-99.253-42.08-42.08-42.08-42.08-99.253V-477.334q0-57.173 42.08-99.254Q1627.143-618.668 1684.316-618.668H2167.996q57.173 0 99.254 42.08Q2309.33-534.508 2309.33-477.334v483.68q0 57.173-42.08 99.253-42.08 42.08-99.254 42.08H1684.316ZM250.663-147.494v-176h947.28v176H250.663Z"
-                            fill="#FFFFFF"
-                          />
+                          <path d="M18 13h-.68l-2 2h2.68v4H6v-4h2.68l-2-2H6c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2zm-6-3.83l3.54-3.54c.78-.78.78-2.05 0-2.83-.78-.78-2.05-.78-2.83 0L12 3.46 9.29.75c-.78-.78-2.05-.78-2.83 0-.78.78-.78 2.05 0 2.83L10 7.17V17h4V9.17l-2-2z" />
                         </svg>
                         <div className="flex flex-col items-start gap-3 w-full">
                           <div
@@ -2109,7 +2200,7 @@ export function VoteInCaseStudy() {
                     {/* Learning Card 1: Simplifying Complexity */}
                     <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                       <div
-                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3.5 border-[0.5px] border-[#FFFFFF1A]"
+                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-4 border-[0.5px] border-[#FFFFFF1A]"
                         style={{
                           backgroundImage:
                             "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -2117,15 +2208,13 @@ export function VoteInCaseStudy() {
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          height="64"
-                          viewBox="0 -960.32 2560 2560"
-                          width="64"
+                          height="48"
+                          viewBox="0 0 24 24"
+                          width="48"
+                          fill="#FFFFFF"
                           className="shrink-0"
                         >
-                          <path
-                            d="M1158.904 282.399q-64.64 0-110.267-45.627-45.627-45.627-45.626-110.266v-350.16q0-65.547 45.626-109.387 45.627-43.84 110.267-43.84h878.08q65.547 0 109.387 43.84 43.84 43.84 43.84 109.387v350.16q0 64.64-43.84 110.266-43.84 45.627-109.387 45.627H1158.904Zm627.84 734.48q-64.667 0-110.293-45.627-45.627-45.6-45.627-110.266v-351.52q0-64.48 45.627-108.854t110.293-44.373h250.24q65.547 0 109.387 44.373 43.84 44.373 43.84 108.854v351.52q0 64.667-43.84 110.266-43.84 45.627-109.387 45.627h-250.24Zm-627.84 0q-64.64 0-110.267-45.627-45.627-45.6-45.626-110.266v-351.52q0-64.48 45.626-108.854t110.267-44.373h244.854q65.547 0 109.386 44.373 43.84 44.373 43.84 108.854v351.52q0 64.667-43.84 110.266-43.84 45.627-109.386 45.627h-244.854Zm-633.227 0q-64.667 0-110.266-45.627-45.627-45.6-45.627-110.266v-1084.64q0-65.547 45.627-109.387 45.6-43.84 110.266-43.84h250.24q65.547 0 109.387 43.84 43.867 43.84 43.867 109.387v1084.64q0 64.667-43.867 110.266-43.84 45.627-109.387 45.627h-250.24Z"
-                            fill="#FFFFFF"
-                          />
+                          <path d="M7.5 5.6L10 7 8.6 4.5 10 2 7.5 3.4 5 2l1.4 2.5L5 7zm12 9.8L17 14l1.4 2.5L17 19l2.5-1.4L22 19l-1.4-2.5L22 14zM22 2l-2.5 1.4L17 2l1.4 2.5L17 7l2.5-1.4L22 7l-1.4-2.5zm-7.63 5.29c-.39-.39-1.02-.39-1.41 0L1.29 18.96c-.39.39-.39 1.02 0 1.41l2.34 2.34c.39.39 1.02.39 1.41 0L16.7 11.05c.39-.39.39-1.02 0-1.41l-2.33-2.35zm-1.06 3.11l-1.41-1.41 1.41-1.41 1.41 1.41-1.41 1.41z" />
                         </svg>
                         <div className="flex flex-col items-start gap-3 w-full">
                           <div
@@ -2147,7 +2236,7 @@ export function VoteInCaseStudy() {
                     {/* Learning Card 2: Familiar Mental Models */}
                     <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                       <div
-                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3.5 border-[0.5px] border-[#FFFFFF1A]"
+                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-4 border-[0.5px] border-[#FFFFFF1A]"
                         style={{
                           backgroundImage:
                             "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -2155,15 +2244,13 @@ export function VoteInCaseStudy() {
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          height="65"
-                          viewBox="0 -960.32 2600 2600"
-                          width="65"
+                          height="48"
+                          viewBox="0 0 24 24"
+                          width="48"
+                          fill="#FFFFFF"
                           className="shrink-0"
                         >
-                          <path
-                            d="M1242.288 1401.648q-109.985 0-211.548-44.795t-170.11-133.738L325.625 505.813l20.421-33.963q35.208-51.458 91.461-73.016 56.252-21.558 114.373-1.761l303.116 118.111v-847.492q0-36.562 26.434-62.969t63.023-26.406q36.59 0 61.912 26.406 25.296 26.406 25.296 62.969v584.377h745.225q152.696 0 260.406 107.711T2145.002 620.186v366.952q0 174.308-121.468 294.396Q1902.065 1401.648 1728.542 1401.648H1242.288ZM580.425-121.058q-28.952-49.156-42.412-101.21-13.433-52.054-13.433-107.332 0-175.635 120.737-296.345 120.737-120.737 296.346-120.738 175.635 0 296.373 120.738 120.71 120.71 120.71 296.075 0 56.09-13.433 107.873-13.433 51.783-42.386 100.939l-93.139-54.167q21.667-35.208 31.146-73.125t9.479-81.25q0-130-89.375-219.374t-219.375-89.375q-130 0-219.375 89.375t-89.375 219.374q0 43.333 9.479 81.25t31.146 73.125l-93.113 54.167Z"
-                            fill="#FFFFFF"
-                          />
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
                         </svg>
                         <div className="flex flex-col items-start gap-3 w-full">
                           <div
@@ -2188,7 +2275,7 @@ export function VoteInCaseStudy() {
                     {/* Learning Card 3: Building Systemic Trust */}
                     <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                       <div
-                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3.5 border-[0.5px] border-[#FFFFFF1A]"
+                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-4 border-[0.5px] border-[#FFFFFF1A]"
                         style={{
                           backgroundImage:
                             "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -2196,15 +2283,13 @@ export function VoteInCaseStudy() {
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          height="64"
-                          viewBox="0 -960.32 2560 2560"
-                          width="64"
+                          height="48"
+                          viewBox="0 0 24 24"
+                          width="48"
+                          fill="#FFFFFF"
                           className="shrink-0"
                         >
-                          <path
-                            d="M1280 1366.536q-356.107-95.387-591.387-417.44Q453.331 627.043 453.331 223.976v-635.493l826.667-310.96 826.666 310.96V223.976q0 403.067-235.28 725.12Q1636.104 1271.149 1279.998 1366.536Zm-112-688.4L1755.491 90.643l-124.107-124.107L1167.998 429.923l-236.107-236.107-124.107 124.107L1167.998 678.136Z"
-                            fill="#FFFFFF"
-                          />
+                          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
                         </svg>
                         <div className="flex flex-col items-start gap-3 w-full">
                           <div
@@ -2226,7 +2311,7 @@ export function VoteInCaseStudy() {
                     {/* Learning Card 4: Empathy-Driven Insights */}
                     <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                       <div
-                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-3.5 border-[0.5px] border-[#FFFFFF1A]"
+                        className="flex rounded-xl overflow-hidden flex-col items-start justify-between w-full h-full min-h-[285px] p-4 border-[0.5px] border-[#FFFFFF1A]"
                         style={{
                           backgroundImage:
                             "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -2234,15 +2319,13 @@ export function VoteInCaseStudy() {
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          height="64"
-                          viewBox="0 -960.32 2560 2560"
-                          width="64"
+                          height="48"
+                          viewBox="0 0 24 24"
+                          width="48"
+                          fill="#FFFFFF"
                           className="shrink-0"
                         >
-                          <path
-                            d="M1280 480q-132.8 0-226.4-93.6Q960 292.8 960 160t93.6-226.4Q1147.2-160 1280-160t226.4 93.6Q1600 27.2 1600 160t-93.6 226.4Q1412.8 480 1280 480Zm0 880q-266.4 0-484-118-217.6-118-316-322 28.8-44.8 80.8-85.2 52-40.4 120-72.8 68-32.4 152.8-54 84.8-21.6 186.4-32 30.4 76.8 98.4 122.4 68 45.6 161.6 45.6 93.6 0 161.6-45.6 68-45.6 98.4-122.4 101.6 10.4 186.4 32 84.8 21.6 152.8 54 68 32.4 120 72.8 52 40.4 80.8 85.2-98.4 204-316 322-217.6 118-484 118Z"
-                            fill="#FFFFFF"
-                          />
+                          <path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z" />
                         </svg>
                         <div className="flex flex-col items-start gap-3 w-full">
                           <div
