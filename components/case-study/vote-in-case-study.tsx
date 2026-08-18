@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { HalftoneDots } from "@paper-design/shaders-react";
@@ -40,6 +40,7 @@ export function VoteInCaseStudy() {
   const [expandedFraud2, setExpandedFraud2] = useState(false);
   const [expandedFraud3, setExpandedFraud3] = useState(false);
   const [expandedTrust1, setExpandedTrust1] = useState(false);
+  const mockupScrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -2351,7 +2352,7 @@ export function VoteInCaseStudy() {
             {/* SEPARATOR 10 */}
             <GrungeSeparator />
 
-            {/* SECTION 11: APP DESIGN & INTERACTION FLOW (FE-1 from Paper) */}
+            {/* SECTION 11: APP DESIGN & INTERACTION FLOW (Exact FE-1 from Paper) */}
             <section
               id="app-design-interaction-flow"
               className="[font-synthesis:none] flex flex-col items-center gap-9 self-stretch justify-center antialiased w-full pb-8 scroll-mt-24"
@@ -2406,106 +2407,83 @@ export function VoteInCaseStudy() {
                     }}
                   />
 
-                  {/* Soft Edge Fade Masks */}
-                  <div className="absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#171717] via-[#171717]/80 to-transparent z-20 pointer-events-none" />
-                  <div className="absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#171717] via-[#171717]/80 to-transparent z-20 pointer-events-none" />
-
-                  {/* Infinite Scrolling Track of 6 Paper Mockups */}
-                  <div className="flex w-full overflow-hidden relative z-10 py-4 group">
-                    {/* Track 1 */}
+                  {/* Mockups Row matching Paper canvas exactly */}
+                  <div
+                    ref={mockupScrollRef}
+                    className="flex items-center gap-4 overflow-x-auto no-scrollbar scroll-smooth w-full h-full relative z-10 px-4"
+                  >
                     <div
-                      className="flex items-center gap-4 animate-marquee shrink-0 [will-change:transform] group-hover:[animation-play-state:paused]"
-                      style={{ animationDuration: "36s" }}
-                    >
-                      {[
-                        {
-                          w: "w-[242px]",
-                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/7GN69EPV75NRVXHCDTJFA6TDPZ.png",
-                        },
-                        {
-                          w: "w-[239px]",
-                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png",
-                        },
-                        {
-                          w: "w-[239px]",
-                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QHN4SN8XPHHGTMD6DE1D6.png",
-                        },
-                        {
-                          w: "w-[241px]",
-                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QDFD1C23RFRA0RJQB88JY.png",
-                        },
-                        {
-                          w: "w-[239px]",
-                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png",
-                        },
-                        {
-                          w: "w-[241px]",
-                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6BXBYPSSZPQ64C6RJNCJZMWW80.png",
-                        },
-                      ].map((mock, idx) => (
-                        <div
-                          key={`mock-a-${idx}`}
-                          className={`${mock.w} h-[490px] shrink-0 bg-cover bg-center rounded-[32px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10 transition-transform duration-300 hover:scale-[1.02]`}
-                          style={{ backgroundImage: `url(${mock.src})` }}
-                        />
-                      ))}
-                    </div>
-
-                    {/* Track 2 (Seamless loop copy) */}
+                      className="w-[242px] h-[490px] shrink-0 bg-cover bg-center rounded-[32px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/7GN69EPV75NRVXHCDTJFA6TDPZ.png)",
+                      }}
+                    />
                     <div
-                      aria-hidden="true"
-                      className="flex items-center gap-4 animate-marquee shrink-0 [will-change:transform] group-hover:[animation-play-state:paused]"
-                      style={{ animationDuration: "36s" }}
-                    >
-                      {[
-                        {
-                          w: "w-[242px]",
-                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/7GN69EPV75NRVXHCDTJFA6TDPZ.png",
-                        },
-                        {
-                          w: "w-[239px]",
-                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png",
-                        },
-                        {
-                          w: "w-[239px]",
-                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QHN4SN8XPHHGTMD6DE1D6.png",
-                        },
-                        {
-                          w: "w-[241px]",
-                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QDFD1C23RFRA0RJQB88JY.png",
-                        },
-                        {
-                          w: "w-[239px]",
-                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png",
-                        },
-                        {
-                          w: "w-[241px]",
-                          src: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6BXBYPSSZPQ64C6RJNCJZMWW80.png",
-                        },
-                      ].map((mock, idx) => (
-                        <div
-                          key={`mock-b-${idx}`}
-                          className={`${mock.w} h-[490px] shrink-0 bg-cover bg-center rounded-[32px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10 transition-transform duration-300 hover:scale-[1.02]`}
-                          style={{ backgroundImage: `url(${mock.src})` }}
-                        />
-                      ))}
-                    </div>
+                      className="w-[239px] h-[490px] shrink-0 bg-cover bg-center rounded-[32px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png)",
+                      }}
+                    />
+                    <div
+                      className="w-[239px] h-[490px] shrink-0 bg-cover bg-center rounded-[32px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QHN4SN8XPHHGTMD6DE1D6.png)",
+                      }}
+                    />
+                    <div
+                      className="w-[241px] h-[490px] shrink-0 bg-cover bg-center rounded-[32px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M09QDFD1C23RFRA0RJQB88JY.png)",
+                      }}
+                    />
+                    <div
+                      className="w-[239px] h-[490px] shrink-0 bg-cover bg-center rounded-[32px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M070C9C1JDDENP7HQ2RWSQA8.png)",
+                      }}
+                    />
+                    <div
+                      className="w-[241px] h-[490px] shrink-0 bg-cover bg-center rounded-[32px] overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.7)] border border-white/10"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6BXBYPSSZPQ64C6RJNCJZMWW80.png)",
+                      }}
+                    />
                   </div>
                 </div>
               </div>
 
-              {/* Navigation Arrows matching Paper canvas */}
+              {/* Navigation Arrows matching Paper canvas exactly */}
               <div className="flex items-start gap-3 justify-center w-full">
-                <div className="items-center h-6.5 flex w-6.5 justify-center rounded-[50%] shrink-0 [box-shadow:#0A0D120A_0px_0px_0px_1px_inset,#0A0D120D_0px_1px_2px] bg-white [border-width:0.5px] border-solid border-[#E6E6E6] cursor-pointer hover:bg-neutral-100 transition-colors">
+                <button
+                  type="button"
+                  onClick={() => {
+                    mockupScrollRef.current?.scrollBy({ left: -260, behavior: "smooth" });
+                  }}
+                  className="items-center h-6.5 flex w-6.5 justify-center rounded-[50%] shrink-0 [box-shadow:#0A0D120A_0px_0px_0px_1px_inset,#0A0D120D_0px_1px_2px] bg-white [border-width:0.5px] border-solid border-[#E6E6E6] cursor-pointer hover:bg-neutral-100 transition-colors"
+                  aria-label="Previous mockup"
+                >
                   <svg width="14" height="14" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fontSize="13.333px" style={{ height: "14px", width: "14px", overflow: "clip", flexShrink: 0 }}>
                     <path d="M12 5L7 10L12 15" fontSize="13.333px" fill="none" stroke="#463F3F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ boxSizing: "border-box", transformOrigin: "0px 0px" }} />
                   </svg>
-                </div>
-                <div className="items-center h-6.5 flex w-6.5 justify-center rounded-[50%] shrink-0 [box-shadow:#0A0D120A_0px_0px_0px_1px_inset,#0A0D120D_0px_1px_2px] bg-white [border-width:0.5px] border-solid border-[#E6E6E6] origin-center rotate-180 cursor-pointer hover:bg-neutral-100 transition-colors">
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    mockupScrollRef.current?.scrollBy({ left: 260, behavior: "smooth" });
+                  }}
+                  className="items-center h-6.5 flex w-6.5 justify-center rounded-[50%] shrink-0 [box-shadow:#0A0D120A_0px_0px_0px_1px_inset,#0A0D120D_0px_1px_2px] bg-white [border-width:0.5px] border-solid border-[#E6E6E6] origin-center rotate-180 cursor-pointer hover:bg-neutral-100 transition-colors"
+                  aria-label="Next mockup"
+                >
                   <svg width="14" height="14" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fontSize="13.333px" style={{ height: "14px", width: "14px", overflow: "clip", flexShrink: 0 }}>
                     <path d="M12 5L7 10L12 15" fontSize="13.333px" fill="none" stroke="#463F3F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ boxSizing: "border-box", transformOrigin: "0px 0px" }} />
                   </svg>
-                </div>
+                </button>
               </div>
             </section>
           </div>
