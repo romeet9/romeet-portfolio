@@ -943,43 +943,148 @@ export function EdgeCrmCaseStudy() {
                   </p>
                 </div>
 
-                {/* Primary Before & After Card in Vote IN Gradient Box */}
+                {/* Primary Annotated Before & After Card in Vote IN Gradient Box */}
                 <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                   <div
-                    className="rounded-xl overflow-hidden self-stretch flex-1 relative bg-origin-border border-[0.5px] border-[#FFFFFF1A] px-4 py-8 sm:px-8 sm:py-10 flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-14"
+                    className="rounded-xl overflow-hidden self-stretch flex-1 relative bg-origin-border border-[0.5px] border-[#FFFFFF1A] p-4 sm:p-6 flex flex-col gap-6"
                     style={{
                       backgroundImage:
                         "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                     }}
                   >
-                    {/* Before Mockup */}
-                    <div className="flex flex-col items-center gap-3.5">
-                      <img
-                        src="/projects/edge-crm/01-before.png"
-                        alt="Before redesign"
-                        className="h-[280px] sm:h-[340px] w-auto object-contain select-none pointer-events-none"
-                      />
-                      <span
-                        className="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-xs text-white font-mono backdrop-blur-md"
-                      >
+                    {/* Top Legend Badges */}
+                    <div className="flex items-center justify-between w-full border-b border-white/10 pb-3">
+                      <span className="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-xs text-white font-mono backdrop-blur-md">
                         <span className="size-1.5 rounded-full bg-[#B81919]" />
-                        BEFORE
+                        BEFORE — Unstructured Scroll
+                      </span>
+                      <span className="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-xs text-white font-mono backdrop-blur-md">
+                        <span className="size-1.5 rounded-full bg-[#10B981]" />
+                        AFTER — 3-Step Validated Flow
                       </span>
                     </div>
 
-                    {/* After Mockup */}
-                    <div className="flex flex-col items-center gap-3.5">
-                      <img
-                        src="/projects/edge-crm/06-final.png"
-                        alt="After redesign"
-                        className="h-[280px] sm:h-[340px] w-auto object-contain select-none pointer-events-none"
-                      />
-                      <span
-                        className="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-xs text-white font-mono backdrop-blur-md"
-                      >
-                        <span className="size-1.5 rounded-full bg-[#10B981]" />
-                        AFTER
-                      </span>
+                    {/* Desktop Annotated Diagram */}
+                    <div className="hidden sm:grid grid-cols-[160px_1fr_160px] gap-4 items-center relative py-2">
+                      {/* Left Before Device */}
+                      <div className="flex flex-col items-center gap-2 relative">
+                        <img
+                          src="/projects/edge-crm/01-before.png"
+                          alt="Before redesign"
+                          className="h-[380px] w-auto object-contain select-none pointer-events-none"
+                        />
+                        <span className="text-[11px] font-mono text-white/50 uppercase">Before</span>
+                      </div>
+
+                      {/* Middle Annotation Cards with Connectors */}
+                      <div className="flex flex-col gap-3 justify-center z-10">
+                        {/* Change 01 */}
+                        <div className="flex flex-col gap-1 rounded-lg border border-white/10 bg-black/60 p-2.5 backdrop-blur-md">
+                          <div className="flex items-center justify-between">
+                            <span className="font-mono text-[10px] text-white/50 uppercase tracking-wider">Change 01</span>
+                          </div>
+                          <div className="text-white text-xs font-medium" style={{ fontFamily: HELVETICA }}>
+                            Stepped flow + progress bar
+                          </div>
+                          <div className="text-[11px] text-neutral-400 leading-tight" style={{ fontFamily: HELVETICA }}>
+                            One long scroll replaced by clear 3-step sections with progress tracking.
+                          </div>
+                        </div>
+
+                        {/* Change 02 */}
+                        <div className="flex flex-col gap-1 rounded-lg border border-white/10 bg-black/60 p-2.5 backdrop-blur-md">
+                          <div className="flex items-center justify-between">
+                            <span className="font-mono text-[10px] text-white/50 uppercase tracking-wider">Change 02</span>
+                          </div>
+                          <div className="text-white text-xs font-medium" style={{ fontFamily: HELVETICA }}>
+                            Notification banner
+                          </div>
+                          <div className="text-[11px] text-neutral-400 leading-tight" style={{ fontFamily: HELVETICA }}>
+                            Proactive alerts flag missing required fields before form submission.
+                          </div>
+                        </div>
+
+                        {/* Change 03 */}
+                        <div className="flex flex-col gap-1 rounded-lg border border-white/10 bg-black/60 p-2.5 backdrop-blur-md">
+                          <div className="flex items-center justify-between">
+                            <span className="font-mono text-[10px] text-white/50 uppercase tracking-wider">Change 03</span>
+                          </div>
+                          <div className="text-white text-xs font-medium" style={{ fontFamily: HELVETICA }}>
+                            Grouped, pre-filled fields
+                          </div>
+                          <div className="text-[11px] text-neutral-400 leading-tight" style={{ fontFamily: HELVETICA }}>
+                            Known CRM values pre-filled with green verification checkmarks.
+                          </div>
+                        </div>
+
+                        {/* Change 04 */}
+                        <div className="flex flex-col gap-1 rounded-lg border border-white/10 bg-black/60 p-2.5 backdrop-blur-md">
+                          <div className="flex items-center justify-between">
+                            <span className="font-mono text-[10px] text-white/50 uppercase tracking-wider">Change 04</span>
+                          </div>
+                          <div className="text-white text-xs font-medium" style={{ fontFamily: HELVETICA }}>
+                            Full-width sticky CTA
+                          </div>
+                          <div className="text-[11px] text-neutral-400 leading-tight" style={{ fontFamily: HELVETICA }}>
+                            One prominent primary action button always positioned within thumb reach.
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right After Device */}
+                      <div className="flex flex-col items-center gap-2 relative">
+                        <img
+                          src="/projects/edge-crm/06-final.png"
+                          alt="After redesign"
+                          className="h-[380px] w-auto object-contain select-none pointer-events-none"
+                        />
+                        <span className="text-[11px] font-mono text-emerald-400/80 uppercase">After</span>
+                      </div>
+                    </div>
+
+                    {/* Mobile Annotated Diagram */}
+                    <div className="flex flex-col gap-5 sm:hidden">
+                      <div className="flex items-center justify-center gap-4">
+                        <div className="flex flex-col items-center gap-1.5">
+                          <img
+                            src="/projects/edge-crm/01-before.png"
+                            alt="Before"
+                            className="h-[220px] w-auto object-contain"
+                          />
+                          <span className="text-[10px] font-mono text-white/50 uppercase">Before</span>
+                        </div>
+                        <div className="flex flex-col items-center gap-1.5">
+                          <img
+                            src="/projects/edge-crm/06-final.png"
+                            alt="After"
+                            className="h-[220px] w-auto object-contain"
+                          />
+                          <span className="text-[10px] font-mono text-emerald-400/80 uppercase">After</span>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col gap-2.5">
+                        <div className="rounded-lg border border-white/10 bg-black/60 p-3">
+                          <span className="font-mono text-[10px] text-white/50 uppercase">Change 01</span>
+                          <div className="text-white text-xs font-medium mt-0.5">Stepped flow + progress bar</div>
+                          <div className="text-[11px] text-neutral-400 mt-1">One long scroll replaced by 3 stepped sections.</div>
+                        </div>
+                        <div className="rounded-lg border border-white/10 bg-black/60 p-3">
+                          <span className="font-mono text-[10px] text-white/50 uppercase">Change 02</span>
+                          <div className="text-white text-xs font-medium mt-0.5">Notification banner</div>
+                          <div className="text-[11px] text-neutral-400 mt-1">Proactive alerts flag issues before submit.</div>
+                        </div>
+                        <div className="rounded-lg border border-white/10 bg-black/60 p-3">
+                          <span className="font-mono text-[10px] text-white/50 uppercase">Change 03</span>
+                          <div className="text-white text-xs font-medium mt-0.5">Grouped, pre-filled fields</div>
+                          <div className="text-[11px] text-neutral-400 mt-1">Known values pre-filled with green ticks.</div>
+                        </div>
+                        <div className="rounded-lg border border-white/10 bg-black/60 p-3">
+                          <span className="font-mono text-[10px] text-white/50 uppercase">Change 04</span>
+                          <div className="text-white text-xs font-medium mt-0.5">Full-width sticky CTA</div>
+                          <div className="text-[11px] text-neutral-400 mt-1">Prominent primary button in thumb reach.</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
