@@ -15,55 +15,55 @@ export function EdgeCrmTestCaseStudy() {
     <div className="relative min-h-screen w-full" style={{ background: "transparent" }}>
       {/* Fixed Left Navigation */}
       <nav
-        className="fixed top-1/2 -translate-y-1/2 z-30 flex-col items-start gap-4.5 hidden xl:flex"
+        className="fixed top-1/2 -translate-y-1/2 z-30 flex-col items-start gap-4.5 hidden lg:flex pointer-events-auto"
         style={{ left: "max(24px, calc(50% - 460px))" }}
         aria-label="Table of contents"
       >
-        <div className="items-center flex gap-3">
+        <div className="items-center flex gap-3 cursor-pointer group">
           <div className="shrink-0 rounded-[50%] bg-[#B81919] size-1.5" />
-          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white">
+          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white font-medium">
             About
           </div>
         </div>
-        <div className="items-center flex gap-3">
-          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555]" />
-          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F]">
+        <div className="items-center flex gap-3 cursor-pointer group">
+          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555] group-hover:bg-neutral-300 transition-colors" />
+          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F] group-hover:text-white transition-colors">
             Phase I
           </div>
         </div>
-        <div className="items-center flex gap-3">
-          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555]" />
-          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F]">
+        <div className="items-center flex gap-3 cursor-pointer group">
+          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555] group-hover:bg-neutral-300 transition-colors" />
+          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F] group-hover:text-white transition-colors">
             The Problem
           </div>
         </div>
-        <div className="items-center flex gap-3">
-          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555]" />
-          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F]">
+        <div className="items-center flex gap-3 cursor-pointer group">
+          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555] group-hover:bg-neutral-300 transition-colors" />
+          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F] group-hover:text-white transition-colors">
             Phase II
           </div>
         </div>
-        <div className="items-center flex gap-3">
-          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555]" />
-          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F]">
+        <div className="items-center flex gap-3 cursor-pointer group">
+          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555] group-hover:bg-neutral-300 transition-colors" />
+          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F] group-hover:text-white transition-colors">
             Fluid Interface
           </div>
         </div>
-        <div className="items-center flex gap-3">
-          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555]" />
-          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F]">
+        <div className="items-center flex gap-3 cursor-pointer group">
+          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555] group-hover:bg-neutral-300 transition-colors" />
+          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F] group-hover:text-white transition-colors">
             Solving for 3Ts
           </div>
         </div>
-        <div className="items-center flex gap-3">
-          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555]" />
-          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F]">
+        <div className="items-center flex gap-3 cursor-pointer group">
+          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555] group-hover:bg-neutral-300 transition-colors" />
+          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F] group-hover:text-white transition-colors">
             Impact
           </div>
         </div>
-        <div className="items-center flex gap-3">
-          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555]" />
-          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F]">
+        <div className="items-center flex gap-3 cursor-pointer group">
+          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555] group-hover:bg-neutral-300 transition-colors" />
+          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F] group-hover:text-white transition-colors">
             Reflection
           </div>
         </div>

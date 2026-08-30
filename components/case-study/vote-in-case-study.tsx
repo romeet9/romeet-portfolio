@@ -129,12 +129,12 @@ export function VoteInCaseStudy() {
       {/* ========================================================================= */}
       {/* FIXED LEFT-SIDE NAVIGATION (Borderless floating text + indicator dot)     */}
       {/* ========================================================================= */}
-      <aside
-        className="hidden xl:flex fixed left-8 2xl:left-14 top-1/2 -translate-y-1/2 z-50 pointer-events-auto flex-col gap-[18px]"
+      <nav
+        className="fixed top-1/2 -translate-y-1/2 z-30 flex-col items-start gap-4.5 hidden lg:flex pointer-events-auto"
         style={{
-          width: "150px",
+          left: "max(24px, calc(50% - 460px))",
         }}
-        aria-label="Case study sections"
+        aria-label="Table of contents"
       >
         {SECTIONS.map((sec) => {
           const isActive = activeSection === sec.id;
@@ -148,20 +148,20 @@ export function VoteInCaseStudy() {
               className="group flex items-center gap-3 text-left transition-colors cursor-pointer"
             >
               <div
-                className={`size-1.5 shrink-0 rounded-full transition-all ${
+                className={`size-1.5 shrink-0 rounded-[50%] transition-all ${
                   isActive
                     ? "bg-[#B81919] scale-110"
-                    : "bg-transparent group-hover:bg-neutral-600"
+                    : "bg-[#555] group-hover:bg-neutral-300"
                 }`}
               />
               <span
                 style={{
                   fontFamily: HELVETICA,
-                  fontSize: "14px",
+                  fontSize: "15px",
                   lineHeight: "100%",
                   letterSpacing: "normal",
                   color: isActive ? "#FFFFFF" : "#8F8F8F",
-                  fontWeight: 400,
+                  fontWeight: isActive ? 500 : 400,
                 }}
                 className="transition-colors group-hover:text-white"
               >
@@ -170,35 +170,21 @@ export function VoteInCaseStudy() {
             </button>
           );
         })}
-      </aside>
+      </nav>
 
       {/* ========================================================================= */}
       {/* FIXED BACK BUTTON (Anchored on the left margin of the centered column)    */}
       {/* ========================================================================= */}
-      <div className="hidden sm:block fixed top-24 left-[max(20px,calc(50%-360px))] z-50">
-        <Link
-          href="/case-studies"
-          className="group flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white border border-[#E6E6E6] shadow-[inset_0_0_0_1px_rgba(10,13,18,0.04),0_1px_2px_rgba(10,13,18,0.08)] transition-transform hover:scale-105 active:scale-95"
-          aria-label="Back to Case Studies"
-        >
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="shrink-0 transition-transform group-hover:-translate-x-0.5"
-          >
-            <path
-              d="M12 5L7 10L12 15"
-              stroke="#463F3F"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </Link>
-      </div>
+      <Link
+        href="/case-studies"
+        className="fixed z-30 top-8 items-center h-6.5 hidden sm:flex w-6.5 justify-center rounded-[50%] shrink-0 [box-shadow:#0A0D120A_0px_0px_0px_1px_inset,#0A0D120D_0px_1px_2px] bg-white [border-width:0.5px] border-solid border-[#E6E6E6] hover:scale-105 transition-transform"
+        style={{ left: "max(24px, calc(50% - 360px))" }}
+        aria-label="Back to case studies"
+      >
+        <svg width="14" height="14" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fontSize="13.333px" style={{ height: "14px", width: "14px", overflow: "clip", flexShrink: "0" }}>
+          <path d="M12 5L7 10L12 15" fontSize="13.333px" fill="none" stroke="#463F3F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ boxSizing: "border-box", transformOrigin: "0px 0px" }} />
+        </svg>
+      </Link>
 
       {/* ========================================================================= */}
       {/* CENTER-ALIGNED MAIN READING CONTAINER (600px column centered in screen)   */}

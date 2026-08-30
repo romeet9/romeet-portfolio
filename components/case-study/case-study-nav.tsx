@@ -63,10 +63,10 @@ export function CaseStudyNav({ items }: { items: CaseStudyNavItem[] }) {
   };
 
   return (
-    <aside
-      className="hidden xl:flex fixed left-8 2xl:left-14 top-1/2 -translate-y-1/2 z-50 pointer-events-auto flex-col gap-[18px]"
-      style={{ width: "150px" }}
-      aria-label="Case study sections"
+    <nav
+      className="fixed top-1/2 -translate-y-1/2 z-30 flex-col items-start gap-4.5 hidden lg:flex pointer-events-auto"
+      style={{ left: "max(24px, calc(50% - 460px))", width: "150px" }}
+      aria-label="Table of contents"
     >
       {items.map((sec) => {
         const isActive = active === sec.id;
@@ -81,22 +81,23 @@ export function CaseStudyNav({ items }: { items: CaseStudyNavItem[] }) {
             className="group flex items-center gap-3 text-left transition-colors cursor-pointer"
           >
             <div
-              className={`size-1.5 shrink-0 rounded-full transition-all ${
+              className={`size-1.5 shrink-0 rounded-[50%] transition-all ${
                 isActive
                   ? "bg-[#B81919] scale-110"
-                  : "bg-transparent group-hover:bg-neutral-600"
+                  : "bg-[#555] group-hover:bg-neutral-300"
               }`}
             />
             <span
               style={{
                 fontFamily: HELVETICA,
-                fontSize: "14px",
-                lineHeight: "20px",
+                fontSize: "15px",
+                lineHeight: "100%",
+                letterSpacing: "normal",
               }}
               className={`transition-colors select-none ${
                 isActive
                   ? "text-white font-medium"
-                  : "text-[#747474] font-normal group-hover:text-neutral-300"
+                  : "text-[#8F8F8F] font-normal group-hover:text-white"
               }`}
             >
               {sec.label}
@@ -104,6 +105,6 @@ export function CaseStudyNav({ items }: { items: CaseStudyNavItem[] }) {
           </button>
         );
       })}
-    </aside>
+    </nav>
   );
 }
