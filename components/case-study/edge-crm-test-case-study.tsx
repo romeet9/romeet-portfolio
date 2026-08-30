@@ -15,8 +15,8 @@ export function EdgeCrmTestCaseStudy() {
     <div className="relative min-h-screen w-full" style={{ background: "transparent" }}>
       {/* Fixed Left Navigation */}
       <nav
-        className="fixed top-1/2 -translate-y-1/2 z-30 flex-col items-start gap-4.5 hidden lg:flex"
-        style={{ left: "max(20px, calc(50% - 380px))" }}
+        className="fixed top-1/2 -translate-y-1/2 z-30 flex-col items-start gap-4.5 hidden xl:flex"
+        style={{ left: "max(24px, calc(50% - 460px))" }}
         aria-label="Table of contents"
       >
         <div className="items-center flex gap-3">
@@ -72,8 +72,8 @@ export function EdgeCrmTestCaseStudy() {
       {/* Fixed Back Button */}
       <Link
         href="/case-studies"
-        className="fixed z-30 top-8 items-center h-6.5 flex w-6.5 justify-center rounded-[50%] shrink-0 [box-shadow:#0A0D120A_0px_0px_0px_1px_inset,#0A0D120D_0px_1px_2px] bg-white [border-width:0.5px] border-solid border-[#E6E6E6]"
-        style={{ left: "max(20px, calc(50% - 360px))" }}
+        className="fixed z-30 top-8 items-center h-6.5 hidden sm:flex w-6.5 justify-center rounded-[50%] shrink-0 [box-shadow:#0A0D120A_0px_0px_0px_1px_inset,#0A0D120D_0px_1px_2px] bg-white [border-width:0.5px] border-solid border-[#E6E6E6] hover:scale-105 transition-transform"
+        style={{ left: "max(24px, calc(50% - 360px))" }}
         aria-label="Back to case studies"
       >
         <svg width="14" height="14" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fontSize="13.333px" style={{ height: "14px", width: "14px", overflow: "clip", flexShrink: "0" }}>
