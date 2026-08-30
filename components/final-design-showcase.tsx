@@ -1,28 +1,32 @@
 import Image from "next/image";
 
-/** A premium hero showcase for the final design: framed mockup on the signature
- * Vote IN Paper Bento container backdrop. */
+import { Ambient } from "@/components/before-after-showcase";
+
+/** A premium hero showcase for the final design: the framed mockup floating on
+ * the same dark "spotlight" backdrop used by the before/after and diagram
+ * sections, with a soft glow behind the device. */
 export function FinalDesignShowcase({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shrink-0 [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+    <div className="relative overflow-hidden rounded-2xl bg-[#0c0c0e] px-6 py-16 ring-1 ring-white/[0.07] sm:py-24">
+      <Ambient centerY={48} />
+      {/* soft spotlight directly behind the device */}
       <div
-        className="rounded-xl overflow-hidden self-stretch flex-1 relative bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A] px-6 py-16 sm:py-24 flex items-center justify-center"
+        className="pointer-events-none absolute top-1/2 left-1/2 size-[26rem] -translate-x-1/2 -translate-y-1/2"
         style={{
-          backgroundImage:
-            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+          background:
+            "radial-gradient(circle, rgba(255,255,255,0.10), transparent 62%)",
         }}
-      >
-        <div className="relative flex justify-center">
-          <Image
-            src={src}
-            alt={alt}
-            width={1812}
-            height={3648}
-            sizes="(min-width: 640px) 330px, 250px"
-            quality={95}
-            className="h-auto w-[250px] max-w-full select-none drop-shadow-[0_25px_50px_rgba(0,0,0,0.65)] sm:w-[330px]"
-          />
-        </div>
+      />
+      <div className="relative flex justify-center">
+        <Image
+          src={src}
+          alt={alt}
+          width={1812}
+          height={3648}
+          sizes="(min-width: 640px) 330px, 250px"
+          quality={95}
+          className="h-auto w-[250px] max-w-full select-none drop-shadow-[0_50px_90px_rgba(0,0,0,0.65)] sm:w-[330px]"
+        />
       </div>
     </div>
   );
