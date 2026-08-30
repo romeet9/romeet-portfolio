@@ -56,7 +56,7 @@ import {
   TimeToAnswerChart,
 } from "@/components/case-study-charts";
 import { JourneyTimeline } from "@/components/journey-timeline";
-import { CaseStudyNav } from "@/components/case-study/case-study-nav";
+import { CaseStudyNav, CaseStudyBackButton } from "@/components/case-study/case-study-nav";
 import { VoteInCaseStudy } from "@/components/case-study/vote-in-case-study";
 import { EdgeCrmCaseStudy } from "@/components/case-study/edge-crm-case-study";
 import { cn } from "@/lib/utils";
@@ -450,8 +450,9 @@ export default async function CaseStudyPage({ params, searchParams }: Params) {
         fontFamily: HELVETICA,
       }}
     >
-      {/* Floating Side Navigation matching Vote IN */}
+      {/* Floating Side Navigation & Back Button matching Vote IN template */}
       <CaseStudyNav items={navItems} />
+      <CaseStudyBackButton href={backHref} />
 
       <article className="mx-auto flex w-full max-w-5xl flex-col gap-12">
         {/* Back Link */}

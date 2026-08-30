@@ -3,6 +3,18 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { HalftoneDots } from "@paper-design/shaders-react";
+import { CaseStudyNav, CaseStudyBackButton } from "./case-study-nav";
+
+const SECTIONS = [
+  { id: "about", label: "About" },
+  { id: "phase-1", label: "Phase I" },
+  { id: "the-problem", label: "The Problem" },
+  { id: "phase-2", label: "Phase II" },
+  { id: "fluid-interface", label: "Fluid Interface" },
+  { id: "solving-3ts", label: "Solving for 3Ts" },
+  { id: "impact", label: "Impact" },
+  { id: "reflection", label: "Reflection" },
+];
 
 export function EdgeCrmTestCaseStudy() {
   const [mounted, setMounted] = useState(false);
@@ -12,77 +24,13 @@ export function EdgeCrmTestCaseStudy() {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full" style={{ background: "transparent" }}>
-      {/* Fixed Left Navigation */}
-      <nav
-        className="fixed top-1/2 -translate-y-1/2 z-30 flex-col items-start gap-4.5 hidden xl:flex pointer-events-auto"
-        style={{ left: "max(24px, calc(50% - 530px))" }}
-        aria-label="Table of contents"
-      >
-        <div className="items-center flex gap-3 cursor-pointer group">
-          <div className="shrink-0 rounded-[50%] bg-[#B81919] size-1.5" />
-          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white font-medium">
-            About
-          </div>
-        </div>
-        <div className="items-center flex gap-3 cursor-pointer group">
-          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555] group-hover:bg-neutral-300 transition-colors" />
-          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F] group-hover:text-white transition-colors">
-            Phase I
-          </div>
-        </div>
-        <div className="items-center flex gap-3 cursor-pointer group">
-          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555] group-hover:bg-neutral-300 transition-colors" />
-          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F] group-hover:text-white transition-colors">
-            The Problem
-          </div>
-        </div>
-        <div className="items-center flex gap-3 cursor-pointer group">
-          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555] group-hover:bg-neutral-300 transition-colors" />
-          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F] group-hover:text-white transition-colors">
-            Phase II
-          </div>
-        </div>
-        <div className="items-center flex gap-3 cursor-pointer group">
-          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555] group-hover:bg-neutral-300 transition-colors" />
-          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F] group-hover:text-white transition-colors">
-            Fluid Interface
-          </div>
-        </div>
-        <div className="items-center flex gap-3 cursor-pointer group">
-          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555] group-hover:bg-neutral-300 transition-colors" />
-          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F] group-hover:text-white transition-colors">
-            Solving for 3Ts
-          </div>
-        </div>
-        <div className="items-center flex gap-3 cursor-pointer group">
-          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555] group-hover:bg-neutral-300 transition-colors" />
-          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F] group-hover:text-white transition-colors">
-            Impact
-          </div>
-        </div>
-        <div className="items-center flex gap-3 cursor-pointer group">
-          <div className="shrink-0 rounded-[50%] size-1.5 bg-[#555] group-hover:bg-neutral-300 transition-colors" />
-          <div className="inline-block text-[15px] leading-[100%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#8F8F8F] group-hover:text-white transition-colors">
-            Reflection
-          </div>
-        </div>
-      </nav>
-
-      {/* Fixed Back Button */}
-      <Link
-        href="/case-studies"
-        className="fixed z-30 top-8 items-center h-6.5 hidden sm:flex w-6.5 justify-center rounded-[50%] shrink-0 [box-shadow:#0A0D120A_0px_0px_0px_1px_inset,#0A0D120D_0px_1px_2px] bg-white [border-width:0.5px] border-solid border-[#E6E6E6] hover:scale-105 transition-transform"
-        style={{ left: "max(24px, calc(50% - 360px))" }}
-        aria-label="Back to case studies"
-      >
-        <svg width="14" height="14" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fontSize="13.333px" style={{ height: "14px", width: "14px", overflow: "clip", flexShrink: "0" }}>
-          <path d="M12 5L7 10L12 15" fontSize="13.333px" fill="none" stroke="#463F3F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ boxSizing: "border-box", transformOrigin: "0px 0px" }} />
-        </svg>
-      </Link>
+    <div className="relative w-full text-white antialiased pt-16 sm:pt-20 pb-36 px-4" style={{ background: "transparent" }}>
+      {/* FIXED LEFT-SIDE NAVIGATION & BACK BUTTON */}
+      <CaseStudyNav items={SECTIONS} />
+      <CaseStudyBackButton href="/case-studies" />
 
       {/* Main 600px Content Column */}
-      <main className="mx-auto max-w-[600px] px-4 pt-16 sm:pt-20 pb-36 flex flex-col">
+      <main className="mx-auto max-w-[600px] flex flex-col">
 <div className="[font-synthesis:none] wrap-anywhere flex flex-col items-start gap-11 w-149.5 shrink-0 antialiased text-xs/4">
       <div className="flex flex-col items-center gap-10.75 pb-4 border-b border-b-solid border-b-[#FFFFFF33]">
         <div className="tracking-[-0.02em] w-150 font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-[26px]/8">

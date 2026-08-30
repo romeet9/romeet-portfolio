@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { HalftoneDots } from "@paper-design/shaders-react";
+import { CaseStudyNav, CaseStudyBackButton } from "./case-study-nav";
 
 const SECTIONS = [
   { id: "about", label: "About" },
@@ -127,64 +128,10 @@ export function VoteInCaseStudy() {
       }}
     >
       {/* ========================================================================= */}
-      {/* FIXED LEFT-SIDE NAVIGATION (Borderless floating text + indicator dot)     */}
+      {/* FIXED LEFT-SIDE NAVIGATION & BACK BUTTON (Anchored to the left margin)    */}
       {/* ========================================================================= */}
-      <nav
-        className="fixed top-1/2 -translate-y-1/2 z-30 flex-col items-start gap-4.5 hidden xl:flex pointer-events-auto"
-        style={{
-          left: "max(24px, calc(50% - 530px))",
-        }}
-        aria-label="Table of contents"
-      >
-        {SECTIONS.map((sec) => {
-          const isActive = activeSection === sec.id;
-          return (
-            <button
-              key={sec.id}
-              onClick={() => {
-                setActiveSection(sec.id);
-                scrollTo(sec.id);
-              }}
-              className="group flex items-center gap-3 text-left transition-colors cursor-pointer"
-            >
-              <div
-                className={`size-1.5 shrink-0 rounded-[50%] transition-all ${
-                  isActive
-                    ? "bg-[#B81919] scale-110"
-                    : "bg-[#555] group-hover:bg-neutral-300"
-                }`}
-              />
-              <span
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "15px",
-                  lineHeight: "100%",
-                  letterSpacing: "normal",
-                  color: isActive ? "#FFFFFF" : "#8F8F8F",
-                  fontWeight: isActive ? 500 : 400,
-                }}
-                className="transition-colors group-hover:text-white"
-              >
-                {sec.label}
-              </span>
-            </button>
-          );
-        })}
-      </nav>
-
-      {/* ========================================================================= */}
-      {/* FIXED BACK BUTTON (Anchored on the left margin of the centered column)    */}
-      {/* ========================================================================= */}
-      <Link
-        href="/case-studies"
-        className="fixed z-30 top-8 items-center h-6.5 hidden sm:flex w-6.5 justify-center rounded-[50%] shrink-0 [box-shadow:#0A0D120A_0px_0px_0px_1px_inset,#0A0D120D_0px_1px_2px] bg-white [border-width:0.5px] border-solid border-[#E6E6E6] hover:scale-105 transition-transform"
-        style={{ left: "max(24px, calc(50% - 360px))" }}
-        aria-label="Back to case studies"
-      >
-        <svg width="14" height="14" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fontSize="13.333px" style={{ height: "14px", width: "14px", overflow: "clip", flexShrink: "0" }}>
-          <path d="M12 5L7 10L12 15" fontSize="13.333px" fill="none" stroke="#463F3F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ boxSizing: "border-box", transformOrigin: "0px 0px" }} />
-        </svg>
-      </Link>
+      <CaseStudyNav items={SECTIONS} />
+      <CaseStudyBackButton href="/case-studies" />
 
       {/* ========================================================================= */}
       {/* CENTER-ALIGNED MAIN READING CONTAINER (600px column centered in screen)   */}

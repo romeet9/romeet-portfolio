@@ -1,18 +1,59 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export type CaseStudyNavItem = { id: string; label: string };
 
-const HELVETICA =
+export const HELVETICA =
   "\"Helvetica Neue\", Helvetica, Arial, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif";
 
 /**
- * The floating scroll-spy navigation matching the Vote IN case study side nav bar.
- * Renders borderless section labels with active red indicator dot (#B81919).
+ * Standard Floating Back Button for Case Studies.
+ * Anchored to the top-left margin (left-8 2xl:left-14).
  */
-export function CaseStudyNav({ items }: { items: CaseStudyNavItem[] }) {
-  const [active, setActive] = useState(items[0]?.id ?? "");
+export function CaseStudyBackButton({ href = "/case-studies" }: { href?: string }) {
+  return (
+    <Link
+      href={href}
+      className="fixed z-50 top-8 left-8 2xl:left-14 items-center h-7 w-7 hidden sm:flex justify-center rounded-full shrink-0 shadow-[inset_0_0_0_1px_rgba(10,13,18,0.04),0_1px_2px_rgba(10,13,18,0.08)] bg-white border border-[#E6E6E6] hover:scale-105 active:scale-95 transition-transform"
+      aria-label="Back to case studies"
+    >
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="shrink-0 transition-transform group-hover:-translate-x-0.5"
+      >
+        <path
+          d="M12 5L7 10L12 15"
+          stroke="#463F3F"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </Link>
+  );
+}
+
+/**
+ * Standard Floating Scroll-Spy Sidebar Navigation for Case Studies.
+ * Anchored to the extreme left margin (left-8 2xl:left-14) vertically centered.
+ */
+export function CaseStudyNav({
+  items,
+  activeId,
+  onSelect,
+}: {
+  items: CaseStudyNavItem[];
+  activeId?: string;
+  onSelect?: (id: string) => void;
+}) {
+  const [internalActive, setInternalActive] = useState(items[0]?.id ?? "");
+  const active = activeId !== undefined ? activeId : internalActive;
 
   useEffect(() => {
     let raf = 0;
@@ -43,7 +84,7 @@ export function CaseStudyNav({ items }: { items: CaseStudyNavItem[] }) {
         current = elements[elements.length - 1].id;
       }
 
-      setActive(current);
+      setInternalActive(current);
     };
 
     raf = requestAnimationFrame(syncActive);
@@ -51,6 +92,8 @@ export function CaseStudyNav({ items }: { items: CaseStudyNavItem[] }) {
   }, [items]);
 
   const scrollTo = (id: string) => {
+    if (onSelect) onSelect(id);
+    setInternalActive(id);
     const el = document.getElementById(id);
     if (!el) return;
     const lenis = (window as unknown as { __lenis?: { scrollTo: (t: HTMLElement, o?: object) => void } })
@@ -64,8 +107,7 @@ export function CaseStudyNav({ items }: { items: CaseStudyNavItem[] }) {
 
   return (
     <nav
-      className="fixed top-1/2 -translate-y-1/2 z-30 flex-col items-start gap-4.5 hidden xl:flex pointer-events-auto"
-      style={{ left: "max(24px, calc(50% - 530px))", width: "150px" }}
+      className="hidden xl:flex fixed left-8 2xl:left-14 top-1/2 -translate-y-1/2 z-50 pointer-events-auto flex-col items-start gap-[18px] w-[150px]"
       aria-label="Table of contents"
     >
       {items.map((sec) => {
@@ -74,10 +116,7 @@ export function CaseStudyNav({ items }: { items: CaseStudyNavItem[] }) {
           <button
             key={sec.id}
             type="button"
-            onClick={() => {
-              setActive(sec.id);
-              scrollTo(sec.id);
-            }}
+            onClick={() => scrollTo(sec.id)}
             className="group flex items-center gap-3 text-left transition-colors cursor-pointer"
           >
             <div
