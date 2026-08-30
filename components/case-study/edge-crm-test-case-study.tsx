@@ -15,8 +15,8 @@ export function EdgeCrmTestCaseStudy() {
     <div className="relative min-h-screen w-full" style={{ background: "transparent" }}>
       {/* Fixed Left Navigation */}
       <nav
-        className="fixed top-1/2 -translate-y-1/2 z-30 flex-col items-start gap-4.5 hidden lg:flex pointer-events-auto"
-        style={{ left: "max(24px, calc(50% - 460px))" }}
+        className="fixed top-1/2 -translate-y-1/2 z-30 flex-col items-start gap-4.5 hidden xl:flex pointer-events-auto"
+        style={{ left: "max(24px, calc(50% - 530px))" }}
         aria-label="Table of contents"
       >
         <div className="items-center flex gap-3 cursor-pointer group">

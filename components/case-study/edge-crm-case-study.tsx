@@ -131,9 +131,9 @@ export function EdgeCrmCaseStudy() {
       {/* FIXED LEFT-SIDE NAVIGATION (Borderless floating text + indicator dot)     */}
       {/* ========================================================================= */}
       <nav
-        className="fixed top-1/2 -translate-y-1/2 z-30 flex-col items-start gap-4.5 hidden lg:flex pointer-events-auto"
+        className="fixed top-1/2 -translate-y-1/2 z-30 flex-col items-start gap-4.5 hidden xl:flex pointer-events-auto"
         style={{
-          left: "max(24px, calc(50% - 460px))",
+          left: "max(24px, calc(50% - 530px))",
         }}
         aria-label="Table of contents"
       >

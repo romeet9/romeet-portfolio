@@ -64,8 +64,8 @@ export function CaseStudyNav({ items }: { items: CaseStudyNavItem[] }) {
 
   return (
     <nav
-      className="fixed top-1/2 -translate-y-1/2 z-30 flex-col items-start gap-4.5 hidden lg:flex pointer-events-auto"
-      style={{ left: "max(24px, calc(50% - 460px))", width: "150px" }}
+      className="fixed top-1/2 -translate-y-1/2 z-30 flex-col items-start gap-4.5 hidden xl:flex pointer-events-auto"
+      style={{ left: "max(24px, calc(50% - 530px))", width: "150px" }}
       aria-label="Table of contents"
     >
       {items.map((sec) => {
