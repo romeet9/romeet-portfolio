@@ -120,7 +120,7 @@ export function VoteInCaseStudy() {
 
   return (
     <div
-      className="relative w-full text-white antialiased pt-16 sm:pt-20 lg:pt-28 pb-36 px-4"
+      className="relative w-full text-white antialiased pt-20 sm:pt-24 lg:pt-28 pb-36 px-4"
       style={{
         fontFamily: HELVETICA,
         letterSpacing: "normal",
@@ -131,36 +131,12 @@ export function VoteInCaseStudy() {
       {/* FIXED LEFT-SIDE NAVIGATION & BACK BUTTON (Anchored to the left margin)    */}
       {/* ========================================================================= */}
       <CaseStudyNav items={SECTIONS} />
-      <CaseStudyBackButton href="/case-studies" />
 
       {/* ========================================================================= */}
       {/* CENTER-ALIGNED MAIN READING CONTAINER (600px column centered in screen)   */}
       {/* ========================================================================= */}
       <div className="relative mx-auto w-full max-w-[600px]">
-        {/* Mobile-only back button */}
-        <div className="sm:hidden mb-6">
-          <Link
-            href="/case-studies"
-            className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white border border-[#E6E6E6] shadow-xs"
-            aria-label="Back to Case Studies"
-          >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 5L7 10L12 15"
-                stroke="#463F3F"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Link>
-        </div>
+        <CaseStudyBackButton href="/case-studies" />
 
         {/* Content Column */}
         <main className="flex w-full flex-col items-start gap-12">

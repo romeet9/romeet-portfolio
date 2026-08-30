@@ -445,7 +445,7 @@ export default async function CaseStudyPage({ params, searchParams }: Params) {
 
   return (
     <div
-      className="relative w-full text-white antialiased pt-8 sm:pt-12 pb-36 px-4"
+      className="relative w-full text-white antialiased pt-20 sm:pt-24 lg:pt-28 pb-36 px-4"
       style={{
         fontFamily: HELVETICA,
       }}

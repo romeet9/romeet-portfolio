@@ -24,13 +24,14 @@ export function EdgeCrmTestCaseStudy() {
   }, []);
 
   return (
-    <div className="relative w-full text-white antialiased pt-16 sm:pt-20 pb-36 px-4" style={{ background: "transparent" }}>
-      {/* FIXED LEFT-SIDE NAVIGATION & BACK BUTTON */}
+    <div className="relative w-full text-white antialiased pt-20 sm:pt-24 lg:pt-28 pb-36 px-4" style={{ background: "transparent" }}>
+      {/* FIXED LEFT-SIDE NAVIGATION */}
       <CaseStudyNav items={SECTIONS} />
-      <CaseStudyBackButton href="/case-studies" />
 
       {/* Main 600px Content Column */}
-      <main className="mx-auto max-w-[600px] flex flex-col">
+      <div className="relative mx-auto w-full max-w-[600px]">
+        <CaseStudyBackButton href="/case-studies" />
+        <main className="flex flex-col">
 <div className="[font-synthesis:none] wrap-anywhere flex flex-col items-start gap-11 w-149.5 shrink-0 antialiased text-xs/4">
       <div className="flex flex-col items-center gap-10.75 pb-4 border-b border-b-solid border-b-[#FFFFFF33]">
         <div className="tracking-[-0.02em] w-150 font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-[26px]/8">
@@ -475,6 +476,7 @@ export function EdgeCrmTestCaseStudy() {
       </div>
     </div>
       </main>
+      </div>
     </div>
   );
 }

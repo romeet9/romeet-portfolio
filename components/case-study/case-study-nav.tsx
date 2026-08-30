@@ -10,32 +10,88 @@ export const HELVETICA =
 
 /**
  * Standard Floating Back Button for Case Studies.
- * Anchored to the top-left margin (left-8 2xl:left-14).
+ * Anchored directly beside the case study header on desktop (top-20 sm:top-24 lg:top-28 left-[max(20px,calc(50%-360px))]),
+ * with inline fallback on mobile.
  */
 export function CaseStudyBackButton({ href = "/case-studies" }: { href?: string }) {
   return (
-    <Link
-      href={href}
-      className="fixed z-50 top-8 left-8 2xl:left-14 items-center h-7 w-7 hidden sm:flex justify-center rounded-full shrink-0 shadow-[inset_0_0_0_1px_rgba(10,13,18,0.04),0_1px_2px_rgba(10,13,18,0.08)] bg-white border border-[#E6E6E6] hover:scale-105 active:scale-95 transition-transform"
-      aria-label="Back to case studies"
-    >
-      <svg
-        width="14"
-        height="14"
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="shrink-0 transition-transform group-hover:-translate-x-0.5"
+    <>
+      {/* Desktop Back Button: Anchored beside the case study header */}
+      <Link
+        href={href}
+        className="fixed z-40 top-20 sm:top-24 lg:top-28 left-[max(20px,calc(50%-360px))] items-center h-7 w-7 hidden sm:flex justify-center rounded-full shrink-0 shadow-[inset_0_0_0_1px_rgba(10,13,18,0.04),0_1px_2px_rgba(10,13,18,0.08)] bg-white border border-[#E6E6E6] hover:scale-105 active:scale-95 transition-transform"
+        aria-label="Back to case studies"
       >
-        <path
-          d="M12 5L7 10L12 15"
-          stroke="#463F3F"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </Link>
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="shrink-0 transition-transform group-hover:-translate-x-0.5"
+        >
+          <path
+            d="M12 5L7 10L12 15"
+            stroke="#463F3F"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </Link>
+
+      {/* Mobile Back Button: inline above heading */}
+      <div className="sm:hidden mb-6">
+        <Link
+          href={href}
+          className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white border border-[#E6E6E6] shadow-xs"
+          aria-label="Back to Case Studies"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 5L7 10L12 15"
+              stroke="#463F3F"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </Link>
+      </div>
+    </>
+  );
+}
+
+/**
+ * Standard Case Study Container Wrapper Template.
+ * Guarantees unified top padding (pt-20 sm:pt-24 lg:pt-28), max-w-[600px] column, and typography.
+ */
+export function CaseStudyContainer({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`relative w-full text-white antialiased pt-20 sm:pt-24 lg:pt-28 pb-36 px-4 ${className}`}
+      style={{
+        fontFamily: HELVETICA,
+        letterSpacing: "normal",
+        fontFeatureSettings: "normal",
+      }}
+    >
+      <div className="relative mx-auto w-full max-w-[600px]">
+        {children}
+      </div>
+    </div>
   );
 }
 
