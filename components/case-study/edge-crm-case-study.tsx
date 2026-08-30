@@ -9,6 +9,7 @@ const SECTIONS = [
   { id: "about", label: "About" },
   { id: "the-problem", label: "The Problem" },
   { id: "breaking-problem", label: "Breaking Problem" },
+  { id: "before-after", label: "Before & After" },
   { id: "form-architecture", label: "Form Architecture" },
   { id: "field-ambiguity", label: "Field Ambiguity" },
   { id: "validation-prefill", label: "Validation & Pre-fill" },
@@ -892,7 +893,247 @@ export function EdgeCrmCaseStudy() {
             {/* SEPARATOR 4 */}
             <GrungeSeparator />
 
-            {/* 5. FORM ARCHITECTURE SECTION */}
+            {/* 5. BEFORE & AFTER SECTION */}
+            <section
+              id="before-after"
+              className="flex w-full flex-col items-start gap-9 scroll-mt-24"
+            >
+              {/* Section Title Bar */}
+              <div className="flex items-center gap-3 w-full">
+                <h2
+                  style={{
+                    fontFamily: HELVETICA,
+                    fontSize: "20px",
+                    lineHeight: "24px",
+                    letterSpacing: "normal",
+                    fontWeight: 500,
+                    color: "#FFFFFF",
+                  }}
+                >
+                  Before & After
+                </h2>
+                <span
+                  style={{
+                    fontFamily: HELVETICA,
+                    fontSize: "12px",
+                    lineHeight: "16px",
+                    letterSpacing: "normal",
+                    fontWeight: 400,
+                    color: "rgba(255, 255, 255, 0.4)",
+                  }}
+                >
+                  Tracing the Transformation
+                </span>
+              </div>
+
+              <div className="flex w-full flex-col items-start gap-8">
+                <div
+                  className="flex flex-col gap-3"
+                  style={{
+                    fontFamily: HELVETICA,
+                    fontSize: "16px",
+                    lineHeight: "20px",
+                    letterSpacing: "normal",
+                    fontWeight: 400,
+                    color: "rgba(255, 255, 255, 0.7)",
+                  }}
+                >
+                  <p>
+                    Comparing the legacy 1-page form against the stepped, validated 3-stage interface.
+                  </p>
+                </div>
+
+                {/* Primary Before & After Card in Vote IN Gradient Box */}
+                <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                  <div
+                    className="rounded-xl overflow-hidden self-stretch flex-1 relative bg-origin-border border-[0.5px] border-[#FFFFFF1A] px-4 py-8 sm:px-8 sm:py-10 flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-14"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                    }}
+                  >
+                    {/* Before Mockup */}
+                    <div className="flex flex-col items-center gap-3.5">
+                      <img
+                        src="/projects/edge-crm/01-before.png"
+                        alt="Before redesign"
+                        className="h-[280px] sm:h-[340px] w-auto object-contain select-none pointer-events-none"
+                      />
+                      <span
+                        className="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-xs text-white font-mono backdrop-blur-md"
+                      >
+                        <span className="size-1.5 rounded-full bg-[#B81919]" />
+                        BEFORE
+                      </span>
+                    </div>
+
+                    {/* After Mockup */}
+                    <div className="flex flex-col items-center gap-3.5">
+                      <img
+                        src="/projects/edge-crm/06-final.png"
+                        alt="After redesign"
+                        className="h-[280px] sm:h-[340px] w-auto object-contain select-none pointer-events-none"
+                      />
+                      <span
+                        className="flex items-center gap-1.5 rounded-full border border-white/20 bg-black/50 px-3 py-1 text-xs text-white font-mono backdrop-blur-md"
+                      >
+                        <span className="size-1.5 rounded-full bg-[#10B981]" />
+                        AFTER
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3 Transformation Bento Cards */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full pt-1">
+                  {/* Transformation Card 1 */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 relative bg-origin-border"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      {mounted && (
+                        <HalftoneDots
+                          contrast={0.4}
+                          originalColors
+                          inverted
+                          grid="hex"
+                          radius={0.71}
+                          size={0.62}
+                          scale={1}
+                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05MHM5GY8RQ6K3W7DNJ7EMK.jpg"
+                          grainMixer={0.91}
+                          grainOverlay={0.2}
+                          grainSize={0.61}
+                          type="gooey"
+                          fit="cover"
+                          colorFront="#0D0D0D"
+                          colorBack="#00000000"
+                          className="w-[180%] h-[180%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#62626200]"
+                        />
+                      )}
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.1% 0 0) 0%, oklab(71.8% 0 0 / 0%) 300.1%)",
+                        }}
+                      />
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative z-10 h-full">
+                        <div className="w-fit text-white text-base leading-[18px]">
+                          Stepped Flow
+                        </div>
+                        <div className="self-stretch text-white text-base leading-5">
+                          Converted 1 endless scroll into 3 logical steps.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Transformation Card 2 */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 relative bg-origin-border"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      {mounted && (
+                        <HalftoneDots
+                          contrast={0.4}
+                          originalColors
+                          inverted
+                          grid="hex"
+                          radius={0.71}
+                          size={0.62}
+                          scale={1}
+                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05PSD8DDRMVX6V0K90RJ3Q3.jpg"
+                          grainMixer={0.91}
+                          grainOverlay={0.2}
+                          grainSize={0.61}
+                          type="gooey"
+                          fit="cover"
+                          colorFront="#0D0D0D"
+                          colorBack="#00000000"
+                          className="w-[180%] h-[180%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#62626200]"
+                        />
+                      )}
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.1% 0 0) 0%, oklab(71.8% 0 0 / 0%) 300.1%)",
+                        }}
+                      />
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative z-10 h-full">
+                        <div className="w-fit text-white text-base leading-[18px]">
+                          Field Differentiation
+                        </div>
+                        <div className="self-stretch text-white text-base leading-5">
+                          Bordered card inputs with explicit chevrons.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Transformation Card 3 */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+                    <div
+                      className="aspect-square flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-2.5 py-3 relative bg-origin-border"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      {mounted && (
+                        <HalftoneDots
+                          contrast={0.4}
+                          originalColors
+                          inverted
+                          grid="hex"
+                          radius={0.71}
+                          size={0.62}
+                          scale={1}
+                          image="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05PST8J25JQRT8JR53JG7M4.jpg"
+                          grainMixer={0.91}
+                          grainOverlay={0.2}
+                          grainSize={0.61}
+                          type="gooey"
+                          fit="cover"
+                          colorFront="#0D0D0D"
+                          colorBack="#00000000"
+                          className="w-[180%] h-[180%] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#62626200]"
+                        />
+                      )}
+                      <div
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.1% 0 0) 0%, oklab(71.8% 0 0 / 0%) 300.1%)",
+                        }}
+                      />
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative z-10 h-full">
+                        <div className="w-fit text-white text-base leading-[18px]">
+                          Inline Validation
+                        </div>
+                        <div className="self-stretch text-white text-base leading-5">
+                          Top warning banner + actionable inline fix cues.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* SEPARATOR 5 */}
+            <GrungeSeparator />
+
+            {/* 6. FORM ARCHITECTURE SECTION */}
             <section
               id="form-architecture"
               className="flex w-full flex-col items-start gap-9 scroll-mt-24"
