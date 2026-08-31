@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { LazyHalftoneDots as HalftoneDots } from "./lazy-halftone-dots";
 import { CaseStudyNav, CaseStudyBackButton } from "./case-study-nav";
 
@@ -34,7 +34,25 @@ const SECTIONS = [
 ];
 
 export function EdgeCrmTestCaseStudy() {
-  const [expandedChangeId, setExpandedChangeId] = React.useState<string | null>(null);
+  const [poppedCardId, setPoppedCardId] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setPoppedCardId(null);
+      }
+    };
+    if (poppedCardId) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [poppedCardId]);
   return (
     <div
       className="relative w-full text-white antialiased pt-20 sm:pt-24 lg:pt-28 pb-36 px-4"
@@ -1373,17 +1391,9 @@ export function EdgeCrmTestCaseStudy() {
               </div>
 
               {/* Change 01 */}
-              <motion.div
-                layout
-                transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-                onClick={() =>
-                  setExpandedChangeId(expandedChangeId === "change-01" ? null : "change-01")
-                }
-                className={`group cursor-pointer flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-300 relative ${
-                  expandedChangeId === "change-01"
-                    ? "w-full md:w-[min(940px,calc(100vw-64px))] md:-ml-[calc((min(940px,calc(100vw-64px))-600px)/2)] z-20"
-                    : "w-full"
-                }`}
+              <div
+                onClick={() => setPoppedCardId("change-01")}
+                className="group cursor-pointer flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200 w-full relative"
               >
                 <div
                   className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
@@ -1441,9 +1451,7 @@ export function EdgeCrmTestCaseStudy() {
                   </div>
                 </div>
                 <div
-                  className={`flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full ${
-                    expandedChangeId === "change-01" ? "h-[520px] md:h-[560px] px-6 py-6" : "h-74.75 px-4.5 py-5"
-                  }`}
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -1480,22 +1488,18 @@ export function EdgeCrmTestCaseStudy() {
                       translate: "-50% -50%",
                     }}
                   />
-                  <div className="flex items-center justify-center relative h-full flex-1">
+                  <div className="flex items-center relative">
                     <div
-                      className={`aspect-[151/304] max-w-full overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat transition-all duration-300 ${
-                        expandedChangeId === "change-01" ? "w-64 md:w-80 h-full max-h-[500px]" : "w-64.5 h-130.5"
-                      }`}
+                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
                       style={{
                         backgroundImage:
                           "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp)",
                       }}
                     />
                   </div>
-                  <div className="flex items-center justify-center relative h-full flex-1">
+                  <div className="flex items-center relative">
                     <div
-                      className={`aspect-[151/304] max-w-full overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat transition-all duration-300 ${
-                        expandedChangeId === "change-01" ? "w-64 md:w-80 h-full max-h-[500px]" : "w-64.5 h-130.5"
-                      }`}
+                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
                       style={{
                         backgroundImage:
                           "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
@@ -1503,20 +1507,12 @@ export function EdgeCrmTestCaseStudy() {
                     />
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Change 02 */}
-              <motion.div
-                layout
-                transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-                onClick={() =>
-                  setExpandedChangeId(expandedChangeId === "change-02" ? null : "change-02")
-                }
-                className={`group cursor-pointer flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-300 relative ${
-                  expandedChangeId === "change-02"
-                    ? "w-full md:w-[min(940px,calc(100vw-64px))] md:-ml-[calc((min(940px,calc(100vw-64px))-600px)/2)] z-20"
-                    : "w-full"
-                }`}
+              <div
+                onClick={() => setPoppedCardId("change-02")}
+                className="group cursor-pointer flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200 w-full relative"
               >
                 <div
                   className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
@@ -1574,9 +1570,7 @@ export function EdgeCrmTestCaseStudy() {
                   </div>
                 </div>
                 <div
-                  className={`flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-center self-stretch overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full ${
-                    expandedChangeId === "change-02" ? "h-[520px] md:h-[560px] px-6 py-6" : "h-74.75 px-4.5 py-5"
-                  }`}
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-center self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -1613,11 +1607,9 @@ export function EdgeCrmTestCaseStudy() {
                       translate: "-50% -50%",
                     }}
                   />
-                  <div className="flex items-center justify-center relative h-full">
+                  <div className="flex items-start justify-center relative">
                     <div
-                      className={`aspect-[151/304] max-w-full overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat transition-all duration-300 ${
-                        expandedChangeId === "change-02" ? "w-64 md:w-80 h-full max-h-[500px]" : "w-111.25 h-225.5"
-                      }`}
+                      className="aspect-[151/304] w-111.25 max-w-full overflow-clip h-225.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
                       style={{
                         backgroundImage:
                           "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
@@ -1625,20 +1617,12 @@ export function EdgeCrmTestCaseStudy() {
                     />
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Change 03 */}
-              <motion.div
-                layout
-                transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-                onClick={() =>
-                  setExpandedChangeId(expandedChangeId === "change-03" ? null : "change-03")
-                }
-                className={`group cursor-pointer flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-300 relative ${
-                  expandedChangeId === "change-03"
-                    ? "w-full md:w-[min(940px,calc(100vw-64px))] md:-ml-[calc((min(940px,calc(100vw-64px))-600px)/2)] z-20"
-                    : "w-full"
-                }`}
+              <div
+                onClick={() => setPoppedCardId("change-03")}
+                className="group cursor-pointer flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200 w-full relative"
               >
                 <div
                   className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
@@ -1696,9 +1680,7 @@ export function EdgeCrmTestCaseStudy() {
                   </div>
                 </div>
                 <div
-                  className={`flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full ${
-                    expandedChangeId === "change-03" ? "h-[520px] md:h-[560px] px-6 py-6" : "h-74.75 px-4.5 py-5"
-                  }`}
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -1735,22 +1717,18 @@ export function EdgeCrmTestCaseStudy() {
                       translate: "-50% -50%",
                     }}
                   />
-                  <div className="flex items-center justify-center relative h-full flex-1">
+                  <div className="flex items-center relative">
                     <div
-                      className={`aspect-[151/304] max-w-full overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat transition-all duration-300 ${
-                        expandedChangeId === "change-03" ? "w-64 md:w-80 h-full max-h-[500px]" : "w-64.5 h-130.5"
-                      }`}
+                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
                       style={{
                         backgroundImage:
                           "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp)",
                       }}
                     />
                   </div>
-                  <div className="flex items-center justify-center relative h-full flex-1">
+                  <div className="flex items-start justify-center relative">
                     <div
-                      className={`aspect-[151/304] max-w-full overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat transition-all duration-300 ${
-                        expandedChangeId === "change-03" ? "w-64 md:w-80 h-full max-h-[500px]" : "w-64.5 h-130.5"
-                      }`}
+                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
                       style={{
                         backgroundImage:
                           "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
@@ -1758,20 +1736,12 @@ export function EdgeCrmTestCaseStudy() {
                     />
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Change 04 */}
-              <motion.div
-                layout
-                transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-                onClick={() =>
-                  setExpandedChangeId(expandedChangeId === "change-04" ? null : "change-04")
-                }
-                className={`group cursor-pointer flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-300 relative ${
-                  expandedChangeId === "change-04"
-                    ? "w-full md:w-[min(940px,calc(100vw-64px))] md:-ml-[calc((min(940px,calc(100vw-64px))-600px)/2)] z-20"
-                    : "w-full"
-                }`}
+              <div
+                onClick={() => setPoppedCardId("change-04")}
+                className="group cursor-pointer flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200 w-full relative"
               >
                 <div
                   className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
@@ -1829,9 +1799,7 @@ export function EdgeCrmTestCaseStudy() {
                   </div>
                 </div>
                 <div
-                  className={`flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full ${
-                    expandedChangeId === "change-04" ? "h-[520px] md:h-[560px] px-6 py-6" : "h-74.75 px-4.5 py-5"
-                  }`}
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -1868,22 +1836,18 @@ export function EdgeCrmTestCaseStudy() {
                       translate: "-50% -50%",
                     }}
                   />
-                  <div className="flex items-center justify-center relative h-full flex-1">
+                  <div className="flex items-start justify-center relative self-stretch">
                     <div
-                      className={`aspect-[151/304] max-w-full overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat transition-all duration-300 ${
-                        expandedChangeId === "change-04" ? "w-64 md:w-80 h-full max-h-[500px]" : "w-64.5 h-130.5"
-                      }`}
+                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
                       style={{
                         backgroundImage:
                           "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp)",
                       }}
                     />
                   </div>
-                  <div className="flex items-center justify-center relative h-full flex-1">
+                  <div className="flex items-end justify-center relative self-stretch">
                     <div
-                      className={`aspect-[151/304] max-w-full overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat transition-all duration-300 ${
-                        expandedChangeId === "change-04" ? "w-64 md:w-80 h-full max-h-[500px]" : "w-64.5 h-130.5"
-                      }`}
+                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
                       style={{
                         backgroundImage:
                           "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
@@ -1891,13 +1855,467 @@ export function EdgeCrmTestCaseStudy() {
                     />
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </section>
 
           <GrungeSeparator />
         </main>
       </div>
+
+      {/* 2x Enlarged Card Popup */}
+      <AnimatePresence>
+        {poppedCardId && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-6 bg-black/80 backdrop-blur-md cursor-zoom-out"
+            onClick={() => setPoppedCardId(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 350, damping: 28 }}
+              className="w-full max-w-[960px] max-h-[92vh] overflow-y-auto cursor-default flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Pop Change 01 */}
+              {poppedCardId === "change-01" && (
+                <div className="flex flex-col items-center rounded-3xl justify-center gap-2 p-2 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF1F] w-full shadow-2xl">
+                  <div
+                    className="flex flex-col pt-5 rounded-2xl overflow-clip gap-4 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
+                    }}
+                  >
+                    <HalftoneDots
+                      contrast={1}
+                      originalColors={false}
+                      inverted
+                      grid="square"
+                      radius={1}
+                      size={0.8}
+                      scale={1}
+                      grainSize={0.5}
+                      type="soft"
+                      fit="cover"
+                      grainMixer={0.05}
+                      grainOverlay={0.3}
+                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                      colorFront="#6BA0FF"
+                      colorBack="#00000000"
+                      className="w-240 h-180 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div
+                      className="w-220 h-120 absolute left-[50%] top-[calc(50%+97px)]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div className="items-start grid auto-rows-min grid-rows-[auto_auto] px-5 rounded-tl-2xl rounded-tr-2xl gap-1.5 relative">
+                      <div
+                        className="text-[18px] leading-[142.857%] uppercase text-white"
+                        style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
+                      >
+                        Change 01
+                      </div>
+                      <div className="text-[20px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
+                        Stepped flow + progress bar
+                      </div>
+                    </div>
+                    <div className="items-center flex px-5 py-4 rounded-br-2xl rounded-bl-2xl relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
+                      <div className="flex text-[15px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
+                        One long scroll, now clear stepped sections.
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="flex rounded-2xl items-center justify-between self-stretch px-8 py-8 h-[540px] md:h-[600px] overflow-clip gap-10 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                    }}
+                  >
+                    <HalftoneDots
+                      contrast={1}
+                      originalColors={false}
+                      inverted
+                      grid="square"
+                      radius={1}
+                      size={0.8}
+                      scale={1}
+                      grainSize={0.5}
+                      type="soft"
+                      fit="cover"
+                      grainMixer={0.05}
+                      grainOverlay={0.3}
+                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                      colorFront="#343434"
+                      colorBack="#00000000"
+                      className="w-240 h-180 absolute left-[50%] top-[50%]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div className="flex items-center justify-center relative flex-1 h-full">
+                      <div
+                        className="aspect-[151/304] w-72 md:w-84 max-w-full h-[480px] md:h-[540px] overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat shadow-2xl"
+                        style={{
+                          backgroundImage:
+                            "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp)",
+                        }}
+                      />
+                    </div>
+                    <div className="flex items-center justify-center relative flex-1 h-full">
+                      <div
+                        className="aspect-[151/304] w-72 md:w-84 max-w-full h-[480px] md:h-[540px] overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat shadow-2xl"
+                        style={{
+                          backgroundImage:
+                            "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Pop Change 02 */}
+              {poppedCardId === "change-02" && (
+                <div className="flex flex-col items-center rounded-3xl justify-center gap-2 p-2 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF1F] w-full shadow-2xl">
+                  <div
+                    className="flex flex-col pt-5 rounded-2xl overflow-clip gap-4 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
+                    }}
+                  >
+                    <HalftoneDots
+                      contrast={1}
+                      originalColors={false}
+                      inverted
+                      grid="square"
+                      radius={1}
+                      size={0.8}
+                      scale={1}
+                      grainSize={0.5}
+                      type="soft"
+                      fit="cover"
+                      grainMixer={0.05}
+                      grainOverlay={0.3}
+                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                      colorFront="#6BA0FF"
+                      colorBack="#00000000"
+                      className="w-240 h-180 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div
+                      className="w-220 h-120 absolute left-[50%] top-[calc(50%+97px)]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div className="items-start grid auto-rows-min grid-rows-[auto_auto] px-5 rounded-tl-2xl rounded-tr-2xl gap-1.5 relative">
+                      <div
+                        className="text-[18px] leading-[142.857%] uppercase text-white"
+                        style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
+                      >
+                        Change 02
+                      </div>
+                      <div className="text-[20px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
+                        Notification section
+                      </div>
+                    </div>
+                    <div className="items-center flex px-5 py-4 rounded-br-2xl rounded-bl-2xl relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
+                      <div className="flex text-[15px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
+                        Flags any issues before reps submit.
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="flex rounded-2xl items-center justify-center self-stretch px-8 py-8 h-[540px] md:h-[600px] overflow-clip gap-10 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                    }}
+                  >
+                    <HalftoneDots
+                      contrast={1}
+                      originalColors={false}
+                      inverted
+                      grid="square"
+                      radius={1}
+                      size={0.8}
+                      scale={1}
+                      grainSize={0.5}
+                      type="soft"
+                      fit="cover"
+                      grainMixer={0.05}
+                      grainOverlay={0.3}
+                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                      colorFront="#343434"
+                      colorBack="#00000000"
+                      className="w-240 h-180 absolute left-[50%] top-[50%]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div className="flex items-center justify-center relative w-full h-full">
+                      <div
+                        className="aspect-[151/304] w-72 md:w-88 max-w-full h-[480px] md:h-[540px] overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat shadow-2xl"
+                        style={{
+                          backgroundImage:
+                            "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Pop Change 03 */}
+              {poppedCardId === "change-03" && (
+                <div className="flex flex-col items-center rounded-3xl justify-center gap-2 p-2 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF1F] w-full shadow-2xl">
+                  <div
+                    className="flex flex-col pt-5 rounded-2xl overflow-clip gap-4 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
+                    }}
+                  >
+                    <HalftoneDots
+                      contrast={1}
+                      originalColors={false}
+                      inverted
+                      grid="square"
+                      radius={1}
+                      size={0.8}
+                      scale={1}
+                      grainSize={0.5}
+                      type="soft"
+                      fit="cover"
+                      grainMixer={0.05}
+                      grainOverlay={0.3}
+                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                      colorFront="#6BA0FF"
+                      colorBack="#00000000"
+                      className="w-240 h-180 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div
+                      className="w-220 h-120 absolute left-[50%] top-[calc(50%+97px)]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div className="items-start grid auto-rows-min grid-rows-[auto_auto] px-5 rounded-tl-2xl rounded-tr-2xl gap-1.5 relative">
+                      <div
+                        className="text-[18px] leading-[142.857%] uppercase text-white"
+                        style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
+                      >
+                        Change 03
+                      </div>
+                      <div className="text-[20px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
+                        Grouped, pre-filled fields
+                      </div>
+                    </div>
+                    <div className="items-center flex px-5 py-4 rounded-br-2xl rounded-bl-2xl relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
+                      <div className="flex text-[15px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
+                        Grouped card fields, known values pre-filled.
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="flex rounded-2xl items-center justify-between self-stretch px-8 py-8 h-[540px] md:h-[600px] overflow-clip gap-10 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                    }}
+                  >
+                    <HalftoneDots
+                      contrast={1}
+                      originalColors={false}
+                      inverted
+                      grid="square"
+                      radius={1}
+                      size={0.8}
+                      scale={1}
+                      grainSize={0.5}
+                      type="soft"
+                      fit="cover"
+                      grainMixer={0.05}
+                      grainOverlay={0.3}
+                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                      colorFront="#343434"
+                      colorBack="#00000000"
+                      className="w-240 h-180 absolute left-[50%] top-[50%]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div className="flex items-center justify-center relative flex-1 h-full">
+                      <div
+                        className="aspect-[151/304] w-72 md:w-84 max-w-full h-[480px] md:h-[540px] overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat shadow-2xl"
+                        style={{
+                          backgroundImage:
+                            "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp)",
+                        }}
+                      />
+                    </div>
+                    <div className="flex items-center justify-center relative flex-1 h-full">
+                      <div
+                        className="aspect-[151/304] w-72 md:w-84 max-w-full h-[480px] md:h-[540px] overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat shadow-2xl"
+                        style={{
+                          backgroundImage:
+                            "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Pop Change 04 */}
+              {poppedCardId === "change-04" && (
+                <div className="flex flex-col items-center rounded-3xl justify-center gap-2 p-2 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF1F] w-full shadow-2xl">
+                  <div
+                    className="flex flex-col pt-5 rounded-2xl overflow-clip gap-4 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
+                    }}
+                  >
+                    <HalftoneDots
+                      contrast={1}
+                      originalColors={false}
+                      inverted
+                      grid="square"
+                      radius={1}
+                      size={0.8}
+                      scale={1}
+                      grainSize={0.5}
+                      type="soft"
+                      fit="cover"
+                      grainMixer={0.05}
+                      grainOverlay={0.3}
+                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                      colorFront="#6BA0FF"
+                      colorBack="#00000000"
+                      className="w-240 h-180 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div
+                      className="w-220 h-120 absolute left-[50%] top-[calc(50%+97px)]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div className="items-start grid auto-rows-min grid-rows-[auto_auto] px-5 rounded-tl-2xl rounded-tr-2xl gap-1.5 relative">
+                      <div
+                        className="text-[18px] leading-[142.857%] uppercase text-white"
+                        style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
+                      >
+                        Change 04
+                      </div>
+                      <div className="text-[20px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
+                        Full-width primary CTA
+                      </div>
+                    </div>
+                    <div className="items-center flex px-5 py-4 rounded-br-2xl rounded-bl-2xl relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
+                      <div className="flex text-[15px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
+                        One full-width button, always in reach.
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="flex rounded-2xl items-center justify-between self-stretch px-8 py-8 h-[540px] md:h-[600px] overflow-clip gap-10 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                    }}
+                  >
+                    <HalftoneDots
+                      contrast={1}
+                      originalColors={false}
+                      inverted
+                      grid="square"
+                      radius={1}
+                      size={0.8}
+                      scale={1}
+                      grainSize={0.5}
+                      type="soft"
+                      fit="cover"
+                      grainMixer={0.05}
+                      grainOverlay={0.3}
+                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                      colorFront="#343434"
+                      colorBack="#00000000"
+                      className="w-240 h-180 absolute left-[50%] top-[50%]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div className="flex items-center justify-center relative flex-1 h-full">
+                      <div
+                        className="aspect-[151/304] w-72 md:w-84 max-w-full h-[480px] md:h-[540px] overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat shadow-2xl"
+                        style={{
+                          backgroundImage:
+                            "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp)",
+                        }}
+                      />
+                    </div>
+                    <div className="flex items-center justify-center relative flex-1 h-full">
+                      <div
+                        className="aspect-[151/304] w-72 md:w-84 max-w-full h-[480px] md:h-[540px] overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat shadow-2xl"
+                        style={{
+                          backgroundImage:
+                            "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
