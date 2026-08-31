@@ -85,13 +85,12 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition, scale = 1 }:
       <motion.div
         layoutId={`card-${id}`}
         transition={currentTransition}
+        initial={isPopup ? { scale: 1 } : false}
+        animate={{ scale: isPopup ? scale : 1 }}
+        exit={{ scale: 1 }}
         whileHover={isPopup ? undefined : { scale: 1.012 }}
-        style={{
-          scale: isPopup ? scale : 1,
-          transformOrigin: "center",
-        }}
         onClick={isPopup ? undefined : onCardClick}
-        className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
+        className={`origin-center transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
             ? "shadow-2xl border-[#FFFFFF26]"
             : "group cursor-pointer hover:border-white/30 hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-colors duration-200"
@@ -220,13 +219,12 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition, scale = 1 }:
       <motion.div
         layoutId={`card-${id}`}
         transition={currentTransition}
+        initial={isPopup ? { scale: 1 } : false}
+        animate={{ scale: isPopup ? scale : 1 }}
+        exit={{ scale: 1 }}
         whileHover={isPopup ? undefined : { scale: 1.012 }}
-        style={{
-          scale: isPopup ? scale : 1,
-          transformOrigin: "center",
-        }}
         onClick={isPopup ? undefined : onCardClick}
-        className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
+        className={`origin-center transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
             ? "shadow-2xl border-[#FFFFFF26]"
             : "group cursor-pointer hover:border-white/30 hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-colors duration-200"
@@ -346,13 +344,12 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition, scale = 1 }:
       <motion.div
         layoutId={`card-${id}`}
         transition={currentTransition}
+        initial={isPopup ? { scale: 1 } : false}
+        animate={{ scale: isPopup ? scale : 1 }}
+        exit={{ scale: 1 }}
         whileHover={isPopup ? undefined : { scale: 1.012 }}
-        style={{
-          scale: isPopup ? scale : 1,
-          transformOrigin: "center",
-        }}
         onClick={isPopup ? undefined : onCardClick}
-        className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
+        className={`origin-center transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
             ? "shadow-2xl border-[#FFFFFF26]"
             : "group cursor-pointer hover:border-white/30 hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-colors duration-200"
@@ -481,13 +478,12 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition, scale = 1 }:
     <motion.div
       layoutId={`card-${id}`}
       transition={currentTransition}
+      initial={isPopup ? { scale: 1 } : false}
+      animate={{ scale: isPopup ? scale : 1 }}
+      exit={{ scale: 1 }}
       whileHover={isPopup ? undefined : { scale: 1.012 }}
-      style={{
-        scale: isPopup ? scale : 1,
-        transformOrigin: "center",
-      }}
       onClick={isPopup ? undefined : onCardClick}
-      className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
+      className={`origin-center transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
         isPopup
           ? "shadow-2xl border-[#FFFFFF26]"
           : "group cursor-pointer hover:border-white/30 hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-colors duration-200"
