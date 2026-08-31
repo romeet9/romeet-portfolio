@@ -1009,6 +1009,305 @@ export function EdgeCrmTestCaseStudy() {
               </div>
             </div>
           </section>
+
+          {/* ================================================================ */}
+          {/* SECTION: Every step added time, effort, and doubt (1VM-0)        */}
+          {/* ================================================================ */}
+          <GrungeSeparator />
+
+          <section id="solving-3ts" className="scroll-mt-28 flex flex-col items-start gap-15 self-stretch w-full">
+            {/* Part 1: Every step added time, effort, and doubt */}
+            <div className="flex flex-col items-start gap-3 self-stretch w-full">
+              <div className="tracking-[-0.02em] w-full font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
+                Every step added time, effort, and doubt
+              </div>
+              <div className="flex flex-col items-start gap-14 self-stretch w-full">
+                <div className="flex flex-col items-start gap-3 w-full">
+                  <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
+                    By the time a rep had an answer, the client had already lost confidence.
+                  </div>
+                  <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
+                    Timing the old flow end-to-end showed how the seconds stacked up. A heuristic audit showed why.
+                  </div>
+                </div>
+                <div className="flex flex-col items-start gap-3 self-stretch w-full">
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch h-77.5 shrink-0 [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                    <div
+                      className="aspect-square flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl flex-col items-start justify-between self-stretch h-74.75 overflow-clip py-5 px-4.5 relative shrink-0 bg-origin-border"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      <HalftoneDots
+                        contrast={1}
+                        originalColors={false}
+                        inverted
+                        grid="square"
+                        radius={1}
+                        size={0.8}
+                        scale={1}
+                        grainSize={0.5}
+                        type="soft"
+                        fit="cover"
+                        grainMixer={0.05}
+                        grainOverlay={0.3}
+                        image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                        colorFront="#343434"
+                        colorBack="#00000000"
+                        className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
+                          translate: "-50% -50%",
+                        }}
+                      />
+                      <div
+                        className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                          translate: "-50% -50%",
+                        }}
+                      />
+                      <div className="w-fit relative font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/4.5">
+                        Time to answer a client
+                      </div>
+                      <div className="flex items-center justify-between p-2 relative self-stretch w-full">
+                        <div className="flex flex-col items-center gap-6.5 w-19 justify-center shrink-0 self-stretch">
+                          <div className="text-center font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
+                            14% slower
+                          </div>
+                          <div className="text-justify w-fit font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
+                            - 8 sec
+                          </div>
+                          <div className="rounded-full shrink-0 bg-[#DDDDDD] size-2" />
+                          <div className="text-center self-stretch font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
+                            Opens app to find the required case
+                          </div>
+                        </div>
+                        <div className="flex flex-col items-center gap-6.5 w-19 justify-center shrink-0">
+                          <div className="text-center font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
+                            14% slower
+                          </div>
+                          <div className="text-justify w-fit font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
+                            + 14 sec
+                          </div>
+                          <div className="rounded-full shrink-0 bg-[#DDDDDD] size-2" />
+                          <div className="text-center self-stretch font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
+                            Scrolls entire list to locate the case
+                          </div>
+                        </div>
+                        <div className="flex flex-col items-center gap-6.5 w-19 justify-center shrink-0">
+                          <div className="text-center font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
+                            22 % slower
+                          </div>
+                          <div className="text-justify w-fit font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
+                            + 11 sec
+                          </div>
+                          <div className="rounded-full shrink-0 bg-[#DDDDDD] size-2" />
+                          <div className="text-center self-stretch font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
+                            Taps into individual case detail
+                          </div>
+                        </div>
+                        <div className="flex flex-col items-center gap-6.5 w-19 justify-center shrink-0">
+                          <div className="text-center font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
+                            31% slower
+                          </div>
+                          <div className="text-justify w-fit font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
+                            + 19 sec
+                          </div>
+                          <div className="rounded-full shrink-0 bg-[#DDDDDD] size-2" />
+                          <div className="text-center self-stretch font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
+                            Scans wall of data to find information
+                          </div>
+                        </div>
+                        <div className="flex flex-col items-center gap-6.5 w-19 justify-center shrink-0">
+                          <div className="text-center font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
+                            52 sec total
+                          </div>
+                          <div className="text-justify w-fit font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
+                            + 52 sec
+                          </div>
+                          <div className="rounded-full shrink-0 bg-[#DDDDDD] size-2" />
+                          <div className="text-center self-stretch font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
+                            Answers the client with information
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Part 2: Eventually creating frictions at three areas : */}
+            <div className="flex flex-col items-start gap-7 self-stretch w-full">
+              <div className="tracking-[-0.02em] w-full font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
+                Eventually creating frictions at three areas :
+              </div>
+              <div className="flex items-start gap-4 self-stretch h-78 shrink-0 w-full">
+                {/* Card 1: Entire form, no end */}
+                <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 relative self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                  <div
+                    className="aspect-square flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 relative bg-origin-border"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                    }}
+                  >
+                    <HalftoneDots
+                      contrast={1}
+                      originalColors={false}
+                      inverted
+                      grid="square"
+                      radius={1}
+                      size={0.8}
+                      scale={1}
+                      grainSize={0.5}
+                      type="soft"
+                      fit="cover"
+                      grainMixer={0.05}
+                      grainOverlay={0.3}
+                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                      colorFront="#6BA0FF"
+                      colorBack="#00000000"
+                      className="w-166.5 h-125 absolute left-[50%] top-[50%] origin-top-left"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                        rotate: "48.49deg",
+                        translate: "calc(-50% + 299.53px) calc(-50% - 165.053px)",
+                      }}
+                    />
+                    <div
+                      className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative">
+                      <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] text-white text-base/4.5">
+                        Entire form, no end
+                      </div>
+                      <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-white text-base/5">
+                        One endless scroll with zero progress indicator. The rep can&apos;t gauge how long it will take, so the brain defaults to avoidance.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card 2: Dropdown vs text field */}
+                <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 relative self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                  <div
+                    className="aspect-square flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 relative bg-origin-border"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                    }}
+                  >
+                    <HalftoneDots
+                      contrast={1}
+                      originalColors={false}
+                      inverted
+                      grid="square"
+                      radius={1}
+                      size={0.8}
+                      scale={1}
+                      grainSize={0.5}
+                      type="soft"
+                      fit="cover"
+                      grainMixer={0.05}
+                      grainOverlay={0.3}
+                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                      colorFront="#6BA0FF"
+                      colorBack="#00000000"
+                      className="w-166.5 h-125 absolute left-[50%] top-[50%] origin-top-left"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                        rotate: "48.49deg",
+                        translate: "calc(-50% + 299.53px) calc(-50% - 165.053px)",
+                      }}
+                    />
+                    <div
+                      className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative">
+                      <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] text-white text-base/4.5">
+                        Dropdown vs text field
+                      </div>
+                      <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-white text-base/5">
+                        Every field looks identical: an underline with a chevron. You can&apos;t tell a dropdown from a text field until you tap.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 3: Important fields hidden */}
+              <div className="flex items-start gap-4 self-stretch h-78 shrink-0 w-full">
+                <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 relative self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                  <div
+                    className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 relative bg-origin-border"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                    }}
+                  >
+                    <HalftoneDots
+                      contrast={1}
+                      originalColors={false}
+                      inverted
+                      grid="square"
+                      radius={1}
+                      size={0.8}
+                      scale={1}
+                      grainSize={0.5}
+                      type="soft"
+                      fit="cover"
+                      grainMixer={0.05}
+                      grainOverlay={0.3}
+                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                      colorFront="#6BA0FF"
+                      colorBack="#00000000"
+                      className="w-166.5 h-125 absolute left-[calc(50%+0.016px)] top-[calc(50%-0.002px)]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div
+                      className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch relative">
+                      <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] text-white text-base/4.5">
+                        Important fields hidden
+                      </div>
+                      <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-white text-base/5">
+                        Required and optional fields look the same. A red asterisk is the only signal. No grouping, no hierarchy, no sense of what is critical.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <GrungeSeparator />
         </main>
       </div>
     </div>
