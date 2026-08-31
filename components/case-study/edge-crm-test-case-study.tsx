@@ -70,9 +70,10 @@ interface ChangeCardProps {
   onCardClick?: () => void;
   isPopup?: boolean;
   transition?: any;
+  scale?: number;
 }
 
-function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCardProps) {
+function ChangeCard({ id, onCardClick, isPopup = false, transition, scale = 1 }: ChangeCardProps) {
   const currentTransition = transition || {
     type: "spring",
     stiffness: 350,
@@ -85,6 +86,10 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
         layoutId={`card-${id}`}
         transition={currentTransition}
         whileHover={isPopup ? undefined : { scale: 1.012 }}
+        style={{
+          scale: isPopup ? scale : 1,
+          transformOrigin: "center",
+        }}
         onClick={isPopup ? undefined : onCardClick}
         className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
@@ -216,6 +221,10 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
         layoutId={`card-${id}`}
         transition={currentTransition}
         whileHover={isPopup ? undefined : { scale: 1.012 }}
+        style={{
+          scale: isPopup ? scale : 1,
+          transformOrigin: "center",
+        }}
         onClick={isPopup ? undefined : onCardClick}
         className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
@@ -338,6 +347,10 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
         layoutId={`card-${id}`}
         transition={currentTransition}
         whileHover={isPopup ? undefined : { scale: 1.012 }}
+        style={{
+          scale: isPopup ? scale : 1,
+          transformOrigin: "center",
+        }}
         onClick={isPopup ? undefined : onCardClick}
         className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
@@ -469,6 +482,10 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
       layoutId={`card-${id}`}
       transition={currentTransition}
       whileHover={isPopup ? undefined : { scale: 1.012 }}
+      style={{
+        scale: isPopup ? scale : 1,
+        transformOrigin: "center",
+      }}
       onClick={isPopup ? undefined : onCardClick}
       className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
         isPopup
@@ -2345,14 +2362,15 @@ export function EdgeCrmTestCaseStudy() {
             onClick={handleCloseCard}
           >
             <div
-              className="origin-center shrink-0 drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)] cursor-default transform-gpu will-change-transform"
-              style={{
-                width: `${Math.round(520 * animConfig.scale)}px`,
-                maxWidth: "94vw",
-              }}
+              className="w-[580px] max-w-[90vw] flex items-center justify-center origin-center shrink-0 drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)] cursor-default"
               onClick={(e) => e.stopPropagation()}
             >
-              <ChangeCard id={poppedCardId as any} transition={activeTransition} isPopup />
+              <ChangeCard
+                id={poppedCardId as any}
+                transition={activeTransition}
+                scale={animConfig.scale}
+                isPopup
+              />
             </div>
           </motion.div>
         )}
