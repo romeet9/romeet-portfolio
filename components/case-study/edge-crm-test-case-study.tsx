@@ -33,6 +33,508 @@ const SECTIONS = [
   { id: "reflection", label: "Reflection" },
 ];
 
+interface ChangeCardProps {
+  id: "change-01" | "change-02" | "change-03" | "change-04";
+  onCardClick?: () => void;
+  isPopup?: boolean;
+}
+
+function ChangeCard({ id, onCardClick, isPopup = false }: ChangeCardProps) {
+  if (id === "change-01") {
+    return (
+      <div
+        onClick={isPopup ? undefined : onCardClick}
+        className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
+          isPopup
+            ? "shadow-2xl border-[#FFFFFF26]"
+            : "group cursor-pointer hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200"
+        }`}
+      >
+        <div
+          className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
+          style={{
+            backgroundImage:
+              "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
+          }}
+        >
+          <HalftoneDots
+            contrast={1}
+            originalColors={false}
+            inverted
+            grid="square"
+            radius={1}
+            size={0.8}
+            scale={1}
+            grainSize={0.5}
+            type="soft"
+            fit="cover"
+            grainMixer={0.05}
+            grainOverlay={0.3}
+            image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+            colorFront="#6BA0FF"
+            colorBack="#00000000"
+            className="w-166.5 h-125 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
+            style={{
+              backgroundImage:
+                "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+              translate: "-50% -50%",
+            }}
+          />
+          <div
+            className="w-150.25 h-79.5 absolute left-[50%] top-[calc(50%+97px)]"
+            style={{
+              backgroundImage:
+                "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+              translate: "-50% -50%",
+            }}
+          />
+          <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
+            <div
+              className="text-[14px] leading-[142.857%] wrap-normal uppercase text-white"
+              style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
+            >
+              Change 01
+            </div>
+            <div className="text-[14px] leading-[137.5%] wrap-normal font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
+              Stepped flow + progress bar
+            </div>
+          </div>
+          <div className="items-center flex p-3 rounded-br-[14px] rounded-bl-[14px] relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
+            <div className="flex text-[12px] leading-[133.333%] wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
+              One long scroll, now clear stepped sections.
+            </div>
+          </div>
+        </div>
+        <div
+          className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
+          style={{
+            backgroundImage:
+              "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+          }}
+        >
+          <HalftoneDots
+            contrast={1}
+            originalColors={false}
+            inverted
+            grid="square"
+            radius={1}
+            size={0.8}
+            scale={1}
+            grainSize={0.5}
+            type="soft"
+            fit="cover"
+            grainMixer={0.05}
+            grainOverlay={0.3}
+            image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+            colorFront="#343434"
+            colorBack="#00000000"
+            className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+            style={{
+              backgroundImage:
+                "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
+              translate: "-50% -50%",
+            }}
+          />
+          <div
+            className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
+            style={{
+              backgroundImage:
+                "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+              translate: "-50% -50%",
+            }}
+          />
+          <div className="flex items-center relative">
+            <div
+              className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
+              style={{
+                backgroundImage:
+                  "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp)",
+              }}
+            />
+          </div>
+          <div className="flex items-center relative">
+            <div
+              className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
+              style={{
+                backgroundImage:
+                  "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (id === "change-02") {
+    return (
+      <div
+        onClick={isPopup ? undefined : onCardClick}
+        className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
+          isPopup
+            ? "shadow-2xl border-[#FFFFFF26]"
+            : "group cursor-pointer hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200"
+        }`}
+      >
+        <div
+          className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
+          style={{
+            backgroundImage:
+              "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
+          }}
+        >
+          <HalftoneDots
+            contrast={1}
+            originalColors={false}
+            inverted
+            grid="square"
+            radius={1}
+            size={0.8}
+            scale={1}
+            grainSize={0.5}
+            type="soft"
+            fit="cover"
+            grainMixer={0.05}
+            grainOverlay={0.3}
+            image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+            colorFront="#6BA0FF"
+            colorBack="#00000000"
+            className="w-166.5 h-125 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
+            style={{
+              backgroundImage:
+                "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+              translate: "-50% -50%",
+            }}
+          />
+          <div
+            className="w-150.25 h-79.5 absolute left-[50%] top-[calc(50%+97px)]"
+            style={{
+              backgroundImage:
+                "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+              translate: "-50% -50%",
+            }}
+          />
+          <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
+            <div
+              className="text-[14px] leading-[142.857%] uppercase text-white"
+              style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
+            >
+              Change 02
+            </div>
+            <div className="text-[14px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
+              Notification section
+            </div>
+          </div>
+          <div className="items-center flex p-3 rounded-br-[14px] rounded-bl-[14px] relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
+            <div className="flex text-[12px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
+              Flags any issues before reps submit.
+            </div>
+          </div>
+        </div>
+        <div
+          className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-center self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
+          style={{
+            backgroundImage:
+              "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+          }}
+        >
+          <HalftoneDots
+            contrast={1}
+            originalColors={false}
+            inverted
+            grid="square"
+            radius={1}
+            size={0.8}
+            scale={1}
+            grainSize={0.5}
+            type="soft"
+            fit="cover"
+            grainMixer={0.05}
+            grainOverlay={0.3}
+            image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+            colorFront="#343434"
+            colorBack="#00000000"
+            className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+            style={{
+              backgroundImage:
+                "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
+              translate: "-50% -50%",
+            }}
+          />
+          <div
+            className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
+            style={{
+              backgroundImage:
+                "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+              translate: "-50% -50%",
+            }}
+          />
+          <div className="flex items-start justify-center relative">
+            <div
+              className="aspect-[151/304] w-111.25 max-w-full overflow-clip h-225.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
+              style={{
+                backgroundImage:
+                  "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (id === "change-03") {
+    return (
+      <div
+        onClick={isPopup ? undefined : onCardClick}
+        className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
+          isPopup
+            ? "shadow-2xl border-[#FFFFFF26]"
+            : "group cursor-pointer hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200"
+        }`}
+      >
+        <div
+          className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
+          style={{
+            backgroundImage:
+              "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
+          }}
+        >
+          <HalftoneDots
+            contrast={1}
+            originalColors={false}
+            inverted
+            grid="square"
+            radius={1}
+            size={0.8}
+            scale={1}
+            grainSize={0.5}
+            type="soft"
+            fit="cover"
+            grainMixer={0.05}
+            grainOverlay={0.3}
+            image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+            colorFront="#6BA0FF"
+            colorBack="#00000000"
+            className="w-166.5 h-125 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
+            style={{
+              backgroundImage:
+                "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+              translate: "-50% -50%",
+            }}
+          />
+          <div
+            className="w-150.25 h-79.5 absolute left-[50%] top-[calc(50%+97px)]"
+            style={{
+              backgroundImage:
+                "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+              translate: "-50% -50%",
+            }}
+          />
+          <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
+            <div
+              className="text-[14px] leading-[142.857%] uppercase text-white"
+              style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
+            >
+              Change 03
+            </div>
+            <div className="text-[14px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
+              Grouped, pre-filled fields
+            </div>
+          </div>
+          <div className="items-center flex p-3 rounded-br-[14px] rounded-bl-[14px] relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
+            <div className="flex text-[12px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
+              Grouped card fields, known values pre-filled.
+            </div>
+          </div>
+        </div>
+        <div
+          className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
+          style={{
+            backgroundImage:
+              "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+          }}
+        >
+          <HalftoneDots
+            contrast={1}
+            originalColors={false}
+            inverted
+            grid="square"
+            radius={1}
+            size={0.8}
+            scale={1}
+            grainSize={0.5}
+            type="soft"
+            fit="cover"
+            grainMixer={0.05}
+            grainOverlay={0.3}
+            image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+            colorFront="#343434"
+            colorBack="#00000000"
+            className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+            style={{
+              backgroundImage:
+                "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
+              translate: "-50% -50%",
+            }}
+          />
+          <div
+            className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
+            style={{
+              backgroundImage:
+                "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+              translate: "-50% -50%",
+            }}
+          />
+          <div className="flex items-center relative">
+            <div
+              className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
+              style={{
+                backgroundImage:
+                  "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp)",
+              }}
+            />
+          </div>
+          <div className="flex items-start justify-center relative">
+            <div
+              className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
+              style={{
+                backgroundImage:
+                  "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Change 04
+  return (
+    <div
+      onClick={isPopup ? undefined : onCardClick}
+      className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
+        isPopup
+          ? "shadow-2xl border-[#FFFFFF26]"
+          : "group cursor-pointer hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200"
+      }`}
+    >
+      <div
+        className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
+        style={{
+          backgroundImage:
+            "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
+        }}
+      >
+        <HalftoneDots
+          contrast={1}
+          originalColors={false}
+          inverted
+          grid="square"
+          radius={1}
+          size={0.8}
+          scale={1}
+          grainSize={0.5}
+          type="soft"
+          fit="cover"
+          grainMixer={0.05}
+          grainOverlay={0.3}
+          image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+          colorFront="#6BA0FF"
+          colorBack="#00000000"
+          className="w-166.5 h-125 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
+          style={{
+            backgroundImage:
+              "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+            translate: "-50% -50%",
+          }}
+        />
+        <div
+          className="w-150.25 h-79.5 absolute left-[50%] top-[calc(50%+97px)]"
+          style={{
+            backgroundImage:
+              "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+            translate: "-50% -50%",
+          }}
+        />
+        <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
+          <div
+            className="text-[14px] leading-[142.857%] uppercase text-white"
+            style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
+          >
+            Change 04
+          </div>
+          <div className="text-[14px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
+            Full-width primary CTA
+          </div>
+        </div>
+        <div className="items-center flex p-3 rounded-br-[14px] rounded-bl-[14px] relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
+          <div className="flex text-[12px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
+            One full-width button, always in reach.
+          </div>
+        </div>
+      </div>
+      <div
+        className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
+        style={{
+          backgroundImage:
+            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+        }}
+      >
+        <HalftoneDots
+          contrast={1}
+          originalColors={false}
+          inverted
+          grid="square"
+          radius={1}
+          size={0.8}
+          scale={1}
+          grainSize={0.5}
+          type="soft"
+          fit="cover"
+          grainMixer={0.05}
+          grainOverlay={0.3}
+          image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+          colorFront="#343434"
+          colorBack="#00000000"
+          className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+          style={{
+            backgroundImage:
+              "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
+            translate: "-50% -50%",
+          }}
+        />
+        <div
+          className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
+          style={{
+            backgroundImage:
+              "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+            translate: "-50% -50%",
+          }}
+        />
+        <div className="flex items-start justify-center relative self-stretch">
+          <div
+            className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
+            style={{
+              backgroundImage:
+                "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp)",
+            }}
+          />
+        </div>
+        <div className="flex items-end justify-center relative self-stretch">
+          <div
+            className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
+            style={{
+              backgroundImage:
+                "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function EdgeCrmTestCaseStudy() {
   const [poppedCardId, setPoppedCardId] = React.useState<string | null>(null);
 
@@ -1391,471 +1893,16 @@ export function EdgeCrmTestCaseStudy() {
               </div>
 
               {/* Change 01 */}
-              <div
-                onClick={() => setPoppedCardId("change-01")}
-                className="group cursor-pointer flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200 w-full relative"
-              >
-                <div
-                  className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
-                  }}
-                >
-                  <HalftoneDots
-                    contrast={1}
-                    originalColors={false}
-                    inverted
-                    grid="square"
-                    radius={1}
-                    size={0.8}
-                    scale={1}
-                    grainSize={0.5}
-                    type="soft"
-                    fit="cover"
-                    grainMixer={0.05}
-                    grainOverlay={0.3}
-                    image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                    colorFront="#6BA0FF"
-                    colorBack="#00000000"
-                    className="w-166.5 h-125 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div
-                    className="w-150.25 h-79.5 absolute left-[50%] top-[calc(50%+97px)]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
-                    <div
-                      className="text-[14px] leading-[142.857%] wrap-normal uppercase text-white"
-                      style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
-                    >
-                      Change 01
-                    </div>
-                    <div className="text-[14px] leading-[137.5%] wrap-normal font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
-                      Stepped flow + progress bar
-                    </div>
-                  </div>
-                  <div className="items-center flex p-3 rounded-br-[14px] rounded-bl-[14px] relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
-                    <div className="flex text-[12px] leading-[133.333%] wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
-                      One long scroll, now clear stepped sections.
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                  }}
-                >
-                  <HalftoneDots
-                    contrast={1}
-                    originalColors={false}
-                    inverted
-                    grid="square"
-                    radius={1}
-                    size={0.8}
-                    scale={1}
-                    grainSize={0.5}
-                    type="soft"
-                    fit="cover"
-                    grainMixer={0.05}
-                    grainOverlay={0.3}
-                    image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                    colorFront="#343434"
-                    colorBack="#00000000"
-                    className="w-166.5 h-125 absolute left-[50%] top-[50%]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div
-                    className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div className="flex items-center relative">
-                    <div
-                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
-                      style={{
-                        backgroundImage:
-                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp)",
-                      }}
-                    />
-                  </div>
-                  <div className="flex items-center relative">
-                    <div
-                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
-                      style={{
-                        backgroundImage:
-                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
+              <ChangeCard id="change-01" onCardClick={() => setPoppedCardId("change-01")} />
 
               {/* Change 02 */}
-              <div
-                onClick={() => setPoppedCardId("change-02")}
-                className="group cursor-pointer flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200 w-full relative"
-              >
-                <div
-                  className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
-                  }}
-                >
-                  <HalftoneDots
-                    contrast={1}
-                    originalColors={false}
-                    inverted
-                    grid="square"
-                    radius={1}
-                    size={0.8}
-                    scale={1}
-                    grainSize={0.5}
-                    type="soft"
-                    fit="cover"
-                    grainMixer={0.05}
-                    grainOverlay={0.3}
-                    image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                    colorFront="#6BA0FF"
-                    colorBack="#00000000"
-                    className="w-166.5 h-125 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div
-                    className="w-150.25 h-79.5 absolute left-[50%] top-[calc(50%+97px)]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
-                    <div
-                      className="text-[14px] leading-[142.857%] uppercase text-white"
-                      style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
-                    >
-                      Change 02
-                    </div>
-                    <div className="text-[14px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
-                      Notification section
-                    </div>
-                  </div>
-                  <div className="items-center flex p-3 rounded-br-[14px] rounded-bl-[14px] relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
-                    <div className="flex text-[12px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
-                      Flags any issues before reps submit.
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-center self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                  }}
-                >
-                  <HalftoneDots
-                    contrast={1}
-                    originalColors={false}
-                    inverted
-                    grid="square"
-                    radius={1}
-                    size={0.8}
-                    scale={1}
-                    grainSize={0.5}
-                    type="soft"
-                    fit="cover"
-                    grainMixer={0.05}
-                    grainOverlay={0.3}
-                    image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                    colorFront="#343434"
-                    colorBack="#00000000"
-                    className="w-166.5 h-125 absolute left-[50%] top-[50%]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div
-                    className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div className="flex items-start justify-center relative">
-                    <div
-                      className="aspect-[151/304] w-111.25 max-w-full overflow-clip h-225.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
-                      style={{
-                        backgroundImage:
-                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
+              <ChangeCard id="change-02" onCardClick={() => setPoppedCardId("change-02")} />
 
               {/* Change 03 */}
-              <div
-                onClick={() => setPoppedCardId("change-03")}
-                className="group cursor-pointer flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200 w-full relative"
-              >
-                <div
-                  className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
-                  }}
-                >
-                  <HalftoneDots
-                    contrast={1}
-                    originalColors={false}
-                    inverted
-                    grid="square"
-                    radius={1}
-                    size={0.8}
-                    scale={1}
-                    grainSize={0.5}
-                    type="soft"
-                    fit="cover"
-                    grainMixer={0.05}
-                    grainOverlay={0.3}
-                    image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                    colorFront="#6BA0FF"
-                    colorBack="#00000000"
-                    className="w-166.5 h-125 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div
-                    className="w-150.25 h-79.5 absolute left-[50%] top-[calc(50%+97px)]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
-                    <div
-                      className="text-[14px] leading-[142.857%] uppercase text-white"
-                      style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
-                    >
-                      Change 03
-                    </div>
-                    <div className="text-[14px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
-                      Grouped, pre-filled fields
-                    </div>
-                  </div>
-                  <div className="items-center flex p-3 rounded-br-[14px] rounded-bl-[14px] relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
-                    <div className="flex text-[12px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
-                      Grouped card fields, known values pre-filled.
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                  }}
-                >
-                  <HalftoneDots
-                    contrast={1}
-                    originalColors={false}
-                    inverted
-                    grid="square"
-                    radius={1}
-                    size={0.8}
-                    scale={1}
-                    grainSize={0.5}
-                    type="soft"
-                    fit="cover"
-                    grainMixer={0.05}
-                    grainOverlay={0.3}
-                    image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                    colorFront="#343434"
-                    colorBack="#00000000"
-                    className="w-166.5 h-125 absolute left-[50%] top-[50%]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div
-                    className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div className="flex items-center relative">
-                    <div
-                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
-                      style={{
-                        backgroundImage:
-                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp)",
-                      }}
-                    />
-                  </div>
-                  <div className="flex items-start justify-center relative">
-                    <div
-                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
-                      style={{
-                        backgroundImage:
-                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
+              <ChangeCard id="change-03" onCardClick={() => setPoppedCardId("change-03")} />
 
               {/* Change 04 */}
-              <div
-                onClick={() => setPoppedCardId("change-04")}
-                className="group cursor-pointer flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200 w-full relative"
-              >
-                <div
-                  className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
-                  }}
-                >
-                  <HalftoneDots
-                    contrast={1}
-                    originalColors={false}
-                    inverted
-                    grid="square"
-                    radius={1}
-                    size={0.8}
-                    scale={1}
-                    grainSize={0.5}
-                    type="soft"
-                    fit="cover"
-                    grainMixer={0.05}
-                    grainOverlay={0.3}
-                    image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                    colorFront="#6BA0FF"
-                    colorBack="#00000000"
-                    className="w-166.5 h-125 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div
-                    className="w-150.25 h-79.5 absolute left-[50%] top-[calc(50%+97px)]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
-                    <div
-                      className="text-[14px] leading-[142.857%] uppercase text-white"
-                      style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
-                    >
-                      Change 04
-                    </div>
-                    <div className="text-[14px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
-                      Full-width primary CTA
-                    </div>
-                  </div>
-                  <div className="items-center flex p-3 rounded-br-[14px] rounded-bl-[14px] relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
-                    <div className="flex text-[12px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
-                      One full-width button, always in reach.
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                  }}
-                >
-                  <HalftoneDots
-                    contrast={1}
-                    originalColors={false}
-                    inverted
-                    grid="square"
-                    radius={1}
-                    size={0.8}
-                    scale={1}
-                    grainSize={0.5}
-                    type="soft"
-                    fit="cover"
-                    grainMixer={0.05}
-                    grainOverlay={0.3}
-                    image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                    colorFront="#343434"
-                    colorBack="#00000000"
-                    className="w-166.5 h-125 absolute left-[50%] top-[50%]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div
-                    className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div className="flex items-start justify-center relative self-stretch">
-                    <div
-                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
-                      style={{
-                        backgroundImage:
-                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp)",
-                      }}
-                    />
-                  </div>
-                  <div className="flex items-end justify-center relative self-stretch">
-                    <div
-                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
-                      style={{
-                        backgroundImage:
-                          "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
+              <ChangeCard id="change-04" onCardClick={() => setPoppedCardId("change-04")} />
             </div>
           </section>
 
@@ -1871,447 +1918,20 @@ export function EdgeCrmTestCaseStudy() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-6 bg-black/80 backdrop-blur-md cursor-zoom-out"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md cursor-zoom-out overflow-hidden"
             onClick={() => setPoppedCardId(null)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 350, damping: 28 }}
-              className="w-full max-w-[960px] max-h-[92vh] overflow-y-auto cursor-default flex items-center justify-center"
+              exit={{ scale: 0.85, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 320, damping: 26 }}
+              className="cursor-default flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Pop Change 01 */}
-              {poppedCardId === "change-01" && (
-                <div className="flex flex-col items-center rounded-3xl justify-center gap-2 p-2 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF1F] w-full shadow-2xl">
-                  <div
-                    className="flex flex-col pt-5 rounded-2xl overflow-clip gap-4 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
-                    }}
-                  >
-                    <HalftoneDots
-                      contrast={1}
-                      originalColors={false}
-                      inverted
-                      grid="square"
-                      radius={1}
-                      size={0.8}
-                      scale={1}
-                      grainSize={0.5}
-                      type="soft"
-                      fit="cover"
-                      grainMixer={0.05}
-                      grainOverlay={0.3}
-                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                      colorFront="#6BA0FF"
-                      colorBack="#00000000"
-                      className="w-240 h-180 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
-                        translate: "-50% -50%",
-                      }}
-                    />
-                    <div
-                      className="w-220 h-120 absolute left-[50%] top-[calc(50%+97px)]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
-                        translate: "-50% -50%",
-                      }}
-                    />
-                    <div className="items-start grid auto-rows-min grid-rows-[auto_auto] px-5 rounded-tl-2xl rounded-tr-2xl gap-1.5 relative">
-                      <div
-                        className="text-[18px] leading-[142.857%] uppercase text-white"
-                        style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
-                      >
-                        Change 01
-                      </div>
-                      <div className="text-[20px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
-                        Stepped flow + progress bar
-                      </div>
-                    </div>
-                    <div className="items-center flex px-5 py-4 rounded-br-2xl rounded-bl-2xl relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
-                      <div className="flex text-[15px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
-                        One long scroll, now clear stepped sections.
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex rounded-2xl items-center justify-between self-stretch px-8 py-8 h-[540px] md:h-[600px] overflow-clip gap-10 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                    }}
-                  >
-                    <HalftoneDots
-                      contrast={1}
-                      originalColors={false}
-                      inverted
-                      grid="square"
-                      radius={1}
-                      size={0.8}
-                      scale={1}
-                      grainSize={0.5}
-                      type="soft"
-                      fit="cover"
-                      grainMixer={0.05}
-                      grainOverlay={0.3}
-                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                      colorFront="#343434"
-                      colorBack="#00000000"
-                      className="w-240 h-180 absolute left-[50%] top-[50%]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
-                        translate: "-50% -50%",
-                      }}
-                    />
-                    <div className="flex items-center justify-center relative flex-1 h-full">
-                      <div
-                        className="aspect-[151/304] w-72 md:w-84 max-w-full h-[480px] md:h-[540px] overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat shadow-2xl"
-                        style={{
-                          backgroundImage:
-                            "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp)",
-                        }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center relative flex-1 h-full">
-                      <div
-                        className="aspect-[151/304] w-72 md:w-84 max-w-full h-[480px] md:h-[540px] overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat shadow-2xl"
-                        style={{
-                          backgroundImage:
-                            "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Pop Change 02 */}
-              {poppedCardId === "change-02" && (
-                <div className="flex flex-col items-center rounded-3xl justify-center gap-2 p-2 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF1F] w-full shadow-2xl">
-                  <div
-                    className="flex flex-col pt-5 rounded-2xl overflow-clip gap-4 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
-                    }}
-                  >
-                    <HalftoneDots
-                      contrast={1}
-                      originalColors={false}
-                      inverted
-                      grid="square"
-                      radius={1}
-                      size={0.8}
-                      scale={1}
-                      grainSize={0.5}
-                      type="soft"
-                      fit="cover"
-                      grainMixer={0.05}
-                      grainOverlay={0.3}
-                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                      colorFront="#6BA0FF"
-                      colorBack="#00000000"
-                      className="w-240 h-180 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
-                        translate: "-50% -50%",
-                      }}
-                    />
-                    <div
-                      className="w-220 h-120 absolute left-[50%] top-[calc(50%+97px)]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
-                        translate: "-50% -50%",
-                      }}
-                    />
-                    <div className="items-start grid auto-rows-min grid-rows-[auto_auto] px-5 rounded-tl-2xl rounded-tr-2xl gap-1.5 relative">
-                      <div
-                        className="text-[18px] leading-[142.857%] uppercase text-white"
-                        style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
-                      >
-                        Change 02
-                      </div>
-                      <div className="text-[20px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
-                        Notification section
-                      </div>
-                    </div>
-                    <div className="items-center flex px-5 py-4 rounded-br-2xl rounded-bl-2xl relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
-                      <div className="flex text-[15px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
-                        Flags any issues before reps submit.
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex rounded-2xl items-center justify-center self-stretch px-8 py-8 h-[540px] md:h-[600px] overflow-clip gap-10 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                    }}
-                  >
-                    <HalftoneDots
-                      contrast={1}
-                      originalColors={false}
-                      inverted
-                      grid="square"
-                      radius={1}
-                      size={0.8}
-                      scale={1}
-                      grainSize={0.5}
-                      type="soft"
-                      fit="cover"
-                      grainMixer={0.05}
-                      grainOverlay={0.3}
-                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                      colorFront="#343434"
-                      colorBack="#00000000"
-                      className="w-240 h-180 absolute left-[50%] top-[50%]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
-                        translate: "-50% -50%",
-                      }}
-                    />
-                    <div className="flex items-center justify-center relative w-full h-full">
-                      <div
-                        className="aspect-[151/304] w-72 md:w-88 max-w-full h-[480px] md:h-[540px] overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat shadow-2xl"
-                        style={{
-                          backgroundImage:
-                            "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Pop Change 03 */}
-              {poppedCardId === "change-03" && (
-                <div className="flex flex-col items-center rounded-3xl justify-center gap-2 p-2 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF1F] w-full shadow-2xl">
-                  <div
-                    className="flex flex-col pt-5 rounded-2xl overflow-clip gap-4 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
-                    }}
-                  >
-                    <HalftoneDots
-                      contrast={1}
-                      originalColors={false}
-                      inverted
-                      grid="square"
-                      radius={1}
-                      size={0.8}
-                      scale={1}
-                      grainSize={0.5}
-                      type="soft"
-                      fit="cover"
-                      grainMixer={0.05}
-                      grainOverlay={0.3}
-                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                      colorFront="#6BA0FF"
-                      colorBack="#00000000"
-                      className="w-240 h-180 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
-                        translate: "-50% -50%",
-                      }}
-                    />
-                    <div
-                      className="w-220 h-120 absolute left-[50%] top-[calc(50%+97px)]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
-                        translate: "-50% -50%",
-                      }}
-                    />
-                    <div className="items-start grid auto-rows-min grid-rows-[auto_auto] px-5 rounded-tl-2xl rounded-tr-2xl gap-1.5 relative">
-                      <div
-                        className="text-[18px] leading-[142.857%] uppercase text-white"
-                        style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
-                      >
-                        Change 03
-                      </div>
-                      <div className="text-[20px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
-                        Grouped, pre-filled fields
-                      </div>
-                    </div>
-                    <div className="items-center flex px-5 py-4 rounded-br-2xl rounded-bl-2xl relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
-                      <div className="flex text-[15px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
-                        Grouped card fields, known values pre-filled.
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex rounded-2xl items-center justify-between self-stretch px-8 py-8 h-[540px] md:h-[600px] overflow-clip gap-10 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                    }}
-                  >
-                    <HalftoneDots
-                      contrast={1}
-                      originalColors={false}
-                      inverted
-                      grid="square"
-                      radius={1}
-                      size={0.8}
-                      scale={1}
-                      grainSize={0.5}
-                      type="soft"
-                      fit="cover"
-                      grainMixer={0.05}
-                      grainOverlay={0.3}
-                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                      colorFront="#343434"
-                      colorBack="#00000000"
-                      className="w-240 h-180 absolute left-[50%] top-[50%]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
-                        translate: "-50% -50%",
-                      }}
-                    />
-                    <div className="flex items-center justify-center relative flex-1 h-full">
-                      <div
-                        className="aspect-[151/304] w-72 md:w-84 max-w-full h-[480px] md:h-[540px] overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat shadow-2xl"
-                        style={{
-                          backgroundImage:
-                            "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp)",
-                        }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center relative flex-1 h-full">
-                      <div
-                        className="aspect-[151/304] w-72 md:w-84 max-w-full h-[480px] md:h-[540px] overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat shadow-2xl"
-                        style={{
-                          backgroundImage:
-                            "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Pop Change 04 */}
-              {poppedCardId === "change-04" && (
-                <div className="flex flex-col items-center rounded-3xl justify-center gap-2 p-2 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF1F] w-full shadow-2xl">
-                  <div
-                    className="flex flex-col pt-5 rounded-2xl overflow-clip gap-4 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
-                    }}
-                  >
-                    <HalftoneDots
-                      contrast={1}
-                      originalColors={false}
-                      inverted
-                      grid="square"
-                      radius={1}
-                      size={0.8}
-                      scale={1}
-                      grainSize={0.5}
-                      type="soft"
-                      fit="cover"
-                      grainMixer={0.05}
-                      grainOverlay={0.3}
-                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                      colorFront="#6BA0FF"
-                      colorBack="#00000000"
-                      className="w-240 h-180 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
-                        translate: "-50% -50%",
-                      }}
-                    />
-                    <div
-                      className="w-220 h-120 absolute left-[50%] top-[calc(50%+97px)]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
-                        translate: "-50% -50%",
-                      }}
-                    />
-                    <div className="items-start grid auto-rows-min grid-rows-[auto_auto] px-5 rounded-tl-2xl rounded-tr-2xl gap-1.5 relative">
-                      <div
-                        className="text-[18px] leading-[142.857%] uppercase text-white"
-                        style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
-                      >
-                        Change 04
-                      </div>
-                      <div className="text-[20px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
-                        Full-width primary CTA
-                      </div>
-                    </div>
-                    <div className="items-center flex px-5 py-4 rounded-br-2xl rounded-bl-2xl relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
-                      <div className="flex text-[15px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
-                        One full-width button, always in reach.
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="flex rounded-2xl items-center justify-between self-stretch px-8 py-8 h-[540px] md:h-[600px] overflow-clip gap-10 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                    }}
-                  >
-                    <HalftoneDots
-                      contrast={1}
-                      originalColors={false}
-                      inverted
-                      grid="square"
-                      radius={1}
-                      size={0.8}
-                      scale={1}
-                      grainSize={0.5}
-                      type="soft"
-                      fit="cover"
-                      grainMixer={0.05}
-                      grainOverlay={0.3}
-                      image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                      colorFront="#343434"
-                      colorBack="#00000000"
-                      className="w-240 h-180 absolute left-[50%] top-[50%]"
-                      style={{
-                        backgroundImage:
-                          "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
-                        translate: "-50% -50%",
-                      }}
-                    />
-                    <div className="flex items-center justify-center relative flex-1 h-full">
-                      <div
-                        className="aspect-[151/304] w-72 md:w-84 max-w-full h-[480px] md:h-[540px] overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat shadow-2xl"
-                        style={{
-                          backgroundImage:
-                            "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp)",
-                        }}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center relative flex-1 h-full">
-                      <div
-                        className="aspect-[151/304] w-72 md:w-84 max-w-full h-[480px] md:h-[540px] overflow-clip shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat shadow-2xl"
-                        style={{
-                          backgroundImage:
-                            "url(https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
+              <div className="w-[580px] max-w-[92vw] origin-center shrink-0 scale-[1.1] sm:scale-[1.35] md:scale-[1.6] lg:scale-[1.75] drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)]">
+                <ChangeCard id={poppedCardId as any} isPopup />
+              </div>
             </motion.div>
           </motion.div>
         )}
