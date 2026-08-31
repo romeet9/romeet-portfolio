@@ -7,12 +7,17 @@ export function LazyHalftoneDots({
   image,
   className,
   style,
+  priority = false,
   ...props
-}: HalftoneDotsProps) {
+}: HalftoneDotsProps & { priority?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(false);
+  const [isInView, setIsInView] = useState(priority);
 
   useEffect(() => {
+    if (priority) {
+      setIsInView(true);
+      return;
+    }
     const el = containerRef.current;
     if (!el) return;
 
@@ -27,7 +32,7 @@ export function LazyHalftoneDots({
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [priority]);
 
   // Map any Paper asset URL to local static texture for instant loading & 0 CORS/network drops
   let resolvedImage = image;

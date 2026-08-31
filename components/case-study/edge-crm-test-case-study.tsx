@@ -84,11 +84,12 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
       <motion.div
         layoutId={`card-${id}`}
         transition={currentTransition}
+        whileHover={isPopup ? undefined : { scale: 1.012 }}
         onClick={isPopup ? undefined : onCardClick}
         className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
             ? "shadow-2xl border-[#FFFFFF26]"
-            : "group cursor-pointer hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200"
+            : "group cursor-pointer hover:border-white/30 hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-colors duration-200"
         }`}
       >
         <div
@@ -111,6 +112,7 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
             fit="cover"
             grainMixer={0.05}
             grainOverlay={0.3}
+            priority={isPopup}
             image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
             colorFront="#6BA0FF"
             colorBack="#00000000"
@@ -147,7 +149,7 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
           </div>
         </div>
         <div
-          className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
+          className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-colors duration-300 w-full"
           style={{
             backgroundImage:
               "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -166,6 +168,7 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
             fit="cover"
             grainMixer={0.05}
             grainOverlay={0.3}
+            priority={isPopup}
             image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
             colorFront="#343434"
             colorBack="#00000000"
@@ -212,11 +215,12 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
       <motion.div
         layoutId={`card-${id}`}
         transition={currentTransition}
+        whileHover={isPopup ? undefined : { scale: 1.012 }}
         onClick={isPopup ? undefined : onCardClick}
         className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
             ? "shadow-2xl border-[#FFFFFF26]"
-            : "group cursor-pointer hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200"
+            : "group cursor-pointer hover:border-white/30 hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-colors duration-200"
         }`}
       >
         <div
@@ -239,6 +243,7 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
             fit="cover"
             grainMixer={0.05}
             grainOverlay={0.3}
+            priority={isPopup}
             image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
             colorFront="#6BA0FF"
             colorBack="#00000000"
@@ -275,7 +280,7 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
           </div>
         </div>
         <div
-          className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-center self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
+          className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-center self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-colors duration-300 w-full"
           style={{
             backgroundImage:
               "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -294,6 +299,7 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
             fit="cover"
             grainMixer={0.05}
             grainOverlay={0.3}
+            priority={isPopup}
             image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
             colorFront="#343434"
             colorBack="#00000000"
@@ -331,11 +337,12 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
       <motion.div
         layoutId={`card-${id}`}
         transition={currentTransition}
+        whileHover={isPopup ? undefined : { scale: 1.012 }}
         onClick={isPopup ? undefined : onCardClick}
         className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
             ? "shadow-2xl border-[#FFFFFF26]"
-            : "group cursor-pointer hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200"
+            : "group cursor-pointer hover:border-white/30 hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-colors duration-200"
         }`}
       >
         <div
@@ -358,6 +365,7 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
             fit="cover"
             grainMixer={0.05}
             grainOverlay={0.3}
+            priority={isPopup}
             image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
             colorFront="#6BA0FF"
             colorBack="#00000000"
@@ -394,7 +402,7 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
           </div>
         </div>
         <div
-          className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
+          className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-colors duration-300 w-full"
           style={{
             backgroundImage:
               "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -413,6 +421,7 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
             fit="cover"
             grainMixer={0.05}
             grainOverlay={0.3}
+            priority={isPopup}
             image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
             colorFront="#343434"
             colorBack="#00000000"
@@ -459,11 +468,12 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
     <motion.div
       layoutId={`card-${id}`}
       transition={currentTransition}
+      whileHover={isPopup ? undefined : { scale: 1.012 }}
       onClick={isPopup ? undefined : onCardClick}
       className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
         isPopup
           ? "shadow-2xl border-[#FFFFFF26]"
-          : "group cursor-pointer hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200"
+          : "group cursor-pointer hover:border-white/30 hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-colors duration-200"
       }`}
     >
       <div
@@ -486,6 +496,7 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
           fit="cover"
           grainMixer={0.05}
           grainOverlay={0.3}
+          priority={isPopup}
           image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
           colorFront="#6BA0FF"
           colorBack="#00000000"
@@ -522,7 +533,7 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
         </div>
       </div>
       <div
-        className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
+        className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-colors duration-300 w-full"
         style={{
           backgroundImage:
             "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
@@ -541,6 +552,7 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
           fit="cover"
           grainMixer={0.05}
           grainOverlay={0.3}
+          priority={isPopup}
           image="https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
           colorFront="#343434"
           colorBack="#00000000"
@@ -2333,9 +2345,10 @@ export function EdgeCrmTestCaseStudy() {
             onClick={handleCloseCard}
           >
             <div
-              className="w-[580px] max-w-[92vw] origin-center shrink-0 drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)] cursor-default transform-gpu will-change-transform"
+              className="origin-center shrink-0 drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)] cursor-default transform-gpu will-change-transform"
               style={{
-                transform: `scale(${animConfig.scale})`,
+                width: `${Math.round(520 * animConfig.scale)}px`,
+                maxWidth: "94vw",
               }}
               onClick={(e) => e.stopPropagation()}
             >
