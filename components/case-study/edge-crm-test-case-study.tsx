@@ -85,7 +85,7 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
         layoutId={`card-${id}`}
         transition={currentTransition}
         onClick={isPopup ? undefined : onCardClick}
-        className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
+        className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
             ? "shadow-2xl border-[#FFFFFF26]"
             : "group cursor-pointer hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200"
@@ -213,7 +213,7 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
         layoutId={`card-${id}`}
         transition={currentTransition}
         onClick={isPopup ? undefined : onCardClick}
-        className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
+        className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
             ? "shadow-2xl border-[#FFFFFF26]"
             : "group cursor-pointer hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200"
@@ -332,7 +332,7 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
         layoutId={`card-${id}`}
         transition={currentTransition}
         onClick={isPopup ? undefined : onCardClick}
-        className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
+        className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
             ? "shadow-2xl border-[#FFFFFF26]"
             : "group cursor-pointer hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200"
@@ -460,7 +460,7 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
       layoutId={`card-${id}`}
       transition={currentTransition}
       onClick={isPopup ? undefined : onCardClick}
-      className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
+      className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
         isPopup
           ? "shadow-2xl border-[#FFFFFF26]"
           : "group cursor-pointer hover:border-white/30 hover:scale-[1.015] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-200"
@@ -909,6 +909,18 @@ export function EdgeCrmTestCaseStudy() {
   const [poppedCardId, setPoppedCardId] = React.useState<string | null>(null);
   const [animConfig, setAnimConfig] = React.useState<AnimationConfig>(DEFAULT_ANIM_CONFIG);
 
+  const handleOpenCard = React.useCallback((id: string) => {
+    React.startTransition(() => {
+      setPoppedCardId(id);
+    });
+  }, []);
+
+  const handleCloseCard = React.useCallback(() => {
+    React.startTransition(() => {
+      setPoppedCardId(null);
+    });
+  }, []);
+
   const activeTransition = React.useMemo(() => {
     if (animConfig.mode === "spring") {
       return {
@@ -928,20 +940,27 @@ export function EdgeCrmTestCaseStudy() {
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setPoppedCardId(null);
+        handleCloseCard();
       }
     };
+
+    let rafId: number;
     if (poppedCardId) {
-      document.body.style.overflow = "hidden";
+      rafId = requestAnimationFrame(() => {
+        document.body.style.overflow = "hidden";
+      });
       window.addEventListener("keydown", handleKeyDown);
     } else {
-      document.body.style.overflow = "";
+      rafId = requestAnimationFrame(() => {
+        document.body.style.overflow = "";
+      });
     }
     return () => {
+      cancelAnimationFrame(rafId);
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [poppedCardId]);
+  }, [poppedCardId, handleCloseCard]);
   return (
     <div
       className="relative w-full text-white antialiased pt-20 sm:pt-24 lg:pt-28 pb-36 px-4"
@@ -2280,16 +2299,16 @@ export function EdgeCrmTestCaseStudy() {
               </div>
 
               {/* Change 01 */}
-              <ChangeCard id="change-01" transition={activeTransition} onCardClick={() => setPoppedCardId("change-01")} />
+              <ChangeCard id="change-01" transition={activeTransition} onCardClick={() => handleOpenCard("change-01")} />
 
               {/* Change 02 */}
-              <ChangeCard id="change-02" transition={activeTransition} onCardClick={() => setPoppedCardId("change-02")} />
+              <ChangeCard id="change-02" transition={activeTransition} onCardClick={() => handleOpenCard("change-02")} />
 
               {/* Change 03 */}
-              <ChangeCard id="change-03" transition={activeTransition} onCardClick={() => setPoppedCardId("change-03")} />
+              <ChangeCard id="change-03" transition={activeTransition} onCardClick={() => handleOpenCard("change-03")} />
 
               {/* Change 04 */}
-              <ChangeCard id="change-04" transition={activeTransition} onCardClick={() => setPoppedCardId("change-04")} />
+              <ChangeCard id="change-04" transition={activeTransition} onCardClick={() => handleOpenCard("change-04")} />
             </div>
           </section>
 
@@ -2305,16 +2324,16 @@ export function EdgeCrmTestCaseStudy() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.22, ease: "easeInOut" }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 cursor-zoom-out overflow-hidden"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 cursor-zoom-out overflow-hidden transform-gpu will-change-[opacity]"
             style={{
               backgroundColor: `rgba(0, 0, 0, ${animConfig.backdropOpacity})`,
               backdropFilter: `blur(${animConfig.backdropBlur}px)`,
               WebkitBackdropFilter: `blur(${animConfig.backdropBlur}px)`,
             }}
-            onClick={() => setPoppedCardId(null)}
+            onClick={handleCloseCard}
           >
             <div
-              className="w-[580px] max-w-[92vw] origin-center shrink-0 drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)] cursor-default"
+              className="w-[580px] max-w-[92vw] origin-center shrink-0 drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)] cursor-default transform-gpu will-change-transform"
               style={{
                 transform: `scale(${animConfig.scale})`,
               }}
