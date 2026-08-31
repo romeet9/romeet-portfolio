@@ -501,40 +501,6 @@ export function EdgeCrmTestCaseStudy() {
             </div>
           </section>
 
-          <GrungeSeparator />
-
-          {/* ================================================================ */}
-          {/* DESIGN DIRECTION LEAD CALLOUT                                    */}
-          {/* ================================================================ */}
-          <section className="flex flex-col items-start gap-3 self-stretch w-full">
-            <div className="tracking-[-0.02em] w-full font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
-              Turning the triage problem into a design direction.
-            </div>
-            <div className="flex flex-col items-start gap-14 self-stretch w-full">
-              <div className="flex flex-col items-start gap-3 w-full">
-                <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                  I broke the screen down into three main failures: visual hierarchy, information architecture, and interaction design.
-                </div>
-                <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                  Eventually, I walked each one into a concrete direction.
-                </div>
-              </div>
-              <div
-                className="flex flex-col items-start gap-3 p-4 self-stretch bg-origin-border [border-left-width:3px] border-l-solid border-l-[#6597F1] w-full"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(in oklab 90deg, oklab(100% 0 0 / 10%) 0.74%, oklab(80% 0 0 / 0%) 100%)",
-                }}
-              >
-                <div className="w-fit font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/4.5">
-                  Which case needs me right now?
-                </div>
-                <div className="text-justify self-stretch font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                  A single question that redesign had to answer.
-                </div>
-              </div>
-            </div>
-          </section>
 
           {/* ================================================================ */}
           {/* NEW TABLE FRAME (1PN-0): Unstructured long form + 3 Shaders      */}
