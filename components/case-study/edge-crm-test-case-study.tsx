@@ -39,10 +39,18 @@ interface ChangeCardProps {
   isPopup?: boolean;
 }
 
+const cardTransition = {
+  type: "spring",
+  stiffness: 350,
+  damping: 32,
+} as const;
+
 function ChangeCard({ id, onCardClick, isPopup = false }: ChangeCardProps) {
   if (id === "change-01") {
     return (
-      <div
+      <motion.div
+        layoutId={`card-${id}`}
+        transition={cardTransition}
         onClick={isPopup ? undefined : onCardClick}
         className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
@@ -162,13 +170,15 @@ function ChangeCard({ id, onCardClick, isPopup = false }: ChangeCardProps) {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
   if (id === "change-02") {
     return (
-      <div
+      <motion.div
+        layoutId={`card-${id}`}
+        transition={cardTransition}
         onClick={isPopup ? undefined : onCardClick}
         className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
@@ -279,13 +289,15 @@ function ChangeCard({ id, onCardClick, isPopup = false }: ChangeCardProps) {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
   if (id === "change-03") {
     return (
-      <div
+      <motion.div
+        layoutId={`card-${id}`}
+        transition={cardTransition}
         onClick={isPopup ? undefined : onCardClick}
         className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
@@ -405,13 +417,15 @@ function ChangeCard({ id, onCardClick, isPopup = false }: ChangeCardProps) {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
     );
   }
 
   // Change 04
   return (
-    <div
+    <motion.div
+      layoutId={`card-${id}`}
+      transition={cardTransition}
       onClick={isPopup ? undefined : onCardClick}
       className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
         isPopup
@@ -531,7 +545,7 @@ function ChangeCard({ id, onCardClick, isPopup = false }: ChangeCardProps) {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -1917,22 +1931,16 @@ export function EdgeCrmTestCaseStudy() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md cursor-zoom-out overflow-hidden"
             onClick={() => setPoppedCardId(null)}
           >
-            <motion.div
-              initial={{ scale: 0.85, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.85, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 320, damping: 26 }}
-              className="cursor-default flex items-center justify-center"
+            <div
+              className="w-[580px] max-w-[92vw] origin-center shrink-0 scale-[1.1] sm:scale-[1.35] md:scale-[1.6] lg:scale-[1.75] drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)] cursor-default"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="w-[580px] max-w-[92vw] origin-center shrink-0 scale-[1.1] sm:scale-[1.35] md:scale-[1.6] lg:scale-[1.75] drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)]">
-                <ChangeCard id={poppedCardId as any} isPopup />
-              </div>
-            </motion.div>
+              <ChangeCard id={poppedCardId as any} isPopup />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
