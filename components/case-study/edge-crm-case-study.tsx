@@ -917,7 +917,7 @@ function AnimationControlPanel({
   );
 }
 
-export function EdgeCrmTestCaseStudy() {
+export function EdgeCrmCaseStudy() {
   const [poppedCardId, setPoppedCardId] = React.useState<string | null>(null);
   const [animConfig, setAnimConfig] = React.useState<AnimationConfig>(DEFAULT_ANIM_CONFIG);
 
@@ -2368,3 +2368,6 @@ export function EdgeCrmTestCaseStudy() {
     </div>
   );
 }
+
+export const EdgeCrmTestCaseStudy = EdgeCrmCaseStudy;
+
