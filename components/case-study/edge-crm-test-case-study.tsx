@@ -60,7 +60,7 @@ export const DEFAULT_ANIM_CONFIG: AnimationConfig = {
   mass: 1,
   duration: 0.45,
   easePreset: "apple",
-  scale: 1.75,
+  scale: 1.25,
   backdropOpacity: 0.8,
   backdropBlur: 12,
 };
@@ -70,10 +70,9 @@ interface ChangeCardProps {
   onCardClick?: () => void;
   isPopup?: boolean;
   transition?: any;
-  scale?: number;
 }
 
-function ChangeCard({ id, onCardClick, isPopup = false, transition, scale = 1 }: ChangeCardProps) {
+function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCardProps) {
   const currentTransition = transition || {
     type: "spring",
     stiffness: 350,
@@ -85,12 +84,9 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition, scale = 1 }:
       <motion.div
         layoutId={`card-${id}`}
         transition={currentTransition}
-        initial={isPopup ? { scale: 1 } : false}
-        animate={{ scale: isPopup ? scale : 1 }}
-        exit={{ scale: 1 }}
         whileHover={isPopup ? undefined : { scale: 1.012 }}
         onClick={isPopup ? undefined : onCardClick}
-        className={`origin-center transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
+        className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
             ? "shadow-2xl border-[#FFFFFF26]"
             : "group cursor-pointer hover:border-white/30 hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-colors duration-200"
@@ -219,12 +215,9 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition, scale = 1 }:
       <motion.div
         layoutId={`card-${id}`}
         transition={currentTransition}
-        initial={isPopup ? { scale: 1 } : false}
-        animate={{ scale: isPopup ? scale : 1 }}
-        exit={{ scale: 1 }}
         whileHover={isPopup ? undefined : { scale: 1.012 }}
         onClick={isPopup ? undefined : onCardClick}
-        className={`origin-center transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
+        className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
             ? "shadow-2xl border-[#FFFFFF26]"
             : "group cursor-pointer hover:border-white/30 hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-colors duration-200"
@@ -344,12 +337,9 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition, scale = 1 }:
       <motion.div
         layoutId={`card-${id}`}
         transition={currentTransition}
-        initial={isPopup ? { scale: 1 } : false}
-        animate={{ scale: isPopup ? scale : 1 }}
-        exit={{ scale: 1 }}
         whileHover={isPopup ? undefined : { scale: 1.012 }}
         onClick={isPopup ? undefined : onCardClick}
-        className={`origin-center transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
+        className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
             ? "shadow-2xl border-[#FFFFFF26]"
             : "group cursor-pointer hover:border-white/30 hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-colors duration-200"
@@ -478,12 +468,9 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition, scale = 1 }:
     <motion.div
       layoutId={`card-${id}`}
       transition={currentTransition}
-      initial={isPopup ? { scale: 1 } : false}
-      animate={{ scale: isPopup ? scale : 1 }}
-      exit={{ scale: 1 }}
       whileHover={isPopup ? undefined : { scale: 1.012 }}
       onClick={isPopup ? undefined : onCardClick}
-      className={`origin-center transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
+      className={`transform-gpu will-change-transform flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
         isPopup
           ? "shadow-2xl border-[#FFFFFF26]"
           : "group cursor-pointer hover:border-white/30 hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-colors duration-200"
@@ -639,7 +626,7 @@ function AnimationControlPanel({
         mass: 0.8,
         duration: 0.35,
         easePreset: "apple" as const,
-        scale: 1.75,
+        scale: 1.25,
         backdropOpacity: 0.85,
         backdropBlur: 12,
       },
@@ -653,7 +640,7 @@ function AnimationControlPanel({
         mass: 1,
         duration: 0.45,
         easePreset: "apple" as const,
-        scale: 1.75,
+        scale: 1.25,
         backdropOpacity: 0.8,
         backdropBlur: 14,
       },
@@ -667,7 +654,7 @@ function AnimationControlPanel({
         mass: 1,
         duration: 0.5,
         easePreset: "backOut" as const,
-        scale: 1.75,
+        scale: 1.25,
         backdropOpacity: 0.85,
         backdropBlur: 10,
       },
@@ -681,7 +668,7 @@ function AnimationControlPanel({
         mass: 1.2,
         duration: 0.6,
         easePreset: "easeInOut" as const,
-        scale: 1.75,
+        scale: 1.25,
         backdropOpacity: 0.8,
         backdropBlur: 16,
       },
@@ -873,8 +860,8 @@ function AnimationControlPanel({
               </div>
               <input
                 type="range"
-                min={1.2}
-                max={2.2}
+                min={1.05}
+                max={1.6}
                 step={0.05}
                 value={config.scale}
                 onChange={(e) => onChange({ ...config, scale: Number(e.target.value) })}
@@ -2358,13 +2345,17 @@ export function EdgeCrmTestCaseStudy() {
             onClick={handleCloseCard}
           >
             <div
-              className="w-[580px] max-w-[90vw] flex items-center justify-center origin-center shrink-0 drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)] cursor-default"
+              className="origin-center shrink-0 drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)] cursor-default transform-gpu will-change-transform"
+              style={{
+                transform: `scale(${animConfig.scale})`,
+                width: "580px",
+                maxWidth: "92vw",
+              }}
               onClick={(e) => e.stopPropagation()}
             >
               <ChangeCard
                 id={poppedCardId as any}
                 transition={activeTransition}
-                scale={animConfig.scale}
                 isPopup
               />
             </div>
