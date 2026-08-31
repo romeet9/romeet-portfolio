@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Maximize2, X } from "lucide-react";
 import { LazyHalftoneDots as HalftoneDots } from "./lazy-halftone-dots";
 import { CaseStudyNav, CaseStudyBackButton } from "./case-study-nav";
 
@@ -33,6 +35,33 @@ const SECTIONS = [
 ];
 
 export function EdgeCrmTestCaseStudy() {
+  const [enlargedChange, setEnlargedChange] = React.useState<{
+    tag: string;
+    title: string;
+    desc: string;
+    type: "side-by-side" | "single";
+    beforeImg?: string;
+    afterImg?: string;
+    singleImg?: string;
+  } | null>(null);
+
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setEnlargedChange(null);
+      }
+    };
+    if (enlargedChange) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [enlargedChange]);
   return (
     <div
       className="relative w-full text-white antialiased pt-20 sm:pt-24 lg:pt-28 pb-36 px-4"
@@ -1371,7 +1400,19 @@ export function EdgeCrmTestCaseStudy() {
               </div>
 
               {/* Change 01 */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full">
+              <div
+                onClick={() =>
+                  setEnlargedChange({
+                    tag: "Change 01",
+                    title: "Stepped flow + progress bar",
+                    desc: "One long scroll, now clear stepped sections.",
+                    type: "side-by-side",
+                    beforeImg: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp",
+                    afterImg: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp",
+                  })
+                }
+                className="group cursor-pointer flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] hover:border-white/30 hover:scale-[1.01] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-300 w-full relative"
+              >
                 <div
                   className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
                   style={{
@@ -1428,12 +1469,16 @@ export function EdgeCrmTestCaseStudy() {
                   </div>
                 </div>
                 <div
-                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                   }}
                 >
+                  <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[11px] font-medium text-white shadow-xl pointer-events-none">
+                    <Maximize2 className="size-3 text-white/90" />
+                    <span>Click to enlarge</span>
+                  </div>
                   <HalftoneDots
                     contrast={1}
                     originalColors={false}
@@ -1487,7 +1532,18 @@ export function EdgeCrmTestCaseStudy() {
               </div>
 
               {/* Change 02 */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full">
+              <div
+                onClick={() =>
+                  setEnlargedChange({
+                    tag: "Change 02",
+                    title: "Notification section",
+                    desc: "Flags any issues before reps submit.",
+                    type: "single",
+                    singleImg: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp",
+                  })
+                }
+                className="group cursor-pointer flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] hover:border-white/30 hover:scale-[1.01] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-300 w-full relative"
+              >
                 <div
                   className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
                   style={{
@@ -1544,12 +1600,16 @@ export function EdgeCrmTestCaseStudy() {
                   </div>
                 </div>
                 <div
-                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-center self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-center self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                   }}
                 >
+                  <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[11px] font-medium text-white shadow-xl pointer-events-none">
+                    <Maximize2 className="size-3 text-white/90" />
+                    <span>Click to enlarge</span>
+                  </div>
                   <HalftoneDots
                     contrast={1}
                     originalColors={false}
@@ -1594,7 +1654,19 @@ export function EdgeCrmTestCaseStudy() {
               </div>
 
               {/* Change 03 */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full">
+              <div
+                onClick={() =>
+                  setEnlargedChange({
+                    tag: "Change 03",
+                    title: "Grouped, pre-filled fields",
+                    desc: "Grouped card fields, known values pre-filled.",
+                    type: "side-by-side",
+                    beforeImg: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp",
+                    afterImg: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp",
+                  })
+                }
+                className="group cursor-pointer flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] hover:border-white/30 hover:scale-[1.01] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-300 w-full relative"
+              >
                 <div
                   className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
                   style={{
@@ -1651,12 +1723,16 @@ export function EdgeCrmTestCaseStudy() {
                   </div>
                 </div>
                 <div
-                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                   }}
                 >
+                  <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[11px] font-medium text-white shadow-xl pointer-events-none">
+                    <Maximize2 className="size-3 text-white/90" />
+                    <span>Click to enlarge</span>
+                  </div>
                   <HalftoneDots
                     contrast={1}
                     originalColors={false}
@@ -1710,7 +1786,19 @@ export function EdgeCrmTestCaseStudy() {
               </div>
 
               {/* Change 04 */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full">
+              <div
+                onClick={() =>
+                  setEnlargedChange({
+                    tag: "Change 04",
+                    title: "Full-width primary CTA",
+                    desc: "One full-width button, always in reach.",
+                    type: "side-by-side",
+                    beforeImg: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/6Y2P03ECMSJGXKC3AR5WN92K3K.webp",
+                    afterImg: "https://app.paper.design/file-assets/01M09SD99TMVY4HEC83XWHCFEP/2F6BWG8EWY0N00F2KHFKSQDQDR.webp",
+                  })
+                }
+                className="group cursor-pointer flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] hover:border-white/30 hover:scale-[1.01] hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] transition-all duration-300 w-full relative"
+              >
                 <div
                   className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
                   style={{
@@ -1767,12 +1855,16 @@ export function EdgeCrmTestCaseStudy() {
                   </div>
                 </div>
                 <div
-                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] group-hover:border-white/30 transition-all duration-300 w-full"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                   }}
                 >
+                  <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-[11px] font-medium text-white shadow-xl pointer-events-none">
+                    <Maximize2 className="size-3 text-white/90" />
+                    <span>Click to enlarge</span>
+                  </div>
                   <HalftoneDots
                     contrast={1}
                     originalColors={false}
@@ -1830,6 +1922,100 @@ export function EdgeCrmTestCaseStudy() {
           <GrungeSeparator />
         </main>
       </div>
+
+      {/* Enlarged Change Modal Lightbox */}
+      <AnimatePresence>
+        {enlargedChange && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-6 bg-black/85 backdrop-blur-md"
+            onClick={() => setEnlargedChange(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.94, opacity: 0, y: 16 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.94, opacity: 0, y: 16 }}
+              transition={{ type: "spring", stiffness: 350, damping: 30 }}
+              className="relative max-w-4xl w-full max-h-[92vh] flex flex-col rounded-2xl bg-[#171717] border border-white/15 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.8)]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between p-4 md:px-6 md:py-4 border-b border-white/10 bg-[#1f1f1f]">
+                <div className="flex flex-col gap-0.5">
+                  <div
+                    className="text-xs uppercase tracking-wider text-blue-400 font-semibold"
+                    style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
+                  >
+                    {enlargedChange.tag}
+                  </div>
+                  <div className="text-base md:text-lg font-medium text-white">
+                    {enlargedChange.title}
+                  </div>
+                  <div className="text-xs md:text-sm text-neutral-400">
+                    {enlargedChange.desc}
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setEnlargedChange(null)}
+                  className="p-2 rounded-full text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                  aria-label="Close enlarged preview"
+                >
+                  <X className="size-5" />
+                </button>
+              </div>
+
+              {/* Body */}
+              <div className="p-4 md:p-8 flex-1 overflow-y-auto flex items-center justify-center bg-gradient-to-b from-[#141414] to-[#0d0d0d] relative min-h-[480px]">
+                {enlargedChange.type === "side-by-side" ? (
+                  <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-6 md:gap-12 w-full">
+                    {/* Before Phone */}
+                    <div className="flex flex-col items-center gap-3">
+                      <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-red-500/15 text-red-400 border border-red-500/30">
+                        Before
+                      </span>
+                      <div
+                        className="aspect-[151/304] w-56 md:w-72 max-w-full h-[450px] md:h-[580px] bg-size-[100%_100%] bg-position-[50%] bg-no-repeat shadow-2xl rounded-2xl border border-white/10"
+                        style={{
+                          backgroundImage: `url(${enlargedChange.beforeImg})`,
+                        }}
+                      />
+                    </div>
+
+                    {/* After Phone */}
+                    <div className="flex flex-col items-center gap-3">
+                      <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                        After (Redesign)
+                      </span>
+                      <div
+                        className="aspect-[151/304] w-56 md:w-72 max-w-full h-[450px] md:h-[580px] bg-size-[100%_100%] bg-position-[50%] bg-no-repeat shadow-2xl rounded-2xl border border-white/10"
+                        style={{
+                          backgroundImage: `url(${enlargedChange.afterImg})`,
+                        }}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex flex-col items-center gap-3">
+                    <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-500/15 text-blue-400 border border-blue-500/30">
+                      Redesign Preview
+                    </span>
+                    <div
+                      className="aspect-[151/304] w-64 md:w-80 max-w-full h-[480px] md:h-[620px] bg-size-[100%_100%] bg-position-[50%] bg-no-repeat shadow-2xl rounded-2xl border border-white/10"
+                      style={{
+                        backgroundImage: `url(${enlargedChange.singleImg})`,
+                      }}
+                    />
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
