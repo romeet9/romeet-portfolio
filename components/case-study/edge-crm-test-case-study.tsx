@@ -33,24 +33,57 @@ const SECTIONS = [
   { id: "reflection", label: "Reflection" },
 ];
 
+export interface AnimationConfig {
+  mode: "spring" | "tween";
+  stiffness: number;
+  damping: number;
+  mass: number;
+  duration: number;
+  easePreset: "apple" | "easeOut" | "backOut" | "easeInOut" | "linear";
+  scale: number;
+  backdropOpacity: number;
+  backdropBlur: number;
+}
+
+export const EASE_PRESETS = {
+  apple: [0.16, 1, 0.3, 1],
+  easeOut: [0, 0, 0.2, 1],
+  backOut: [0.34, 1.56, 0.64, 1],
+  easeInOut: [0.42, 0, 0.58, 1],
+  linear: [0, 0, 1, 1],
+};
+
+export const DEFAULT_ANIM_CONFIG: AnimationConfig = {
+  mode: "spring",
+  stiffness: 350,
+  damping: 32,
+  mass: 1,
+  duration: 0.45,
+  easePreset: "apple",
+  scale: 1.75,
+  backdropOpacity: 0.8,
+  backdropBlur: 12,
+};
+
 interface ChangeCardProps {
   id: "change-01" | "change-02" | "change-03" | "change-04";
   onCardClick?: () => void;
   isPopup?: boolean;
+  transition?: any;
 }
 
-const cardTransition = {
-  type: "spring",
-  stiffness: 350,
-  damping: 32,
-} as const;
+function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCardProps) {
+  const currentTransition = transition || {
+    type: "spring",
+    stiffness: 350,
+    damping: 32,
+  };
 
-function ChangeCard({ id, onCardClick, isPopup = false }: ChangeCardProps) {
   if (id === "change-01") {
     return (
       <motion.div
         layoutId={`card-${id}`}
-        transition={cardTransition}
+        transition={currentTransition}
         onClick={isPopup ? undefined : onCardClick}
         className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
@@ -178,7 +211,7 @@ function ChangeCard({ id, onCardClick, isPopup = false }: ChangeCardProps) {
     return (
       <motion.div
         layoutId={`card-${id}`}
-        transition={cardTransition}
+        transition={currentTransition}
         onClick={isPopup ? undefined : onCardClick}
         className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
@@ -297,7 +330,7 @@ function ChangeCard({ id, onCardClick, isPopup = false }: ChangeCardProps) {
     return (
       <motion.div
         layoutId={`card-${id}`}
-        transition={cardTransition}
+        transition={currentTransition}
         onClick={isPopup ? undefined : onCardClick}
         className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
           isPopup
@@ -425,7 +458,7 @@ function ChangeCard({ id, onCardClick, isPopup = false }: ChangeCardProps) {
   return (
     <motion.div
       layoutId={`card-${id}`}
-      transition={cardTransition}
+      transition={currentTransition}
       onClick={isPopup ? undefined : onCardClick}
       className={`flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full relative ${
         isPopup
@@ -549,8 +582,348 @@ function ChangeCard({ id, onCardClick, isPopup = false }: ChangeCardProps) {
   );
 }
 
+function AnimationControlPanel({
+  config,
+  onChange,
+}: {
+  config: AnimationConfig;
+  onChange: (newConfig: AnimationConfig) => void;
+}) {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [copied, setCopied] = React.useState(false);
+
+  const copyConfigCode = () => {
+    let snippet = "";
+    if (config.mode === "spring") {
+      snippet = `const cardTransition = {\n  type: "spring",\n  stiffness: ${config.stiffness},\n  damping: ${config.damping},\n  mass: ${config.mass},\n};`;
+    } else {
+      snippet = `const cardTransition = {\n  type: "tween",\n  duration: ${config.duration},\n  ease: ${JSON.stringify(EASE_PRESETS[config.easePreset])},\n};`;
+    }
+    navigator.clipboard.writeText(snippet);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const PRESETS = [
+    {
+      name: "⚡ Snappy & Crisp",
+      config: {
+        mode: "spring" as const,
+        stiffness: 450,
+        damping: 34,
+        mass: 0.8,
+        duration: 0.35,
+        easePreset: "apple" as const,
+        scale: 1.75,
+        backdropOpacity: 0.85,
+        backdropBlur: 12,
+      },
+    },
+    {
+      name: "🍏 Apple Fluid",
+      config: {
+        mode: "tween" as const,
+        stiffness: 350,
+        damping: 32,
+        mass: 1,
+        duration: 0.45,
+        easePreset: "apple" as const,
+        scale: 1.75,
+        backdropOpacity: 0.8,
+        backdropBlur: 14,
+      },
+    },
+    {
+      name: "🎈 Playful Bounce",
+      config: {
+        mode: "spring" as const,
+        stiffness: 320,
+        damping: 18,
+        mass: 1,
+        duration: 0.5,
+        easePreset: "backOut" as const,
+        scale: 1.75,
+        backdropOpacity: 0.85,
+        backdropBlur: 10,
+      },
+    },
+    {
+      name: "🧘 Gentle / Slow",
+      config: {
+        mode: "spring" as const,
+        stiffness: 180,
+        damping: 28,
+        mass: 1.2,
+        duration: 0.6,
+        easePreset: "easeInOut" as const,
+        scale: 1.75,
+        backdropOpacity: 0.8,
+        backdropBlur: 16,
+      },
+    },
+  ];
+
+  return (
+    <div className="fixed bottom-6 right-6 z-[999] font-sans">
+      {!isOpen ? (
+        <button
+          onClick={() => setIsOpen(true)}
+          className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-xs font-semibold shadow-2xl border border-white/20 transition-all duration-200 hover:scale-105"
+        >
+          <span className="text-sm">🎛️</span>
+          <span>Tune Animation</span>
+          <span className="px-1.5 py-0.5 rounded bg-black/30 text-[10px] text-blue-200 font-mono">
+            {config.mode === "spring" ? `S:${config.stiffness} D:${config.damping}` : `T:${config.duration}s`}
+          </span>
+        </button>
+      ) : (
+        <div className="w-80 max-h-[85vh] overflow-y-auto bg-[#141417]/95 backdrop-blur-2xl border border-white/15 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] p-4 flex flex-col gap-3 text-white">
+          {/* Header */}
+          <div className="flex items-center justify-between pb-2 border-b border-white/10">
+            <div className="flex items-center gap-2">
+              <span className="text-base">🎛️</span>
+              <span className="text-xs font-bold tracking-wide uppercase text-white/90">
+                Animation Tuner
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <button
+                onClick={() => onChange(DEFAULT_ANIM_CONFIG)}
+                title="Reset to default"
+                className="p-1 rounded-md text-white/50 hover:text-white hover:bg-white/10 text-xs transition"
+              >
+                ↺
+              </button>
+              <button
+                onClick={() => setIsOpen(false)}
+                title="Collapse panel"
+                className="p-1 rounded-md text-white/50 hover:text-white hover:bg-white/10 text-xs transition"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+
+          {/* Quick Presets */}
+          <div className="flex flex-col gap-1">
+            <label className="text-[11px] font-medium text-white/60">Quick Presets</label>
+            <div className="grid grid-cols-2 gap-1.5">
+              {PRESETS.map((p) => (
+                <button
+                  key={p.name}
+                  onClick={() => onChange(p.config)}
+                  className="px-2 py-1.5 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 text-[10px] font-medium text-left truncate transition"
+                >
+                  {p.name}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Mode Switcher */}
+          <div className="flex flex-col gap-1">
+            <label className="text-[11px] font-medium text-white/60">Motion Engine</label>
+            <div className="grid grid-cols-2 p-0.5 rounded-lg bg-black/40 border border-white/10">
+              <button
+                onClick={() => onChange({ ...config, mode: "spring" })}
+                className={`py-1 rounded-md text-xs font-semibold transition ${
+                  config.mode === "spring"
+                    ? "bg-blue-600 text-white shadow"
+                    : "text-white/60 hover:text-white"
+                }`}
+              >
+                Spring Physics
+              </button>
+              <button
+                onClick={() => onChange({ ...config, mode: "tween" })}
+                className={`py-1 rounded-md text-xs font-semibold transition ${
+                  config.mode === "tween"
+                    ? "bg-blue-600 text-white shadow"
+                    : "text-white/60 hover:text-white"
+                }`}
+              >
+                Duration & Curve
+              </button>
+            </div>
+          </div>
+
+          {/* Sliders */}
+          {config.mode === "spring" ? (
+            <div className="flex flex-col gap-2 pt-0.5">
+              {/* Stiffness */}
+              <div className="flex flex-col gap-0.5">
+                <div className="flex justify-between text-[11px]">
+                  <span className="text-white/70">Stiffness (Speed / Snap)</span>
+                  <span className="font-mono text-blue-400 font-bold">{config.stiffness}</span>
+                </div>
+                <input
+                  type="range"
+                  min={80}
+                  max={800}
+                  step={10}
+                  value={config.stiffness}
+                  onChange={(e) => onChange({ ...config, stiffness: Number(e.target.value) })}
+                  className="w-full accent-blue-500 h-1.5 bg-white/20 rounded-lg cursor-pointer"
+                />
+              </div>
+
+              {/* Damping */}
+              <div className="flex flex-col gap-0.5">
+                <div className="flex justify-between text-[11px]">
+                  <span className="text-white/70">Damping (Friction / Bounce)</span>
+                  <span className="font-mono text-blue-400 font-bold">{config.damping}</span>
+                </div>
+                <input
+                  type="range"
+                  min={8}
+                  max={60}
+                  step={1}
+                  value={config.damping}
+                  onChange={(e) => onChange({ ...config, damping: Number(e.target.value) })}
+                  className="w-full accent-blue-500 h-1.5 bg-white/20 rounded-lg cursor-pointer"
+                />
+              </div>
+
+              {/* Mass */}
+              <div className="flex flex-col gap-0.5">
+                <div className="flex justify-between text-[11px]">
+                  <span className="text-white/70">Mass (Weight Inertia)</span>
+                  <span className="font-mono text-blue-400 font-bold">{config.mass.toFixed(1)}</span>
+                </div>
+                <input
+                  type="range"
+                  min={0.2}
+                  max={3.0}
+                  step={0.1}
+                  value={config.mass}
+                  onChange={(e) => onChange({ ...config, mass: Number(e.target.value) })}
+                  className="w-full accent-blue-500 h-1.5 bg-white/20 rounded-lg cursor-pointer"
+                />
+              </div>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-2 pt-0.5">
+              {/* Duration */}
+              <div className="flex flex-col gap-0.5">
+                <div className="flex justify-between text-[11px]">
+                  <span className="text-white/70">Duration</span>
+                  <span className="font-mono text-blue-400 font-bold">{config.duration.toFixed(2)}s</span>
+                </div>
+                <input
+                  type="range"
+                  min={0.1}
+                  max={1.5}
+                  step={0.05}
+                  value={config.duration}
+                  onChange={(e) => onChange({ ...config, duration: Number(e.target.value) })}
+                  className="w-full accent-blue-500 h-1.5 bg-white/20 rounded-lg cursor-pointer"
+                />
+              </div>
+
+              {/* Easing Preset */}
+              <div className="flex flex-col gap-0.5">
+                <span className="text-[11px] text-white/70">Ease Curve</span>
+                <select
+                  value={config.easePreset}
+                  onChange={(e) => onChange({ ...config, easePreset: e.target.value as any })}
+                  className="bg-black/50 border border-white/15 rounded-lg px-2.5 py-1 text-xs text-white focus:outline-none focus:border-blue-500"
+                >
+                  <option value="apple">Apple Fluid [0.16, 1, 0.3, 1]</option>
+                  <option value="easeOut">Standard Ease-Out</option>
+                  <option value="backOut">Back-Out (Overshoot)</option>
+                  <option value="easeInOut">Ease-In-Out</option>
+                  <option value="linear">Linear</option>
+                </select>
+              </div>
+            </div>
+          )}
+
+          {/* Popup Visuals */}
+          <div className="pt-2 border-t border-white/10 flex flex-col gap-2">
+            {/* Scale */}
+            <div className="flex flex-col gap-0.5">
+              <div className="flex justify-between text-[11px]">
+                <span className="text-white/70">Enlarge Scale</span>
+                <span className="font-mono text-emerald-400 font-bold">{config.scale.toFixed(2)}x</span>
+              </div>
+              <input
+                type="range"
+                min={1.2}
+                max={2.2}
+                step={0.05}
+                value={config.scale}
+                onChange={(e) => onChange({ ...config, scale: Number(e.target.value) })}
+                className="w-full accent-emerald-500 h-1.5 bg-white/20 rounded-lg cursor-pointer"
+              />
+            </div>
+
+            {/* Backdrop Darkness */}
+            <div className="flex flex-col gap-0.5">
+              <div className="flex justify-between text-[11px]">
+                <span className="text-white/70">Backdrop Opacity</span>
+                <span className="font-mono text-emerald-400 font-bold">{Math.round(config.backdropOpacity * 100)}%</span>
+              </div>
+              <input
+                type="range"
+                min={0.2}
+                max={0.95}
+                step={0.05}
+                value={config.backdropOpacity}
+                onChange={(e) => onChange({ ...config, backdropOpacity: Number(e.target.value) })}
+                className="w-full accent-emerald-500 h-1.5 bg-white/20 rounded-lg cursor-pointer"
+              />
+            </div>
+
+            {/* Backdrop Blur */}
+            <div className="flex flex-col gap-0.5">
+              <div className="flex justify-between text-[11px]">
+                <span className="text-white/70">Backdrop Blur</span>
+                <span className="font-mono text-emerald-400 font-bold">{config.backdropBlur}px</span>
+              </div>
+              <input
+                type="range"
+                min={0}
+                max={24}
+                step={2}
+                value={config.backdropBlur}
+                onChange={(e) => onChange({ ...config, backdropBlur: Number(e.target.value) })}
+                className="w-full accent-emerald-500 h-1.5 bg-white/20 rounded-lg cursor-pointer"
+              />
+            </div>
+          </div>
+
+          {/* Copy Config Button */}
+          <button
+            onClick={copyConfigCode}
+            className="mt-0.5 w-full py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-xs font-semibold flex items-center justify-center gap-2 transition"
+          >
+            <span>{copied ? "✓ Copied to Clipboard!" : "📋 Copy Config Code"}</span>
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function EdgeCrmTestCaseStudy() {
   const [poppedCardId, setPoppedCardId] = React.useState<string | null>(null);
+  const [animConfig, setAnimConfig] = React.useState<AnimationConfig>(DEFAULT_ANIM_CONFIG);
+
+  const activeTransition = React.useMemo(() => {
+    if (animConfig.mode === "spring") {
+      return {
+        type: "spring",
+        stiffness: animConfig.stiffness,
+        damping: animConfig.damping,
+        mass: animConfig.mass,
+      };
+    }
+    return {
+      type: "tween",
+      duration: animConfig.duration,
+      ease: EASE_PRESETS[animConfig.easePreset],
+    };
+  }, [animConfig]);
 
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -1907,16 +2280,16 @@ export function EdgeCrmTestCaseStudy() {
               </div>
 
               {/* Change 01 */}
-              <ChangeCard id="change-01" onCardClick={() => setPoppedCardId("change-01")} />
+              <ChangeCard id="change-01" transition={activeTransition} onCardClick={() => setPoppedCardId("change-01")} />
 
               {/* Change 02 */}
-              <ChangeCard id="change-02" onCardClick={() => setPoppedCardId("change-02")} />
+              <ChangeCard id="change-02" transition={activeTransition} onCardClick={() => setPoppedCardId("change-02")} />
 
               {/* Change 03 */}
-              <ChangeCard id="change-03" onCardClick={() => setPoppedCardId("change-03")} />
+              <ChangeCard id="change-03" transition={activeTransition} onCardClick={() => setPoppedCardId("change-03")} />
 
               {/* Change 04 */}
-              <ChangeCard id="change-04" onCardClick={() => setPoppedCardId("change-04")} />
+              <ChangeCard id="change-04" transition={activeTransition} onCardClick={() => setPoppedCardId("change-04")} />
             </div>
           </section>
 
@@ -1931,19 +2304,30 @@ export function EdgeCrmTestCaseStudy() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md cursor-zoom-out overflow-hidden"
+            transition={{ duration: 0.22, ease: "easeInOut" }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 cursor-zoom-out overflow-hidden"
+            style={{
+              backgroundColor: `rgba(0, 0, 0, ${animConfig.backdropOpacity})`,
+              backdropFilter: `blur(${animConfig.backdropBlur}px)`,
+              WebkitBackdropFilter: `blur(${animConfig.backdropBlur}px)`,
+            }}
             onClick={() => setPoppedCardId(null)}
           >
             <div
-              className="w-[580px] max-w-[92vw] origin-center shrink-0 scale-[1.1] sm:scale-[1.35] md:scale-[1.6] lg:scale-[1.75] drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)] cursor-default"
+              className="w-[580px] max-w-[92vw] origin-center shrink-0 drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)] cursor-default"
+              style={{
+                transform: `scale(${animConfig.scale})`,
+              }}
               onClick={(e) => e.stopPropagation()}
             >
-              <ChangeCard id={poppedCardId as any} isPopup />
+              <ChangeCard id={poppedCardId as any} transition={activeTransition} isPopup />
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Live Visual Slider Panel */}
+      <AnimationControlPanel config={animConfig} onChange={setAnimConfig} />
     </div>
   );
 }
