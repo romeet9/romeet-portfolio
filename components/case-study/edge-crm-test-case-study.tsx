@@ -1411,7 +1411,10 @@ export function EdgeCrmTestCaseStudy() {
                     }}
                   />
                   <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
-                    <div className="text-[14px] leading-[142.857%] wrap-normal uppercase font-['M_PLUS_Code_Latin',system-ui,sans-serif] text-white">
+                    <div
+                      className="text-[14px] leading-[142.857%] wrap-normal uppercase text-white"
+                      style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
+                    >
                       Change 01
                     </div>
                     <div className="text-[14px] leading-[137.5%] wrap-normal font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
@@ -1524,7 +1527,10 @@ export function EdgeCrmTestCaseStudy() {
                     }}
                   />
                   <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
-                    <div className="text-[14px] leading-[142.857%] uppercase font-['M_PLUS_Code_Latin',system-ui,sans-serif] text-white">
+                    <div
+                      className="text-[14px] leading-[142.857%] uppercase text-white"
+                      style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
+                    >
                       Change 02
                     </div>
                     <div className="text-[14px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
@@ -1628,7 +1634,10 @@ export function EdgeCrmTestCaseStudy() {
                     }}
                   />
                   <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
-                    <div className="text-[14px] leading-[142.857%] uppercase font-['M_PLUS_Code_Latin',system-ui,sans-serif] text-white">
+                    <div
+                      className="text-[14px] leading-[142.857%] uppercase text-white"
+                      style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
+                    >
                       Change 03
                     </div>
                     <div className="text-[14px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
@@ -1741,7 +1750,10 @@ export function EdgeCrmTestCaseStudy() {
                     }}
                   />
                   <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
-                    <div className="text-[14px] leading-[142.857%] uppercase font-['M_PLUS_Code_Latin',system-ui,sans-serif] text-white">
+                    <div
+                      className="text-[14px] leading-[142.857%] uppercase text-white"
+                      style={{ fontFamily: '"M PLUS Code Latin", monospace, sans-serif' }}
+                    >
                       Change 04
                     </div>
                     <div className="text-[14px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">

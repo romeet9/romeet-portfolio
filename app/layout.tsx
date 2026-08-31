@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Instrument_Sans } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Sans, M_PLUS_Code_Latin } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { BottomScrim } from "@/components/bottom-scrim";
@@ -17,6 +17,11 @@ const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
+});
+const mPlusCodeLatin = M_PLUS_Code_Latin({
+  subsets: ["latin"],
+  variable: "--font-m-plus-code-latin",
+  weight: ["400", "500", "600", "700"],
 });
 // The portfolio's single typeface. Wired to --font-sans in globals.css, so the
 // whole site renders in Instrument Sans; the KPI cards also name it directly.
@@ -53,7 +58,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSans.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSans.variable} ${mPlusCodeLatin.variable}`}
     >
       <body className="font-sans antialiased">
         <script
