@@ -12,8 +12,8 @@ export function CustomMousePointer() {
   const rawX = useMotionValue(-100);
   const rawY = useMotionValue(-100);
 
-  // Smooth, snappy spring for precise latency-free cursor follow
-  const springConfig = { damping: 35, stiffness: 700, mass: 0.1 };
+  // High-fidelity, low-latency spring physics
+  const springConfig = { damping: 28, stiffness: 650, mass: 0.08 };
   const cursorX = useSpring(rawX, springConfig);
   const cursorY = useSpring(rawY, springConfig);
 
@@ -25,15 +25,15 @@ export function CustomMousePointer() {
     }
 
     const handleMouseMove = (e: MouseEvent) => {
-      rawX.set(e.clientX - 6); // 12px / 2 = 6px offset
-      rawY.set(e.clientY - 6);
+      rawX.set(e.clientX);
+      rawY.set(e.clientY);
       if (!isVisible) setIsVisible(true);
 
       // Check if hovering interactive element
       const target = e.target as HTMLElement | null;
       if (target) {
         const isInteractive = target.closest(
-          'a, button, [role="button"], input, textarea, select, [tabindex="0"], label, summary'
+          'a, button, [role="button"], input, textarea, select, [tabindex="0"], label, summary, [data-interactive="true"]'
         );
         setIsPointer(!!isInteractive);
       }
@@ -63,30 +63,27 @@ export function CustomMousePointer() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed top-0 left-0 z-[999999]"
+      className="pointer-events-none fixed top-0 left-0 z-[9999999] select-none"
       style={{
         x: cursorX,
         y: cursorY,
+        translateX: "-50%",
+        translateY: "-50%",
         opacity: isVisible ? 1 : 0,
       }}
       animate={{
-        scale: isClicking ? 0.8 : isPointer ? 1.35 : 1,
+        scale: isClicking ? 0.75 : isPointer ? 1.6 : 1,
       }}
-      transition={{ type: "spring", damping: 25, stiffness: 400 }}
+      transition={{ type: "spring", damping: 20, stiffness: 350 }}
     >
-      {/* Exact Paper Canvas Design:
-          width: 12px, height: 12px, rounded-full,
-          backdrop-filter: blur(4px),
-          background: #00000078,
-          border: 0.5px solid #FFFFFF99
-      */}
       <div
-        className="size-3 rounded-full [backdrop-filter:blur(4px)] bg-[#00000078] border-[0.5px] border-solid border-[#FFFFFF99] shadow-[0_0_8px_rgba(0,0,0,0.3)]"
-        style={{
-          width: "12px",
-          height: "12px",
-        }}
+        className={`rounded-full transition-all duration-150 ease-out ${
+          isPointer
+            ? "size-5 bg-white/20 border border-white/80 [backdrop-filter:blur(6px)] shadow-[0_0_12px_rgba(255,255,255,0.4)]"
+            : "size-3.5 bg-black/60 dark:bg-white/30 border border-white/80 dark:border-white/90 [backdrop-filter:blur(4px)] shadow-[0_0_8px_rgba(0,0,0,0.35)]"
+        }`}
       />
     </motion.div>
   );
 }
+

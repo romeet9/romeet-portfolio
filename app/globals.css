@@ -228,4 +228,16 @@
       animation: none;
     }
   }
+
+  /* Hide default system cursor on devices with mouse/trackpad to show custom cursor */
+  @media (pointer: fine) {
+    html,
+    body,
+    *,
+    *::before,
+    *::after {
+      cursor: none !important;
+    }
+  }
 }
+
