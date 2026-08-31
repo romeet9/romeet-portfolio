@@ -1074,103 +1074,87 @@ export function EdgeCrmTestCaseStudy() {
                         Time to answer a client
                       </div>
                       <div className="flex items-center justify-between p-2 relative self-stretch w-full">
-                        {/* Step 1 */}
-                        <div className="flex flex-col items-center gap-6.5 w-19 justify-center shrink-0 self-stretch">
+                        <div className="flex flex-col items-center gap-4.5 w-19 justify-center shrink-0 self-stretch">
                           <div className="text-center font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
                             14% slower
                           </div>
                           <div className="text-justify w-fit font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
                             - 8 sec
                           </div>
-                          <div className="rounded-full shrink-0 bg-[#DDDDDD] size-2" />
+                          <div className="flex items-center pt-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={{ flexShrink: "0" }}>
+                              <path d="M5 12h14" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="m12 5 7 7-7 7" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </div>
                           <div className="text-center self-stretch font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
                             Opens app to find the required case
                           </div>
                         </div>
-
-                        {/* Arrow 1 */}
-                        <div className="flex items-center pt-4">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={{ flexShrink: "0" }}>
-                            <path d="M5 12h14" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="m12 5 7 7-7 7" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </div>
-
-                        {/* Step 2 */}
-                        <div className="flex flex-col items-center gap-6.5 w-19 justify-center shrink-0">
+                        <div className="flex flex-col items-center gap-4.5 w-19 justify-center shrink-0">
                           <div className="text-center font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
                             14% slower
                           </div>
                           <div className="text-justify w-fit font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
                             +14 sec
                           </div>
-                          <div className="rounded-full shrink-0 bg-[#DDDDDD] size-2" />
+                          <div className="flex items-center pt-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={{ flexShrink: "0" }}>
+                              <path d="M5 12h14" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="m12 5 7 7-7 7" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </div>
                           <div className="text-center self-stretch font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
                             Scrolls entire list to locate the case
                           </div>
                         </div>
-
-                        {/* Arrow 2 */}
-                        <div className="flex items-center pt-4">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={{ flexShrink: "0" }}>
-                            <path d="M5 12h14" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="m12 5 7 7-7 7" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </div>
-
-                        {/* Step 3 */}
-                        <div className="flex flex-col items-center gap-6.5 w-19 justify-center shrink-0">
+                        <div className="flex flex-col items-center gap-4.5 w-19 justify-center shrink-0">
                           <div className="text-center font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
                             22 % slower
                           </div>
                           <div className="text-justify w-fit font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
                             +11 sec
                           </div>
-                          <div className="rounded-full shrink-0 bg-[#DDDDDD] size-2" />
+                          <div className="flex items-center pt-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={{ flexShrink: "0" }}>
+                              <path d="M5 12h14" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="m12 5 7 7-7 7" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </div>
                           <div className="text-center self-stretch font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
                             Taps into individual case detail
                           </div>
                         </div>
-
-                        {/* Arrow 3 */}
-                        <div className="flex items-center pt-4">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={{ flexShrink: "0" }}>
-                            <path d="M5 12h14" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="m12 5 7 7-7 7" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </div>
-
-                        {/* Step 4 */}
-                        <div className="flex flex-col items-center gap-6.5 w-19 justify-center shrink-0">
+                        <div className="flex flex-col items-center gap-4.5 w-19 justify-center shrink-0">
                           <div className="text-center font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
                             31% slower
                           </div>
                           <div className="text-justify w-fit font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
                             +19 sec
                           </div>
-                          <div className="rounded-full shrink-0 bg-[#DDDDDD] size-2" />
+                          <div className="flex items-center pt-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={{ flexShrink: "0" }}>
+                              <path d="M5 12h14" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="m12 5 7 7-7 7" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </div>
                           <div className="text-center self-stretch font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
                             Scans wall of data to find information
                           </div>
                         </div>
-
-                        {/* Arrow 4 */}
-                        <div className="flex items-center pt-4">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={{ flexShrink: "0" }}>
-                            <path d="M5 12h14" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="m12 5 7 7-7 7" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        </div>
-
-                        {/* Step 5 */}
-                        <div className="flex flex-col items-center gap-6.5 w-19 justify-center shrink-0">
+                        <div className="flex flex-col items-center gap-4.5 w-19 justify-center shrink-0">
                           <div className="text-center font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
                             52 sec total
                           </div>
                           <div className="text-justify w-fit font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
                             +52 sec
                           </div>
-                          <div className="rounded-full shrink-0 bg-[#DDDDDD] size-2" />
+                          <div className="flex items-center pt-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style={{ flexShrink: "0" }}>
+                              <path d="M5 12h14" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              <path d="m12 5 7 7-7 7" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </div>
                           <div className="text-center self-stretch font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] flex justify-center flex-wrap text-[#FFFFFFB3] text-xs/4">
                             Answers the client with information
                           </div>
