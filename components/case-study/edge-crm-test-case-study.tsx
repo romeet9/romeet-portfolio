@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { HalftoneDots } from "@paper-design/shaders-react";
+import { LazyHalftoneDots as HalftoneDots } from "./lazy-halftone-dots";
 import { CaseStudyNav, CaseStudyBackButton } from "./case-study-nav";
 
 const HELVETICA =
