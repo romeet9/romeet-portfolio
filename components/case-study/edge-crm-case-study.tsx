@@ -1963,6 +1963,123 @@ export function EdgeCrmCaseStudy() {
           </section>
 
           <GrungeSeparator />
+
+          {/* ================================================================ */}
+          {/* SECTION: Testing the redesign with real reps (259-0)             */}
+          {/* ================================================================ */}
+          <section id="impact" className="scroll-mt-28 flex flex-col items-start gap-9 self-stretch w-full">
+            <div className="flex items-center gap-3 self-stretch">
+              <div className="tracking-[-0.02em] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
+                Testing the redesign with real reps
+              </div>
+            </div>
+            <div className="flex flex-col items-start gap-9 w-full">
+              <div className="flex flex-col items-start gap-6 w-full">
+                <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
+                  To measure whether the redesign actually reduced time, errors, and confusion, I put it in front of real reps and watched them work.
+                </div>
+                <div className="flex flex-col sm:flex-row items-start gap-4 self-stretch sm:h-73.5 shrink-0 w-full">
+                  {/* Card 1: Completion time down 40% */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full">
+                    <div
+                      className="flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch px-4.5 py-5 [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] flex-1 bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A] min-h-[260px] sm:min-h-0"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      <div className="items-center flex flex-col justify-between self-stretch gap-1.5 flex-1 w-full">
+                        <div className="flex-1 relative self-stretch w-full min-h-[140px]">
+                          <div
+                            className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 left-[50%] [top:-379.133px] absolute bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
+                            style={{
+                              backgroundImage:
+                                "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+                              translate: "-50%",
+                            }}
+                          />
+                        </div>
+                        <div className="flex flex-col items-start gap-3 self-stretch">
+                          <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] text-white text-base/4.5">
+                            Completion time down 40%
+                          </div>
+                          <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#747474] text-sm/5">
+                            Reps who took three to four minutes now finish the form in under two.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Card 2: Progress felt invisible */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full">
+                    <div
+                      className="flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch px-4.5 py-5 [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] flex-1 bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A] min-h-[260px] sm:min-h-0"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      <div className="items-center flex flex-col justify-between self-stretch gap-1.5 flex-1 w-full">
+                        <div className="flex flex-col items-start gap-3 self-stretch">
+                          <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] text-white text-base/4.5">
+                            Progress felt invisible
+                          </div>
+                          <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#747474] text-sm/5">
+                            The thin line didn't tell how many steps left or which step they were on.
+                          </div>
+                        </div>
+                        <div className="flex-1 relative self-stretch w-full min-h-[140px]">
+                          <div
+                            className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 left-[50%] top-[14.328px] absolute bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
+                            style={{
+                              backgroundImage:
+                                "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+                              translate: "-50%",
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card 3: Horizontal Bento Banner */}
+                <div className="flex items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch sm:h-80.75 shrink-0 [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full">
+                  <div
+                    className="flex rounded-xl overflow-clip flex-col items-center justify-center self-stretch px-4.5 py-5 [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] flex-1 bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A] min-h-[220px] sm:min-h-0 w-full"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                    }}
+                  >
+                    <div className="items-start flex flex-col sm:flex-row justify-between self-stretch gap-6 sm:gap-25.5 flex-1 w-full">
+                      <div className="flex flex-col items-start gap-3 w-full sm:w-46.5 shrink-0">
+                        <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] text-white text-base/4.5">
+                          Progress felt invisible
+                        </div>
+                        <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#747474] text-sm/5">
+                          The thin line didn't tell how many steps left or which step they were on.
+                        </div>
+                      </div>
+                      <div className="w-full flex-1 relative self-stretch min-h-[140px] sm:min-h-0">
+                        <div
+                          className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 left-[50%] sm:[top:-234.672px] top-[-100px] absolute bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
+                          style={{
+                            backgroundImage:
+                              "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+                            translate: "-50%",
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <GrungeSeparator />
         </main>
       </div>
 
