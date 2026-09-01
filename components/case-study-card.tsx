@@ -125,8 +125,8 @@ export function CaseStudyCard({
               backgroundImage: `url(${phoneMock})`,
               rotate: "344.61deg",
               translate: isVoteIn
-                ? "calc(-50% - 149.22px) -203.045px"
-                : "calc(-50% - 149.217px) -203.036px",
+                ? "calc(-50% - 149.22px) -260px"
+                : "calc(-50% - 149.217px) -260px",
             }}
           />
         )}
