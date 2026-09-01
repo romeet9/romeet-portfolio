@@ -33,7 +33,7 @@ export function BehanceCard() {
         style={{ containerType: "inline-size" }}
       >
         <div
-          className="w-89 h-113.75 absolute left-[50%] top-[50%] bg-[#484848]"
+          className="w-106 h-135 absolute left-[50%] top-[50%] bg-[#484848]"
           style={{ translate: "-50% -50%" }}
         />
 
@@ -54,7 +54,7 @@ export function BehanceCard() {
           image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
           colorFront="#F17969"
           colorBack="#00000000"
-          className="w-89 h-113.5 absolute left-[50%] top-[50%]"
+          className="w-106 h-135 absolute left-[50%] top-[50%]"
           style={{
             backgroundImage:
               "linear-gradient(in oklab 178.97000000000003deg, oklab(71% 0.132 0.074) 14.53%, oklab(40% 0 0 / 0%) 79.28%)",
@@ -64,7 +64,7 @@ export function BehanceCard() {
 
         {/* Dark Vignette Overlay */}
         <div
-          className="w-86.75 h-113.5 absolute left-[50%] top-[50%]"
+          className="w-106 h-135 absolute left-[50%] top-[50%]"
           style={{
             backgroundImage:
               "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
