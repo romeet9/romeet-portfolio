@@ -176,10 +176,10 @@ export function CaseStudyNav({
             className="group flex items-center gap-3 text-left transition-colors cursor-pointer"
           >
             <div
-              className={`size-1.5 shrink-0 rounded-[50%] transition-all ${
+              className={`size-1.5 shrink-0 rounded-full transition-all duration-200 ${
                 isActive
-                  ? "bg-[#B81919] scale-110"
-                  : "bg-[#555] group-hover:bg-neutral-300"
+                  ? "bg-[#B81919] scale-110 opacity-100"
+                  : "bg-transparent opacity-0 group-hover:bg-neutral-500 group-hover:opacity-100"
               }`}
             />
             <span
@@ -189,7 +189,7 @@ export function CaseStudyNav({
                 lineHeight: "100%",
                 letterSpacing: "normal",
               }}
-              className={`transition-colors select-none ${
+              className={`transition-colors duration-200 select-none ${
                 isActive
                   ? "text-white font-medium"
                   : "text-[#8F8F8F] font-normal group-hover:text-white"

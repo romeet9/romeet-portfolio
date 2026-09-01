@@ -29,8 +29,8 @@ const SECTIONS = [
   { id: "phase-2", label: "Phase II" },
   { id: "table", label: "Fluid Interface" },
   { id: "solving-3ts", label: "Solving for 3Ts" },
-  { id: "impact", label: "Testing Redesign" },
-  { id: "metrics", label: "Success Metrics" },
+  { id: "impact", label: "Impact" },
+  { id: "metrics", label: "Reflection" },
   { id: "ui-mockups", label: "UI Mockups" },
 ];
 
