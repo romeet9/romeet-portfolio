@@ -522,6 +522,38 @@ export const caseStudies: CaseStudy[] = [
     acts: [],
     next: {
       kicker: "Next case study",
+      name: "GPACTS",
+      tagline:
+        "Designing a high-conversion digital summit experience for India's top pharma technology leaders.",
+      href: "/case-studies/gpacts",
+    },
+  },
+  {
+    slug: "gpacts",
+    name: "GPACTS",
+    tagline:
+      "Designing a high-conversion digital summit experience for India's top pharma technology leaders.",
+    year: "2025",
+    role: "Lead Product & Web Designer",
+    company: "GPACTS Series",
+    skills: ["0 to 1 Web Design", "Information Architecture", "Enterprise B2B"],
+    cover: {
+      src: "https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M1EPEA39PPAN441T7QX1YNQ9.png",
+      alt: "GPACTS Pharma Technology Congress website",
+      w: 960,
+      h: 960,
+    },
+    previewMock: "https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M1EPEA39PPAN441T7QX1YNQ9.png",
+    badge: "Web Design",
+    hmw: "How might we transform a dense multi-city B2B summit program into a high-conversion web experience?",
+    metrics: [
+      { value: "1200+", label: "Curated Delegates", sub: "CXOs & Data Leaders", icon: LayersIcon },
+      { value: "+54%", label: "Early-bird Bookings", sub: "Conversion boost", icon: GaugeIcon },
+      { value: "3.2x", label: "Sponsorship Inquiries", sub: "Tier-1 Partner Growth", icon: SparklesIcon },
+    ],
+    acts: [],
+    next: {
+      kicker: "Next case study",
       name: "Edge CRM — Add Case",
       tagline:
         "Redesigning a mobile case-management flow to cut cognitive load for B2B sales teams.",
@@ -727,33 +759,7 @@ export const archivedCaseStudies: CaseStudy[] = [
 ];
 
 /** Draft case studies in progress / rework (hidden from main portfolio lists) */
-export const draftCaseStudies: CaseStudy[] = [
-  {
-    slug: "gpacts",
-    name: "GPACTS — Pharma Tech Congress",
-    tagline:
-      "Designing a high-conversion digital summit experience for India's top pharma technology leaders.",
-    year: "2025",
-    role: "Lead Product & Web Designer",
-    company: "GPACTS Series",
-    skills: ["0 to 1 Web Design", "Information Architecture", "Enterprise B2B"],
-    cover: {
-      src: "https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M1EPEA39PPAN441T7QX1YNQ9.png",
-      alt: "GPACTS Pharma Technology Congress website",
-      w: 960,
-      h: 960,
-    },
-    previewMock: "https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M1EPEA39PPAN441T7QX1YNQ9.png",
-    badge: "Enterprise Web",
-    hmw: "How might we transform a dense multi-city B2B summit program into a high-conversion web experience?",
-    metrics: [
-      { value: "1200+", label: "Curated Delegates", sub: "CXOs & Data Leaders", icon: LayersIcon },
-      { value: "+54%", label: "Early-bird Bookings", sub: "Conversion boost", icon: GaugeIcon },
-      { value: "3.2x", label: "Sponsorship Inquiries", sub: "Tier-1 Partner Growth", icon: SparklesIcon },
-    ],
-    acts: [],
-  },
-];
+export const draftCaseStudies: CaseStudy[] = [];
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {
   return (
