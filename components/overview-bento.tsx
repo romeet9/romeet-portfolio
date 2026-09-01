@@ -6,7 +6,6 @@ import { ProjectsCard } from "@/components/projects-card";
 import { BehanceCard } from "@/components/behance-card";
 import { SocialsCard } from "@/components/socials-card";
 import { PrototypesCard } from "@/components/prototypes-card";
-import { ShippedCard } from "@/components/shipped-card";
 import { ExperienceCard } from "@/components/experience-card";
 import { ToolsCard } from "@/components/tools-card";
 
@@ -14,12 +13,10 @@ import { ToolsCard } from "@/components/tools-card";
  * The overview bento. Three explicit columns of cards; on wide screens they sit
  * side by side and stretch to equal height (`items-stretch`).
  *
- * Column one carries the two tall cards (a case study + Projects) capped by the
- * Socials card. Socials is the only flexible tile — it grows to fill whatever
- * height is left, which lands its bottom edge exactly level with the KPI cards
- * that end columns two and three. Every other card keeps its intrinsic size.
- *
- * Below @5xl the columns stack into a single flowing column.
+ * Each column sums to exactly 1328 proportional units with matched baselines:
+ * - Column 1: Vote IN (516) + Socials (296) + Projects (516) = 1328
+ * - Column 2: Behance (516) + GPACTS (516) + Prototypes (296) = 1328
+ * - Column 3: Edge CRM (516) + Experience (406) + Tools (406) = 1328
  */
 
 function StudyCard({ slug }: { slug: string }) {
@@ -50,10 +47,7 @@ export function OverviewBento() {
     <div className="flex flex-col gap-4 @5xl/main:flex-row @5xl/main:items-stretch">
       <Column>
         <StudyCard slug="vote-in" />
-        {/* The one flexible tile: fills the leftover height */}
-        <div className="aspect-[300/226] @5xl/main:aspect-auto @5xl/main:min-h-0 @5xl/main:flex-1">
-          <SocialsCard />
-        </div>
+        <SocialsCard />
         <ProjectsCard />
       </Column>
 
