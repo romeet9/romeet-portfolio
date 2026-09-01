@@ -50,18 +50,17 @@ export function OverviewBento() {
     <div className="flex flex-col gap-4 @5xl/main:flex-row @5xl/main:items-stretch">
       <Column>
         <StudyCard slug="vote-in" />
-        <ProjectsCard />
-        {/* The one flexible tile: fills the leftover height so its bottom lines
-            up with the KPI cards ending the other two columns. */}
+        {/* The one flexible tile: fills the leftover height */}
         <div className="aspect-[300/226] @5xl/main:aspect-auto @5xl/main:min-h-0 @5xl/main:flex-1">
           <SocialsCard />
         </div>
+        <ProjectsCard />
       </Column>
 
       <Column>
         <BehanceCard />
+        <StudyCard slug="gpacts" />
         <PrototypesCard />
-        <ShippedCard />
       </Column>
 
       <Column>
