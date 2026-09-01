@@ -772,47 +772,106 @@ export function GpactsCaseStudy() {
               </div>
             </div>
 
-            <div className="items-center flex flex-col shrink-0 w-full justify-center p-1 rounded-2xl gap-1.5 [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+            <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full">
               <div
-                className="items-start h-117.5 flex flex-col w-full rounded-[14px] overflow-clip relative shrink-0 bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A]"
+                className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
+                }}
+              >
+                <HalftoneDots
+                  contrast={1}
+                  originalColors={false}
+                  inverted
+                  grid="square"
+                  radius={1}
+                  size={0.8}
+                  scale={1}
+                  grainSize={0.5}
+                  type="soft"
+                  fit="cover"
+                  grainMixer={0.05}
+                  grainOverlay={0.3}
+                  image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                  colorFront="#7553ED"
+                  colorBack="#00000000"
+                  className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% 0.061 -0.124) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                    translate: "-50% -50%",
+                  }}
+                />
+                <div
+                  className="w-150.25 h-79.5 absolute left-[50%] top-[calc(50%+97px)]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                    translate: "-50% -50%",
+                  }}
+                />
+                <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
+                  <div className="text-[14px] leading-[142.857%] uppercase font-['M_PLUS_Code_Latin','M_PLUS_1_Code',system-ui,sans-serif] text-white">
+                    3d Landmarks
+                  </div>
+                  <div className="text-[14px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
+                    Multi-city Agenda
+                  </div>
+                </div>
+                <div className="items-center flex p-3 rounded-br-[14px] rounded-bl-[14px] relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
+                  <div className="flex text-[12px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
+                    3D Landmark Hub Tabs: Distinct regional visual anchors make location selection tangible and fast.
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-center self-stretch px-22.75 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
                 style={{
                   backgroundImage:
                     "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                 }}
               >
-                <div
-                  className="h-190 w-245 top-4 left-60 absolute rounded-[14px] [box-shadow:#00000040_0px_25px_50px_-12px] bg-origin-border bg-cover bg-position-[50%_0%] border border-solid border-[#FFFFFF1A]"
+                <HalftoneDots
+                  contrast={1}
+                  originalColors={false}
+                  inverted
+                  grid="square"
+                  radius={1}
+                  size={0.8}
+                  scale={1}
+                  grainSize={0.5}
+                  type="soft"
+                  fit="cover"
+                  grainMixer={0.05}
+                  grainOverlay={0.3}
+                  image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                  colorFront="#343434"
+                  colorBack="#00000000"
+                  className="w-166.5 h-125 absolute left-[50%] top-[50%]"
                   style={{
                     backgroundImage:
-                      "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/3TFF8E2FNZ2J2P5GSRS7K2EZ1D.png)",
+                      "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
+                    translate: "-50% -50%",
                   }}
                 />
-                <div className="w-fit top-4.5 left-5 absolute wrap-normal font-['Fira_Code',system-ui,sans-serif] text-[#FFFFFF66] text-sm/5">
-                  Agenda Engine · Interactive Tracks
-                </div>
-                <div className="w-42.5 top-26.25 left-6 absolute wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-[13px]/5">
-                  3D Landmark Hub Tabs: Distinct regional visual anchors make location selection tangible and fast.
-                </div>
-                <div className="h-0.75 w-15 top-32 left-50 absolute">
-                  <div className="h-px top-px absolute bg-[#5E5E5E] inset-x-0" />
-                  <div className="h-0.75 w-0.75 top-0 -left-px rounded-full absolute bg-[#5E5E5E]" />
-                  <div className="h-0.75 w-0.75 top-0 right-0 rounded-full absolute bg-[#5E5E5E]" />
-                </div>
-                <div className="w-42.5 top-60 left-6 absolute wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-[13px]/5">
-                  Parallel Track Matrix: AI, Cloud, and Data tracks laid out synchronously with standardized timestamp badges.
-                </div>
-                <div className="h-0.75 w-21.25 top-66.25 left-50 absolute">
-                  <div className="h-px top-px absolute bg-[#5E5E5E] inset-x-0" />
-                  <div className="h-0.75 w-0.75 top-0 -left-px rounded-full absolute bg-[#5E5E5E]" />
-                  <div className="h-0.75 w-0.75 top-0 right-0 rounded-full absolute bg-[#5E5E5E]" />
-                </div>
-                <div className="w-42.5 top-92.5 left-6 absolute wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-[13px]/5">
-                  Session Card Anatomy: Formatted for glanceability (Speaker + Title + Time + Room badge).
-                </div>
-                <div className="h-0.75 w-27.5 top-98.75 left-50 absolute">
-                  <div className="h-px top-px absolute bg-[#5E5E5E] inset-x-0" />
-                  <div className="h-0.75 w-0.75 top-0 -left-px rounded-full absolute bg-[#5E5E5E]" />
-                  <div className="h-0.75 w-0.75 top-0 right-0 rounded-full absolute bg-[#5E5E5E]" />
+                <div
+                  className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                    translate: "-50% -50%",
+                  }}
+                />
+                <div className="flex items-end w-135.25 relative shrink-0 self-stretch">
+                  <div
+                    className="h-174.25 w-168.75 shrink-0 [box-shadow:#00000040_0px_25px_50px_-12px] bg-origin-border bg-cover bg-position-[50%_0%] border border-solid border-[#FFFFFF1A]"
+                    style={{
+                      backgroundImage:
+                        "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M1EN2N72BZK9EYAD0EBVYQFY.png)",
+                    }}
+                  />
                 </div>
               </div>
             </div>
@@ -833,47 +892,106 @@ export function GpactsCaseStudy() {
               </div>
             </div>
 
-            <div className="items-center flex flex-col shrink-0 w-full justify-center p-1 rounded-2xl gap-1.5 [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+            <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full">
               <div
-                className="items-start h-115 flex flex-col w-full rounded-[14px] overflow-clip relative shrink-0 bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A]"
+                className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
+                }}
+              >
+                <HalftoneDots
+                  contrast={1}
+                  originalColors={false}
+                  inverted
+                  grid="square"
+                  radius={1}
+                  size={0.8}
+                  scale={1}
+                  grainSize={0.5}
+                  type="soft"
+                  fit="cover"
+                  grainMixer={0.05}
+                  grainOverlay={0.3}
+                  image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                  colorFront="#7553ED"
+                  colorBack="#00000000"
+                  className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% 0.061 -0.124) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                    translate: "-50% -50%",
+                  }}
+                />
+                <div
+                  className="w-150.25 h-79.5 absolute left-[50%] top-[calc(50%+97px)]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                    translate: "-50% -50%",
+                  }}
+                />
+                <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
+                  <div className="text-[14px] leading-[142.857%] uppercase font-['M_PLUS_Code_Latin','M_PLUS_1_Code',system-ui,sans-serif] text-white">
+                    Keynote speakers
+                  </div>
+                  <div className="text-[14px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
+                    Horizontal Carousel
+                  </div>
+                </div>
+                <div className="items-center flex p-3 rounded-br-[14px] rounded-bl-[14px] relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
+                  <div className="flex text-[12px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
+                    Uniform Monochrome Portraits: Removes disparate lighting and creates a unified executive aesthetic.
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-center self-stretch px-22.75 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
                 style={{
                   backgroundImage:
                     "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                 }}
               >
-                <div
-                  className="h-185 w-245 top-4 left-60 absolute rounded-[14px] [box-shadow:#00000040_0px_25px_50px_-12px] bg-origin-border bg-cover bg-position-[50%_0%] border border-solid border-[#FFFFFF1A]"
+                <HalftoneDots
+                  contrast={1}
+                  originalColors={false}
+                  inverted
+                  grid="square"
+                  radius={1}
+                  size={0.8}
+                  scale={1}
+                  grainSize={0.5}
+                  type="soft"
+                  fit="cover"
+                  grainMixer={0.05}
+                  grainOverlay={0.3}
+                  image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                  colorFront="#343434"
+                  colorBack="#00000000"
+                  className="w-166.5 h-125 absolute left-[50%] top-[50%]"
                   style={{
                     backgroundImage:
-                      "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/23V8YS8VRP14RCPGK5ZHVSWCBR.png)",
+                      "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
+                    translate: "-50% -50%",
                   }}
                 />
-                <div className="w-fit top-4.5 left-5 absolute wrap-normal font-['Fira_Code',system-ui,sans-serif] text-[#FFFFFF66] text-sm/5">
-                  Keynote Speakers · Roster UI
-                </div>
-                <div className="w-42.5 top-27.5 left-6 absolute wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-[13px]/5">
-                  Uniform Monochrome Portraits: Removes disparate lighting and creates a unified executive aesthetic.
-                </div>
-                <div className="h-0.75 w-15 top-33.75 left-50 absolute">
-                  <div className="h-px top-px absolute bg-[#5E5E5E] inset-x-0" />
-                  <div className="h-0.75 w-0.75 top-0 -left-px rounded-full absolute bg-[#5E5E5E]" />
-                  <div className="h-0.75 w-0.75 top-0 right-0 rounded-full absolute bg-[#5E5E5E]" />
-                </div>
-                <div className="w-42.5 top-60 left-6 absolute wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-[13px]/5">
-                  Horizontal Carousel Controls: Smooth kinetic arrows allow seamless scanning without breaking vertical scroll flow.
-                </div>
-                <div className="h-0.75 w-21.25 top-66.25 left-50 absolute">
-                  <div className="h-px top-px absolute bg-[#5E5E5E] inset-x-0" />
-                  <div className="h-0.75 w-0.75 top-0 -left-px rounded-full absolute bg-[#5E5E5E]" />
-                  <div className="h-0.75 w-0.75 top-0 right-0 rounded-full absolute bg-[#5E5E5E]" />
-                </div>
-                <div className="w-42.5 top-92.5 left-6 absolute wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-[13px]/5">
-                  Experience Tags: Categorized into Networking, CXO Roundtables, Workshops, and Demos.
-                </div>
-                <div className="h-0.75 w-27.5 top-98.75 left-50 absolute">
-                  <div className="h-px top-px absolute bg-[#5E5E5E] inset-x-0" />
-                  <div className="h-0.75 w-0.75 top-0 -left-px rounded-full absolute bg-[#5E5E5E]" />
-                  <div className="h-0.75 w-0.75 top-0 right-0 rounded-full absolute bg-[#5E5E5E]" />
+                <div
+                  className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                    translate: "-50% -50%",
+                  }}
+                />
+                <div className="flex items-end w-135.25 justify-end relative shrink-0 self-stretch">
+                  <div
+                    className="h-106.25 w-160 shrink-0 [box-shadow:#00000040_0px_25px_50px_-12px] bg-origin-border bg-cover bg-position-[50%_0%] border border-solid border-[#FFFFFF1A]"
+                    style={{
+                      backgroundImage:
+                        "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M1ENDZTV402AMZX0RRR8W6QK.png)",
+                    }}
+                  />
                 </div>
               </div>
             </div>
