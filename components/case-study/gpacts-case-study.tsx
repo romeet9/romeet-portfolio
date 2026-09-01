@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { LazyHalftoneDots as HalftoneDots } from "@/components/case-study/lazy-halftone-dots";
 import { CaseStudyNav, CaseStudyBackButton } from "./case-study-nav";
@@ -19,18 +18,15 @@ const SECTIONS = [
   { id: "ui-mockups", label: "UI Playground" },
 ];
 
-const HELVETICA =
-  "\"Helvetica Neue\", Helvetica, Arial, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif";
-const FIRA_CODE = "\"Fira Code\", ui-monospace, SFMono-Regular, Menlo, monospace";
-
 function GrungeSeparator() {
   return (
     <div className="flex w-full justify-center py-4" aria-hidden>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/01M05ZA7AQR379995KJKXBG29X.png"
-        alt=""
-        className="w-[197px] h-[10px] object-contain opacity-60 select-none pointer-events-none"
+      <div
+        className="h-2.5 w-49.25 max-w-full opacity-[0.6] overflow-clip shrink-0 bg-contain bg-position-[50%] bg-no-repeat"
+        style={{
+          backgroundImage:
+            "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/0EJYRD3PQK1KEHD7XR35H3Q555.png)",
+        }}
       />
     </div>
   );
@@ -42,9 +38,6 @@ export function GpactsCaseStudy() {
   const [canvasPan, setCanvasPan] = useState({ x: 0, y: 0 });
   const [isDraggingCanvas, setIsDraggingCanvas] = useState(false);
   const dragStartRef = useRef({ x: 0, y: 0, panX: 0, panY: 0 });
-
-  // FAQ Accordion State
-  const [expandedFaq, setExpandedFaq] = useState<number | null>(0);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -74,14 +67,7 @@ export function GpactsCaseStudy() {
   }, [isPlaygroundOpen]);
 
   return (
-    <div
-      className="relative w-full text-white antialiased pt-20 sm:pt-24 lg:pt-28 pb-36 px-4"
-      style={{
-        fontFamily: HELVETICA,
-        letterSpacing: "normal",
-        fontFeatureSettings: "normal",
-      }}
-    >
+    <div className="relative w-full text-white antialiased pt-20 sm:pt-24 lg:pt-28 pb-36 px-4 [font-synthesis:none]">
       {/* 1. FIXED LEFT-SIDE NAVIGATION */}
       <CaseStudyNav items={SECTIONS} />
 
@@ -89,242 +75,232 @@ export function GpactsCaseStudy() {
       <div className="relative mx-auto w-full max-w-[600px]">
         <CaseStudyBackButton href="/case-studies" />
 
-        <main className="flex w-full flex-col items-start gap-12">
+        <main className="wrap-anywhere items-start flex flex-col w-full gap-12 antialiased">
           {/* Header Title & Metadata */}
-          <div className="flex w-full flex-col gap-8 pb-6 border-b border-[#FFFFFF33]">
-            <h1
-              style={{
-                fontFamily: HELVETICA,
-                fontSize: "26px",
-                lineHeight: "34px",
-                letterSpacing: "normal",
-                fontWeight: 500,
-                color: "#FFFFFF",
-              }}
-            >
+          <div className="flex flex-col w-full pb-6 gap-8 border-b border-b-solid border-b-[#FFFFFF33]">
+            <div className="wrap-normal font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-[26px]/8.5">
               Designing a high-conversion digital summit experience for India&apos;s top pharma technology leaders.
-            </h1>
-
-            {/* Metadata row */}
-            <div className="flex flex-wrap items-center justify-between gap-6">
-              <div className="flex flex-col items-start gap-1">
-                <span
-                  style={{
-                    fontFamily: FIRA_CODE,
-                    fontSize: "12px",
-                    lineHeight: "16px",
-                    color: "rgba(255, 255, 255, 0.7)",
-                  }}
-                >
+            </div>
+            <div className="items-center flex flex-wrap justify-between gap-6">
+              <div className="items-start flex flex-col gap-1">
+                <div className="wrap-normal font-['Fira_Code',system-ui,sans-serif] text-[#FFFFFFB3] text-xs/4">
                   ROLE
-                </span>
-                <span
-                  style={{
-                    fontFamily: HELVETICA,
-                    fontSize: "14px",
-                    lineHeight: "18px",
-                    fontWeight: 300,
-                    color: "#FFFFFF",
-                  }}
-                >
+                </div>
+                <div className="wrap-normal font-['HelveticaNeue-Light','Helvetica_Neue',system-ui,sans-serif] font-light text-white text-sm/4.5">
                   Lead Product &amp; Web Designer
-                </span>
+                </div>
               </div>
-
-              <div className="flex flex-col items-start gap-1">
-                <span
-                  style={{
-                    fontFamily: FIRA_CODE,
-                    fontSize: "12px",
-                    lineHeight: "16px",
-                    color: "rgba(255, 255, 255, 0.7)",
-                  }}
-                >
+              <div className="items-start flex flex-col gap-1">
+                <div className="wrap-normal font-['Fira_Code',system-ui,sans-serif] text-[#FFFFFFB3] text-xs/4">
                   TIMELINE
-                </span>
-                <span
-                  style={{
-                    fontFamily: HELVETICA,
-                    fontSize: "14px",
-                    lineHeight: "18px",
-                    fontWeight: 300,
-                    color: "#FFFFFF",
-                  }}
-                >
+                </div>
+                <div className="wrap-normal font-['HelveticaNeue-Light','Helvetica_Neue',system-ui,sans-serif] font-light text-white text-sm/4.5">
                   4 Weeks (0 to 1)
-                </span>
+                </div>
               </div>
-
-              <div className="flex flex-col items-start gap-1">
-                <span
-                  style={{
-                    fontFamily: FIRA_CODE,
-                    fontSize: "12px",
-                    lineHeight: "16px",
-                    color: "rgba(255, 255, 255, 0.7)",
-                  }}
-                >
+              <div className="items-start flex flex-col gap-1">
+                <div className="wrap-normal font-['Fira_Code',system-ui,sans-serif] text-[#FFFFFFB3] text-xs/4">
                   DELIVERABLES
-                </span>
-                <span
-                  style={{
-                    fontFamily: HELVETICA,
-                    fontSize: "14px",
-                    lineHeight: "18px",
-                    fontWeight: 300,
-                    color: "#FFFFFF",
-                  }}
-                >
+                </div>
+                <div className="wrap-normal font-['HelveticaNeue-Light','Helvetica_Neue',system-ui,sans-serif] font-light text-white text-sm/4.5">
                   Web Experience &amp; IA
-                </span>
+                </div>
               </div>
             </div>
           </div>
 
           {/* ================================================================ */}
-          {/* SECTION 1: OVERVIEW / HERO                                       */}
+          {/* SECTION 1: OVERVIEW / HERO (2ZN-0)                                */}
           {/* ================================================================ */}
-          <section id="hero" className="scroll-mt-28 flex flex-col items-start gap-7 w-full">
-            <div className="flex flex-col items-start gap-3 w-full">
-              <span
-                style={{
-                  fontFamily: FIRA_CODE,
-                  fontSize: "12px",
-                  lineHeight: "16px",
-                  color: "rgba(255, 255, 255, 0.7)",
-                  textTransform: "uppercase",
-                }}
-              >
-                Executive Summary
-              </span>
-              <p
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  color: "rgba(255, 255, 255, 0.8)",
-                  fontWeight: 400,
-                }}
-              >
-                GPACTS (Global Pharma AI, Cloud &amp; Technology Summit) is India&apos;s largest congress for life sciences technology leaders. The summit brings together CIOs, CDOs, and Chief Data Scientists from leading pharmaceutical manufacturers to discuss mission-critical AI implementations, GxP-compliant cloud architectures, and digital clinical trial pipelines.
-              </p>
-              <p
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  color: "rgba(255, 255, 255, 0.8)",
-                  fontWeight: 400,
-                }}
-              >
-                The objective was to transform a highly complex, multi-city conference program into a frictionless, authoritative web experience that drives high-ticket enterprise sponsorships, CXO delegate registrations, and technical whitepaper downloads.
-              </p>
-            </div>
-
-            {/* Scale KPI Strip */}
-            <div className="flex items-start gap-4 self-stretch w-full">
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 self-stretch shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                <div
-                  className="flex rounded-xl overflow-hidden flex-col items-center justify-center self-stretch flex-1 px-4 py-5 border-[0.5px] border-[#FFFFFF1A]"
+          <section id="hero" className="items-start flex flex-col w-full scroll-mt-28 gap-7">
+            <div className="flex w-full flex-col items-center rounded-2xl justify-center gap-1.5 p-1 [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+              <div className="overflow-clip h-94.5 rounded-xl self-stretch relative shrink-0 [box-shadow:#00000033_0px_0px_5px] bg-[#9A8DE9] w-full">
+                <div className="left-[-0.75px] top-[-0.273px] w-full h-94.5 absolute bg-[#2B2B2B]" />
+                <HalftoneDots
+                  contrast={1}
+                  originalColors={false}
+                  inverted
+                  grid="square"
+                  radius={1}
+                  size={0.8}
+                  scale={1}
+                  grainSize={0.5}
+                  type="soft"
+                  fit="cover"
+                  grainMixer={0.05}
+                  grainOverlay={0.3}
+                  image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                  colorFront="#7553ED"
+                  colorBack="#00000000"
+                  className="w-166.5 h-125 absolute left-[50%] top-[50%]"
                   style={{
                     backgroundImage:
-                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                  }}
-                >
-                  <div className="tracking-[-0.02em] font-medium text-white text-[38px] sm:text-[44px] leading-tight">
-                    1200+
-                  </div>
-                  <div className="text-xs text-[#8F8F8F] uppercase tracking-wider mt-1 text-center" style={{ fontFamily: FIRA_CODE }}>
-                    Curated Delegates
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 self-stretch shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                <div
-                  className="flex rounded-xl overflow-hidden flex-col items-center justify-center self-stretch flex-1 px-4 py-5 border-[0.5px] border-[#FFFFFF1A]"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                  }}
-                >
-                  <div className="tracking-[-0.02em] font-medium text-white text-[38px] sm:text-[44px] leading-tight">
-                    09
-                  </div>
-                  <div className="text-xs text-[#8F8F8F] uppercase tracking-wider mt-1 text-center" style={{ fontFamily: FIRA_CODE }}>
-                    Deep Dive Sessions
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 self-stretch shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                <div
-                  className="flex rounded-xl overflow-hidden flex-col items-center justify-center self-stretch flex-1 px-4 py-5 border-[0.5px] border-[#FFFFFF1A]"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                  }}
-                >
-                  <div className="tracking-[-0.02em] font-medium text-white text-[38px] sm:text-[44px] leading-tight">
-                    15+
-                  </div>
-                  <div className="text-xs text-[#8F8F8F] uppercase tracking-wider mt-1 text-center" style={{ fontFamily: FIRA_CODE }}>
-                    Keynote CXOs
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Annotated Hero UI Mockup Card (Vote IN Style) */}
-            <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-              <div
-                className="relative flex rounded-xl overflow-hidden items-start w-full h-[460px] flex-col border-[0.5px] border-[#FFFFFF1A]"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                }}
-              >
-                {/* Scaled Desktop Hero Screenshot */}
-                <div
-                  className="w-[1020px] h-[720px] top-4 left-[240px] absolute bg-cover bg-top rounded-xl shadow-2xl border border-white/10 pointer-events-none z-10"
-                  style={{
-                    backgroundImage: "url(/case-studies/gpacts/01-hero.png)",
+                      "linear-gradient(in oklab 178.97000000000003deg, oklab(56.6% 0.065 -0.210) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                    translate: "-50% -50%",
                   }}
                 />
+                <div className="flex flex-col items-center justify-center py-4 left-[-0.484px] top-[29.516px] w-full absolute">
+                  <div className="w-fit tracking-[-0.02em] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-2xl/7.5">
+                    GPACTS Website Design
+                  </div>
+                </div>
+                <div
+                  className="h-92.5 w-131.5 top-[129.5px] left-[50%] absolute [box-shadow:#00000040_0px_25px_50px_-12px] bg-origin-border bg-cover bg-position-[50%_0%] border border-solid border-[#FFFFFF1A]"
+                  style={{
+                    backgroundImage:
+                      "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/6M4434P275787PSYFYGE0BVWG7.png)",
+                    translate: "-50%",
+                  }}
+                />
+              </div>
+            </div>
 
-                {/* Tag Label at Top-Left */}
-                <div className="w-fit absolute left-5 top-[18px] text-[#FFFFFF66] text-sm leading-5 font-normal z-10" style={{ fontFamily: FIRA_CODE }}>
-                  Hero Viewport · Desktop
+            <div className="flex flex-col items-start gap-3 self-stretch w-full">
+              <div className="tracking-[-0.02em] w-full font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
+                Executive Summary
+              </div>
+              <div className="flex flex-col items-start gap-14 self-stretch w-full">
+                <div className="flex flex-col items-start gap-3 w-full">
+                  <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
+                    GPACTS (Global Pharma AI, Cloud &amp; Technology Summit) is India&apos;s largest congress for life sciences technology leaders.
+                  </div>
+                  <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
+                    The summit brings together CIOs, CDOs, and Chief Data Scientists from leading pharmaceutical manufacturers to discuss mission-critical AI implementations, GxP-compliant cloud architectures, and digital clinical trial pipelines.
+                  </div>
+                  <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
+                    The objective was to transform a highly complex, multi-city conference program into a frictionless, authoritative web experience that drives high-ticket enterprise sponsorships, CXO delegate registrations, and technical whitepaper downloads.
+                  </div>
                 </div>
 
-                {/* Annotation 1: Above-the-fold Value Proposition */}
-                <div className="w-[170px] text-left left-[24px] top-[100px] absolute text-white text-[13px] leading-5 font-normal z-10">
-                  Instant value clarity: headline highlights &quot;Real AI implementations — not theory&quot; to attract enterprise buyers.
-                </div>
-                <div className="w-[60px] h-[3px] left-[200px] top-[125px] absolute z-10 pointer-events-none">
-                  <div className="top-[1px] h-px absolute bg-[#5E5E5E] inset-x-0" />
-                  <div className="-left-px top-0 w-[3px] h-[3px] rounded-full absolute bg-[#5E5E5E]" />
-                  <div className="top-0 w-[3px] h-[3px] rounded-full right-0 absolute bg-[#5E5E5E]" />
-                </div>
+                <div className="flex items-start gap-4 self-stretch h-48.5 shrink-0 w-full">
+                  {/* KPI Card 1 */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 relative self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                    <HalftoneDots
+                      contrast={1}
+                      originalColors={false}
+                      inverted
+                      grid="square"
+                      radius={1}
+                      size={0.8}
+                      scale={1}
+                      grainSize={0.5}
+                      type="soft"
+                      fit="cover"
+                      grainMixer={0.05}
+                      grainOverlay={0.3}
+                      image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                      colorFront="#7553ED"
+                      colorBack="#00000000"
+                      className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% 0.061 -0.124) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div
+                      className="aspect-square flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 relative bg-origin-border"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch">
+                        <div className="w-fit whitespace-pre font-['Instrument_Sans',system-ui,sans-serif] text-white text-base/4.5">
+                          Curated <br />Delegates
+                        </div>
+                        <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] font-medium text-white text-5xl/12">
+                          1200+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                {/* Annotation 2: Dual Conversion Pathway */}
-                <div className="w-[170px] text-left left-[24px] top-[230px] absolute text-white text-[13px] leading-5 font-normal z-10">
-                  Dual CTA hierarchy: &quot;Agenda&quot; anchors high-intent discovery, while &quot;Know More&quot; caters to exploratory CXOs.
-                </div>
-                <div className="w-[85px] h-[3px] left-[200px] top-[255px] absolute z-10 pointer-events-none">
-                  <div className="top-[1px] h-px absolute bg-[#5E5E5E] inset-x-0" />
-                  <div className="-left-px top-0 w-[3px] h-[3px] rounded-full absolute bg-[#5E5E5E]" />
-                  <div className="top-0 w-[3px] h-[3px] rounded-full right-0 absolute bg-[#5E5E5E]" />
-                </div>
+                  {/* KPI Card 2 */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 relative self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                    <HalftoneDots
+                      contrast={1}
+                      originalColors={false}
+                      inverted
+                      grid="square"
+                      radius={1}
+                      size={0.8}
+                      scale={1}
+                      grainSize={0.5}
+                      type="soft"
+                      fit="cover"
+                      grainMixer={0.05}
+                      grainOverlay={0.3}
+                      image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                      colorFront="#7553ED"
+                      colorBack="#00000000"
+                      className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% 0.061 -0.124) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div
+                      className="aspect-square flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 relative bg-origin-border"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch">
+                        <div className="w-fit whitespace-pre font-['Instrument_Sans',system-ui,sans-serif] text-white text-base/4.5">
+                          Deep dive<br />sessions
+                        </div>
+                        <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] font-medium text-white text-5xl/12">
+                          09
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                {/* Annotation 3: Enterprise Social Proof */}
-                <div className="w-[170px] text-left left-[24px] top-[360px] absolute text-white text-[13px] leading-5 font-normal z-10">
-                  Tier-1 tech partner strip establishes immediate industry legitimacy before the fold.
-                </div>
-                <div className="w-[110px] h-[3px] left-[200px] top-[385px] absolute z-10 pointer-events-none">
-                  <div className="top-[1px] h-px absolute bg-[#5E5E5E] inset-x-0" />
-                  <div className="-left-px top-0 w-[3px] h-[3px] rounded-full absolute bg-[#5E5E5E]" />
-                  <div className="top-0 w-[3px] h-[3px] rounded-full right-0 absolute bg-[#5E5E5E]" />
+                  {/* KPI Card 3 */}
+                  <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 relative self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                    <HalftoneDots
+                      contrast={1}
+                      originalColors={false}
+                      inverted
+                      grid="square"
+                      radius={1}
+                      size={0.8}
+                      scale={1}
+                      grainSize={0.5}
+                      type="soft"
+                      fit="cover"
+                      grainMixer={0.05}
+                      grainOverlay={0.3}
+                      image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                      colorFront="#7553ED"
+                      colorBack="#00000000"
+                      className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% 0.061 -0.124) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                        translate: "-50% -50%",
+                      }}
+                    />
+                    <div
+                      className="aspect-square flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 relative bg-origin-border"
+                      style={{
+                        backgroundImage:
+                          "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      }}
+                    >
+                      <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch">
+                        <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] text-white text-base/4.5">
+                          Keynote CXO&apos;s
+                        </div>
+                        <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] font-medium text-white text-5xl/12">
+                          15+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -333,110 +309,204 @@ export function GpactsCaseStudy() {
           <GrungeSeparator />
 
           {/* ================================================================ */}
-          {/* SECTION 2: THE CHALLENGE                                         */}
+          {/* SECTION 2: THE CHALLENGE (30Q-0)                                 */}
           {/* ================================================================ */}
-          <section id="the-problem" className="scroll-mt-28 flex flex-col items-start gap-7 w-full">
-            <div className="flex flex-col items-start gap-3 w-full">
-              <h2
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "20px",
-                  lineHeight: "26px",
-                  fontWeight: 500,
-                  color: "#FFFFFF",
-                }}
-              >
+          <section id="the-problem" className="items-start flex flex-col w-full scroll-mt-28 gap-7">
+            <div className="items-start flex flex-col w-full gap-3">
+              <div className="wrap-normal font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6.5">
                 The Challenge: Enterprise Information Overload
-              </h2>
-              <p
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  color: "rgba(255, 255, 255, 0.8)",
-                  fontWeight: 400,
-                }}
-              >
-                B2B enterprise technology congresses are notorious for high cognitive bounce rates. When a C-level executive visits a conference website, they are faced with four simultaneous mental hurdles: evaluating whether the speakers are actual peers, determining if the technical agenda justifies taking two days out of the boardroom, deciphering multi-city dates, and navigating convoluted ticket packages.
-              </p>
-              <p
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  color: "rgba(255, 255, 255, 0.8)",
-                  fontWeight: 400,
-                }}
-              >
+              </div>
+              <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
+                B2B enterprise technology congresses are notorious for high cognitive bounce rates. When a C-level executive visits a conference website, they are faced with four simultaneous mental hurdles:
+              </div>
+              <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-base/5.5">
+                • Evaluating whether the speakers are actual peers
+              </div>
+              <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-base/5.5">
+                • Determining if the technical agenda justifies taking two days out of the boardroom
+              </div>
+              <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-base/5.5">
+                • Deciphering multi-city dates, and navigating convoluted ticket packages
+              </div>
+              <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-base/5.5">
+                • Navigating convoluted ticket packages
+              </div>
+              <div className="wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
                 Our user research highlighted three primary friction points that caused dropped registrations in previous conference editions:
-              </p>
+              </div>
             </div>
 
-            {/* 3-PART BENTO GRID: User Friction Points */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full">
+            {/* Friction Cards Row 1 */}
+            <div className="flex items-start gap-4 self-stretch h-78 shrink-0 w-full">
               {/* Card 1 */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 relative self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
                 <div
-                  className="flex rounded-xl overflow-hidden flex-col items-start justify-between self-stretch flex-1 p-4 border-[0.5px] border-[#FFFFFF1A] min-h-[220px]"
+                  className="aspect-square flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 relative bg-origin-border"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                   }}
                 >
-                  <span className="text-xs text-[#E5484D] uppercase font-mono" style={{ fontFamily: FIRA_CODE }}>
-                    Friction 01
-                  </span>
-                  <div className="flex flex-col gap-2 my-auto">
-                    <h3 className="text-white text-base font-medium">Unclear Value Density</h3>
-                    <p className="text-xs text-[#A1A1A1] leading-relaxed">
-                      Conferences filled with superficial sales pitches alienate serious technical leaders. The site had to prove deep, real-world case study depth immediately.
-                    </p>
+                  <HalftoneDots
+                    contrast={1}
+                    originalColors={false}
+                    inverted
+                    grid="square"
+                    radius={1}
+                    size={0.8}
+                    scale={1}
+                    grainSize={0.5}
+                    type="soft"
+                    fit="cover"
+                    grainMixer={0.05}
+                    grainOverlay={0.3}
+                    image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                    colorFront="#7553ED"
+                    colorBack="#00000000"
+                    className="w-166.5 h-125 absolute left-[50%] top-[50%] origin-top-left"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 178.97000000000003deg, oklab(56.6% 0.065 -0.210) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                      rotate: "48.49deg",
+                      translate: "calc(-50% + 299.53px) calc(-50% - 165.053px)",
+                    }}
+                  />
+                  <div
+                    className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                      translate: "-50% -50%",
+                    }}
+                  />
+                  <div className="items-end flex flex-col justify-between gap-1.5 flex-1 self-stretch relative">
+                    <div className="w-fit uppercase font-['M_PLUS_1_Code',system-ui,sans-serif] text-white text-base/4.5">
+                      Bounce on Hero: 62%
+                    </div>
+                    <div className="flex flex-col items-start gap-4 self-stretch">
+                      <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] font-medium text-white text-lg/4.5">
+                        Unclear Value Density
+                      </div>
+                      <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#FFFFFF99] text-base/5">
+                        Conferences filled with superficial sales pitches alienate serious technical leaders. The site had to prove deep, real-world case study depth immediately.
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-[11px] text-[#747474] font-mono">Bounce on Hero: 62%</div>
                 </div>
               </div>
 
               {/* Card 2 */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 relative self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
                 <div
-                  className="flex rounded-xl overflow-hidden flex-col items-start justify-between self-stretch flex-1 p-4 border-[0.5px] border-[#FFFFFF1A] min-h-[220px]"
+                  className="aspect-square flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 relative bg-origin-border"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                   }}
                 >
-                  <span className="text-xs text-[#E5484D] uppercase font-mono" style={{ fontFamily: FIRA_CODE }}>
-                    Friction 02
-                  </span>
-                  <div className="flex flex-col gap-2 my-auto">
-                    <h3 className="text-white text-base font-medium">Multi-City Fragmentation</h3>
-                    <p className="text-xs text-[#A1A1A1] leading-relaxed">
-                      Spanning Mumbai, Hyderabad, Bangalore, and Ahmedabad created schedule confusion when presented in standard endless tables.
-                    </p>
+                  <HalftoneDots
+                    contrast={1}
+                    originalColors={false}
+                    inverted
+                    grid="square"
+                    radius={1}
+                    size={0.8}
+                    scale={1}
+                    grainSize={0.5}
+                    type="soft"
+                    fit="cover"
+                    grainMixer={0.05}
+                    grainOverlay={0.3}
+                    image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                    colorFront="#7553ED"
+                    colorBack="#00000000"
+                    className="w-166.5 h-125 absolute left-[50%] top-[50%] origin-top-left"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 178.97000000000003deg, oklab(56.6% 0.065 -0.210) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                      rotate: "48.49deg",
+                      translate: "calc(-50% + 299.53px) calc(-50% - 165.053px)",
+                    }}
+                  />
+                  <div
+                    className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                      translate: "-50% -50%",
+                    }}
+                  />
+                  <div className="items-end flex flex-col justify-between gap-1.5 flex-1 self-stretch relative">
+                    <div className="w-fit uppercase font-['M_PLUS_1_Code',system-ui,sans-serif] text-white text-base/4.5">
+                      Agenda Abandonment: 48%
+                    </div>
+                    <div className="flex flex-col items-start gap-4 self-stretch">
+                      <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] font-medium text-white text-lg/4.5">
+                        Multi-City Fragmentation
+                      </div>
+                      <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#FFFFFF99] text-base/5">
+                        Spanning Mumbai, Hyderabad, Bangalore, and Ahmedabad created schedule confusion when presented in standard endless tables.
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-[11px] text-[#747474] font-mono">Agenda Abandonment: 48%</div>
                 </div>
               </div>
+            </div>
 
-              {/* Card 3 */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+            {/* Friction Card 3 */}
+            <div className="flex items-start gap-4 self-stretch h-78 shrink-0 w-full">
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 relative self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
                 <div
-                  className="flex rounded-xl overflow-hidden flex-col items-start justify-between self-stretch flex-1 p-4 border-[0.5px] border-[#FFFFFF1A] min-h-[220px]"
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 relative bg-origin-border"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                   }}
                 >
-                  <span className="text-xs text-[#E5484D] uppercase font-mono" style={{ fontFamily: FIRA_CODE }}>
-                    Friction 03
-                  </span>
-                  <div className="flex flex-col gap-2 my-auto">
-                    <h3 className="text-white text-base font-medium">Opaque Sponsorship Tiers</h3>
-                    <p className="text-xs text-[#A1A1A1] leading-relaxed">
-                      Enterprise sponsors investing $20k–$50k couldn&apos;t scan ROI, stage presence, or delegate entitlement differences at a glance.
-                    </p>
+                  <HalftoneDots
+                    contrast={1}
+                    originalColors={false}
+                    inverted
+                    grid="square"
+                    radius={1}
+                    size={0.8}
+                    scale={1}
+                    grainSize={0.5}
+                    type="soft"
+                    fit="cover"
+                    grainMixer={0.05}
+                    grainOverlay={0.3}
+                    image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                    colorFront="#7553ED"
+                    colorBack="#00000000"
+                    className="w-166.5 h-125 absolute left-[calc(50%+0.016px)] top-[calc(50%-0.002px)]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 178.97000000000003deg, oklab(56.6% 0.065 -0.210) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                      translate: "-50% -50%",
+                    }}
+                  />
+                  <div
+                    className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                      translate: "-50% -50%",
+                    }}
+                  />
+                  <div className="items-end flex flex-col justify-between gap-1.5 flex-1 self-stretch relative">
+                    <div className="w-fit uppercase font-['M_PLUS_1_Code',system-ui,sans-serif] text-white text-base/4.5">
+                      Lead Inquiries Dropped: 35%
+                    </div>
+                    <div className="flex flex-col items-start gap-4 self-stretch">
+                      <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] font-medium text-white text-lg/4.5">
+                        Opaque Sponsorship Tiers
+                      </div>
+                      <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#FFFFFF99] text-base/5">
+                        Enterprise sponsors investing $20k–$50k couldn&apos;t scan ROI, stage presence, or delegate entitlement differences at a glance.
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-[11px] text-[#747474] font-mono">Lead Inquiries Dropped: 35%</div>
                 </div>
               </div>
             </div>
@@ -445,106 +515,240 @@ export function GpactsCaseStudy() {
           <GrungeSeparator />
 
           {/* ================================================================ */}
-          {/* SECTION 3: THE 3-PILLAR INFORMATION ARCHITECTURE                 */}
+          {/* SECTION 3: THE ARCHITECTURE (31J-0)                              */}
           {/* ================================================================ */}
-          <section id="ia-pillars" className="scroll-mt-28 flex flex-col items-start gap-7 w-full">
-            <div className="flex flex-col items-start gap-3 w-full">
-              <h2
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "20px",
-                  lineHeight: "26px",
-                  fontWeight: 500,
-                  color: "#FFFFFF",
-                }}
-              >
+          <section id="ia-pillars" className="items-start flex flex-col w-full scroll-mt-28 gap-7">
+            <div className="items-start flex flex-col w-full gap-3">
+              <div className="wrap-normal font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6.5">
                 The Architecture: Structuring for Scannability &amp; Conversion
-              </h2>
-              <p
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  color: "rgba(255, 255, 255, 0.8)",
-                  fontWeight: 400,
-                }}
-              >
-                To eliminate cognitive drag, we re-architected the entire page around a progressive disclosure funnel. Instead of dumping every session and speaker into a monolithic feed, the website is structured into three clear pillars: Authority Building, Interactive Multi-City Schedule Exploration, and Multi-Persona Conversion Funnels.
-              </p>
+              </div>
+              <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
+                To eliminate cognitive drag, we re-architected the entire page around a progressive disclosure funnel.
+              </div>
+              <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
+                Instead of dumping every session and speaker into a monolithic feed, the website is structured into three clear pillars:
+              </div>
+              <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
+                Instead of dumping every session and speaker into a monolithic feed, the website is structured into three clear pillars: Authority Building, Interactive Multi-City Schedule Exploration, and Multi-Persona Conversion Funnels.
+              </div>
             </div>
 
-            {/* Core Rationale Callout */}
+            {/* 3 Pillar Summary Cards */}
+            <div className="flex items-start gap-4 self-stretch h-48.5 shrink-0 w-full">
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                <div
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 bg-origin-border border border-solid border-[#FFFFFF1A]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                  }}
+                >
+                  <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch">
+                    <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] font-medium text-[#A389E3] text-lg/4.5">
+                      Pillar one
+                    </div>
+                    <div className="whitespace-pre-wrap self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#FFFFFF80] text-base/4.5">
+                      Interactive<br />Multi-City Schedule Exploration
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                <div
+                  className="aspect-square flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 bg-origin-border border border-solid border-[#FFFFFF1A]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                  }}
+                >
+                  <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch">
+                    <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] font-medium text-[#A389E3] text-lg/4.5">
+                      Pillar two
+                    </div>
+                    <div className="w-fit whitespace-pre font-['Instrument_Sans',system-ui,sans-serif] text-[#FFFFFF80] text-base/4.5">
+                      Authority <br />Building
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                <div
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 bg-origin-border border border-solid border-[#FFFFFF1A]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                  }}
+                >
+                  <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch">
+                    <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] font-medium text-[#A389E3] text-lg/4.5">
+                      Pillar three
+                    </div>
+                    <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#FFFFFF80] text-base/4.5">
+                      Multi-Persona Conversion Funnels
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Quote Callout */}
             <div
-              className="flex flex-col items-start gap-3 p-4 self-stretch border-l-[3px] border-[#6597F1] w-full"
+              className="items-start self-stretch flex flex-col w-full p-4 gap-3 bg-origin-border [border-left-width:3px] border-l-solid border-l-[#6597F1]"
               style={{
                 backgroundImage:
                   "linear-gradient(in oklab 90deg, oklab(100% 0 0 / 10%) 0.74%, oklab(80% 0 0 / 0%) 100%)",
               }}
             >
-              <div className="text-white text-base font-medium leading-relaxed">
-                &ldquo;Every single section answers one executive question before they ask it: Why should I care? Who else is in the room? What tangible frameworks will my engineering team take back?&rdquo;
+              <div className="text-[16px] leading-[162.5%] wrap-normal font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white">
+                “Every single section answers one executive question before they ask it: Why should I care? Who else is in the room? What tangible frameworks will my engineering team take back?”
               </div>
             </div>
 
-            {/* 3-PART BENTO GRID: Architectural Pillars */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full">
-              {/* Pillar 1 */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+            {/* Detailed Cards Row 1 */}
+            <div className="flex items-start gap-4 self-stretch h-72.75 shrink-0 w-full">
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 relative self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                <HalftoneDots
+                  contrast={1}
+                  originalColors={false}
+                  inverted
+                  grid="square"
+                  radius={1}
+                  size={0.8}
+                  scale={1}
+                  grainSize={0.5}
+                  type="soft"
+                  fit="cover"
+                  grainMixer={0.05}
+                  grainOverlay={0.3}
+                  image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                  colorFront="#7553ED"
+                  colorBack="#00000000"
+                  className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% 0.061 -0.124) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                    translate: "-50% -50%",
+                  }}
+                />
                 <div
-                  className="flex rounded-xl overflow-hidden flex-col items-start justify-between self-stretch flex-1 p-4 border-[0.5px] border-[#FFFFFF1A] min-h-[220px]"
+                  className="aspect-square flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 relative bg-origin-border"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                   }}
                 >
-                  <div className="w-2 h-2 rounded-full bg-[#6597F1] shadow-[0_0_8px_#6597F1]" />
-                  <div className="flex flex-col gap-2 my-auto">
-                    <h3 className="text-white text-base font-medium">1. Instant Authority</h3>
-                    <p className="text-xs text-[#A1A1A1] leading-relaxed">
-                      Hero value lockup, validated delegate counts, and high-contrast monochrome speaker cards establish peer credibility within 3 seconds.
-                    </p>
+                  <div className="items-end flex flex-col justify-between gap-1.5 flex-1 self-stretch">
+                    <div className="w-fit uppercase font-['M_PLUS_1_Code',system-ui,sans-serif] text-white text-base/4.5">
+                      Focus: CXO Trust
+                    </div>
+                    <div className="flex flex-col items-start gap-4 self-stretch">
+                      <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] font-medium text-white text-lg/4.5">
+                        Instant Authority
+                      </div>
+                      <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#FFFFFF99] text-base/5">
+                        Hero value lockup, validated delegate counts, and high-contrast monochrome speaker cards establish peer credibility within 3 seconds.
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-[11px] text-[#6597F1] font-mono">Focus: CXO Trust</div>
                 </div>
               </div>
 
-              {/* Pillar 2 */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 relative self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                <HalftoneDots
+                  contrast={1}
+                  originalColors={false}
+                  inverted
+                  grid="square"
+                  radius={1}
+                  size={0.8}
+                  scale={1}
+                  grainSize={0.5}
+                  type="soft"
+                  fit="cover"
+                  grainMixer={0.05}
+                  grainOverlay={0.3}
+                  image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                  colorFront="#7553ED"
+                  colorBack="#00000000"
+                  className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% 0.061 -0.124) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                    translate: "-50% -50%",
+                  }}
+                />
                 <div
-                  className="flex rounded-xl overflow-hidden flex-col items-start justify-between self-stretch flex-1 p-4 border-[0.5px] border-[#FFFFFF1A] min-h-[220px]"
+                  className="aspect-square flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 relative bg-origin-border"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                   }}
                 >
-                  <div className="w-2 h-2 rounded-full bg-[#A4AA1A] shadow-[0_0_8px_#A4AA1A]" />
-                  <div className="flex flex-col gap-2 my-auto">
-                    <h3 className="text-white text-base font-medium">2. Chunked Agenda</h3>
-                    <p className="text-xs text-[#A1A1A1] leading-relaxed">
-                      City tabs with 3D landmark icons (Gateway of India, Charminar, etc.) allow users to isolate their exact city and parallel technical track in one tap.
-                    </p>
+                  <div className="items-end flex flex-col justify-between gap-1.5 flex-1 self-stretch">
+                    <div className="w-fit uppercase font-['M_PLUS_1_Code',system-ui,sans-serif] text-white text-base/4.5">
+                      Focus: Cognitive Ease
+                    </div>
+                    <div className="flex flex-col items-start gap-4 self-stretch">
+                      <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] font-medium text-white text-lg/4.5">
+                        Chunked Agenda
+                      </div>
+                      <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#FFFFFF99] text-base/5">
+                        City tabs with 3D landmark icons (Gateway of India, Charminar, etc.) allow users to isolate their exact city and parallel technical track in one tap.
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-[11px] text-[#A4AA1A] font-mono">Focus: Cognitive Ease</div>
                 </div>
               </div>
+            </div>
 
-              {/* Pillar 3 */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+            {/* Detailed Cards Row 2 */}
+            <div className="flex items-start gap-4 self-stretch h-72.75 shrink-0 w-full">
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 relative self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                <HalftoneDots
+                  contrast={1}
+                  originalColors={false}
+                  inverted
+                  grid="square"
+                  radius={1}
+                  size={0.8}
+                  scale={1}
+                  grainSize={0.5}
+                  type="soft"
+                  fit="cover"
+                  grainMixer={0.05}
+                  grainOverlay={0.3}
+                  image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                  colorFront="#7553ED"
+                  colorBack="#00000000"
+                  className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% 0.061 -0.124) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                    translate: "-50% -50%",
+                  }}
+                />
                 <div
-                  className="flex rounded-xl overflow-hidden flex-col items-start justify-between self-stretch flex-1 p-4 border-[0.5px] border-[#FFFFFF1A] min-h-[220px]"
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 relative bg-origin-border"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                   }}
                 >
-                  <div className="w-2 h-2 rounded-full bg-[#F17969] shadow-[0_0_8px_#F17969]" />
-                  <div className="flex flex-col gap-2 my-auto">
-                    <h3 className="text-white text-base font-medium">3. Multi-Tier Funnel</h3>
-                    <p className="text-xs text-[#A1A1A1] leading-relaxed">
-                      Distinct paths for Sponsors (Tier comparison), CXO Delegates (Direct Register), and Research Evaluators (Download Playbook).
-                    </p>
+                  <div className="items-end flex flex-col justify-between gap-1.5 flex-1 self-stretch">
+                    <div className="w-fit uppercase font-['M_PLUS_1_Code',system-ui,sans-serif] text-white text-base/4.5">
+                      Focus: Conversion
+                    </div>
+                    <div className="flex flex-col items-start gap-4 self-stretch">
+                      <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] font-medium text-white text-lg/4.5">
+                        Multi-Tier Funnel
+                      </div>
+                      <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#FFFFFF99] text-base/5">
+                        Distinct paths for Sponsors (Tier comparison), CXO Delegates (Direct Register), and Research Evaluators (Download Playbook).
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-[11px] text-[#F17969] font-mono">Focus: Conversion</div>
                 </div>
               </div>
             </div>
@@ -553,95 +757,62 @@ export function GpactsCaseStudy() {
           <GrungeSeparator />
 
           {/* ================================================================ */}
-          {/* SECTION 4: MULTI-CITY & MULTI-TRACK INTERACTIVE AGENDA           */}
+          {/* SECTION 4: MULTI-CITY AGENDA (32D-0)                             */}
           {/* ================================================================ */}
-          <section id="agenda-system" className="scroll-mt-28 flex flex-col items-start gap-7 w-full">
-            <div className="flex flex-col items-start gap-3 w-full">
-              <h2
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "20px",
-                  lineHeight: "26px",
-                  fontWeight: 500,
-                  color: "#FFFFFF",
-                }}
-              >
+          <section id="agenda-system" className="items-start flex flex-col w-full scroll-mt-28 gap-7">
+            <div className="items-start flex flex-col w-full gap-3">
+              <div className="wrap-normal font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6.5">
                 Multi-City Agenda: Solving Complex Scheduling Overwhelm
-              </h2>
-              <p
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  color: "rgba(255, 255, 255, 0.8)",
-                  fontWeight: 400,
-                }}
-              >
+              </div>
+              <div className="wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
                 The congress is hosted across four major Indian pharmaceutical hubs: Mumbai, Hyderabad, Bangalore, and Ahmedabad. Each hub runs three simultaneous tracks: AI &amp; Intelligent Automation, Cloud &amp; GxP Infrastructure, and Clinical Data Science.
-              </p>
-              <p
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  color: "rgba(255, 255, 255, 0.8)",
-                  fontWeight: 400,
-                }}
-              >
+              </div>
+              <div className="wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
                 Instead of a standard dropdown or separate web pages, we designed an interactive city hub switch with 3D architectural landmarks that immediately updates parallel timeline tracks without page reloads.
-              </p>
+              </div>
             </div>
 
-            {/* Annotated Agenda UI Mockup Card (Vote IN Style) */}
-            <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+            <div className="items-center flex flex-col shrink-0 w-full justify-center p-1 rounded-2xl gap-1.5 [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
               <div
-                className="relative flex rounded-xl overflow-hidden items-start w-full h-[470px] flex-col border-[0.5px] border-[#FFFFFF1A]"
+                className="items-start h-117.5 flex flex-col w-full rounded-[14px] overflow-clip relative shrink-0 bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A]"
                 style={{
                   backgroundImage:
                     "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                 }}
               >
-                {/* Scaled Agenda Section Screenshot */}
                 <div
-                  className="w-[980px] h-[760px] top-4 left-[240px] absolute bg-cover bg-top rounded-xl shadow-2xl border border-white/10 pointer-events-none z-10"
+                  className="h-190 w-245 top-4 left-60 absolute rounded-[14px] [box-shadow:#00000040_0px_25px_50px_-12px] bg-origin-border bg-cover bg-position-[50%_0%] border border-solid border-[#FFFFFF1A]"
                   style={{
-                    backgroundImage: "url(/case-studies/gpacts/03-agenda.png)",
+                    backgroundImage:
+                      "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/3TFF8E2FNZ2J2P5GSRS7K2EZ1D.png)",
                   }}
                 />
-
-                {/* Tag Label at Top-Left */}
-                <div className="w-fit absolute left-5 top-[18px] text-[#FFFFFF66] text-sm leading-5 font-normal z-10" style={{ fontFamily: FIRA_CODE }}>
+                <div className="w-fit top-4.5 left-5 absolute wrap-normal font-['Fira_Code',system-ui,sans-serif] text-[#FFFFFF66] text-sm/5">
                   Agenda Engine · Interactive Tracks
                 </div>
-
-                {/* Annotation 1: City Hubs */}
-                <div className="w-[170px] text-left left-[24px] top-[105px] absolute text-white text-[13px] leading-5 font-normal z-10">
+                <div className="w-42.5 top-26.25 left-6 absolute wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-[13px]/5">
                   3D Landmark Hub Tabs: Distinct regional visual anchors make location selection tangible and fast.
                 </div>
-                <div className="w-[60px] h-[3px] left-[200px] top-[128px] absolute z-10 pointer-events-none">
-                  <div className="top-[1px] h-px absolute bg-[#5E5E5E] inset-x-0" />
-                  <div className="-left-px top-0 w-[3px] h-[3px] rounded-full absolute bg-[#5E5E5E]" />
-                  <div className="top-0 w-[3px] h-[3px] rounded-full right-0 absolute bg-[#5E5E5E]" />
+                <div className="h-0.75 w-15 top-32 left-50 absolute">
+                  <div className="h-px top-px absolute bg-[#5E5E5E] inset-x-0" />
+                  <div className="h-0.75 w-0.75 top-0 -left-px rounded-full absolute bg-[#5E5E5E]" />
+                  <div className="h-0.75 w-0.75 top-0 right-0 rounded-full absolute bg-[#5E5E5E]" />
                 </div>
-
-                {/* Annotation 2: Multi-Track Columns */}
-                <div className="w-[170px] text-left left-[24px] top-[240px] absolute text-white text-[13px] leading-5 font-normal z-10">
+                <div className="w-42.5 top-60 left-6 absolute wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-[13px]/5">
                   Parallel Track Matrix: AI, Cloud, and Data tracks laid out synchronously with standardized timestamp badges.
                 </div>
-                <div className="w-[85px] h-[3px] left-[200px] top-[265px] absolute z-10 pointer-events-none">
-                  <div className="top-[1px] h-px absolute bg-[#5E5E5E] inset-x-0" />
-                  <div className="-left-px top-0 w-[3px] h-[3px] rounded-full absolute bg-[#5E5E5E]" />
-                  <div className="top-0 w-[3px] h-[3px] rounded-full right-0 absolute bg-[#5E5E5E]" />
+                <div className="h-0.75 w-21.25 top-66.25 left-50 absolute">
+                  <div className="h-px top-px absolute bg-[#5E5E5E] inset-x-0" />
+                  <div className="h-0.75 w-0.75 top-0 -left-px rounded-full absolute bg-[#5E5E5E]" />
+                  <div className="h-0.75 w-0.75 top-0 right-0 rounded-full absolute bg-[#5E5E5E]" />
                 </div>
-
-                {/* Annotation 3: Session Density */}
-                <div className="w-[170px] text-left left-[24px] top-[370px] absolute text-white text-[13px] leading-5 font-normal z-10">
+                <div className="w-42.5 top-92.5 left-6 absolute wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-[13px]/5">
                   Session Card Anatomy: Formatted for glanceability (Speaker + Title + Time + Room badge).
                 </div>
-                <div className="w-[110px] h-[3px] left-[200px] top-[395px] absolute z-10 pointer-events-none">
-                  <div className="top-[1px] h-px absolute bg-[#5E5E5E] inset-x-0" />
-                  <div className="-left-px top-0 w-[3px] h-[3px] rounded-full absolute bg-[#5E5E5E]" />
-                  <div className="top-0 w-[3px] h-[3px] rounded-full right-0 absolute bg-[#5E5E5E]" />
+                <div className="h-0.75 w-27.5 top-98.75 left-50 absolute">
+                  <div className="h-px top-px absolute bg-[#5E5E5E] inset-x-0" />
+                  <div className="h-0.75 w-0.75 top-0 -left-px rounded-full absolute bg-[#5E5E5E]" />
+                  <div className="h-0.75 w-0.75 top-0 right-0 rounded-full absolute bg-[#5E5E5E]" />
                 </div>
               </div>
             </div>
@@ -650,84 +821,59 @@ export function GpactsCaseStudy() {
           <GrungeSeparator />
 
           {/* ================================================================ */}
-          {/* SECTION 5: EXECUTIVE PROOF & EVENT EXPERIENCE                    */}
+          {/* SECTION 5: EXECUTIVE PROOF (333-0)                               */}
           {/* ================================================================ */}
-          <section id="speakers-trust" className="scroll-mt-28 flex flex-col items-start gap-7 w-full">
-            <div className="flex flex-col items-start gap-3 w-full">
-              <h2
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "20px",
-                  lineHeight: "26px",
-                  fontWeight: 500,
-                  color: "#FFFFFF",
-                }}
-              >
+          <section id="speakers-trust" className="items-start flex flex-col w-full scroll-mt-28 gap-7">
+            <div className="items-start flex flex-col w-full gap-3">
+              <div className="wrap-normal font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6.5">
                 Executive Social Proof: High-Contrast Speaker System
-              </h2>
-              <p
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  color: "rgba(255, 255, 255, 0.8)",
-                  fontWeight: 400,
-                }}
-              >
+              </div>
+              <div className="wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
                 In high-ticket enterprise summits, delegates do not buy tickets for generic topics; they buy access to the peer network in the room. We designed a high-contrast, editorial speaker roster with monochrome photography that communicates gravitas and executive focus.
-              </p>
+              </div>
             </div>
 
-            {/* Annotated Speaker & Gallery Card */}
-            <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+            <div className="items-center flex flex-col shrink-0 w-full justify-center p-1 rounded-2xl gap-1.5 [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
               <div
-                className="relative flex rounded-xl overflow-hidden items-start w-full h-[460px] flex-col border-[0.5px] border-[#FFFFFF1A]"
+                className="items-start h-115 flex flex-col w-full rounded-[14px] overflow-clip relative shrink-0 bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A]"
                 style={{
                   backgroundImage:
                     "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                 }}
               >
-                {/* Scaled Speaker + Gallery Screenshot */}
                 <div
-                  className="w-[980px] h-[740px] top-4 left-[240px] absolute bg-cover bg-top rounded-xl shadow-2xl border border-white/10 pointer-events-none z-10"
+                  className="h-185 w-245 top-4 left-60 absolute rounded-[14px] [box-shadow:#00000040_0px_25px_50px_-12px] bg-origin-border bg-cover bg-position-[50%_0%] border border-solid border-[#FFFFFF1A]"
                   style={{
-                    backgroundImage: "url(/case-studies/gpacts/04-speakers.png)",
+                    backgroundImage:
+                      "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/23V8YS8VRP14RCPGK5ZHVSWCBR.png)",
                   }}
                 />
-
-                {/* Tag Label at Top-Left */}
-                <div className="w-fit absolute left-5 top-[18px] text-[#FFFFFF66] text-sm leading-5 font-normal z-10" style={{ fontFamily: FIRA_CODE }}>
+                <div className="w-fit top-4.5 left-5 absolute wrap-normal font-['Fira_Code',system-ui,sans-serif] text-[#FFFFFF66] text-sm/5">
                   Keynote Speakers · Roster UI
                 </div>
-
-                {/* Annotation 1: Editorial Photography */}
-                <div className="w-[170px] text-left left-[24px] top-[110px] absolute text-white text-[13px] leading-5 font-normal z-10">
+                <div className="w-42.5 top-27.5 left-6 absolute wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-[13px]/5">
                   Uniform Monochrome Portraits: Removes disparate lighting and creates a unified executive aesthetic.
                 </div>
-                <div className="w-[60px] h-[3px] left-[200px] top-[135px] absolute z-10 pointer-events-none">
-                  <div className="top-[1px] h-px absolute bg-[#5E5E5E] inset-x-0" />
-                  <div className="-left-px top-0 w-[3px] h-[3px] rounded-full absolute bg-[#5E5E5E]" />
-                  <div className="top-0 w-[3px] h-[3px] rounded-full right-0 absolute bg-[#5E5E5E]" />
+                <div className="h-0.75 w-15 top-33.75 left-50 absolute">
+                  <div className="h-px top-px absolute bg-[#5E5E5E] inset-x-0" />
+                  <div className="h-0.75 w-0.75 top-0 -left-px rounded-full absolute bg-[#5E5E5E]" />
+                  <div className="h-0.75 w-0.75 top-0 right-0 rounded-full absolute bg-[#5E5E5E]" />
                 </div>
-
-                {/* Annotation 2: Micro-Interaction Navigation */}
-                <div className="w-[170px] text-left left-[24px] top-[240px] absolute text-white text-[13px] leading-5 font-normal z-10">
+                <div className="w-42.5 top-60 left-6 absolute wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-[13px]/5">
                   Horizontal Carousel Controls: Smooth kinetic arrows allow seamless scanning without breaking vertical scroll flow.
                 </div>
-                <div className="w-[85px] h-[3px] left-[200px] top-[265px] absolute z-10 pointer-events-none">
-                  <div className="top-[1px] h-px absolute bg-[#5E5E5E] inset-x-0" />
-                  <div className="-left-px top-0 w-[3px] h-[3px] rounded-full absolute bg-[#5E5E5E]" />
-                  <div className="top-0 w-[3px] h-[3px] rounded-full right-0 absolute bg-[#5E5E5E]" />
+                <div className="h-0.75 w-21.25 top-66.25 left-50 absolute">
+                  <div className="h-px top-px absolute bg-[#5E5E5E] inset-x-0" />
+                  <div className="h-0.75 w-0.75 top-0 -left-px rounded-full absolute bg-[#5E5E5E]" />
+                  <div className="h-0.75 w-0.75 top-0 right-0 rounded-full absolute bg-[#5E5E5E]" />
                 </div>
-
-                {/* Annotation 3: Categorized Experience Gallery */}
-                <div className="w-[170px] text-left left-[24px] top-[370px] absolute text-white text-[13px] leading-5 font-normal z-10">
+                <div className="w-42.5 top-92.5 left-6 absolute wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-[13px]/5">
                   Experience Tags: Categorized into Networking, CXO Roundtables, Workshops, and Demos.
                 </div>
-                <div className="w-[110px] h-[3px] left-[200px] top-[395px] absolute z-10 pointer-events-none">
-                  <div className="top-[1px] h-px absolute bg-[#5E5E5E] inset-x-0" />
-                  <div className="-left-px top-0 w-[3px] h-[3px] rounded-full absolute bg-[#5E5E5E]" />
-                  <div className="top-0 w-[3px] h-[3px] rounded-full right-0 absolute bg-[#5E5E5E]" />
+                <div className="h-0.75 w-27.5 top-98.75 left-50 absolute">
+                  <div className="h-px top-px absolute bg-[#5E5E5E] inset-x-0" />
+                  <div className="h-0.75 w-0.75 top-0 -left-px rounded-full absolute bg-[#5E5E5E]" />
+                  <div className="h-0.75 w-0.75 top-0 right-0 rounded-full absolute bg-[#5E5E5E]" />
                 </div>
               </div>
             </div>
@@ -736,156 +882,57 @@ export function GpactsCaseStudy() {
           <GrungeSeparator />
 
           {/* ================================================================ */}
-          {/* SECTION 6: TIERED ENTERPRISE SPONSORSHIP MATRIX                  */}
+          {/* SECTION 6: SPONSORSHIP TIERS (33S-0)                             */}
           {/* ================================================================ */}
-          <section id="sponsorship-matrix" className="scroll-mt-28 flex flex-col items-start gap-7 w-full">
-            <div className="flex flex-col items-start gap-3 w-full">
-              <h2
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "20px",
-                  lineHeight: "26px",
-                  fontWeight: 500,
-                  color: "#FFFFFF",
-                }}
-              >
+          <section id="sponsorship-matrix" className="items-start flex flex-col w-full scroll-mt-28 gap-7">
+            <div className="items-start flex flex-col w-full gap-3">
+              <div className="wrap-normal font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6.5">
                 Sponsorship Architecture: Differentiating ROI &amp; Tiers
-              </h2>
-              <p
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  color: "rgba(255, 255, 255, 0.8)",
-                  fontWeight: 400,
-                }}
-              >
+              </div>
+              <div className="wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
                 For enterprise sponsors (cloud hyperscalers, AI vendors, GxP software providers), pricing transparency is balanced with prestige. We designed a 3-tier Bento card comparison that visually prioritizes the flagship tier while giving clear entitlement breakdowns for each level.
-              </p>
+              </div>
             </div>
 
-            {/* 3-PART BENTO GRID: Pricing Tiers */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full">
-              {/* Platinum */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#6597F1]/40">
-                <div
-                  className="flex rounded-xl overflow-hidden flex-col items-start justify-between self-stretch flex-1 p-4 border-[0.5px] border-[#6597F1]/30 min-h-[300px]"
+            <div className="flex w-full flex-col items-center rounded-2xl justify-center gap-1.5 p-1 [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+              <div className="overflow-clip h-94.5 rounded-xl self-stretch relative shrink-0 [box-shadow:#00000033_0px_0px_5px] bg-[#9A8DE9] w-full">
+                <div className="left-[-0.75px] top-[-0.273px] w-full h-94.5 absolute bg-[#2B2B2B]" />
+                <HalftoneDots
+                  contrast={1}
+                  originalColors={false}
+                  inverted
+                  grid="square"
+                  radius={1}
+                  size={0.8}
+                  scale={1}
+                  grainSize={0.5}
+                  type="soft"
+                  fit="cover"
+                  grainMixer={0.05}
+                  grainOverlay={0.3}
+                  image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                  colorFront="#7553ED"
+                  colorBack="#00000000"
+                  className="w-166.5 h-125 absolute left-[50%] top-[50%]"
                   style={{
                     backgroundImage:
-                      "linear-gradient(in oklab 180deg, oklab(25% 0 -0.05) 0%, oklab(20% 0 0) 100%)",
+                      "linear-gradient(in oklab 178.97000000000003deg, oklab(56.6% 0.065 -0.210) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                    translate: "-50% -50%",
                   }}
-                >
-                  <div className="flex items-center justify-between w-full">
-                    <span className="text-xs text-[#6597F1] uppercase font-mono" style={{ fontFamily: FIRA_CODE }}>
-                      Flagship Tier
-                    </span>
-                    <span className="text-[10px] bg-[#6597F1]/20 text-[#6597F1] px-2 py-0.5 rounded-full font-mono">
-                      Exclusive
-                    </span>
+                />
+                <div className="flex flex-col items-center justify-center py-4 left-[-0.484px] top-[29.516px] w-full absolute">
+                  <div className="w-fit tracking-[-0.02em] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-2xl/7.5">
+                    Sponsorship Packages
                   </div>
-
-                  <div className="flex flex-col gap-1.5 my-2">
-                    <h3 className="text-white text-lg font-medium">Platinum Partner</h3>
-                    <p className="text-xs text-[#A1A1A1]">Maximum visibility and prime keynote stage takeover.</p>
-                  </div>
-
-                  <ul className="flex flex-col gap-1.5 text-xs text-neutral-300 w-full my-auto border-t border-b border-white/10 py-3">
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#6597F1]">✓</span> Exclusive keynote slot
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#6597F1]">✓</span> Branded stage presence
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#6597F1]">✓</span> 10 delegate passes
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#6597F1]">✓</span> Full lead generation access
-                    </li>
-                  </ul>
-
-                  <button type="button" className="w-full py-2 rounded-lg bg-white text-black text-xs font-medium hover:bg-neutral-200 transition-colors mt-2">
-                    Register Interest
-                  </button>
                 </div>
-              </div>
-
-              {/* Gold */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
                 <div
-                  className="flex rounded-xl overflow-hidden flex-col items-start justify-between self-stretch flex-1 p-4 border-[0.5px] border-[#FFFFFF1A] min-h-[300px]"
+                  className="h-146.5 w-183.25 top-[-272.5px] left-[calc(50%-151.5px)] absolute [box-shadow:#00000040_0px_25px_50px_-12px] bg-origin-border bg-cover bg-position-[50%_0%] border border-solid border-[#FFFFFF1A]"
                   style={{
                     backgroundImage:
-                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                      "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M1EK917B7NT7QA97B6WXJ24Q.png)",
+                    translate: "-50%",
                   }}
-                >
-                  <span className="text-xs text-[#F1B969] uppercase font-mono" style={{ fontFamily: FIRA_CODE }}>
-                    Mid Tier
-                  </span>
-
-                  <div className="flex flex-col gap-1.5 my-2">
-                    <h3 className="text-white text-lg font-medium">Gold Partner</h3>
-                    <p className="text-xs text-[#A1A1A1]">Strong brand presence with panel moderation rights.</p>
-                  </div>
-
-                  <ul className="flex flex-col gap-1.5 text-xs text-neutral-300 w-full my-auto border-t border-b border-white/10 py-3">
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F1B969]">✓</span> Panel moderation slot
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F1B969]">✓</span> 5 delegate passes
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F1B969]">✓</span> Exhibition demo space
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F1B969]">✓</span> Premium logo placement
-                    </li>
-                  </ul>
-
-                  <button type="button" className="w-full py-2 rounded-lg bg-white/10 text-white text-xs font-medium hover:bg-white/20 transition-colors mt-2 border border-white/15">
-                    Register Interest
-                  </button>
-                </div>
-              </div>
-
-              {/* Silver */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                <div
-                  className="flex rounded-xl overflow-hidden flex-col items-start justify-between self-stretch flex-1 p-4 border-[0.5px] border-[#FFFFFF1A] min-h-[300px]"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                  }}
-                >
-                  <span className="text-xs text-[#A1A1A1] uppercase font-mono" style={{ fontFamily: FIRA_CODE }}>
-                    Entry Tier
-                  </span>
-
-                  <div className="flex flex-col gap-1.5 my-2">
-                    <h3 className="text-white text-lg font-medium">Silver Partner</h3>
-                    <p className="text-xs text-[#A1A1A1]">Core sponsorship support with digital visibility.</p>
-                  </div>
-
-                  <ul className="flex flex-col gap-1.5 text-xs text-neutral-300 w-full my-auto border-t border-b border-white/10 py-3">
-                    <li className="flex items-center gap-2">
-                      <span className="text-white/60">✓</span> Logo placement
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-white/60">✓</span> 3 delegate passes
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-white/60">✓</span> Networking lounge access
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-white/60">✓</span> Digital promo reach
-                    </li>
-                  </ul>
-
-                  <button type="button" className="w-full py-2 rounded-lg bg-white/10 text-white text-xs font-medium hover:bg-white/20 transition-colors mt-2 border border-white/15">
-                    Register Interest
-                  </button>
-                </div>
+                />
               </div>
             </div>
           </section>
@@ -893,245 +940,382 @@ export function GpactsCaseStudy() {
           <GrungeSeparator />
 
           {/* ================================================================ */}
-          {/* SECTION 7: RESOURCE FUNNEL & LEAD MAGNETS                        */}
+          {/* SECTION 7: RESOURCE FUNNEL (35T-0)                               */}
           {/* ================================================================ */}
-          <section id="resource-funnel" className="scroll-mt-28 flex flex-col items-start gap-7 w-full">
-            <div className="flex flex-col items-start gap-3 w-full">
-              <h2
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "20px",
-                  lineHeight: "26px",
-                  fontWeight: 500,
-                  color: "#FFFFFF",
-                }}
-              >
+          <section id="resource-funnel" className="items-start flex flex-col w-full scroll-mt-28 gap-7">
+            <div className="items-start flex flex-col w-full gap-3">
+              <div className="wrap-normal font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6.5">
                 Lead Capture: High-Intent Collateral &amp; Whitepaper Funnels
-              </h2>
-              <p
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  color: "rgba(255, 255, 255, 0.8)",
-                  fontWeight: 400,
-                }}
-              >
+              </div>
+              <div className="wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
                 Not all visitors are ready to buy a delegate pass on their first visit. We designed secondary lead magnets (Event Brochure, Sponsorship Deck, and the AI in Pharma Whitepaper) to capture qualified enterprise contacts and nurture them into attendees.
-              </p>
+              </div>
             </div>
 
-            {/* 3-PART BENTO GRID: Downloadable Collateral */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 w-full">
-              {/* Card 1 */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+            <div className="flex w-full flex-col items-center rounded-2xl justify-center gap-1.5 p-1 [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+              <div className="overflow-clip h-94.5 rounded-xl self-stretch relative shrink-0 [box-shadow:#00000033_0px_0px_5px] bg-[#9A8DE9] w-full">
+                <div className="left-[-0.75px] top-[-0.273px] w-full h-94.5 absolute bg-[#2B2B2B]" />
+                <HalftoneDots
+                  contrast={1}
+                  originalColors={false}
+                  inverted
+                  grid="square"
+                  radius={1}
+                  size={0.8}
+                  scale={1}
+                  grainSize={0.5}
+                  type="soft"
+                  fit="cover"
+                  grainMixer={0.05}
+                  grainOverlay={0.3}
+                  image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                  colorFront="#7553ED"
+                  colorBack="#00000000"
+                  className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 178.97000000000003deg, oklab(56.6% 0.065 -0.210) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                    translate: "-50% -50%",
+                  }}
+                />
+                <div className="flex flex-col items-center justify-center py-4 left-[-0.484px] top-[29.516px] w-full absolute">
+                  <div className="w-fit tracking-[-0.02em] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-2xl/7.5">
+                    Download Collateral
+                  </div>
+                </div>
                 <div
-                  className="flex rounded-xl overflow-hidden flex-col items-start justify-between self-stretch flex-1 p-4 border-[0.5px] border-[#FFFFFF1A] min-h-[200px]"
+                  className="h-128.75 w-177.5 top-[-182.5px] left-[calc(50%+110px)] absolute [box-shadow:#00000040_0px_25px_50px_-12px] bg-origin-border bg-cover bg-position-[50%_0%] border border-solid border-[#FFFFFF1A]"
+                  style={{
+                    backgroundImage:
+                      "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M1EJR1R208ZS0GNBCC6D2DQH.png)",
+                    translate: "-50%",
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Collateral Breakdown Row 1 */}
+            <div className="flex items-start gap-4 self-stretch h-72.75 shrink-0 w-full">
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 relative self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                <HalftoneDots
+                  contrast={1}
+                  originalColors={false}
+                  inverted
+                  grid="square"
+                  radius={1}
+                  size={0.8}
+                  scale={1}
+                  grainSize={0.5}
+                  type="soft"
+                  fit="cover"
+                  grainMixer={0.05}
+                  grainOverlay={0.3}
+                  image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                  colorFront="#7553ED"
+                  colorBack="#00000000"
+                  className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% 0.061 -0.124) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                    translate: "-50% -50%",
+                  }}
+                />
+                <div
+                  className="aspect-square flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 relative bg-origin-border"
                   style={{
                     backgroundImage:
                       "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                   }}
                 >
-                  <div className="text-xs text-[#6597F1] font-mono">PDF Document</div>
-                  <div className="flex flex-col gap-1 my-auto">
-                    <h3 className="text-white text-base font-medium">Event Brochure</h3>
-                    <p className="text-xs text-[#A1A1A1] leading-relaxed">
-                      Complete overview of the summit dates, keynote speakers, and session schedule.
-                    </p>
-                  </div>
-                  <span className="text-xs text-white underline underline-offset-4 hover:text-[#6597F1] cursor-pointer">
-                    Download PDF →
-                  </span>
-                </div>
-              </div>
-
-              {/* Card 2 */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                <div
-                  className="flex rounded-xl overflow-hidden flex-col items-start justify-between self-stretch flex-1 p-4 border-[0.5px] border-[#FFFFFF1A] min-h-[200px]"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                  }}
-                >
-                  <div className="text-xs text-[#A4AA1A] font-mono">Partner Kit</div>
-                  <div className="flex flex-col gap-1 my-auto">
-                    <h3 className="text-white text-base font-medium">Sponsorship Deck</h3>
-                    <p className="text-xs text-[#A1A1A1] leading-relaxed">
-                      Partnership opportunities, booth dimensions, stage time slots, and pricing.
-                    </p>
-                  </div>
-                  <span className="text-xs text-white underline underline-offset-4 hover:text-[#A4AA1A] cursor-pointer">
-                    Download Deck →
-                  </span>
-                </div>
-              </div>
-
-              {/* Card 3 */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                <div
-                  className="flex rounded-xl overflow-hidden flex-col items-start justify-between self-stretch flex-1 p-4 border-[0.5px] border-[#FFFFFF1A] min-h-[200px]"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                  }}
-                >
-                  <div className="text-xs text-[#F17969] font-mono">Research Report</div>
-                  <div className="flex flex-col gap-1 my-auto">
-                    <h3 className="text-white text-base font-medium">AI in Pharma 2026</h3>
-                    <p className="text-xs text-[#A1A1A1] leading-relaxed">
-                      State of AI adoption in Indian pharma: drug discovery to regulatory compliance.
-                    </p>
-                  </div>
-                  <span className="text-xs text-white underline underline-offset-4 hover:text-[#F17969] cursor-pointer">
-                    Download Report →
-                  </span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <GrungeSeparator />
-
-          {/* ================================================================ */}
-          {/* SECTION 8: VENUE, LOGISTICS & FAQ ACCORDION                      */}
-          {/* ================================================================ */}
-          <section id="venue-logistics" className="scroll-mt-28 flex flex-col items-start gap-7 w-full">
-            <div className="flex flex-col items-start gap-3 w-full">
-              <h2
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "20px",
-                  lineHeight: "26px",
-                  fontWeight: 500,
-                  color: "#FFFFFF",
-                }}
-              >
-                Logistics &amp; FAQ: Eliminating Last-Mile Friction
-              </h2>
-              <p
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  color: "rgba(255, 255, 255, 0.8)",
-                  fontWeight: 400,
-                }}
-              >
-                For interstate CXO travelers, hotel proximity to international airport terminals and clear venue navigation are major booking considerations. We integrated direct distance indicators (~4km, 15 min drive from BOM Airport to The Leela Mumbai) and an interactive FAQ accordion to answer common procurement questions.
-              </p>
-            </div>
-
-            {/* FAQ Accordion */}
-            <div className="flex flex-col gap-2 w-full">
-              {[
-                {
-                  q: "What exactly does GPACTS focus on?",
-                  a: "GPACTS focuses on the intersection of pharma IT infrastructure, digital transformation, and regulatory compliance. We provide deep dive technical sessions on GxP compliant automation, data integrity, and scalable cloud architectures specific to pharmaceutical manufacturing and distribution.",
-                },
-                {
-                  q: "Who should attend GPACTS 2026?",
-                  a: "CIOs, CDOs, VP of Engineering, Heads of Data Science, and Regulatory Technology Directors from mid-to-large life sciences and pharmaceutical enterprises.",
-                },
-                {
-                  q: "How is GPACTS different from generic IT conferences?",
-                  a: "GPACTS is strictly curated for life sciences. Every case study presented is pre-audited for real production validation, regulatory adherence (USFDA/21 CFR Part 11), and measurable ROI.",
-                },
-              ].map((item, idx) => {
-                const isOpen = expandedFaq === idx;
-                return (
-                  <div
-                    key={idx}
-                    className="flex flex-col rounded-xl overflow-hidden border border-white/10 bg-[#171717] transition-colors"
-                  >
-                    <button
-                      type="button"
-                      onClick={() => setExpandedFaq(isOpen ? null : idx)}
-                      className="flex items-center justify-between p-4 text-left w-full cursor-pointer hover:bg-white/5"
-                    >
-                      <span className="text-sm font-medium text-white">{item.q}</span>
-                      <span className="text-neutral-400 text-base">{isOpen ? "−" : "+"}</span>
-                    </button>
-                    {isOpen && (
-                      <div className="px-4 pb-4 text-xs text-[#A1A1A1] leading-relaxed border-t border-white/5 pt-3">
-                        {item.a}
+                  <div className="items-end flex flex-col justify-between gap-1.5 flex-1 self-stretch">
+                    <div className="w-fit uppercase font-['M_PLUS_1_Code',system-ui,sans-serif] text-white text-base/4.5">
+                      PDF Document
+                    </div>
+                    <div className="flex flex-col items-start gap-4 self-stretch">
+                      <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] font-medium text-white text-lg/4.5">
+                        Event Brochure
                       </div>
-                    )}
+                      <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#FFFFFF99] text-base/5">
+                        Complete overview of the summit dates, keynote speakers, and session schedule.
+                      </div>
+                    </div>
                   </div>
-                );
-              })}
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 relative self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                <HalftoneDots
+                  contrast={1}
+                  originalColors={false}
+                  inverted
+                  grid="square"
+                  radius={1}
+                  size={0.8}
+                  scale={1}
+                  grainSize={0.5}
+                  type="soft"
+                  fit="cover"
+                  grainMixer={0.05}
+                  grainOverlay={0.3}
+                  image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                  colorFront="#7553ED"
+                  colorBack="#00000000"
+                  className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% 0.061 -0.124) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                    translate: "-50% -50%",
+                  }}
+                />
+                <div
+                  className="aspect-square flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 relative bg-origin-border"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                  }}
+                >
+                  <div className="items-end flex flex-col justify-between gap-1.5 flex-1 self-stretch">
+                    <div className="w-fit uppercase font-['M_PLUS_1_Code',system-ui,sans-serif] text-white text-base/4.5">
+                      Partner Kit
+                    </div>
+                    <div className="flex flex-col items-start gap-4 self-stretch">
+                      <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] font-medium text-white text-lg/4.5">
+                        Sponsorship Deck
+                      </div>
+                      <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#FFFFFF99] text-base/5">
+                        Partnership opportunities, booth dimensions, stage time slots, and pricing.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Collateral Breakdown Row 2 */}
+            <div className="flex items-start gap-4 self-stretch h-72.75 shrink-0 w-full">
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 flex-1 overflow-clip p-1 relative self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                <HalftoneDots
+                  contrast={1}
+                  originalColors={false}
+                  inverted
+                  grid="square"
+                  radius={1}
+                  size={0.8}
+                  scale={1}
+                  grainSize={0.5}
+                  type="soft"
+                  fit="cover"
+                  grainMixer={0.05}
+                  grainOverlay={0.3}
+                  image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                  colorFront="#7553ED"
+                  colorBack="#00000000"
+                  className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% 0.061 -0.124) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                    translate: "-50% -50%",
+                  }}
+                />
+                <div
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 relative bg-origin-border"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                  }}
+                >
+                  <div className="items-end flex flex-col justify-between gap-1.5 flex-1 self-stretch">
+                    <div className="w-fit uppercase font-['M_PLUS_1_Code',system-ui,sans-serif] text-white text-base/4.5">
+                      Research Report
+                    </div>
+                    <div className="flex flex-col items-start gap-4 self-stretch">
+                      <div className="w-fit font-['Instrument_Sans',system-ui,sans-serif] font-medium text-white text-lg/4.5">
+                        AI in Pharma 2026
+                      </div>
+                      <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#FFFFFF99] text-base/5">
+                        State of AI adoption in Indian pharma: drug discovery to regulatory compliance.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
 
           <GrungeSeparator />
 
           {/* ================================================================ */}
-          {/* SECTION 9: IMPACT & OUTCOMES                                     */}
+          {/* SECTION 8: LOGISTICS & FAQ (36L-0)                               */}
           {/* ================================================================ */}
-          <section id="metrics" className="scroll-mt-28 flex flex-col items-start gap-9 self-stretch w-full">
+          <section id="venue-logistics" className="items-start flex flex-col w-full scroll-mt-28 gap-7">
+            <div className="items-start flex flex-col w-full gap-3">
+              <div className="wrap-normal font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6.5">
+                Logistics &amp; FAQ: Eliminating Last-Mile Friction
+              </div>
+              <div className="wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
+                For interstate CXO travelers, hotel proximity to international airport terminals and clear venue navigation are major booking considerations. We integrated direct distance indicators (~4km, 15 min drive from BOM Airport to The Leela Mumbai) and an interactive FAQ accordion to answer common procurement questions.
+              </div>
+            </div>
+
+            <div className="flex w-full flex-col items-center rounded-2xl justify-center gap-1.5 p-1 [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+              <div className="overflow-clip h-94.5 rounded-xl self-stretch relative shrink-0 [box-shadow:#00000033_0px_0px_5px] bg-[#9A8DE9] w-full">
+                <div className="left-[-0.75px] top-[-0.273px] w-full h-94.5 absolute bg-[#2B2B2B]" />
+                <HalftoneDots
+                  contrast={1}
+                  originalColors={false}
+                  inverted
+                  grid="square"
+                  radius={1}
+                  size={0.8}
+                  scale={1}
+                  grainSize={0.5}
+                  type="soft"
+                  fit="cover"
+                  grainMixer={0.05}
+                  grainOverlay={0.3}
+                  image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                  colorFront="#7553ED"
+                  colorBack="#00000000"
+                  className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 178.97000000000003deg, oklab(56.6% 0.065 -0.210) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                    translate: "-50% -50%",
+                  }}
+                />
+                <div
+                  className="w-118.5 h-87.25 absolute left-[62.5px] top-[-15.5px] bg-cover bg-position-[50%]"
+                  style={{
+                    backgroundImage:
+                      "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M1EK1FDBS7W9TGPT6R6W5RZR.png)",
+                  }}
+                />
+              </div>
+            </div>
+          </section>
+
+          <GrungeSeparator />
+
+          {/* ================================================================ */}
+          {/* SECTION 9: IMPACT & OUTCOMES (596-0)                              */}
+          {/* ================================================================ */}
+          <section id="metrics" className="flex flex-col items-start gap-9 self-stretch w-full scroll-mt-28">
             <div className="flex items-center gap-3 self-stretch">
-              <div className="tracking-[-0.02em] font-medium text-white text-xl">
+              <div className="tracking-[-0.02em] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
                 Impact &amp; Measurable Outcomes
               </div>
             </div>
 
-            <div className="flex flex-col items-start gap-6 w-full">
-              <p
-                style={{
-                  fontFamily: HELVETICA,
-                  fontSize: "16px",
-                  lineHeight: "22px",
-                  color: "rgba(255, 255, 255, 0.8)",
-                  fontWeight: 400,
-                }}
-              >
-                The new website architecture transformed the event&apos;s digital funnel. By decoupling the multi-city agenda into interactive city hubs, highlighting executive social proof, and clarifying sponsorship tiers, GPACTS achieved record conversion rates across all registration funnels.
-              </p>
-
-              {/* Outcome Stat Cards */}
-              <div className="flex items-start gap-4 self-stretch w-full">
-                <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 self-stretch shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                  <div
-                    className="flex rounded-xl overflow-hidden flex-col items-start justify-between self-stretch flex-1 p-5 border-[0.5px] border-[#FFFFFF1A]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                    }}
-                  >
-                    <div className="flex items-center gap-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="rotate-270 text-emerald-400">
-                        <path d="M5 12h14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="m12 5 7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                      <div className="text-[40px] font-medium text-white tracking-tight leading-none">
-                        +54%
-                      </div>
-                    </div>
-                    <div className="text-xs text-[#A1A1A1] mt-3">
-                      Increase in early-bird delegate registrations compared to previous single-page format.
-                    </div>
+            <div className="flex flex-col items-start gap-15 w-full">
+              <div className="flex flex-col items-start gap-5 w-full">
+                <div className="flex flex-col items-start gap-6 w-full">
+                  <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
+                    The new website architecture transformed the event&apos;s digital funnel. By decoupling the multi-city agenda into interactive city hubs, highlighting executive social proof, and clarifying sponsorship tiers, GPACTS achieved record conversion rates across all registration funnels.
                   </div>
-                </div>
 
-                <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 self-stretch shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
-                  <div
-                    className="flex rounded-xl overflow-hidden flex-col items-start justify-between self-stretch flex-1 p-5 border-[0.5px] border-[#FFFFFF1A]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                    }}
-                  >
-                    <div className="flex items-center gap-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="rotate-270 text-emerald-400">
-                        <path d="M5 12h14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="m12 5 7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                      <div className="text-[40px] font-medium text-white tracking-tight leading-none">
-                        3.2x
+                  <div className="flex items-start gap-4 self-stretch h-73.5 shrink-0 w-full">
+                    {/* Stat Card 1 */}
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                      <div
+                        className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 aspect-square bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch">
+                          <div className="flex items-center gap-2 justify-center">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              style={{
+                                rotate: "270deg",
+                                flexShrink: "0",
+                                transformOrigin: "50% 50%",
+                              }}
+                            >
+                              <path
+                                d="M5 12h14"
+                                fill="none"
+                                stroke="oklch(76.5% 0.177 163.2)"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                              <path
+                                d="m12 5 7 7-7 7"
+                                fill="none"
+                                stroke="oklch(76.5% 0.177 163.2)"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            <div className="tracking-[-0.02em] w-fit shrink-0 font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-[50px]/15">
+                              +54%
+                            </div>
+                          </div>
+                          <div className="flex flex-col items-start gap-3 self-stretch">
+                            <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#747474] text-sm/5">
+                              Increase in early bird delegate registrations compared to previous single-page format.
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div className="text-xs text-[#A1A1A1] mt-3">
-                      Growth in qualified sponsorship deck downloads and partner inquiries within the first 14 days.
+
+                    {/* Stat Card 2 */}
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+                      <div
+                        className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 aspect-square bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A]"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch">
+                          <div className="flex items-center gap-2 justify-center">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              style={{
+                                rotate: "270deg",
+                                flexShrink: "0",
+                                transformOrigin: "50% 50%",
+                              }}
+                            >
+                              <path
+                                d="M5 12h14"
+                                fill="none"
+                                stroke="oklch(76.5% 0.177 163.2)"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                              <path
+                                d="m12 5 7 7-7 7"
+                                fill="none"
+                                stroke="oklch(76.5% 0.177 163.2)"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            <div className="tracking-[-0.02em] w-fit shrink-0 font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-[50px]/15">
+                              3.2x
+                            </div>
+                          </div>
+                          <div className="flex flex-col items-start gap-3 self-stretch">
+                            <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#747474] text-sm/5">
+                              Growth in qualified sponsorship deck downloads and partner inquiries within the first 14 days.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1142,33 +1326,32 @@ export function GpactsCaseStudy() {
           <GrungeSeparator />
 
           {/* ================================================================ */}
-          {/* SECTION 10: INTERACTIVE UI MOCKUPS / PLAYGROUND                  */}
+          {/* SECTION 10: UI PLAYGROUND & CANVAS (37U-0)                       */}
           {/* ================================================================ */}
-          <section id="ui-mockups" className="scroll-mt-28 flex flex-col items-start gap-9 self-stretch w-full">
-            <div className="flex items-center gap-3 self-stretch">
-              <div className="tracking-[-0.02em] font-medium text-white text-xl">
+          <section id="ui-mockups" className="items-start self-stretch flex flex-col w-full scroll-mt-28 gap-9">
+            <div className="items-center self-stretch flex gap-3">
+              <div className="text-[20px] [letter-spacing:-0.4px] leading-[140%] wrap-normal font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white">
                 UI Mockups &amp; Full Canvas
               </div>
             </div>
 
-            {/* Bento Card Outer Preview Frame */}
-            <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full max-w-[598px] h-[598px] shrink-0 shadow-[inset_0_2px_3px_rgba(0,0,0,0.2)] bg-[#242424] border-[0.5px] border-[#FFFFFF0F]">
+            <div className="items-center h-149.5 flex flex-col shrink-0 w-full justify-center max-w-149.5 p-1 rounded-2xl gap-1.5 [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
               <div
-                className="aspect-square rounded-xl self-stretch flex-1 overflow-hidden relative border-[0.5px] border-[#FFFFFF1A] w-full h-full"
+                className="self-stretch aspect-square basis-[0%] grow rounded-[14px] overflow-clip relative bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A] size-full"
                 style={{
                   backgroundImage:
                     "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                 }}
               >
-                {/* Floating Preview Browser Mockup */}
                 <div
-                  className="w-[520px] h-[500px] left-1/2 top-10 -translate-x-1/2 absolute bg-cover bg-top rounded-xl opacity-80 pointer-events-none shadow-2xl border border-white/10"
+                  className="h-125 w-130 top-10 left-[50%] opacity-[0.8] rounded-[14px] absolute [box-shadow:#00000040_0px_25px_50px_-12px] bg-origin-border bg-cover bg-position-[50%_0%] border border-solid border-[#FFFFFF1A]"
                   style={{
-                    backgroundImage: "url(/case-studies/gpacts/homescreen.png)",
+                    backgroundImage:
+                      "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/334GAQXHTR15HFPF6DARFQ0RET.png)",
+                    translate: "-50%",
                   }}
                 />
 
-                {/* Open Playground Button Card in Center */}
                 <button
                   type="button"
                   onClick={() => {
@@ -1176,34 +1359,69 @@ export function GpactsCaseStudy() {
                     setCanvasZoom(0.45);
                     setCanvasPan({ x: 0, y: 0 });
                   }}
-                  className="group flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 left-1/2 top-1/2 absolute bg-[#242424] border-[0.5px] border-[#FFFFFF0F] -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 z-10 shadow-[0_20px_40px_rgba(0,0,0,0.7)]"
+                  className="items-center flex flex-col top-[50%] left-[50%] justify-center p-1 rounded-2xl gap-1.5 absolute [box-shadow:#000000B3_0px_20px_40px] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 z-10"
+                  style={{ translate: "-50% -50%" }}
                 >
                   <div
-                    className="flex rounded-xl overflow-hidden flex-col items-center justify-center px-5 py-3 border-[0.5px] border-[#FFFFFF1A] transition-colors group-hover:border-white/30"
+                    className="items-center flex flex-col justify-center py-3 px-5 rounded-[14px] overflow-clip bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A]"
                     style={{
                       backgroundImage:
                         "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                     }}
                   >
-                    <div
-                      className="w-fit text-white text-base font-medium flex items-center gap-2"
-                      style={{ fontFamily: HELVETICA }}
-                    >
-                      <span>Open Canvas Playground</span>
+                    <div className="items-center flex w-fit gap-2">
+                      <div className="text-[16px] text-center leading-[150%] wrap-normal font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium flex justify-center flex-wrap text-white">
+                        Open Canvas Playground
+                      </div>
                       <svg
                         width="15"
                         height="15"
                         viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        fontSize="16px"
+                        fontWeight="500"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style={{
+                          height: "15px",
+                          width: "15px",
+                          overflow: "clip",
+                          flexShrink: "0",
+                        }}
                       >
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                        <polyline points="15 3 21 3 21 9" />
-                        <line x1="10" y1="14" x2="21" y2="3" />
+                        <path
+                          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                          fontSize="16px"
+                          fontWeight="500"
+                          fill="none"
+                          stroke="#FFFFFF"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          style={{ boxSizing: "border-box", transformOrigin: "0px 0px" }}
+                        />
+                        <polyline
+                          points="15 3 21 3 21 9"
+                          fontSize="16px"
+                          fontWeight="500"
+                          fill="none"
+                          stroke="#FFFFFF"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          style={{ boxSizing: "border-box", transformOrigin: "0px 0px" }}
+                        />
+                        <line
+                          x1="10"
+                          y1="14"
+                          x2="21"
+                          y2="3"
+                          fontSize="16px"
+                          fontWeight="500"
+                          stroke="#FFFFFF"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          style={{ boxSizing: "border-box", transformOrigin: "0px 0px" }}
+                        />
                       </svg>
                     </div>
                   </div>
@@ -1231,10 +1449,7 @@ export function GpactsCaseStudy() {
             <div className="relative w-full max-w-[1300px] h-[90vh] max-h-[960px] rounded-3xl overflow-hidden bg-[#161616] border border-white/15 shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex flex-col">
               {/* Top Header Bar */}
               <div className="absolute top-4 left-4 right-4 z-20 flex items-center justify-between pointer-events-none">
-                <div
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#242424]/90 border border-white/10 backdrop-blur-md text-xs text-neutral-300 pointer-events-auto shadow-lg"
-                  style={{ fontFamily: HELVETICA }}
-                >
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#242424]/90 border border-white/10 backdrop-blur-md text-xs text-neutral-300 pointer-events-auto shadow-lg">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="font-medium text-white">GPACTS Homescreen Canvas</span>
                   <span className="text-neutral-500">|</span>
@@ -1245,13 +1460,9 @@ export function GpactsCaseStudy() {
                   type="button"
                   onClick={() => setIsPlaygroundOpen(false)}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#242424]/90 border border-white/10 hover:bg-[#333333] hover:border-white/20 text-white text-xs font-medium backdrop-blur-md cursor-pointer transition-all duration-200 pointer-events-auto shadow-lg"
-                  style={{ fontFamily: HELVETICA }}
                 >
                   <span>Close</span>
-                  <span
-                    className="text-[10px] text-neutral-400 bg-white/10 px-1.5 py-0.5 rounded"
-                    style={{ fontFamily: FIRA_CODE }}
-                  >
+                  <span className="text-[10px] text-neutral-400 bg-white/10 px-1.5 py-0.5 rounded font-mono">
                     Esc
                   </span>
                 </button>
@@ -1313,7 +1524,6 @@ export function GpactsCaseStudy() {
                 >
                   {/* Full High-Resolution Website Frame */}
                   <div className="w-[1280px] bg-[#0A0A0A] rounded-2xl overflow-hidden shadow-[0_30px_90px_rgba(0,0,0,0.9)] border border-white/20">
-                    {/* Browser Chrome Header */}
                     <div className="w-full bg-[#1A1A1A] border-b border-white/10 px-4 py-3 flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <span className="w-3 h-3 rounded-full bg-[#FF5F56]" />
@@ -1337,10 +1547,7 @@ export function GpactsCaseStudy() {
               </div>
 
               {/* Floating Zoom & Controls Toolbar at Bottom */}
-              <div
-                className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#242424]/95 border border-white/15 backdrop-blur-lg shadow-[0_10px_30px_rgba(0,0,0,0.7)]"
-                style={{ fontFamily: HELVETICA }}
-              >
+              <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#242424]/95 border border-white/15 backdrop-blur-lg shadow-[0_10px_30px_rgba(0,0,0,0.7)]">
                 <button
                   type="button"
                   onClick={() =>
@@ -1368,8 +1575,7 @@ export function GpactsCaseStudy() {
                     setCanvasZoom(0.45);
                     setCanvasPan({ x: 0, y: 0 });
                   }}
-                  className="px-2.5 py-1 text-xs text-white font-medium hover:bg-white/10 rounded-md transition-colors cursor-pointer"
-                  style={{ fontFamily: FIRA_CODE }}
+                  className="px-2.5 py-1 text-xs text-white font-medium hover:bg-white/10 rounded-md transition-colors cursor-pointer font-mono"
                 >
                   {Math.round(canvasZoom * 100)}%
                 </button>
@@ -1405,7 +1611,6 @@ export function GpactsCaseStudy() {
                     setCanvasPan({ x: 0, y: 0 });
                   }}
                   className="px-2 py-1 text-xs text-neutral-300 hover:text-white hover:bg-white/10 rounded-md transition-colors flex items-center gap-1 cursor-pointer"
-                  style={{ fontFamily: HELVETICA }}
                 >
                   <svg
                     width="12"
