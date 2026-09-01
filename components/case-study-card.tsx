@@ -2,37 +2,18 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { LazyHalftoneDots as HalftoneDots } from "@/components/case-study/lazy-halftone-dots";
 
-import { Halftone, BAKED } from "@/components/halftone";
-
-/**
- * The case study preview card, from Paper's "Graceful petal" artboard
- * `add-case-preview-card` (9Q-0).
- *
- * A 406x516 panel: a halftone shader field, a tall phone mockup rotated and
- * bled off the top edge, and a bottom row carrying the title, the tagline and a
- * white "View all" pill.
- *
- * Geometry is expressed in `cqw` against the 406px artboard, so the whole
- * composition scales as one unit inside whatever column the grid gives it.
- */
-
-const FRAME = 406;
-/** Artboard px -> a share of the card's width. */
-const q = (px: number) => `${((px / FRAME) * 100).toFixed(4)}cqw`;
-
-
-/**
- * The artboard writes the title with a hyphen rather than the em dash the data
- * carries, which also keeps Romeet's no-em-dash rule. Display only.
- */
 const asTitle = (s: string) => s.replace(/\s*—\s*/g, " - ");
-/** Same rule for the tagline: an em dash mid-sentence becomes a colon. */
 const asSentence = (s: string) => s.replace(/\s*—\s*/g, ": ");
 
 function ArrowIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" className="size-[1em] shrink-0">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 256 256"
+      style={{ height: "10.5px", width: "10.5px", flexShrink: 0, overflow: "clip" }}
+    >
       <path
         d="m224.49 136.49l-72 72a12 12 0 0 1-17-17L187 140H40a12 12 0 0 1 0-24h147l-51.49-51.52a12 12 0 0 1 17-17l72 72a12 12 0 0 1-.02 17.01"
         fill="#000000"
@@ -41,104 +22,127 @@ function ArrowIcon() {
   );
 }
 
-/**
- * Takes plain strings rather than the CaseStudy object: the study carries
- * Lucide icon *functions* in its metrics and acts, which cannot cross the
- * server/client boundary.
- */
 export function CaseStudyCard({
   href,
   name,
   tagline,
   mock,
   badge,
+  slug,
 }: {
   href: string;
   name: string;
   tagline: string;
-  mock: string;
+  mock?: string;
   badge?: string;
+  slug?: string;
 }) {
-  const [hovered, setHovered] = React.useState(false);
+  const isVoteIn = slug === "vote-in" || name.toLowerCase().includes("vote");
+
+  const colorFront = isVoteIn ? "#A4AA1A" : "#6BA0FF";
+  const halftoneGradient = isVoteIn
+    ? "linear-gradient(in oklab 178.97deg, oklab(71% -0.057 0.140) 14.53%, oklab(40% 0 0 / 0%) 79.28%)"
+    : "linear-gradient(in oklab 178.97deg, oklab(71.1% -0.023 -0.149) 14.53%, oklab(40% 0 0 / 0%) 79.28%)";
+
+  const defaultMock = isVoteIn
+    ? "https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/7GN69EPV75NRVXHCDTJFA6TDPZ.png"
+    : "https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/7BY0CGXFY41QH07T7H8TVZRSFT.png";
+
+  const phoneMock = mock || defaultMock;
+  const badgeLabel = isVoteIn ? "Concept work" : (badge || "B2B Product");
+  const displayTitle = isVoteIn
+    ? "Vote IN"
+    : (name.includes("Add case") || name.includes("Add Case")
+      ? "Edge CRM - Add case"
+      : asTitle(name));
 
   return (
     <Link
       href={href}
-      onPointerEnter={() => setHovered(true)}
-      onPointerLeave={() => setHovered(false)}
-      className="group relative block aspect-[406/516] w-full overflow-clip rounded-[22px] border border-white/10 bg-[#131313] antialiased [font-synthesis:none] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-      style={{ containerType: "inline-size" }}
+      className="group [font-synthesis:none] wrap-anywhere flex items-center rounded-[27px] p-1 self-stretch bg-[#232323] border border-solid border-[#383838] antialiased text-xs/4 transition-all duration-300 hover:border-white/20 hover:shadow-[0_12px_32px_rgba(0,0,0,0.6)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
     >
-      <Halftone src={BAKED.study} hovered={hovered} />
-
-      {/* The mockup, rotated and bled off the top-left corner. Static — the
-          hover travel from the onHover artboard is deliberately not wired up. */}
       <div
-        aria-hidden
-        className="absolute origin-top-left bg-cover bg-center"
-        style={{
-          width: q(319),
-          height: q(640),
-          left: "50%",
-          top: 0,
-          translate: `calc(-50% - ${q(170.5)}) ${q(-232)}`,
-          rotate: "344.61deg",
-          filter: "brightness(85%)",
-          backgroundImage: `url(${mock})`,
-        }}
-      />
-
-      {/* Top row: optional "Best work" badge pill on top-left + "View all" pill on top-right,
-          title and tagline along the bottom. */}
-      <div
-        className="relative flex h-full flex-col justify-between"
-        style={{ padding: q(20) }}
+        className="aspect-[406/516] @container [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] w-full rounded-[22px] overflow-clip relative bg-[#131313] border border-solid border-[#FFFFFF1A]"
+        style={{ containerType: "inline-size" }}
       >
-        <div
-          className="flex items-center justify-between"
-          style={{ paddingInline: q(12), paddingBlock: q(8) }}
-        >
-          {badge ? (
-            <span
-              className="flex shrink-0 items-center justify-center gap-1.5 rounded-full border border-white/20 bg-black/50 text-white font-medium backdrop-blur-md transition-transform group-hover:scale-105"
-              style={{ paddingInline: q(12), paddingBlock: q(6), fontSize: q(12) }}
-            >
-              <span className="size-1.5 rounded-full bg-[#B81919] shadow-[0_0_8px_#B81919]" />
-              {badge}
-            </span>
-          ) : (
-            <div />
-          )}
+        {/* Halftone Dots Background */}
+        <HalftoneDots
+          contrast={1}
+          originalColors={false}
+          inverted
+          grid="square"
+          radius={1}
+          size={0.8}
+          scale={1}
+          grainSize={0.5}
+          type="soft"
+          fit="cover"
+          grainMixer={0.05}
+          grainOverlay={0.3}
+          image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+          colorFront={colorFront}
+          colorBack="#00000000"
+          className="w-89 h-113.5 absolute left-[50%] top-[50%]"
+          style={{
+            backgroundImage: halftoneGradient,
+            translate: "-50% -50%",
+          }}
+        />
 
-          <span
-            className="flex shrink-0 items-center justify-center gap-1.5 rounded-full bg-white font-medium text-[#000000F2] transition-transform group-hover:scale-105"
-            style={{ paddingInline: q(12), paddingBlock: q(8), fontSize: q(12) }}
-          >
-            View all
-            <ArrowIcon />
-          </span>
-        </div>
-
-        {/* Stays visible: with the mockup static, hiding this would just leave
-            a gap. */}
+        {/* Dark Vignette Overlay */}
         <div
-          className="flex flex-col items-start gap-1.5"
-          style={{ paddingInline: q(12), paddingBlock: q(16) }}
-        >
-          <span
-            className="self-stretch text-white"
-            style={{ fontSize: q(24), lineHeight: q(28) }}
-          >
-            {asTitle(name)}
-          </span>
-          <span
-            className="self-stretch text-[#FFFFFF8C]"
-            style={{ fontSize: q(16), lineHeight: q(18) }}
-          >
-            {asSentence(tagline)}
-          </span>
+          className="w-86.75 h-113.5 absolute left-[50%] top-[50%]"
+          style={{
+            backgroundImage:
+              "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+            translate: "-50% -50%",
+          }}
+        />
+
+        {/* Rotated & Bled Phone Mockup */}
+        <div
+          aria-hidden
+          className="h-[560.123px] w-[279.186px] top-0 left-[50%] absolute filter-[brightness(85%)] bg-cover bg-position-[50%] origin-top-left transition-transform duration-500 group-hover:scale-[1.02]"
+          style={{
+            backgroundImage: `url(${phoneMock})`,
+            rotate: "344.61deg",
+            translate: isVoteIn
+              ? "calc(-50% - 149.22px) -203.045px"
+              : "calc(-50% - 149.217px) -203.036px",
+          }}
+        />
+
+        {/* Content Overlay */}
+        <div className="h-full flex flex-col justify-between p-[17.5px] relative">
+          {/* Top Pill Row */}
+          <div className="items-center flex justify-between py-0.5">
+            <div className="items-center flex py-1.5 px-3 rounded-full gap-1.5 justify-center shrink-0 [backdrop-filter:blur(12px)] bg-[#505050] border border-solid border-[#FFFFFF33]">
+              <div className="rounded-full shrink-0 [box-shadow:#B81919_0px_0px_8px] bg-[#B81919] size-1.5" />
+              <div className="inline-block text-[10.5px] leading-[150%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FFFFFFF2]">
+                {badgeLabel}
+              </div>
+            </div>
+
+            <div className="items-center flex shrink-0 justify-center py-1.5 px-3 rounded-full gap-1.5 bg-white transition-transform group-hover:scale-105">
+              <div className="inline-block text-[10.5px] leading-[150%] font-['Instrument_Sans',system-ui,sans-serif] font-medium text-[#000000F2]">
+                View case study
+              </div>
+              <ArrowIcon />
+            </div>
+          </div>
+
+          {/* Bottom Title & Description */}
+          <div className="items-start flex flex-col gap-1.5 pb-2 px-2">
+            <div className="wrap-normal self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-white text-[21px] leading-[24.5px]">
+              {displayTitle}
+            </div>
+            <div className="self-stretch wrap-normal font-['Instrument_Sans',system-ui,sans-serif] text-[#FFFFFF8C] text-[14px] leading-5">
+              {asSentence(tagline)}
+            </div>
+          </div>
         </div>
       </div>
     </Link>
   );
 }
+

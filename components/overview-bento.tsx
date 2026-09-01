@@ -27,6 +27,7 @@ function StudyCard({ slug }: { slug: string }) {
   if (!c) return null;
   return (
     <CaseStudyCard
+      slug={c.slug}
       href={`/case-studies/${c.slug}?from=overview`}
       name={c.name}
       tagline={c.tagline}

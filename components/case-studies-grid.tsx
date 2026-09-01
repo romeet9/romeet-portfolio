@@ -26,6 +26,7 @@ export function CaseStudiesGrid({
       {rows.map((c) => (
         <CaseStudyCard
           key={c.slug}
+          slug={c.slug}
           href={`/case-studies/${c.slug}${query}`}
           name={c.name}
           tagline={c.tagline}
