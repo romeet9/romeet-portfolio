@@ -110,13 +110,13 @@ export function CaseStudyCard({
         <div
           aria-hidden
           className={`top-0 left-[50%] absolute filter-[brightness(85%)] bg-cover bg-position-[50%] origin-top-left transition-transform duration-500 group-hover:scale-[1.02] ${
-            isGpacts ? "h-[440px] w-[440px]" : "h-[560.123px] w-[279.186px]"
+            isGpacts ? "h-[560.123px] w-[420px]" : "h-[560.123px] w-[279.186px]"
           }`}
           style={{
             backgroundImage: `url(${phoneMock})`,
-            rotate: isGpacts ? "0deg" : "344.61deg",
+            rotate: "344.61deg",
             translate: isGpacts
-              ? "calc(-50%) -10px"
+              ? "calc(-50% - 140px) -180px"
               : isVoteIn
               ? "calc(-50% - 149.22px) -203.045px"
               : "calc(-50% - 149.217px) -203.036px",
