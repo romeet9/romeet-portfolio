@@ -2334,47 +2334,20 @@ export function EdgeCrmCaseStudy() {
                     "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
                 }}
               >
-                {/* Scattered Edge CRM iPhone Mockups */}
+                {/* Left iPhone Mockup */}
                 <div
-                  className="w-[242px] h-[490px] left-32 top-[387px] absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
+                  className="aspect-[151/304] w-[260px] h-[523px] -left-10 top-9 absolute bg-contain bg-no-repeat bg-center opacity-85 pointer-events-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
                   style={{
                     backgroundImage:
                       "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
                   }}
                 />
+                {/* Right iPhone Mockup */}
                 <div
-                  className="w-[239px] h-[490px] -left-40 top-48 absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
+                  className="aspect-[151/304] w-[260px] h-[523px] -right-10 top-9 absolute bg-contain bg-no-repeat bg-center opacity-85 pointer-events-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
                   style={{
                     backgroundImage:
                       "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2E7YW83AKVWKEQDSY0N6946V55.webp)",
-                  }}
-                />
-                <div
-                  className="w-[239px] h-[490px] left-3.75 -top-[336px] absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
-                  style={{
-                    backgroundImage:
-                      "url(/projects/edge-crm/01-before.png)",
-                  }}
-                />
-                <div
-                  className="w-[241px] h-[490px] -top-[262px] left-71 absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
-                  style={{
-                    backgroundImage:
-                      "url(/projects/edge-crm/06-final.png)",
-                  }}
-                />
-                <div
-                  className="w-[239px] h-[490px] left-[418px] top-[421px] absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
-                  style={{
-                    backgroundImage:
-                      "url(/projects/edge-crm/05-testing.png)",
-                  }}
-                />
-                <div
-                  className="w-[241px] h-[490px] left-[550px] -top-[111px] absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
-                  style={{
-                    backgroundImage:
-                      "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
                   }}
                 />
 
@@ -2383,7 +2356,7 @@ export function EdgeCrmCaseStudy() {
                   type="button"
                   onClick={() => {
                     setIsPlaygroundOpen(true);
-                    setCanvasZoom(0.75);
+                    setCanvasZoom(0.8);
                     setCanvasPan({ x: 0, y: 0 });
                   }}
                   className="group flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 left-1/2 top-1/2 absolute [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 z-10 shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
@@ -2556,49 +2529,23 @@ export function EdgeCrmCaseStudy() {
                     transformOrigin: "center center",
                   }}
                 >
-                  {/* Direct 6 Mockups Workspace */}
-                  <div className="relative w-[1041px] h-[1094px]">
-                    {/* 6 Edge CRM iPhone Mockups */}
+                  {/* Exactly 2 Edge CRM iPhone Mockups Side-by-Side */}
+                  <div className="flex flex-row items-center justify-center gap-10 sm:gap-16">
+                    {/* Left Phone: Redesign */}
                     <div
-                      className="w-[242px] h-[490px] left-1/2 bottom-[31.5px] absolute -translate-x-1/2 bg-cover bg-center rounded-[32px] shadow-2xl"
+                      className="aspect-[151/304] w-[320px] sm:w-[380px] h-[644px] sm:h-[765px] bg-contain bg-center bg-no-repeat shrink-0 drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)]"
                       style={{
                         backgroundImage:
                           "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
                       }}
                     />
+
+                    {/* Right Phone: Original */}
                     <div
-                      className="w-[239px] h-[490px] left-[31.5px] bottom-[31.5px] absolute bg-cover bg-center rounded-[32px] shadow-2xl"
-                      style={{
-                        backgroundImage:
-                          "url(/projects/edge-crm/06-final.png)",
-                      }}
-                    />
-                    <div
-                      className="w-[239px] h-[490px] left-[31.5px] top-[31.5px] absolute bg-cover bg-center rounded-[32px] shadow-2xl"
-                      style={{
-                        backgroundImage:
-                          "url(/projects/edge-crm/01-before.png)",
-                      }}
-                    />
-                    <div
-                      className="w-[241px] h-[490px] top-[31.5px] left-1/2 absolute -translate-x-1/2 bg-cover bg-center rounded-[32px] shadow-2xl"
+                      className="aspect-[151/304] w-[320px] sm:w-[380px] h-[644px] sm:h-[765px] bg-contain bg-center bg-no-repeat shrink-0 drop-shadow-[0_25px_60px_rgba(0,0,0,0.9)]"
                       style={{
                         backgroundImage:
                           "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2E7YW83AKVWKEQDSY0N6946V55.webp)",
-                      }}
-                    />
-                    <div
-                      className="w-[239px] h-[490px] bottom-[31.5px] right-[31.5px] absolute bg-cover bg-center rounded-[32px] shadow-2xl"
-                      style={{
-                        backgroundImage:
-                          "url(/projects/edge-crm/05-testing.png)",
-                      }}
-                    />
-                    <div
-                      className="w-[241px] h-[490px] top-[31.5px] right-[31.5px] absolute bg-cover bg-center rounded-[32px] shadow-2xl"
-                      style={{
-                        backgroundImage:
-                          "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
                       }}
                     />
                   </div>
@@ -2634,7 +2581,7 @@ export function EdgeCrmCaseStudy() {
                 <button
                   type="button"
                   onClick={() => {
-                    setCanvasZoom(0.75);
+                    setCanvasZoom(0.8);
                     setCanvasPan({ x: 0, y: 0 });
                   }}
                   className="px-2.5 py-1 text-xs text-white font-medium hover:bg-white/10 rounded-md transition-colors cursor-pointer"
@@ -2670,7 +2617,7 @@ export function EdgeCrmCaseStudy() {
                 <button
                   type="button"
                   onClick={() => {
-                    setCanvasZoom(0.75);
+                    setCanvasZoom(0.8);
                     setCanvasPan({ x: 0, y: 0 });
                   }}
                   className="px-2 py-1 text-xs text-neutral-300 hover:text-white hover:bg-white/10 rounded-md transition-colors flex items-center gap-1 cursor-pointer"
@@ -2701,5 +2648,6 @@ export function EdgeCrmCaseStudy() {
 }
 
 export const EdgeCrmTestCaseStudy = EdgeCrmCaseStudy;
+
 
 
