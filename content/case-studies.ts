@@ -177,7 +177,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "edge-crm",
     name: "Edge CRM — Add Case",
     tagline:
-      "Redesigning a mobile case-management flow to cut cognitive load for B2B sales teams.",
+      "Redesigning a high-pressure mobile case management flow to cut logging time by 40% and eliminate input error fatigue.",
     year: "2026",
     role: "Sole UI/UX Designer",
     company: "12 Grids",
@@ -501,7 +501,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "vote-in",
     name: "Vote IN",
     tagline:
-      "A digital platform for the Indian citizens to cast and verify their vote online.",
+      "Designing a zero-friction, end-to-end verifiable digital voting platform built for universal civic trust.",
     year: "2024",
     role: "Product Designer",
     company: "Democratic Innovation",
@@ -514,7 +514,7 @@ export const caseStudies: CaseStudy[] = [
     },
     previewMock: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png",
     badge: "Best work",
-    hmw: "A digital platform for the Indian citizens to cast and verify their vote online.",
+    hmw: "How might we create a secure, accessible digital voting experience that earns citizen trust and eliminates queuing friction?",
     metrics: [
       { value: "<10", label: "Clicks to vote", sub: "Streamlined flow", icon: GaugeIcon },
       { value: "0 to 1", label: "Product Design", sub: "Full mobile experience", icon: SmartphoneIcon },
@@ -524,7 +524,7 @@ export const caseStudies: CaseStudy[] = [
       kicker: "Next case study",
       name: "GPACTS",
       tagline:
-        "Designing a high-conversion digital summit experience for India's top pharma technology leaders.",
+        "Architecting a progressive disclosure web experience that drove +54% delegate bookings and 3.2x enterprise sponsorships.",
       href: "/case-studies/gpacts",
     },
   },
@@ -532,7 +532,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "gpacts",
     name: "GPACTS",
     tagline:
-      "Designing a high-conversion digital summit experience for India's top pharma technology leaders.",
+      "Architecting a progressive disclosure web experience that drove +54% delegate bookings and 3.2x enterprise sponsorships.",
     year: "2025",
     role: "Lead Product & Web Designer",
     company: "GPACTS Series",
@@ -556,7 +556,7 @@ export const caseStudies: CaseStudy[] = [
       kicker: "Next case study",
       name: "Edge CRM — Add Case",
       tagline:
-        "Redesigning a mobile case-management flow to cut cognitive load for B2B sales teams.",
+        "Redesigning a high-pressure mobile case management flow to cut logging time by 40% and eliminate input error fatigue.",
       href: "/case-studies/edge-crm",
     },
   },

@@ -44,11 +44,44 @@ export const metadata: Metadata = {
 
 const personSchema = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Romeet Chatterjee",
-  jobTitle: "AI Product Designer",
-  email: "mailto:chatterjeeromeet9@gmail.com",
-  sameAs: ["https://linkedin.com/in/romeet-in", "https://github.com/romeet9"],
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://romeet-portfolio.vercel.app/#romeet",
+      "name": "Romeet Chatterjee",
+      "jobTitle": "Product Designer & Design Technologist",
+      "url": "https://romeet-portfolio.vercel.app",
+      "email": "mailto:chatterjeeromeet9@gmail.com",
+      "description": "Product designer specializing in enterprise software, AI product design, conversion-focused design systems, and high-performance interactive interfaces.",
+      "sameAs": [
+        "https://linkedin.com/in/romeet-in",
+        "https://github.com/romeet9",
+        "https://www.behance.net/romeetchatterjee"
+      ],
+      "knowsAbout": [
+        "Product Design",
+        "UX/UI Design",
+        "Design Systems",
+        "Information Architecture",
+        "Conversion Rate Optimization (CRO)",
+        "Enterprise CRM Workflows",
+        "Progressive Disclosure",
+        "Frontend Engineering",
+        "Next.js & React",
+        "WebGL & Shaders"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://romeet-portfolio.vercel.app/#website",
+      "url": "https://romeet-portfolio.vercel.app",
+      "name": "Romeet Chatterjee — Product Design Portfolio",
+      "description": "Product design portfolio featuring enterprise CRM redesigns, civic trust platforms, and high-conversion congress architectures.",
+      "publisher": {
+        "@id": "https://romeet-portfolio.vercel.app/#romeet"
+      }
+    }
+  ]
 };
 
 export default function RootLayout({

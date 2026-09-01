@@ -95,9 +95,44 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const study = getCaseStudy(slug);
   if (!study) return { title: "Not found" };
+  const title = `${study.name} — UX/UI Case Study — Romeet Chatterjee`;
+  const description = `${study.tagline} Detailed UX research, cognitive friction analysis, and business outcomes designed by Romeet Chatterjee.`;
   return {
-    title: `${study.name} — Case study — Romeet Chatterjee`,
-    description: study.tagline,
+    title,
+    description,
+    keywords: [
+      study.name,
+      "Product Design Case Study",
+      "UX/UI Case Study",
+      "Romeet Chatterjee",
+      "Enterprise Product Design",
+      "Design Systems",
+      "Information Architecture",
+      study.role,
+      study.company,
+      ...study.skills,
+    ],
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      url: `https://romeet-portfolio.vercel.app/case-studies/${study.slug}`,
+      authors: ["Romeet Chatterjee"],
+      images: [
+        {
+          url: study.cover?.src || "https://romeet-portfolio.vercel.app/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: `${study.name} Case Study Preview`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      creator: "@romeetchatterjee",
+    },
   };
 }
 
@@ -405,18 +440,89 @@ function NextStudyCard({
 
 export default async function CaseStudyPage({ params, searchParams }: Params) {
   const { slug } = await params;
-  if (slug === "vote-in") {
-    return <VoteInCaseStudy />;
-  }
-  if (slug === "edge-crm") {
-    return <EdgeCrmCaseStudy />;
-  }
-  if (slug === "gpacts") {
-    return <GpactsCaseStudy />;
-  }
-
   const study = getCaseStudy(slug);
   if (!study) notFound();
+
+  const caseStudySchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `https://romeet-portfolio.vercel.app/case-studies/${study.slug}#article`,
+        "headline": `${study.name}: ${study.tagline}`,
+        "description": study.tagline,
+        "author": {
+          "@type": "Person",
+          "name": "Romeet Chatterjee",
+          "url": "https://romeet-portfolio.vercel.app"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Romeet Chatterjee"
+        },
+        "mainEntityOfPage": `https://romeet-portfolio.vercel.app/case-studies/${study.slug}`,
+        "about": {
+          "@type": "SoftwareApplication",
+          "name": study.name
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://romeet-portfolio.vercel.app"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Case Studies",
+            "item": "https://romeet-portfolio.vercel.app/case-studies"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": study.name,
+            "item": `https://romeet-portfolio.vercel.app/case-studies/${study.slug}`
+          }
+        ]
+      }
+    ]
+  };
+
+  const schemaScript = (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudySchema) }}
+    />
+  );
+
+  if (slug === "vote-in") {
+    return (
+      <>
+        {schemaScript}
+        <VoteInCaseStudy />
+      </>
+    );
+  }
+  if (slug === "edge-crm") {
+    return (
+      <>
+        {schemaScript}
+        <EdgeCrmCaseStudy />
+      </>
+    );
+  }
+  if (slug === "gpacts") {
+    return (
+      <>
+        {schemaScript}
+        <GpactsCaseStudy />
+      </>
+    );
+  }
 
   const { from } = (searchParams ? await searchParams : {}) as { from?: string };
   const backHref = from === "overview" ? "/" : "/case-studies";
