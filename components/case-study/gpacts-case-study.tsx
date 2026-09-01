@@ -103,7 +103,7 @@ export function GpactsCaseStudy() {
                   DELIVERABLES
                 </div>
                 <div className="wrap-normal font-['HelveticaNeue-Light','Helvetica_Neue',system-ui,sans-serif] font-light text-white text-sm/4.5">
-                  Web Experience &amp; IA
+                  Web Experience &amp; Conversion IA
                 </div>
               </div>
             </div>
@@ -162,13 +162,13 @@ export function GpactsCaseStudy() {
               <div className="flex flex-col items-start gap-14 self-stretch w-full">
                 <div className="flex flex-col items-start gap-3 w-full">
                   <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                    GPACTS (Global Pharma AI, Cloud &amp; Technology Summit) is India&apos;s largest congress for life sciences technology leaders.
+                    GPACTS (Global Pharma AI, Cloud &amp; Technology Summit) is India&apos;s premier congress for life sciences technology leadership.
                   </div>
                   <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                    The summit brings together CIOs, CDOs, and Chief Data Scientists from leading pharmaceutical manufacturers to discuss mission-critical AI implementations, GxP-compliant cloud architectures, and digital clinical trial pipelines.
+                    The summit brings together CIOs, CDOs, and Chief Data Scientists from leading pharmaceutical manufacturers to align on enterprise AI adoption, GxP-compliant cloud architectures, and digital clinical trial pipelines.
                   </div>
                   <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                    The objective was to transform a highly complex, multi-city conference program into a frictionless, authoritative web experience that drives high-ticket enterprise sponsorships, CXO delegate registrations, and technical whitepaper downloads.
+                    The objective was to transform a dense, 4-city conference schedule into an authoritative, high-conversion web experience that accelerates delegate bookings, high-ticket enterprise sponsorships, and collateral downloads.
                   </div>
                 </div>
 
@@ -317,19 +317,19 @@ export function GpactsCaseStudy() {
                 The Challenge: Enterprise Information Overload
               </div>
               <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
-                B2B enterprise technology congresses are notorious for high cognitive bounce rates. When a C-level executive visits a conference website, they are faced with four simultaneous mental hurdles:
+                B2B enterprise technology congresses are notorious for high cognitive bounce rates. When a C-level executive visits a conference website, they face four simultaneous evaluation hurdles:
               </div>
               <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-base/5.5">
-                • Evaluating whether the speakers are actual peers
+                • Evaluating peer credibility: Ensuring speakers and attendees represent genuine executive peers.
               </div>
               <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-base/5.5">
-                • Determining if the technical agenda justifies taking two days out of the boardroom
+                • Schedule commitment: Verifying that track agendas justify taking two days away from high-stakes operations.
               </div>
               <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-base/5.5">
-                • Deciphering multi-city dates, and navigating convoluted ticket packages
+                • Multi-city scheduling: Deciphering dates and tracks across 4 regional tech hubs without confusion.
               </div>
               <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-base/5.5">
-                • Navigating convoluted ticket packages
+                • Procurement transparency: Navigating sponsorship entitlements and delegate tiers without friction.
               </div>
               <div className="wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
                 Our user research highlighted three primary friction points that caused dropped registrations in previous conference editions:
@@ -523,13 +523,10 @@ export function GpactsCaseStudy() {
                 The Architecture: Structuring for Scannability &amp; Conversion
               </div>
               <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
-                To eliminate cognitive drag, we re-architected the entire page around a progressive disclosure funnel.
+                To eliminate cognitive drag, we re-architected the entire digital journey around a progressive disclosure funnel.
               </div>
               <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
-                Instead of dumping every session and speaker into a monolithic feed, the website is structured into three clear pillars:
-              </div>
-              <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
-                Instead of dumping every session and speaker into a monolithic feed, the website is structured into three clear pillars: Authority Building, Interactive Multi-City Schedule Exploration, and Multi-Persona Conversion Funnels.
+                Instead of dumping every session and speaker into a monolithic feed, the website is structured into three foundational pillars: Authority Building, Interactive Multi-City Schedule Exploration, and Multi-Persona Conversion Funnels.
               </div>
             </div>
 
@@ -765,10 +762,10 @@ export function GpactsCaseStudy() {
                 Multi-City Agenda: Solving Complex Scheduling Overwhelm
               </div>
               <div className="wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
-                The congress is hosted across four major Indian pharmaceutical hubs: Mumbai, Hyderabad, Bangalore, and Ahmedabad. Each hub runs three simultaneous tracks: AI &amp; Intelligent Automation, Cloud &amp; GxP Infrastructure, and Clinical Data Science.
+                The congress operates across four major Indian pharmaceutical hubs: Mumbai, Hyderabad, Bangalore, and Ahmedabad. Each hub runs three simultaneous tracks: Enterprise AI &amp; Intelligent Automation, Cloud &amp; GxP Infrastructure, and Clinical Data Science.
               </div>
               <div className="wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
-                Instead of a standard dropdown or separate web pages, we designed an interactive city hub switch with 3D architectural landmarks that immediately updates parallel timeline tracks without page reloads.
+                Instead of static dropdowns or fragmented tables, we designed an interactive city hub switch with 3D architectural landmarks that immediately updates parallel timeline tracks without page reloads.
               </div>
             </div>
 
@@ -888,7 +885,7 @@ export function GpactsCaseStudy() {
                 Executive Social Proof: High-Contrast Speaker System
               </div>
               <div className="wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
-                In high-ticket enterprise summits, delegates do not buy tickets for generic topics; they buy access to the peer network in the room. We designed a high-contrast, editorial speaker roster with monochrome photography that communicates gravitas and executive focus.
+                In high-ticket enterprise summits, delegates do not buy tickets for generic topics; they invest for access to the peer network in the room. We designed a high-contrast, editorial speaker roster with monochrome photography that communicates boardroom gravitas and deep industry focus.
               </div>
             </div>
 
@@ -1008,7 +1005,7 @@ export function GpactsCaseStudy() {
                 Sponsorship Architecture: Differentiating ROI &amp; Tiers
               </div>
               <div className="wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
-                For enterprise sponsors (cloud hyperscalers, AI vendors, GxP software providers), pricing transparency is balanced with prestige. We designed a 3-tier Bento card comparison that visually prioritizes the flagship tier while giving clear entitlement breakdowns for each level.
+                For enterprise sponsors (cloud hyperscalers, AI vendors, GxP platforms), pricing transparency is balanced with prestige. We designed a 3-tier Bento card comparison that visually prioritizes the flagship tier while giving instant side-by-side entitlement breakdowns for stage time, booth footprint, and delegate passes.
               </div>
             </div>
 
@@ -1066,7 +1063,7 @@ export function GpactsCaseStudy() {
                 Lead Capture: High-Intent Collateral &amp; Whitepaper Funnels
               </div>
               <div className="wrap-normal font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFCC] text-base/5.5">
-                Not all visitors are ready to buy a delegate pass on their first visit. We designed secondary lead magnets (Event Brochure, Sponsorship Deck, and the AI in Pharma Whitepaper) to capture qualified enterprise contacts and nurture them into attendees.
+                Not all visitors are ready to buy a delegate pass on their first visit. We designed secondary high-intent conversion funnels (Event Brochure, Sponsorship Deck, and the AI in Pharma Whitepaper) to capture qualified enterprise leads and nurture them into registered attendees.
               </div>
             </div>
 
@@ -1154,7 +1151,7 @@ export function GpactsCaseStudy() {
                         Event Brochure
                       </div>
                       <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#FFFFFF99] text-base/5">
-                        Complete overview of the summit dates, keynote speakers, and session schedule.
+                        Complete overview of summit dates, keynote tracks, and parallel session schedule.
                       </div>
                     </div>
                   </div>
@@ -1201,7 +1198,7 @@ export function GpactsCaseStudy() {
                         Sponsorship Deck
                       </div>
                       <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#FFFFFF99] text-base/5">
-                        Partnership opportunities, booth dimensions, stage time slots, and pricing.
+                        Partnership packages, booth dimensions, keynote time slots, and pricing.
                       </div>
                     </div>
                   </div>
@@ -1251,7 +1248,7 @@ export function GpactsCaseStudy() {
                         AI in Pharma 2026
                       </div>
                       <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#FFFFFF99] text-base/5">
-                        State of AI adoption in Indian pharma: drug discovery to regulatory compliance.
+                        State of AI adoption in Indian pharma: from drug discovery to GxP regulatory compliance.
                       </div>
                     </div>
                   </div>
@@ -1328,7 +1325,7 @@ export function GpactsCaseStudy() {
               <div className="flex flex-col items-start gap-5 w-full">
                 <div className="flex flex-col items-start gap-6 w-full">
                   <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                    The new website architecture transformed the event&apos;s digital funnel. By decoupling the multi-city agenda into interactive city hubs, highlighting executive social proof, and clarifying sponsorship tiers, GPACTS achieved record conversion rates across all registration funnels.
+                    The new website architecture transformed the event&apos;s digital conversion funnel. By decoupling the multi-city agenda into interactive city hubs, highlighting executive social proof, and clarifying sponsorship tiers, GPACTS achieved record-breaking conversion across all registration funnels.
                   </div>
 
                   <div className="flex items-start gap-4 self-stretch h-73.5 shrink-0 w-full">
