@@ -29,8 +29,8 @@ const SECTIONS = [
   { id: "phase-2", label: "Phase II" },
   { id: "table", label: "Fluid Interface" },
   { id: "solving-3ts", label: "Solving for 3Ts" },
-  { id: "impact", label: "Impact" },
-  { id: "reflection", label: "Reflection" },
+  { id: "impact", label: "Testing Redesign" },
+  { id: "metrics", label: "Success Metrics" },
 ];
 
 const CARD_TRANSITION = {
@@ -2071,6 +2071,496 @@ export function EdgeCrmCaseStudy() {
                             translate: "-50%",
                           }}
                         />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <GrungeSeparator />
+
+          {/* ================================================================ */}
+          {/* SECTION: Turning decisions into a flow reps could trust (289-0)  */}
+          {/* ================================================================ */}
+          <section id="turning-decisions-v2" className="scroll-mt-28 flex flex-col items-start gap-3 self-stretch w-full">
+            <div className="tracking-[-0.02em] w-full font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
+              Turning decisions into a flow reps could trust
+            </div>
+            <div className="flex flex-col items-start gap-14 self-stretch w-full">
+              <div className="flex flex-col items-start gap-3 w-full">
+                <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
+                  I did four key design changes, that will be make the scanning and filling the form faster
+                </div>
+                <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
+                  I have included the before and after screens.
+                </div>
+              </div>
+
+              {/* Change 01 */}
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full">
+                <div
+                  className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
+                  }}
+                >
+                  <HalftoneDots
+                    contrast={1}
+                    originalColors={false}
+                    inverted
+                    grid="square"
+                    radius={1}
+                    size={0.8}
+                    scale={1}
+                    grainSize={0.5}
+                    type="soft"
+                    fit="cover"
+                    grainMixer={0.05}
+                    grainOverlay={0.3}
+                    image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                    colorFront="#6BA0FF"
+                    colorBack="#00000000"
+                    className="w-166.5 h-125 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                      translate: "-50% -50%",
+                    }}
+                  />
+                  <div
+                    className="w-150.25 h-79.5 absolute left-[50%] top-[calc(50%+97px)]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                      translate: "-50% -50%",
+                    }}
+                  />
+                  <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
+                    <div className="text-[14px] leading-[142.857%] uppercase font-['M_PLUS_Code_Latin',system-ui,sans-serif] text-white">
+                      Change 01
+                    </div>
+                    <div className="text-[14px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
+                      Stepped tab flow
+                    </div>
+                  </div>
+                  <div className="items-center flex p-3 rounded-br-[14px] rounded-bl-[14px] relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
+                    <div className="flex text-[12px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
+                      Overview, Type, Assignee with directional arrows showing reps exactly where they are and what is next.
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                  }}
+                >
+                  <HalftoneDots
+                    contrast={1}
+                    originalColors={false}
+                    inverted
+                    grid="square"
+                    radius={1}
+                    size={0.8}
+                    scale={1}
+                    grainSize={0.5}
+                    type="soft"
+                    fit="cover"
+                    grainMixer={0.05}
+                    grainOverlay={0.3}
+                    image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                    colorFront="#343434"
+                    colorBack="#00000000"
+                    className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
+                      translate: "-50% -50%",
+                    }}
+                  />
+                  <div
+                    className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                      translate: "-50% -50%",
+                    }}
+                  />
+                  <div className="flex items-center relative">
+                    <div
+                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+                      }}
+                    />
+                  </div>
+                  <div className="flex items-center relative">
+                    <div
+                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2E7YW83AKVWKEQDSY0N6946V55.webp)",
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Change 03 */}
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full">
+                <div
+                  className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
+                  }}
+                >
+                  <HalftoneDots
+                    contrast={1}
+                    originalColors={false}
+                    inverted
+                    grid="square"
+                    radius={1}
+                    size={0.8}
+                    scale={1}
+                    grainSize={0.5}
+                    type="soft"
+                    fit="cover"
+                    grainMixer={0.05}
+                    grainOverlay={0.3}
+                    image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                    colorFront="#6BA0FF"
+                    colorBack="#00000000"
+                    className="w-166.5 h-125 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                      translate: "-50% -50%",
+                    }}
+                  />
+                  <div
+                    className="w-150.25 h-79.5 absolute left-[50%] top-[calc(50%+97px)]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                      translate: "-50% -50%",
+                    }}
+                  />
+                  <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
+                    <div className="text-[14px] leading-[142.857%] uppercase font-['M_PLUS_Code_Latin',system-ui,sans-serif] text-white">
+                      Change 03
+                    </div>
+                    <div className="text-[14px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
+                      Green border + tick on pre-filled fields
+                    </div>
+                  </div>
+                  <div className="items-center flex p-3 rounded-br-[14px] rounded-bl-[14px] relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
+                    <div className="flex text-[12px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
+                      Line of Business and Business Unit read as visually distinct, so reps instantly see what the system filled.
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                  }}
+                >
+                  <HalftoneDots
+                    contrast={1}
+                    originalColors={false}
+                    inverted
+                    grid="square"
+                    radius={1}
+                    size={0.8}
+                    scale={1}
+                    grainSize={0.5}
+                    type="soft"
+                    fit="cover"
+                    grainMixer={0.05}
+                    grainOverlay={0.3}
+                    image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                    colorFront="#343434"
+                    colorBack="#00000000"
+                    className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
+                      translate: "-50% -50%",
+                    }}
+                  />
+                  <div
+                    className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                      translate: "-50% -50%",
+                    }}
+                  />
+                  <div className="flex items-center relative">
+                    <div
+                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2E7YW83AKVWKEQDSY0N6946V55.webp)",
+                      }}
+                    />
+                  </div>
+                  <div className="flex items-start justify-center relative">
+                    <div
+                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Change 04 */}
+              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full">
+                <div
+                  className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
+                  }}
+                >
+                  <HalftoneDots
+                    contrast={1}
+                    originalColors={false}
+                    inverted
+                    grid="square"
+                    radius={1}
+                    size={0.8}
+                    scale={1}
+                    grainSize={0.5}
+                    type="soft"
+                    fit="cover"
+                    grainMixer={0.05}
+                    grainOverlay={0.3}
+                    image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                    colorFront="#6BA0FF"
+                    colorBack="#00000000"
+                    className="w-166.5 h-125 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
+                      translate: "-50% -50%",
+                    }}
+                  />
+                  <div
+                    className="w-150.25 h-79.5 absolute left-[50%] top-[calc(50%+97px)]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                      translate: "-50% -50%",
+                    }}
+                  />
+                  <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
+                    <div className="text-[14px] leading-[142.857%] uppercase font-['M_PLUS_Code_Latin',system-ui,sans-serif] text-white">
+                      Change 04
+                    </div>
+                    <div className="text-[14px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
+                      Contextual hint on Product Name
+                    </div>
+                  </div>
+                  <div className="items-center flex p-3 rounded-br-[14px] rounded-bl-[14px] relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
+                    <div className="flex text-[12px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
+                      "Select the product related to this case" tells reps what the dropdown contains before they tap.
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                  }}
+                >
+                  <HalftoneDots
+                    contrast={1}
+                    originalColors={false}
+                    inverted
+                    grid="square"
+                    radius={1}
+                    size={0.8}
+                    scale={1}
+                    grainSize={0.5}
+                    type="soft"
+                    fit="cover"
+                    grainMixer={0.05}
+                    grainOverlay={0.3}
+                    image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
+                    colorFront="#343434"
+                    colorBack="#00000000"
+                    className="w-166.5 h-125 absolute left-[50%] top-[50%]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
+                      translate: "-50% -50%",
+                    }}
+                  />
+                  <div
+                    className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+                      translate: "-50% -50%",
+                    }}
+                  />
+                  <div className="flex items-end justify-center relative self-stretch">
+                    <div
+                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2E7YW83AKVWKEQDSY0N6946V55.webp)",
+                      }}
+                    />
+                  </div>
+                  <div className="flex items-end justify-center relative self-stretch">
+                    <div
+                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <GrungeSeparator />
+
+          {/* ================================================================ */}
+          {/* SECTION: What were the success metrics? (2AC-0)                  */}
+          {/* ================================================================ */}
+          <section id="metrics" className="scroll-mt-28 flex flex-col items-start gap-9 self-stretch w-full">
+            <div className="flex items-center gap-3 self-stretch">
+              <div className="tracking-[-0.02em] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
+                What were the success metrics?
+              </div>
+              <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFF66] text-xs/4">
+                Ensuring Trust and Preventing Fraud
+              </div>
+            </div>
+            <div className="flex flex-col items-start gap-15 w-full">
+              <div className="flex flex-col items-start gap-5 w-full">
+                <div
+                  className="flex flex-col items-start gap-3 p-4 self-stretch bg-origin-border [border-left-width:3px] border-l-solid border-l-[#6597F1] w-full"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(in oklab 90deg, oklab(100% 0 0 / 10%) 0.74%, oklab(80% 0 0 / 0%) 100%)",
+                  }}
+                >
+                  <div className="self-stretch font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6.5">
+                    The logging time increased by 40%, and when a sales rep is now in a call, they are not bothered while adding a flow because now it has become habit.
+                  </div>
+                </div>
+                <div className="flex flex-col items-start gap-6 w-full">
+                  <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
+                    For a digital voting experience, one of the biggest challenges was making the interaction feel as trustworthy and tangible as the physical voting process. Instead of designing a conventional candidate-selection list, I intentionally took visual and interaction cues from the Electronic Voting Machine (EVM) used in physical elections.
+                  </div>
+                  <div className="flex flex-col sm:flex-row items-start gap-4 self-stretch sm:h-73.5 shrink-0 w-full">
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full">
+                      <div
+                        className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 aspect-square bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A] min-h-[220px] sm:min-h-0"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch w-full">
+                          <div className="flex items-center gap-2 justify-center">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              style={{ rotate: "270deg", flexShrink: 0, transformOrigin: "50% 50%" }}
+                            >
+                              <path
+                                d="M5 12h14"
+                                fill="none"
+                                stroke="#FFFFFF"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                              <path
+                                d="m12 5 7 7-7 7"
+                                fill="none"
+                                stroke="#FFFFFF"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            <div className="tracking-[-0.02em] w-fit shrink-0 font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-[50px]/15">
+                              40%
+                            </div>
+                          </div>
+                          <div className="flex flex-col items-start gap-3 self-stretch">
+                            <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#747474] text-sm/5">
+                              The logging time of a case has increased by 40%, which is resulting in faster completion of targets.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full">
+                      <div
+                        className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl overflow-clip flex-col items-center justify-center self-stretch flex-1 px-4.5 py-5 aspect-square bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A] min-h-[220px] sm:min-h-0"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                        }}
+                      >
+                        <div className="items-start flex flex-col justify-between gap-1.5 flex-1 self-stretch w-full">
+                          <div className="flex items-center gap-2 justify-center">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              style={{ rotate: "270deg", flexShrink: 0, transformOrigin: "50% 50%" }}
+                            >
+                              <path
+                                d="M5 12h14"
+                                fill="none"
+                                stroke="#FFFFFF"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                              <path
+                                d="m12 5 7 7-7 7"
+                                fill="none"
+                                stroke="#FFFFFF"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            <div className="tracking-[-0.02em] w-fit shrink-0 font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-[50px]/15">
+                              80%
+                            </div>
+                          </div>
+                          <div className="flex flex-col items-start gap-3 self-stretch">
+                            <div className="self-stretch whitespace-pre-wrap font-['Instrument_Sans',system-ui,sans-serif] text-[#747474] text-sm/5">
+                              Now the targets are getting achived 5 days before the deadlines, thus making all the clients happy.
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
