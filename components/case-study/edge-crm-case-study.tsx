@@ -31,6 +31,7 @@ const SECTIONS = [
   { id: "solving-3ts", label: "Solving for 3Ts" },
   { id: "impact", label: "Testing Redesign" },
   { id: "metrics", label: "Success Metrics" },
+  { id: "ui-mockups", label: "UI Mockups" },
 ];
 
 const CARD_TRANSITION = {
@@ -572,6 +573,16 @@ function ChangeCard({ id, onCardClick, isPopup = false, transition }: ChangeCard
 
 export function EdgeCrmCaseStudy() {
   const [poppedCardId, setPoppedCardId] = React.useState<string | null>(null);
+  const [isPlaygroundOpen, setIsPlaygroundOpen] = React.useState(false);
+  const [canvasZoom, setCanvasZoom] = React.useState(0.75);
+  const [canvasPan, setCanvasPan] = React.useState({ x: 0, y: 0 });
+  const [isDraggingCanvas, setIsDraggingCanvas] = React.useState(false);
+  const dragStartRef = React.useRef<{ x: number; y: number; panX: number; panY: number }>({
+    x: 0,
+    y: 0,
+    panX: 0,
+    panY: 0,
+  });
 
   const handleOpenCard = React.useCallback((id: string) => {
     React.startTransition(() => {
@@ -590,12 +601,16 @@ export function EdgeCrmCaseStudy() {
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        handleCloseCard();
+        if (isPlaygroundOpen) {
+          setIsPlaygroundOpen(false);
+        } else {
+          handleCloseCard();
+        }
       }
     };
 
     let rafId: number;
-    if (poppedCardId) {
+    if (poppedCardId || isPlaygroundOpen) {
       rafId = requestAnimationFrame(() => {
         document.body.style.overflow = "hidden";
       });
@@ -610,7 +625,7 @@ export function EdgeCrmCaseStudy() {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [poppedCardId, handleCloseCard]);
+  }, [poppedCardId, isPlaygroundOpen, handleCloseCard]);
   return (
     <div
       className="relative w-full text-white antialiased pt-20 sm:pt-24 lg:pt-28 pb-36 px-4"
@@ -2131,284 +2146,6 @@ export function EdgeCrmCaseStudy() {
                     }}
                   />
                   <div
-                    className="w-150.25 h-79.5 absolute left-[50%] top-[calc(50%+97px)]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
-                    <div className="text-[14px] leading-[142.857%] uppercase font-['M_PLUS_Code_Latin',system-ui,sans-serif] text-white">
-                      Change 01
-                    </div>
-                    <div className="text-[14px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
-                      Stepped tab flow
-                    </div>
-                  </div>
-                  <div className="items-center flex p-3 rounded-br-[14px] rounded-bl-[14px] relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
-                    <div className="flex text-[12px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
-                      Overview, Type, Assignee with directional arrows showing reps exactly where they are and what is next.
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-start justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                  }}
-                >
-                  <HalftoneDots
-                    contrast={1}
-                    originalColors={false}
-                    inverted
-                    grid="square"
-                    radius={1}
-                    size={0.8}
-                    scale={1}
-                    grainSize={0.5}
-                    type="soft"
-                    fit="cover"
-                    grainMixer={0.05}
-                    grainOverlay={0.3}
-                    image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                    colorFront="#343434"
-                    colorBack="#00000000"
-                    className="w-166.5 h-125 absolute left-[50%] top-[50%]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div
-                    className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div className="flex items-center relative">
-                    <div
-                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
-                      style={{
-                        backgroundImage:
-                          "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
-                      }}
-                    />
-                  </div>
-                  <div className="flex items-center relative">
-                    <div
-                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
-                      style={{
-                        backgroundImage:
-                          "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2E7YW83AKVWKEQDSY0N6946V55.webp)",
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Change 03 */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full">
-                <div
-                  className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
-                  }}
-                >
-                  <HalftoneDots
-                    contrast={1}
-                    originalColors={false}
-                    inverted
-                    grid="square"
-                    radius={1}
-                    size={0.8}
-                    scale={1}
-                    grainSize={0.5}
-                    type="soft"
-                    fit="cover"
-                    grainMixer={0.05}
-                    grainOverlay={0.3}
-                    image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                    colorFront="#6BA0FF"
-                    colorBack="#00000000"
-                    className="w-166.5 h-125 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div
-                    className="w-150.25 h-79.5 absolute left-[50%] top-[calc(50%+97px)]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
-                    <div className="text-[14px] leading-[142.857%] uppercase font-['M_PLUS_Code_Latin',system-ui,sans-serif] text-white">
-                      Change 03
-                    </div>
-                    <div className="text-[14px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
-                      Green border + tick on pre-filled fields
-                    </div>
-                  </div>
-                  <div className="items-center flex p-3 rounded-br-[14px] rounded-bl-[14px] relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
-                    <div className="flex text-[12px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
-                      Line of Business and Business Unit read as visually distinct, so reps instantly see what the system filled.
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                  }}
-                >
-                  <HalftoneDots
-                    contrast={1}
-                    originalColors={false}
-                    inverted
-                    grid="square"
-                    radius={1}
-                    size={0.8}
-                    scale={1}
-                    grainSize={0.5}
-                    type="soft"
-                    fit="cover"
-                    grainMixer={0.05}
-                    grainOverlay={0.3}
-                    image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                    colorFront="#343434"
-                    colorBack="#00000000"
-                    className="w-166.5 h-125 absolute left-[50%] top-[50%]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div
-                    className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div className="flex items-center relative">
-                    <div
-                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
-                      style={{
-                        backgroundImage:
-                          "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2E7YW83AKVWKEQDSY0N6946V55.webp)",
-                      }}
-                    />
-                  </div>
-                  <div className="flex items-start justify-center relative">
-                    <div
-                      className="aspect-[151/304] w-64.5 max-w-full overflow-clip h-130.5 shrink-0 bg-size-[100%_100%] bg-position-[50%] bg-no-repeat"
-                      style={{
-                        backgroundImage:
-                          "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Change 04 */}
-              <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 self-stretch overflow-clip [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full">
-                <div
-                  className="[container-name:card] @container flex flex-col pt-3 rounded-[14px] overflow-clip gap-3 relative self-stretch [box-shadow:#FAFAFA1A_0px_0px_0px_1px,#0000000D_0px_1px_2px] bg-[#171717] w-full"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 0deg, oklab(92.2% 0 0 / 5%) 0%, oklab(20.5% 0 0) 100%)",
-                  }}
-                >
-                  <HalftoneDots
-                    contrast={1}
-                    originalColors={false}
-                    inverted
-                    grid="square"
-                    radius={1}
-                    size={0.8}
-                    scale={1}
-                    grainSize={0.5}
-                    type="soft"
-                    fit="cover"
-                    grainMixer={0.05}
-                    grainOverlay={0.3}
-                    image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                    colorFront="#6BA0FF"
-                    colorBack="#00000000"
-                    className="w-166.5 h-125 absolute left-[calc(50%+0.016px)] top-[calc(50%-46.5px)]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 178.97000000000003deg, oklab(71.5% -0.021 -0.137) 39.15%, oklab(40% 0 0 / 0%) 79.28%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div
-                    className="w-150.25 h-79.5 absolute left-[50%] top-[calc(50%+97px)]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div className="items-start [container-name:card-header] @container grid auto-rows-min grid-rows-[auto_auto] px-3 rounded-tl-[14px] rounded-tr-[14px] gap-1 relative">
-                    <div className="text-[14px] leading-[142.857%] uppercase font-['M_PLUS_Code_Latin',system-ui,sans-serif] text-white">
-                      Change 04
-                    </div>
-                    <div className="text-[14px] leading-[137.5%] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-[#FAFAFA]">
-                      Contextual hint on Product Name
-                    </div>
-                  </div>
-                  <div className="items-center flex p-3 rounded-br-[14px] rounded-bl-[14px] relative bg-[#191919] border-t border-t-solid border-t-[#FFFFFF1A]">
-                    <div className="flex text-[12px] leading-[133.333%] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#A1A1A1]">
-                      "Select the product related to this case" tells reps what the dropdown contains before they tap.
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="flex [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl items-center justify-between self-stretch px-4.5 py-5 h-74.75 overflow-clip gap-8 relative shrink-0 bg-origin-border border border-solid border-[#FFFFFF1A] w-full"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
-                  }}
-                >
-                  <HalftoneDots
-                    contrast={1}
-                    originalColors={false}
-                    inverted
-                    grid="square"
-                    radius={1}
-                    size={0.8}
-                    scale={1}
-                    grainSize={0.5}
-                    type="soft"
-                    fit="cover"
-                    grainMixer={0.05}
-                    grainOverlay={0.3}
-                    image="https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M04G80ZAAH1PVPV1FAHY4PSW.jpg"
-                    colorFront="#343434"
-                    colorBack="#00000000"
-                    className="w-166.5 h-125 absolute left-[50%] top-[50%]"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(in oklab 178.97000000000003deg, oklab(0% 0 0) 41.45%, oklab(40% 0 0 / 0%) 79.28%)",
-                      translate: "-50% -50%",
-                    }}
-                  />
-                  <div
                     className="w-150.25 h-79.5 absolute left-[50%] top-[50%]"
                     style={{
                       backgroundImage:
@@ -2570,6 +2307,120 @@ export function EdgeCrmCaseStudy() {
           </section>
 
           <GrungeSeparator />
+
+          {/* ================================================================ */}
+          {/* SECTION: UI MOCKUPS / PLAYGROUND                                 */}
+          {/* ================================================================ */}
+          <section
+            id="ui-mockups"
+            className="[font-synthesis:none] flex flex-col items-center gap-9 self-stretch justify-center antialiased w-full pb-12 scroll-mt-24"
+          >
+            {/* Section Header */}
+            <div className="flex items-center gap-3 self-stretch">
+              <h2
+                className="tracking-[-0.02em] font-medium text-white text-xl/6"
+                style={{ fontFamily: HELVETICA }}
+              >
+                UI Mockups
+              </h2>
+            </div>
+
+            {/* Bento Card Outer Frame (598x598) */}
+            <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 w-full max-w-[598px] h-[598px] shrink-0 [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
+              <div
+                className="aspect-square [font-synthesis-small-caps:none] [font-synthesis-style:none] [font-synthesis-weight:none] rounded-xl self-stretch flex-1 overflow-clip relative bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A] w-full h-full"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                }}
+              >
+                {/* Scattered Edge CRM iPhone Mockups */}
+                <div
+                  className="w-[242px] h-[490px] left-32 top-[387px] absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
+                  style={{
+                    backgroundImage:
+                      "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+                  }}
+                />
+                <div
+                  className="w-[239px] h-[490px] -left-40 top-48 absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
+                  style={{
+                    backgroundImage:
+                      "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2E7YW83AKVWKEQDSY0N6946V55.webp)",
+                  }}
+                />
+                <div
+                  className="w-[239px] h-[490px] left-3.75 -top-[336px] absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
+                  style={{
+                    backgroundImage:
+                      "url(/projects/edge-crm/01-before.png)",
+                  }}
+                />
+                <div
+                  className="w-[241px] h-[490px] -top-[262px] left-71 absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
+                  style={{
+                    backgroundImage:
+                      "url(/projects/edge-crm/06-final.png)",
+                  }}
+                />
+                <div
+                  className="w-[239px] h-[490px] left-[418px] top-[421px] absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
+                  style={{
+                    backgroundImage:
+                      "url(/projects/edge-crm/05-testing.png)",
+                  }}
+                />
+                <div
+                  className="w-[241px] h-[490px] left-[550px] -top-[111px] absolute bg-cover bg-center rounded-[32px] opacity-90 pointer-events-none"
+                  style={{
+                    backgroundImage:
+                      "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+                  }}
+                />
+
+                {/* Open Playground Button Card in Center */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsPlaygroundOpen(true);
+                    setCanvasZoom(0.75);
+                    setCanvasPan({ x: 0, y: 0 });
+                  }}
+                  className="group flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 left-1/2 top-1/2 absolute [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] -translate-x-1/2 -translate-y-1/2 cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 z-10 shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+                >
+                  <div
+                    className="flex rounded-xl overflow-clip flex-col items-center justify-center px-4 py-3 bg-origin-border [border-width:0.5px] border-solid border-[#FFFFFF1A] transition-colors group-hover:border-white/30"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(in oklab 180deg, oklab(20.9% 0 0) 0%, oklab(24.8% 0 0) 100%)",
+                    }}
+                  >
+                    <div
+                      className="w-fit text-white text-base font-medium flex items-center gap-2"
+                      style={{ fontFamily: HELVETICA }}
+                    >
+                      <span>Open Playground</span>
+                      <svg
+                        width="15"
+                        height="15"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      >
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                      </svg>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </section>
         </main>
       </div>
 
@@ -2607,9 +2458,248 @@ export function EdgeCrmCaseStudy() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Interactive Canvas Modal */}
+      <AnimatePresence>
+        {isPlaygroundOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-3 sm:p-6 select-none"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setIsPlaygroundOpen(false);
+            }}
+          >
+            {/* Modal Container */}
+            <div className="relative w-full max-w-[1200px] h-[88vh] max-h-[920px] rounded-3xl overflow-hidden bg-[#161616] border border-white/15 shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex flex-col">
+              {/* Top Header Bar */}
+              <div className="absolute top-4 left-4 right-4 z-20 flex items-center justify-between pointer-events-none">
+                <div
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#242424]/90 border border-white/10 backdrop-blur-md text-xs text-neutral-300 pointer-events-auto shadow-lg"
+                  style={{ fontFamily: HELVETICA }}
+                >
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="font-medium text-white">Edge CRM Playground</span>
+                  <span className="text-neutral-500">|</span>
+                  <span className="text-neutral-400">Drag to pan · Scroll to zoom</span>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setIsPlaygroundOpen(false)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#242424]/90 border border-white/10 hover:bg-[#333333] hover:border-white/20 text-white text-xs font-medium backdrop-blur-md cursor-pointer transition-all duration-200 pointer-events-auto shadow-lg"
+                  style={{ fontFamily: HELVETICA }}
+                >
+                  <span>Close</span>
+                  <span
+                    className="text-[10px] text-neutral-400 bg-white/10 px-1.5 py-0.5 rounded"
+                    style={{ fontFamily: FIRA_CODE }}
+                  >
+                    Esc
+                  </span>
+                </button>
+              </div>
+
+              {/* Pannable & Zoomable Viewport */}
+              <div
+                className={`relative w-full flex-1 overflow-hidden ${isDraggingCanvas ? "cursor-grabbing" : "cursor-grab"}`}
+                onPointerDown={(e) => {
+                  setIsDraggingCanvas(true);
+                  dragStartRef.current = {
+                    x: e.clientX,
+                    y: e.clientY,
+                    panX: canvasPan.x,
+                    panY: canvasPan.y,
+                  };
+                  (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+                }}
+                onPointerMove={(e) => {
+                  if (!isDraggingCanvas) return;
+                  const dx = e.clientX - dragStartRef.current.x;
+                  const dy = e.clientY - dragStartRef.current.y;
+                  setCanvasPan({
+                    x: dragStartRef.current.panX + dx,
+                    y: dragStartRef.current.panY + dy,
+                  });
+                }}
+                onPointerUp={(e) => {
+                  setIsDraggingCanvas(false);
+                  try {
+                    (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
+                  } catch (_) {}
+                }}
+                onWheel={(e) => {
+                  e.preventDefault();
+                  const zoomDelta = e.deltaY < 0 ? 0.08 : -0.08;
+                  setCanvasZoom((prev) =>
+                    Math.min(Math.max(Number((prev + zoomDelta).toFixed(2)), 0.35), 2.5)
+                  );
+                }}
+              >
+                {/* Infinite Workspace Grid Background */}
+                <div
+                  className="absolute inset-0 pointer-events-none opacity-20"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)",
+                    backgroundSize: "24px 24px",
+                  }}
+                />
+
+                {/* Unified Zoom & Pan Workspace */}
+                <div
+                  className="absolute left-1/2 top-1/2 transition-transform duration-75 will-change-transform"
+                  style={{
+                    transform: `translate(calc(-50% + ${canvasPan.x}px), calc(-50% + ${canvasPan.y}px)) scale(${canvasZoom})`,
+                    transformOrigin: "center center",
+                  }}
+                >
+                  {/* Direct 6 Mockups Workspace */}
+                  <div className="relative w-[1041px] h-[1094px]">
+                    {/* 6 Edge CRM iPhone Mockups */}
+                    <div
+                      className="w-[242px] h-[490px] left-1/2 bottom-[31.5px] absolute -translate-x-1/2 bg-cover bg-center rounded-[32px] shadow-2xl"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+                      }}
+                    />
+                    <div
+                      className="w-[239px] h-[490px] left-[31.5px] bottom-[31.5px] absolute bg-cover bg-center rounded-[32px] shadow-2xl"
+                      style={{
+                        backgroundImage:
+                          "url(/projects/edge-crm/06-final.png)",
+                      }}
+                    />
+                    <div
+                      className="w-[239px] h-[490px] left-[31.5px] top-[31.5px] absolute bg-cover bg-center rounded-[32px] shadow-2xl"
+                      style={{
+                        backgroundImage:
+                          "url(/projects/edge-crm/01-before.png)",
+                      }}
+                    />
+                    <div
+                      className="w-[241px] h-[490px] top-[31.5px] left-1/2 absolute -translate-x-1/2 bg-cover bg-center rounded-[32px] shadow-2xl"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2E7YW83AKVWKEQDSY0N6946V55.webp)",
+                      }}
+                    />
+                    <div
+                      className="w-[239px] h-[490px] bottom-[31.5px] right-[31.5px] absolute bg-cover bg-center rounded-[32px] shadow-2xl"
+                      style={{
+                        backgroundImage:
+                          "url(/projects/edge-crm/05-testing.png)",
+                      }}
+                    />
+                    <div
+                      className="w-[241px] h-[490px] top-[31.5px] right-[31.5px] absolute bg-cover bg-center rounded-[32px] shadow-2xl"
+                      style={{
+                        backgroundImage:
+                          "url(https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/2F6BWG8EWY0N00F2KHFKSQDQDR.webp)",
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Zoom & Controls Toolbar at Bottom */}
+              <div
+                className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 px-3 py-2 rounded-full bg-[#242424]/95 border border-white/15 backdrop-blur-lg shadow-[0_10px_30px_rgba(0,0,0,0.7)]"
+                style={{ fontFamily: HELVETICA }}
+              >
+                <button
+                  type="button"
+                  onClick={() =>
+                    setCanvasZoom((prev) => Math.max(Number((prev - 0.15).toFixed(2)), 0.35))
+                  }
+                  className="w-7 h-7 rounded-full flex items-center justify-center text-neutral-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                  aria-label="Zoom out"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCanvasZoom(0.75);
+                    setCanvasPan({ x: 0, y: 0 });
+                  }}
+                  className="px-2.5 py-1 text-xs text-white font-medium hover:bg-white/10 rounded-md transition-colors cursor-pointer"
+                  style={{ fontFamily: FIRA_CODE }}
+                >
+                  {Math.round(canvasZoom * 100)}%
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    setCanvasZoom((prev) => Math.min(Number((prev + 0.15).toFixed(2)), 2.5))
+                  }
+                  className="w-7 h-7 rounded-full flex items-center justify-center text-neutral-300 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                  aria-label="Zoom in"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                  >
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                </button>
+
+                <div className="w-[1px] h-4 bg-white/20 mx-1" />
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCanvasZoom(0.75);
+                    setCanvasPan({ x: 0, y: 0 });
+                  }}
+                  className="px-2 py-1 text-xs text-neutral-300 hover:text-white hover:bg-white/10 rounded-md transition-colors flex items-center gap-1 cursor-pointer"
+                  style={{ fontFamily: HELVETICA }}
+                >
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                    <path d="M3 3v5h5" />
+                  </svg>
+                  <span>Reset</span>
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
 
 export const EdgeCrmTestCaseStudy = EdgeCrmCaseStudy;
+
 
