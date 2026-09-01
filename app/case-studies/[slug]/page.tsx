@@ -59,6 +59,7 @@ import { JourneyTimeline } from "@/components/journey-timeline";
 import { CaseStudyNav, CaseStudyBackButton } from "@/components/case-study/case-study-nav";
 import { VoteInCaseStudy } from "@/components/case-study/vote-in-case-study";
 import { EdgeCrmCaseStudy } from "@/components/case-study/edge-crm-case-study";
+import { GpactsCaseStudy } from "@/components/case-study/gpacts-case-study";
 import { cn } from "@/lib/utils";
 
 type Params = {
@@ -409,6 +410,9 @@ export default async function CaseStudyPage({ params, searchParams }: Params) {
   }
   if (slug === "edge-crm") {
     return <EdgeCrmCaseStudy />;
+  }
+  if (slug === "gpacts") {
+    return <GpactsCaseStudy />;
   }
 
   const study = getCaseStudy(slug);
