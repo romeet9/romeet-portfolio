@@ -18,7 +18,6 @@ export const navMain: NavItem[] = [
   { title: "Overview", url: "/", icon: LayoutDashboardIcon },
   { title: "Case studies", url: "/case-studies", icon: PencilRulerIcon },
   { title: "Vibe Coded Projects", url: "/projects", icon: FolderIcon },
-  { title: "Paper MCP Guide", url: "/paper-mcp", icon: CodeIcon },
   // Experience is hidden for now. The /experience route still exists and works;
   // restore this line to put it back in the dock.
   // { title: "Experience", url: "/experience", icon: BriefcaseIcon },
