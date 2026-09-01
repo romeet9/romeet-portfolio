@@ -490,13 +490,41 @@ export const caseStudies: CaseStudy[] = [
     ],
     links: {},
     next: {
-      kicker: "Next in the Edge CRM redesign",
-      name: "Case List",
+      kicker: "Next case study",
+      name: "Vote IN",
       tagline:
-        "The screen every rep opens each morning — ten or twenty cases that all looked the same. Up next: how reps scan, triage, and act at a glance.",
-      href: "/case-studies/edge-crm-case-list",
+        "A digital platform for the Indian citizens to cast and verify their vote online.",
+      href: "/case-studies/vote-in",
     },
   },
+  {
+    slug: "vote-in",
+    name: "Vote IN",
+    tagline:
+      "A digital platform for the Indian citizens to cast and verify their vote online.",
+    year: "2024",
+    role: "Product Designer",
+    company: "Democratic Innovation",
+    skills: ["0 to 1 product design", "User Research", "Mobile App"],
+    cover: {
+      src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png",
+      alt: "Vote IN mobile app",
+      w: 544,
+      h: 1098,
+    },
+    previewMock: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png",
+    badge: "Best work",
+    hmw: "A digital platform for the Indian citizens to cast and verify their vote online.",
+    metrics: [
+      { value: "<10", label: "Clicks to vote", sub: "Streamlined flow", icon: GaugeIcon },
+      { value: "0 to 1", label: "Product Design", sub: "Full mobile experience", icon: SmartphoneIcon },
+    ],
+    acts: [],
+  },
+];
+
+/** Archived case studies kept for reference */
+export const archivedCaseStudies: CaseStudy[] = [
   {
     slug: "edge-crm-case-list",
     name: "Edge CRM — Case List",
@@ -688,36 +716,6 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     links: {},
-    next: {
-      kicker: "Next in the Edge CRM redesign",
-      name: "Case Detail",
-      tagline:
-        "The screen a rep opens mid-call — needing one answer, fast. Up next: surfacing the right detail without the scroll.",
-    },
-  },
-  {
-    slug: "vote-in",
-    name: "Vote IN",
-    tagline:
-      "A digital platform for the Indian citizens to cast and verify their vote online.",
-    year: "2024",
-    role: "Product Designer",
-    company: "Democratic Innovation",
-    skills: ["0 to 1 product design", "User Research", "Mobile App"],
-    cover: {
-      src: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png",
-      alt: "Vote IN mobile app",
-      w: 544,
-      h: 1098,
-    },
-    previewMock: "https://app.paper.design/file-assets/01M03KW12YSNP0MEZXDDWH0QJZ/7GN69EPV75NRVXHCDTJFA6TDPZ.png",
-    badge: "Best work",
-    hmw: "A digital platform for the Indian citizens to cast and verify their vote online.",
-    metrics: [
-      { value: "<10", label: "Clicks to vote", sub: "Streamlined flow", icon: GaugeIcon },
-      { value: "0 to 1", label: "Product Design", sub: "Full mobile experience", icon: SmartphoneIcon },
-    ],
-    acts: [],
   },
 ];
 

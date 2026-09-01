@@ -23,14 +23,17 @@ function GrungeSeparator() {
 }
 
 const SECTIONS = [
-  { id: "hero", label: "About" },
+  { id: "hero", label: "Overview" },
   { id: "phase-1", label: "Phase I" },
   { id: "the-problem", label: "The Problem" },
   { id: "phase-2", label: "Phase II" },
   { id: "table", label: "Fluid Interface" },
   { id: "solving-3ts", label: "Solving for 3Ts" },
-  { id: "impact", label: "Impact" },
-  { id: "metrics", label: "Reflection" },
+  { id: "climax", label: "Climax" },
+  { id: "turning-decisions", label: "Turning Decisions" },
+  { id: "impact", label: "User Testing" },
+  { id: "refining-design", label: "Refining Design" },
+  { id: "metrics", label: "Success Metrics" },
   { id: "ui-mockups", label: "UI Mockups" },
 ];
 
