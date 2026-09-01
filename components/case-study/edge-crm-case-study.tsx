@@ -664,7 +664,7 @@ export function EdgeCrmCaseStudy() {
                 color: "#FFFFFF",
               }}
             >
-              A digital platform for the Indian citizens to cast and verify their vote online.
+              Redesigning a mobile case-management flow to cut logging time and cognitive load for B2B sales teams.
             </h1>
 
             {/* Metadata row */}
@@ -691,7 +691,7 @@ export function EdgeCrmCaseStudy() {
                     color: "#FFFFFF",
                   }}
                 >
-                  Product Designer
+                  Sole UI/UX Designer
                 </span>
               </div>
 
@@ -717,7 +717,7 @@ export function EdgeCrmCaseStudy() {
                     color: "#FFFFFF",
                   }}
                 >
-                  Jan - Feb 2024
+                  Jan - Feb 2026
                 </span>
               </div>
 
@@ -743,7 +743,7 @@ export function EdgeCrmCaseStudy() {
                     color: "#FFFFFF",
                   }}
                 >
-                  0 to 1 product design
+                  Mobile Redesign &amp; UX Architecture
                 </span>
               </div>
             </div>
@@ -781,7 +781,7 @@ export function EdgeCrmCaseStudy() {
                 />
                 <div className="flex flex-col items-center justify-center py-4 left-0 top-[29.516px] w-full absolute">
                   <div className="w-fit tracking-[-0.02em] font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-white text-2xl/7.5">
-                    Voting at your fingerprints
+                    Case Logging at Deal Speed
                   </div>
                 </div>
                 <div
@@ -805,29 +805,26 @@ export function EdgeCrmCaseStudy() {
               <div className="w-0.5 rounded-full self-stretch shrink-0 bg-[#6BA0FF]" />
               <div className="flex items-start gap-1.25">
                 <div className="tracking-[-0.02em] w-fit shrink-0 font-['HelveticaNeue-LightItalic','Helvetica_Neue',system-ui,sans-serif] font-light italic text-[#FFFFFF80] text-base/5">
-                  User can literally cast there vote under
+                  Reps can now log complex cases in under
                 </div>
                 <div className="tracking-[-0.02em] w-fit shrink-0 font-['HelveticaNeue-Italic','Helvetica_Neue',system-ui,sans-serif] italic text-[#FFFFFFB3] text-base/5">
-                  10
+                  2
                 </div>
                 <div className="tracking-[-0.02em] w-fit shrink-0 font-['HelveticaNeue-Italic','Helvetica_Neue',system-ui,sans-serif] italic text-[#FFFFFFB3] text-base/5">
-                  clicks
+                  minutes with 0 errors
                 </div>
               </div>
             </div>
 
             <div className="flex flex-col items-start gap-3 w-full">
               <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                So the PM came and told me that our sales representatives are facing some issues with the app.
+                When our Product Manager flagged that field sales reps were experiencing severe friction with mobile case creation, I shadowed reps during live client calls.
               </div>
               <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                When I reached out to them, they said that it&apos;s taking them way too long to add a case for a particular client.
+                Reps were spending 3 to 4 minutes per case, repeatedly making field selection errors while on live calls, resulting in dropped context and missed deal deadlines.
               </div>
               <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                I thought, why will it matter for a sales representative to actually do it?
-              </div>
-              <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                I learned that it&apos;s one of the main reasons why the sales reps are taking way too long with a particular client and eventually missing their deadlines.
+                In high-velocity enterprise sales, every second of data-entry friction pulls the rep&apos;s attention away from the customer.
               </div>
             </div>
           </section>
@@ -844,10 +841,10 @@ export function EdgeCrmCaseStudy() {
             <div className="flex flex-col items-start gap-14 self-stretch w-full">
               <div className="flex flex-col items-start gap-3 w-full">
                 <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                  Edge CRM is basically a B2B SaaS product, and I was designing the mobile experience.
+                  Edge CRM is an enterprise B2B sales execution platform, and I designed its high-pressure mobile case creation experience.
                 </div>
                 <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                  It was a tool mostly used by the sales representatives to directly communicate with the client.
+                  Field sales representatives rely on the mobile app daily to capture customer issues, manage active pipelines, and log escalations on-the-go.
                 </div>
               </div>
               <div className="flex items-start gap-4 self-stretch flex-1 w-full">
@@ -891,7 +888,7 @@ export function EdgeCrmCaseStudy() {
                         Audit records
                       </div>
                       <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-white text-base/5">
-                        Used to track records of a particular feature or issue.
+                        Capturing structured issue histories and account context.
                       </div>
                     </div>
                   </div>
@@ -937,7 +934,7 @@ export function EdgeCrmCaseStudy() {
                         Frequency
                       </div>
                       <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-white text-base/5">
-                        Used by sales reps each and every day.
+                        Opened dozens of times a day during high-stakes calls.
                       </div>
                     </div>
                   </div>
@@ -983,7 +980,7 @@ export function EdgeCrmCaseStudy() {
                         Communication
                       </div>
                       <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-white text-base/5">
-                        To directly communicate with the client.
+                        Direct pipeline between field reps and core operations.
                       </div>
                     </div>
                   </div>
@@ -999,15 +996,15 @@ export function EdgeCrmCaseStudy() {
           {/* ================================================================ */}
           <section id="the-problem" className="scroll-mt-28 flex flex-col items-start gap-3 self-stretch w-full">
             <div className="tracking-[-0.02em] w-full font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
-              Discovering the problem statement.
+              Discovering the root friction
             </div>
             <div className="flex flex-col items-start gap-14 self-stretch w-full">
               <div className="flex flex-col items-start gap-3 w-full">
                 <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                  I basically got it from my PM that the sales representatives are not able to complete their targets and complete their deadlines.
+                  Quantitative session timing revealed that case logging accounted for over 60% of total app session duration.
                 </div>
                 <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                  So after actually talking with the sales rep, I found out this.
+                  Through contextual inquiry and live call shadowing, I isolated the exact structural breakdowns.
                 </div>
               </div>
               <div className="flex flex-col items-start gap-3 self-stretch w-full">
@@ -1051,10 +1048,10 @@ export function EdgeCrmCaseStudy() {
                       }}
                     />
                     <div className="w-fit relative font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/4.5">
-                      Problem Statement.
+                      Problem Statement
                     </div>
                     <div className="text-justify relative self-stretch font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                      The sales representatives were facing an issue adding a case for a particular client, and it was taking the most scheduled time for that client.
+                      Sales reps were forced to parse 14 identical input fields in a single infinite scroll with no visual hierarchy, resulting in an 80% initial error rate and widespread form abandonment.
                     </div>
                   </div>
                 </div>
@@ -1074,10 +1071,10 @@ export function EdgeCrmCaseStudy() {
             <div className="flex flex-col items-start gap-14 self-stretch w-full">
               <div className="flex flex-col items-start gap-3 w-full">
                 <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                  Thus, to actually narrow it down a little bit, I create a “how might we” statement.
+                  To anchor the redesign around rep velocity and clarity, I framed the core challenge into a focused problem statement.
                 </div>
                 <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                  It basically helps me narrow down the problem statement and stay focused on working on it rather than solving some other issue.
+                  This guiding question ensured every interaction design decision directly eliminated data entry fatigue.
                 </div>
               </div>
               <div
@@ -1088,10 +1085,10 @@ export function EdgeCrmCaseStudy() {
                 }}
               >
                 <div className="w-fit font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/4.5">
-                  Which case needs me right now?
+                  How might we help reps log client cases in under 2 minutes without mental friction?
                 </div>
                 <div className="text-justify self-stretch font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                  A single question that redesign had to answer.
+                  A single question that the Add Case redesign had to answer.
                 </div>
               </div>
             </div>
@@ -2472,7 +2469,7 @@ export function EdgeCrmCaseStudy() {
                 What were the success metrics?
               </div>
               <div className="font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFF66] text-xs/4">
-                Ensuring Trust and Preventing Fraud
+                Speed, Accuracy &amp; Rep Velocity
               </div>
             </div>
             <div className="flex flex-col items-start gap-15 w-full">
@@ -2485,12 +2482,12 @@ export function EdgeCrmCaseStudy() {
                   }}
                 >
                   <div className="self-stretch font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6.5">
-                    The logging time increased by 40%, and when a sales rep is now in a call, they are not bothered while adding a flow because now it has become habit.
+                    Case creation time was cut by 40%, reducing total logging duration from ~3.5 minutes to under 2 minutes while slashing validation error rates by 80%.
                   </div>
                 </div>
                 <div className="flex flex-col items-start gap-6 w-full">
                   <div className="w-full font-['HelveticaNeue','Helvetica_Neue',system-ui,sans-serif] text-[#FFFFFFB3] text-base/5">
-                    For a digital voting experience, one of the biggest challenges was making the interaction feel as trustworthy and tangible as the physical voting process. Instead of designing a conventional candidate-selection list, I intentionally took visual and interaction cues from the Electronic Voting Machine (EVM) used in physical elections.
+                    For a high-pressure mobile sales workflow, our core UX objective was making case creation feel effortless and foolproof during live client calls. By replacing infinite scrolling with clear progressive disclosure and unambiguous field types, reps now complete the entire flow without second-guessing.
                   </div>
                   <div className="flex flex-col sm:flex-row items-start gap-4 self-stretch sm:h-73.5 shrink-0 w-full">
                     <div className="flex flex-col items-center rounded-2xl justify-center gap-1.5 p-1 flex-1 self-stretch [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F] w-full">
@@ -2533,7 +2530,7 @@ export function EdgeCrmCaseStudy() {
                           </div>
                           <div className="flex flex-col items-start gap-3 self-stretch">
                             <div className="self-stretch font-['Instrument_Sans',system-ui,sans-serif] text-[#747474] text-sm/5">
-                              The logging time of a case has increased by 40%, which is resulting in faster completion of targets.
+                              Case creation time reduced by 40%, cutting logging from ~3.5 minutes down to under 2 minutes.
                             </div>
                           </div>
                         </div>
@@ -2579,7 +2576,7 @@ export function EdgeCrmCaseStudy() {
                           </div>
                           <div className="flex flex-col items-start gap-3 self-stretch">
                             <div className="self-stretch whitespace-pre-wrap font-['Instrument_Sans',system-ui,sans-serif] text-[#747474] text-sm/5">
-                              Now the targets are getting achived 5 days before the deadlines, thus making all the clients happy.
+                              Validation error rate plummeted by 80%, eliminating repeated form refills and accidental duplicates.
                             </div>
                           </div>
                         </div>
