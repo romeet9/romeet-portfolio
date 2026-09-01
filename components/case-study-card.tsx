@@ -89,12 +89,12 @@ export function CaseStudyCard({
           }}
         />
 
-        {/* Dark Vignette Overlay */}
+        {/* Dark Vignette Radial Gradient Overlay */}
         <div
           className="w-106 h-135 absolute left-[50%] top-[50%]"
           style={{
             backgroundImage:
-              "linear-gradient(in oklab 180deg, oklab(71.8% 0 0 / 0%) -122.12%, oklab(20.1% 0 0) 102.12%)",
+              "radial-gradient(ellipse 89.815% 70.515% at 50.04% 20.47% in oklab, oklab(71.8% 0 0 / 0%) 0%, 9.42%, oklab(20.1% 0 0) 100%)",
             translate: "-50% -50%",
           }}
         />
