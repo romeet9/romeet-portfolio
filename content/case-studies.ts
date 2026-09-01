@@ -491,38 +491,6 @@ export const caseStudies: CaseStudy[] = [
     links: {},
     next: {
       kicker: "Next case study",
-      name: "GPACTS — Pharma Tech Congress",
-      tagline:
-        "Designing a high-conversion digital summit experience for India's top pharma technology leaders.",
-      href: "/case-studies/gpacts",
-    },
-  },
-  {
-    slug: "gpacts",
-    name: "GPACTS — Pharma Tech Congress",
-    tagline:
-      "Designing a high-conversion digital summit experience for India's top pharma technology leaders.",
-    year: "2025",
-    role: "Lead Product & Web Designer",
-    company: "GPACTS Series",
-    skills: ["0 to 1 Web Design", "Information Architecture", "Enterprise B2B"],
-    cover: {
-      src: "/case-studies/gpacts/01-hero.png",
-      alt: "GPACTS Pharma Technology Congress website",
-      w: 1440,
-      h: 1200,
-    },
-    previewMock: "/case-studies/gpacts/01-hero.png",
-    badge: "Enterprise Web",
-    hmw: "How might we transform a dense multi-city B2B summit program into a high-conversion web experience?",
-    metrics: [
-      { value: "1200+", label: "Curated Delegates", sub: "CXOs & Data Leaders", icon: LayersIcon },
-      { value: "+54%", label: "Early-bird Bookings", sub: "Conversion boost", icon: GaugeIcon },
-      { value: "3.2x", label: "Sponsorship Inquiries", sub: "Tier-1 Partner Growth", icon: SparklesIcon },
-    ],
-    acts: [],
-    next: {
-      kicker: "Next case study",
       name: "Vote IN",
       tagline:
         "A digital platform for the Indian citizens to cast and verify their vote online.",
@@ -758,6 +726,39 @@ export const archivedCaseStudies: CaseStudy[] = [
   },
 ];
 
+/** Draft case studies in progress / rework (hidden from main portfolio lists) */
+export const draftCaseStudies: CaseStudy[] = [
+  {
+    slug: "gpacts",
+    name: "GPACTS — Pharma Tech Congress",
+    tagline:
+      "Designing a high-conversion digital summit experience for India's top pharma technology leaders.",
+    year: "2025",
+    role: "Lead Product & Web Designer",
+    company: "GPACTS Series",
+    skills: ["0 to 1 Web Design", "Information Architecture", "Enterprise B2B"],
+    cover: {
+      src: "/case-studies/gpacts/01-hero.png",
+      alt: "GPACTS Pharma Technology Congress website",
+      w: 1440,
+      h: 1200,
+    },
+    previewMock: "/case-studies/gpacts/01-hero.png",
+    badge: "Enterprise Web",
+    hmw: "How might we transform a dense multi-city B2B summit program into a high-conversion web experience?",
+    metrics: [
+      { value: "1200+", label: "Curated Delegates", sub: "CXOs & Data Leaders", icon: LayersIcon },
+      { value: "+54%", label: "Early-bird Bookings", sub: "Conversion boost", icon: GaugeIcon },
+      { value: "3.2x", label: "Sponsorship Inquiries", sub: "Tier-1 Partner Growth", icon: SparklesIcon },
+    ],
+    acts: [],
+  },
+];
+
 export function getCaseStudy(slug: string): CaseStudy | undefined {
-  return caseStudies.find((c) => c.slug === slug);
+  return (
+    caseStudies.find((c) => c.slug === slug) ??
+    draftCaseStudies.find((c) => c.slug === slug) ??
+    archivedCaseStudies.find((c) => c.slug === slug)
+  );
 }
