@@ -54,7 +54,7 @@ export function CaseStudyCard({
     : "https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/7BY0CGXFY41QH07T7H8TVZRSFT.png";
 
   const phoneMock = mock || defaultMock;
-  const badgeLabel = isGpacts ? (badge || "Web Design") : isVoteIn ? "Concept work" : (badge || "B2B Product");
+  const badgeLabel = isGpacts ? (badge || "B2B Product") : isVoteIn ? "Concept work" : (badge || "B2B Product");
   const displayTitle = isGpacts
     ? "GPACTS"
     : isVoteIn
@@ -107,21 +107,29 @@ export function CaseStudyCard({
         />
 
         {/* Rotated & Bled Mockup */}
-        <div
-          aria-hidden
-          className={`top-0 left-[50%] absolute filter-[brightness(85%)] bg-cover bg-position-[50%] origin-top-left transition-transform duration-500 group-hover:scale-[1.02] ${
-            isGpacts ? "h-[560.123px] w-[420px]" : "h-[560.123px] w-[279.186px]"
-          }`}
-          style={{
-            backgroundImage: `url(${phoneMock})`,
-            rotate: "344.61deg",
-            translate: isGpacts
-              ? "calc(-50% - 140px) -180px"
-              : isVoteIn
-              ? "calc(-50% - 149.22px) -203.045px"
-              : "calc(-50% - 149.217px) -203.036px",
-          }}
-        />
+        {isGpacts ? (
+          <div
+            aria-hidden
+            className="w-[574.201px] h-[574.201px] absolute left-0 top-0 bg-cover bg-position-[50%] origin-top-left transition-transform duration-500 group-hover:scale-[1.02]"
+            style={{
+              backgroundImage: `url(${phoneMock})`,
+              rotate: "327.24deg",
+              translate: "-224.328px -23.141px",
+            }}
+          />
+        ) : (
+          <div
+            aria-hidden
+            className="h-[560.123px] w-[279.186px] top-0 left-[50%] absolute filter-[brightness(85%)] bg-cover bg-position-[50%] origin-top-left transition-transform duration-500 group-hover:scale-[1.02]"
+            style={{
+              backgroundImage: `url(${phoneMock})`,
+              rotate: "344.61deg",
+              translate: isVoteIn
+                ? "calc(-50% - 149.22px) -203.045px"
+                : "calc(-50% - 149.217px) -203.036px",
+            }}
+          />
+        )}
 
         {/* Content Overlay */}
         <div className="h-full flex flex-col justify-between p-[17.5px] relative">
