@@ -37,20 +37,27 @@ export function CaseStudyCard({
   badge?: string;
   slug?: string;
 }) {
-  const isVoteIn = slug === "vote-in" || name.toLowerCase().includes("vote");
+  const isGpacts = slug === "gpacts" || name.toLowerCase().includes("gpacts");
+  const isVoteIn = !isGpacts && (slug === "vote-in" || name.toLowerCase().includes("vote"));
 
-  const colorFront = isVoteIn ? "#A4AA1A" : "#6BA0FF";
-  const halftoneGradient = isVoteIn
+  const colorFront = isGpacts ? "#7553ED" : isVoteIn ? "#A4AA1A" : "#6BA0FF";
+  const halftoneGradient = isGpacts
+    ? "linear-gradient(in oklab 178.97deg, oklab(71.5% 0.061 -0.124) 14.53%, oklab(40% 0 0 / 0%) 79.28%)"
+    : isVoteIn
     ? "linear-gradient(in oklab 178.97deg, oklab(71% -0.057 0.140) 14.53%, oklab(40% 0 0 / 0%) 79.28%)"
     : "linear-gradient(in oklab 178.97deg, oklab(71.1% -0.023 -0.149) 14.53%, oklab(40% 0 0 / 0%) 79.28%)";
 
-  const defaultMock = isVoteIn
+  const defaultMock = isGpacts
+    ? "https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M1EPEA39PPAN441T7QX1YNQ9.png"
+    : isVoteIn
     ? "https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/7GN69EPV75NRVXHCDTJFA6TDPZ.png"
     : "https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/7BY0CGXFY41QH07T7H8TVZRSFT.png";
 
   const phoneMock = mock || defaultMock;
-  const badgeLabel = isVoteIn ? "Concept work" : (badge || "B2B Product");
-  const displayTitle = isVoteIn
+  const badgeLabel = isGpacts ? (badge || "Web Design") : isVoteIn ? "Concept work" : (badge || "B2B Product");
+  const displayTitle = isGpacts
+    ? "GPACTS"
+    : isVoteIn
     ? "Vote IN"
     : (name.includes("Add case") || name.includes("Add Case")
       ? "Edge CRM - Add case"
@@ -99,14 +106,18 @@ export function CaseStudyCard({
           }}
         />
 
-        {/* Rotated & Bled Phone Mockup */}
+        {/* Rotated & Bled Mockup */}
         <div
           aria-hidden
-          className="h-[560.123px] w-[279.186px] top-0 left-[50%] absolute filter-[brightness(85%)] bg-cover bg-position-[50%] origin-top-left transition-transform duration-500 group-hover:scale-[1.02]"
+          className={`top-0 left-[50%] absolute filter-[brightness(85%)] bg-cover bg-position-[50%] origin-top-left transition-transform duration-500 group-hover:scale-[1.02] ${
+            isGpacts ? "h-[440px] w-[440px]" : "h-[560.123px] w-[279.186px]"
+          }`}
           style={{
             backgroundImage: `url(${phoneMock})`,
-            rotate: "344.61deg",
-            translate: isVoteIn
+            rotate: isGpacts ? "0deg" : "344.61deg",
+            translate: isGpacts
+              ? "calc(-50%) -10px"
+              : isVoteIn
               ? "calc(-50% - 149.22px) -203.045px"
               : "calc(-50% - 149.217px) -203.036px",
           }}

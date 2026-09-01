@@ -738,12 +738,12 @@ export const draftCaseStudies: CaseStudy[] = [
     company: "GPACTS Series",
     skills: ["0 to 1 Web Design", "Information Architecture", "Enterprise B2B"],
     cover: {
-      src: "/case-studies/gpacts/01-hero.png",
+      src: "https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M1EPEA39PPAN441T7QX1YNQ9.png",
       alt: "GPACTS Pharma Technology Congress website",
-      w: 1440,
-      h: 1200,
+      w: 960,
+      h: 960,
     },
-    previewMock: "/case-studies/gpacts/01-hero.png",
+    previewMock: "https://app.paper.design/file-assets/01M1C873668CZYG1N1TF5EFR38/01M1EPEA39PPAN441T7QX1YNQ9.png",
     badge: "Enterprise Web",
     hmw: "How might we transform a dense multi-city B2B summit program into a high-conversion web experience?",
     metrics: [
