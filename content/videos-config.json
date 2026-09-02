@@ -14,13 +14,13 @@
   "experience": {
     "slot": "experience",
     "title": "GPACTS",
-    "aspect": "aspect-[406/461]",
+    "aspect": "aspect-square",
     "src": "/videos/experience.webm"
   },
   "tools": {
     "slot": "tools",
     "title": "Vote IN",
-    "aspect": "aspect-[406/461]",
+    "aspect": "aspect-[406/516]",
     "src": "/videos/tools.mp4"
   }
 }

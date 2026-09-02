@@ -14,6 +14,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@vercel/analytics/next";
 import { VideoProvider } from "@/components/video-context";
 import { VideoUploadToolbar } from "@/components/video-upload-toolbar";
+import { LayoutProvider } from "@/components/layout-context";
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 const geistMono = Geist_Mono({
@@ -106,23 +107,25 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <VideoProvider>
-            <Preloader />
-            <SmoothScroll />
-            {/* Bottom padding keeps page content clear of the floating dock. */}
-            <div className="flex min-h-svh flex-col pb-28">
-              <TopScrim />
-              <SiteHeader />
-              {/* One centred column for every screen — pages own their vertical
-                  rhythm, this owns the width and the left/right gutters. */}
-              <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 lg:px-6">
-                <PageTransition>{children}</PageTransition>
-              </main>
-            </div>
-            <BottomScrim />
-            <FloatingDock />
-            <VideoUploadToolbar />
-            <CustomMousePointer />
-            <Toaster />
+            <LayoutProvider>
+              <Preloader />
+              <SmoothScroll />
+              {/* Bottom padding keeps page content clear of the floating dock. */}
+              <div className="flex min-h-svh flex-col pb-28">
+                <TopScrim />
+                <SiteHeader />
+                {/* One centred column for every screen — pages own their vertical
+                    rhythm, this owns the width and the left/right gutters. */}
+                <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 lg:px-6">
+                  <PageTransition>{children}</PageTransition>
+                </main>
+              </div>
+              <BottomScrim />
+              <FloatingDock />
+              <VideoUploadToolbar />
+              <CustomMousePointer />
+              <Toaster />
+            </LayoutProvider>
           </VideoProvider>
         </ThemeProvider>
         {/* First-party visitor analytics — aggregate counts only, no cookies.
