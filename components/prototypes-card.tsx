@@ -9,7 +9,7 @@ export function PrototypesCard() {
       slot="prototypes"
       title="Brand design for Go-sats"
       badgeLabel="Brand design for Go-sats"
-      aspectClass="aspect-[406/296]"
+      aspectClass="aspect-square"
     />
   );
 }

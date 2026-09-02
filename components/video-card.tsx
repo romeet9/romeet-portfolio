@@ -10,7 +10,7 @@ export function VideoCard() {
       defaultSrc="/videos/experience.webm"
       title="GPACTS"
       badgeLabel="GPACTS"
-      aspectClass="aspect-square"
+      aspectClass="aspect-[406/461]"
     />
   );
 }

@@ -2,25 +2,25 @@
   "socials": {
     "slot": "socials",
     "title": "Social media post",
-    "aspect": "aspect-[406/296]",
+    "aspect": "aspect-square",
     "src": "/videos/socials.mp4"
   },
   "prototypes": {
     "slot": "prototypes",
     "title": "Brand design for Go-sats",
-    "aspect": "aspect-[406/296]",
+    "aspect": "aspect-square",
     "src": "/videos/prototypes.mp4"
   },
   "experience": {
     "slot": "experience",
     "title": "GPACTS",
-    "aspect": "aspect-square",
+    "aspect": "aspect-[406/461]",
     "src": "/videos/experience.webm"
   },
   "tools": {
     "slot": "tools",
     "title": "Vote IN",
-    "aspect": "aspect-square",
+    "aspect": "aspect-[406/461]",
     "src": "/videos/tools.mp4"
   }
 }

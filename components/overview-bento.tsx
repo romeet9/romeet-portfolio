@@ -13,10 +13,10 @@ import { ToolsCard } from "@/components/tools-card";
  * The overview bento. Three explicit columns of cards; on wide screens they sit
  * side by side and stretch to equal height (`items-stretch`).
  *
- * Each column sums to exactly 1328 proportional units with matched baselines:
- * - Column 1: Vote IN (516) + Socials (296) + Projects (516) = 1328
- * - Column 2: Behance (516) + GPACTS (516) + Prototypes (296) = 1328
- * - Column 3: Edge CRM (516) + Experience (406) + Tools (406) = 1328
+ * Each column sums to exactly 1438 proportional units with matched baselines:
+ * - Column 1: Vote IN (516) + Social media post (406) + Projects (516) = 1438
+ * - Column 2: Behance (516) + GPACTS (516) + Brand design for Go-sats (406) = 1438
+ * - Column 3: Edge CRM (516) + GPACTS (461) + Vote IN (461) = 1438
  */
 
 function StudyCard({ slug }: { slug: string }) {

@@ -9,7 +9,7 @@ export function ToolsCard() {
       slot="tools"
       title="Vote IN"
       badgeLabel="Vote IN"
-      aspectClass="aspect-square"
+      aspectClass="aspect-[406/461]"
     />
   );
 }

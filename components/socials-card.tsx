@@ -9,7 +9,7 @@ export function SocialsCard() {
       slot="socials"
       title="Social media post"
       badgeLabel="Social media post"
-      aspectClass="aspect-[406/296]"
+      aspectClass="aspect-square"
     />
   );
 }
