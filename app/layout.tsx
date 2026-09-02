@@ -12,6 +12,8 @@ import { SiteHeader } from "@/components/site-header";
 import { CustomMousePointer } from "@/components/custom-mouse-pointer";
 import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@vercel/analytics/next";
+import { VideoProvider } from "@/components/video-context";
+import { VideoUploadToolbar } from "@/components/video-upload-toolbar";
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 const geistMono = Geist_Mono({
@@ -103,22 +105,25 @@ export default function RootLayout({
           forcedTheme="dark"
           disableTransitionOnChange
         >
-          <Preloader />
-          <SmoothScroll />
-          {/* Bottom padding keeps page content clear of the floating dock. */}
-          <div className="flex min-h-svh flex-col pb-28">
-            <TopScrim />
-            <SiteHeader />
-            {/* One centred column for every screen — pages own their vertical
-                rhythm, this owns the width and the left/right gutters. */}
-            <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 lg:px-6">
-              <PageTransition>{children}</PageTransition>
-            </main>
-          </div>
-          <BottomScrim />
-          <FloatingDock />
-          <CustomMousePointer />
-          <Toaster />
+          <VideoProvider>
+            <Preloader />
+            <SmoothScroll />
+            {/* Bottom padding keeps page content clear of the floating dock. */}
+            <div className="flex min-h-svh flex-col pb-28">
+              <TopScrim />
+              <SiteHeader />
+              {/* One centred column for every screen — pages own their vertical
+                  rhythm, this owns the width and the left/right gutters. */}
+              <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 lg:px-6">
+                <PageTransition>{children}</PageTransition>
+              </main>
+            </div>
+            <BottomScrim />
+            <FloatingDock />
+            <VideoUploadToolbar />
+            <CustomMousePointer />
+            <Toaster />
+          </VideoProvider>
         </ThemeProvider>
         {/* First-party visitor analytics — aggregate counts only, no cookies.
             Collects only in production and once Web Analytics is enabled for the
