@@ -6,7 +6,7 @@ import { ProjectsCard } from "@/components/projects-card";
 import { BehanceCard } from "@/components/behance-card";
 import { SocialsCard } from "@/components/socials-card";
 import { PrototypesCard } from "@/components/prototypes-card";
-import { ExperienceCard } from "@/components/experience-card";
+import { VideoCard } from "@/components/video-card";
 import { ToolsCard } from "@/components/tools-card";
 
 /**
@@ -59,7 +59,7 @@ export function OverviewBento() {
 
       <Column>
         <StudyCard slug="edge-crm" />
-        <ExperienceCard />
+        <VideoCard />
         <ToolsCard />
       </Column>
     </div>
