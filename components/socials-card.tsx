@@ -7,7 +7,8 @@ export function SocialsCard() {
   return (
     <BentoVideoCard
       slot="socials"
-      title="Socials"
+      title="Social media post"
+      badgeLabel="Social media post"
       aspectClass="aspect-[406/296]"
     />
   );

@@ -4,10 +4,10 @@ import * as React from "react";
 import { useVideos, VideoSlot } from "@/components/video-context";
 
 const SLOTS: { key: VideoSlot; label: string; aspect: string }[] = [
-  { key: "socials", label: "Socials", aspect: "406/296" },
-  { key: "prototypes", label: "Next.js & SwiftUI", aspect: "406/296" },
-  { key: "experience", label: "Experience (Animo)", aspect: "Square" },
-  { key: "tools", label: "Most used Tools", aspect: "Square" },
+  { key: "socials", label: "Social media post", aspect: "406/296" },
+  { key: "prototypes", label: "Brand design for Go-sats", aspect: "406/296" },
+  { key: "experience", label: "GPACTS", aspect: "Square" },
+  { key: "tools", label: "Vote IN", aspect: "Square" },
 ];
 
 export function VideoUploadToolbar() {

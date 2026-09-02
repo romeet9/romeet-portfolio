@@ -7,7 +7,8 @@ export function ToolsCard() {
   return (
     <BentoVideoCard
       slot="tools"
-      title="Most used Tools"
+      title="Vote IN"
+      badgeLabel="Vote IN"
       aspectClass="aspect-square"
     />
   );

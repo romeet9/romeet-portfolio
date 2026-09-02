@@ -7,7 +7,8 @@ export function PrototypesCard() {
   return (
     <BentoVideoCard
       slot="prototypes"
-      title="Next.js & SwiftUI"
+      title="Brand design for Go-sats"
+      badgeLabel="Brand design for Go-sats"
       aspectClass="aspect-[406/296]"
     />
   );

@@ -1,25 +1,25 @@
 {
   "socials": {
     "slot": "socials",
-    "title": "Socials",
+    "title": "Social media post",
     "aspect": "aspect-[406/296]",
     "src": "/videos/socials.mp4"
   },
   "prototypes": {
     "slot": "prototypes",
-    "title": "Next.js & SwiftUI",
+    "title": "Brand design for Go-sats",
     "aspect": "aspect-[406/296]",
     "src": "/videos/prototypes.mp4"
   },
   "experience": {
     "slot": "experience",
-    "title": "Experience (Animo Slider)",
+    "title": "GPACTS",
     "aspect": "aspect-square",
     "src": "/videos/experience.webm"
   },
   "tools": {
     "slot": "tools",
-    "title": "Most used Tools",
+    "title": "Vote IN",
     "aspect": "aspect-square",
     "src": "/videos/tools.mp4"
   }

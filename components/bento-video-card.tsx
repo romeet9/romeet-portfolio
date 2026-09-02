@@ -7,6 +7,7 @@ interface BentoVideoCardProps {
   slot: VideoSlot;
   defaultSrc?: string;
   title: string;
+  badgeLabel?: string;
   aspectClass: string;
 }
 
@@ -14,6 +15,7 @@ export function BentoVideoCard({
   slot,
   defaultSrc = "",
   title,
+  badgeLabel,
   aspectClass,
 }: BentoVideoCardProps) {
   const { config, uploadVideo } = useVideos();
@@ -24,6 +26,8 @@ export function BentoVideoCard({
   const [isDragging, setIsDragging] = React.useState(false);
   const [isUploading, setIsUploading] = React.useState(false);
   const fileInputRef = React.useRef<HTMLInputElement>(null);
+
+  const displayLabel = badgeLabel || title;
 
   const handleDrop = async (e: React.DragEvent) => {
     if (!isDev) return;
@@ -72,34 +76,30 @@ export function BentoVideoCard({
           />
         )}
 
+        {/* Fixed top-right project label & dev replace button */}
+        <button
+          type="button"
+          onClick={() => isDev && fileInputRef.current?.click()}
+          className={`absolute top-3 right-3 z-10 flex items-center gap-1.5 py-1 px-2.5 rounded-full bg-black/70 border border-white/20 backdrop-blur-md text-white/90 text-[11px] font-medium shadow-lg transition-all ${
+            isDev ? "cursor-pointer hover:bg-black/90 hover:border-white/40 hover:scale-105" : "cursor-default"
+          }`}
+          title={isDev ? `Click to replace video for "${displayLabel}"` : displayLabel}
+        >
+          <div className="size-1.5 rounded-full bg-white/60 shrink-0" />
+          <span>{displayLabel}</span>
+        </button>
+
         {videoSrc ? (
-          <>
-            <video
-              key={videoSrc}
-              src={videoSrc}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              className="h-full w-full object-cover rounded-[22px]"
-            />
-            {/* Quick upload hover overlay button in dev only */}
-            {isDev && (
-              <button
-                onClick={() => fileInputRef.current?.click()}
-                className="opacity-0 group-hover:opacity-100 transition-opacity absolute top-3 right-3 bg-black/70 hover:bg-black/90 text-white/90 text-[11px] font-medium py-1 px-2.5 rounded-full border border-white/20 backdrop-blur-md z-10 flex items-center gap-1.5 shadow-lg"
-                title="Replace Video"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                  <polyline points="17 8 12 3 7 8"/>
-                  <line x1="12" y1="3" x2="12" y2="15"/>
-                </svg>
-                <span>Replace</span>
-              </button>
-            )}
-          </>
+          <video
+            key={videoSrc}
+            src={videoSrc}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="h-full w-full object-cover rounded-[22px]"
+          />
         ) : (
           <div
             onClick={() => isDev && fileInputRef.current?.click()}
@@ -113,7 +113,7 @@ export function BentoVideoCard({
               </svg>
             </div>
             <div className="font-['Instrument_Sans',system-ui,sans-serif] text-white text-[15px] font-medium mb-1">
-              {title}
+              {displayLabel}
             </div>
             <div className="font-['Instrument_Sans',system-ui,sans-serif] text-white/50 text-[12px]">
               {isUploading ? "Uploading video..." : "Click or drag & drop video"}

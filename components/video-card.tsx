@@ -7,8 +7,9 @@ export function VideoCard() {
   return (
     <BentoVideoCard
       slot="experience"
-      defaultSrc="/videos/animo-focus-slider-720p.webm"
-      title="Experience"
+      defaultSrc="/videos/experience.webm"
+      title="GPACTS"
+      badgeLabel="GPACTS"
       aspectClass="aspect-square"
     />
   );
