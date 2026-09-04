@@ -23,17 +23,17 @@ function GrungeSeparator() {
 }
 
 const SECTIONS = [
-  { id: "hero", label: "Overview" },
-  { id: "phase-1", label: "Phase I" },
+  { id: "overview", label: "Overview" },
+  { id: "about", label: "About" },
   { id: "the-problem", label: "The Problem" },
-  { id: "phase-2", label: "Phase II" },
-  { id: "table", label: "Fluid Interface" },
-  { id: "solving-3ts", label: "Solving for 3Ts" },
-  { id: "climax", label: "Climax" },
-  { id: "turning-decisions", label: "Turning Decisions" },
-  { id: "impact", label: "User Testing" },
-  { id: "refining-design", label: "Refining Design" },
-  { id: "metrics", label: "Success Metrics" },
+  { id: "how-might-we", label: "How Might We" },
+  { id: "design-direction", label: "Design Direction" },
+  { id: "workflow-friction", label: "Workflow Friction" },
+  { id: "the-fix", label: "The Fix" },
+  { id: "key-changes", label: "Key Changes" },
+  { id: "user-testing", label: "User Testing" },
+  { id: "design-refinement", label: "Design Refinement" },
+  { id: "success-metrics", label: "Success Metrics" },
   { id: "ui-mockups", label: "UI Mockups" },
 ];
 
@@ -752,7 +752,7 @@ export function EdgeCrmCaseStudy() {
           {/* ================================================================ */}
           {/* HERO SECTION: Bento Card with Shader & Discovery Story           */}
           {/* ================================================================ */}
-          <section id="hero" className="scroll-mt-28 flex flex-col items-start gap-7 w-full">
+          <section id="overview" className="scroll-mt-28 flex flex-col items-start gap-7 w-full">
             <div className="flex w-full flex-col items-center rounded-2xl justify-center gap-1.5 p-1 [box-shadow:#00000033_0px_2px_3px_inset] bg-[#242424] [border-width:0.5px] border-solid border-[#FFFFFF0F]">
               <div className="overflow-clip h-94.5 rounded-xl self-stretch relative shrink-0 [box-shadow:#00000033_0px_0px_5px] bg-[#9A8DE9]">
                 <div className="[left:-0.75px] [top:-0.273px] w-full h-94.5 absolute bg-[#2B2B2B]" />
@@ -834,7 +834,7 @@ export function EdgeCrmCaseStudy() {
           {/* ================================================================ */}
           {/* ABOUT SECTION: 3 Feature Bento Cards                             */}
           {/* ================================================================ */}
-          <section id="phase-1" className="scroll-mt-28 flex flex-col items-start gap-3 self-stretch w-full">
+          <section id="about" className="scroll-mt-28 flex flex-col items-start gap-3 self-stretch w-full">
             <div className="tracking-[-0.02em] w-full font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
               About
             </div>
@@ -1064,7 +1064,7 @@ export function EdgeCrmCaseStudy() {
           {/* ================================================================ */}
           {/* HOW MIGHT WE: 3px Blue Left-Border Callout                       */}
           {/* ================================================================ */}
-          <section id="phase-2" className="scroll-mt-28 flex flex-col items-start gap-3 self-stretch w-full">
+          <section id="how-might-we" className="scroll-mt-28 flex flex-col items-start gap-3 self-stretch w-full">
             <div className="tracking-[-0.02em] w-full font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
               How might we?
             </div>
@@ -1094,11 +1094,12 @@ export function EdgeCrmCaseStudy() {
             </div>
           </section>
 
+          <GrungeSeparator />
 
           {/* ================================================================ */}
           {/* TABLE FRAME (1PN-0): 3 Failure Breakdowns & Direction Bento Cards*/}
           {/* ================================================================ */}
-          <section id="table" className="scroll-mt-28 flex flex-col items-start gap-9 self-stretch w-full">
+          <section id="design-direction" className="scroll-mt-28 flex flex-col items-start gap-9 self-stretch w-full">
             <div className="flex flex-col items-start gap-3 self-stretch w-full">
               <div className="tracking-[-0.02em] w-full font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
                 Turning the triage problem into a design direction.
@@ -1608,7 +1609,7 @@ export function EdgeCrmCaseStudy() {
           {/* ================================================================ */}
           <GrungeSeparator />
 
-          <section id="solving-3ts" className="scroll-mt-28 flex flex-col items-start gap-15 self-stretch w-full">
+          <section id="workflow-friction" className="scroll-mt-28 flex flex-col items-start gap-15 self-stretch w-full">
             {/* Part 1: Every step added time, effort, and doubt */}
             <div className="flex flex-col items-start gap-3 self-stretch w-full">
               <div className="tracking-[-0.02em] w-full font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
@@ -1928,9 +1929,9 @@ export function EdgeCrmCaseStudy() {
           <GrungeSeparator />
 
           {/* ================================================================ */}
-          {/* SECTION: Climax (2JY-0)                                          */}
+          {/* SECTION: Climax / The Fix                                        */}
           {/* ================================================================ */}
-          <section id="climax" className="scroll-mt-28 flex flex-col items-start gap-3 self-stretch w-full">
+          <section id="the-fix" className="scroll-mt-28 flex flex-col items-start gap-3 self-stretch w-full">
             <div className="tracking-[-0.02em] w-full font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
               Climax
             </div>
@@ -1949,7 +1950,7 @@ export function EdgeCrmCaseStudy() {
           {/* ================================================================ */}
           {/* SECTION: Turning decisions into a flow reps could trust (2KQ-0) */}
           {/* ================================================================ */}
-          <section id="turning-decisions" className="scroll-mt-28 flex flex-col items-start gap-3 self-stretch w-full">
+          <section id="key-changes" className="scroll-mt-28 flex flex-col items-start gap-3 self-stretch w-full">
             <div className="tracking-[-0.02em] w-full font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
               Turning decisions into a flow reps could trust
             </div>
@@ -1982,7 +1983,7 @@ export function EdgeCrmCaseStudy() {
           {/* ================================================================ */}
           {/* SECTION: Testing the redesign with real reps (259-0)             */}
           {/* ================================================================ */}
-          <section id="impact" className="scroll-mt-28 flex flex-col items-start gap-9 self-stretch w-full">
+          <section id="user-testing" className="scroll-mt-28 flex flex-col items-start gap-9 self-stretch w-full">
             <div className="flex items-center gap-3 self-stretch">
               <div className="tracking-[-0.02em] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
                 Testing the redesign with real reps
@@ -2100,7 +2101,7 @@ export function EdgeCrmCaseStudy() {
           {/* ================================================================ */}
           {/* SECTION: Refining the design after testing (289-0)               */}
           {/* ================================================================ */}
-          <section id="refining-design" className="scroll-mt-28 flex flex-col items-start gap-3 self-stretch w-full">
+          <section id="design-refinement" className="scroll-mt-28 flex flex-col items-start gap-3 self-stretch w-full">
             <div className="tracking-[-0.02em] w-full font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
               Refining the design after testing
             </div>
@@ -2463,7 +2464,7 @@ export function EdgeCrmCaseStudy() {
           {/* ================================================================ */}
           {/* SECTION: What were the success metrics? (2AC-0)                  */}
           {/* ================================================================ */}
-          <section id="metrics" className="scroll-mt-28 flex flex-col items-start gap-9 self-stretch w-full">
+          <section id="success-metrics" className="scroll-mt-28 flex flex-col items-start gap-9 self-stretch w-full">
             <div className="flex items-center gap-3 self-stretch">
               <div className="tracking-[-0.02em] font-['HelveticaNeue-Medium','Helvetica_Neue',system-ui,sans-serif] font-medium text-white text-xl/6">
                 What were the success metrics?
